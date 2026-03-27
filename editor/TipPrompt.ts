@@ -8,13 +8,13 @@ import { Config } from "../synth/SynthConfig";
 const { button, div, p, h2, h3 } = HTML;
 
 export class TipPrompt implements Prompt {
-		private readonly _closeButton: HTMLButtonElement = button({class: "cancelButton"});
-		
+	private readonly _closeButton: HTMLButtonElement = button({ class: "cancelButton" });
+
 	public readonly container: HTMLDivElement;
-		
+
 	constructor(private _doc: SongDocument, type: string) {
 		let message: HTMLDivElement;
-			
+
 		switch (type) {
 			case "scale": {
 				message = div(
@@ -59,7 +59,7 @@ export class TipPrompt implements Prompt {
 			case "instrumentIndex": {
 				message = div(
 					h2("Instrument Number"),
-					p("In the \"Channel Settings\" option from UltraBox's \"Edit\" menu, there are a few ways to enable multiple instruments per channel."),
+					p("In the \"Channel Settings\" option from Slarmoo's Box's \"Edit\" menu, there are a few ways to enable multiple instruments per channel."),
 					p("First, you could enable multiple simultaneous instruments per channel. All of the channel's instruments will play all of the notes in the channel at the same time, and you can click an instrument number to view and edit its settings."),
 					p("Second, you could enable different instruments per pattern. Only one of the instruments will play at any given time, but you can click the instrument number to change which instrument is used for the currently selected pattern(s)."),
 					p("Finally, you can enable them both, in which case you can click an instrument number once to view it, and again to toggle whether the instrument is used for the currently selected pattern(s)."),
@@ -105,6 +105,12 @@ export class TipPrompt implements Prompt {
 					);
 				}
 				break;
+			case "monophonic": {
+				message = div(
+					h2("Monophonic Note"),
+					p(`This setting controls which note of the chord your instrument will play. `),
+				);
+			} break;
 			case "detune": {
 				message = div(
 					h2("Detune"),
@@ -115,8 +121,8 @@ export class TipPrompt implements Prompt {
 			case "instrumentType": {
 				message = div(
 					h2("Instrument Type"),
-					p("UltraBox comes with many instrument presets, try them out! You can also create your own custom instruments!"),
-					p("There are also buttons for copying and pasting instruments at the bottom of the instrument settings tab, and for generating random instruments in the \"Randomize\" category in the instrument type menu."),
+					p("Slarmoo's Box comes with many instrument presets, try them out! You can also create your own custom instruments!"),
+					p("There are also options for generating random instruments towards the top of the instrument type menu and for copying and pasting instrument settings in preferences."),
 				);
 			} break;
 			case "eqFilter": {
@@ -156,13 +162,13 @@ export class TipPrompt implements Prompt {
 			case "chipWave": {
 				message = div(
 					h2("Chip Wave"),
-					p("UltraBox comes with some sound waves based on classic electronic sound chips, as well as several unique waves. This is the basic source of the sound of the instrument, which is modified by the other instrument settings."),
+					p("Slarmoo's Box comes with some sound waves based on classic electronic sound chips, as well as several unique waves. This is the basic source of the sound of the instrument, which is modified by the other instrument settings."),
 				);
 			} break;
 			case "chipNoise": {
 				message = div(
 					h2("Noise"),
-					p("UltraBox comes with several basic noise sounds. These do not have any distinct musical pitch, and can be used like drums to create beats and emphasize your song's rhythm."),
+					p("Slarmoo's Box comes with several basic noise sounds. These do not have any distinct musical pitch, and can be used like drums to create beats and emphasize your song's rhythm."),
 				);
 			} break;
 			case "supersawDynamism": {
@@ -195,16 +201,17 @@ export class TipPrompt implements Prompt {
 			case "unison": {
 				message = div(
 					h2("Unison"),
-					p("This instrument can play two identical waves at different frequencies. When two waves play at slightly different frequencies, they move in and out of phase with each other over time as different parts of the waves line up. This creates a dynamic, shifting sound. Pianos are a common example of this kind of sound, because each piano key strikes multiple strings that are tuned to slightly different frequencies."),
+					p("This instrument can play multiple identical waves at different frequencies. When two waves play at slightly different frequencies, they move in and out of phase with each other over time as different parts of the waves line up. This creates a dynamic, shifting sound. Pianos are a common example of this kind of sound, because each piano key strikes multiple strings that are tuned to slightly different frequencies."),
 					p("The distance between two frequencies is called an \"interval\", and this setting controls how large it is. If the interval is too wide, then the waves may sound out-of-tune and \"dissonant\". However, if the interval is even larger, then the two frequencies can even be distinct pitches."),
+					p("Adding more than two waves amplifies these effects. "),
 				);
 			} break;
 			case "chords": {
 				message = div(
 					h2("Chords"),
-					p("When multiple different notes occur at the same time, this is called a chord. Chords can be created in UltraBox's pattern editor by adding notes above or below another note."),
-					p("This setting determines how chords are played. The standard option is \"simultaneous\" which starts playing all of the pitches in a chord at the same instant. The \"strum\" option is similar, but plays the notes starting at slightly different times. The \"arpeggio\" option is used in \"chiptune\" style music and plays a single tone that rapidly alternates between all of the pitches in the chord."),
-					p("Some UltraBox instruments have an option called \"custom interval\" which uses the chord notes to control the interval between the waves of a single tone. This can create strange sound effects when combined with FM modulators."),
+					p("When multiple different notes occur at the same time, this is called a chord. Chords can be created in Slarmoo's Box's pattern editor by adding notes above or below another note."),
+					p("This setting determines how chords are played. The standard option is \"simultaneous\" which starts playing all of the pitches in a chord at the same instant. The \"strum\" option is similar, but plays the notes starting at slightly different times. The \"arpeggio\" option is used in \"chiptune\" style music and plays a single tone that rapidly alternates between all of the pitches in the chord. The \"monophonic\" option allows you to have only one tone in a chord play at a time. "),
+					p("Some Slarmoo's Box instruments have an option called \"custom interval\" which uses the chord notes to control the interval between the waves of a single tone. This can create strange sound effects when combined with FM modulators."),
 				);
 			} break;
 			case "vibrato": {
@@ -294,7 +301,7 @@ export class TipPrompt implements Prompt {
 			case "effects": {
 				message = div(
 					h2("Effects"),
-					p("UltraBox has many different kinds of special effects you can add to instruments. You can turn on multiple effects at once, and they can be configured individually. Try them all out!"),
+					p("Slarmoo's Box has many different kinds of special effects you can add to instruments. You can turn on multiple effects at once, and they can be configured individually. Try them all out!"),
 				);
 			} break;
 			case "drumsetEnvelope": {
@@ -336,12 +343,12 @@ export class TipPrompt implements Prompt {
 					p("The intervals created by this setting are in \"just intonation\" which means they stay in phase with the original pitch instead of shifting in and out of phase over time. If you want the shifting, add the detune effect!"),
 				);
 			} break;
-			case "detune": {
-				message = div(
-					h2("Detune"),
-					p("This setting slightly adjusts the frequency of notes played by the instrument. You can use a little bit to add a pleasing shifting sound similar to the \"unison\" feature when combined with other instruments. If you use too much, then the instrument may sound unpleasantly out-of-tune."),
-				);
-			} break;
+			// case "detune": {
+			// 	message = div(
+			// 		h2("Detune"),
+			// 		p("This setting slightly adjusts the frequency of notes played by the instrument. You can use a little bit to add a pleasing shifting sound similar to the \"unison\" feature when combined with other instruments. If you use too much, then the instrument may sound unpleasantly out-of-tune."),
+			// 	);
+			// } break;
 			case "distortion": {
 				message = div(
 					h2("Distortion"),
@@ -368,7 +375,7 @@ export class TipPrompt implements Prompt {
 				message = div(
 					h2("Envelopes"),
 					p("Envelopes are a way to dynamically adjust various other settings over time, usually based on how long the note lasts. Press the + button to add an envelope, then use the menus below to select which setting to control and the curve of the envelope. Try different combinations to see how they sound!"),
-					p("Most envelope curves restart from the beginning every time a new note plays. The \"note size\" option is based on the note width as drawn in the pattern editor."),
+					p("Most envelope curves restart from the beginning every time a new note plays. The \"note size\" option is based on the note width as drawn in the pattern editor while the \"pitch\" option is based on the pitch of the note played. The \"random\" envelope type deterministically produces a random result based on either the time or pitch of a note."),
 					p("Envelope curves move in the range from 0 to 1 (or vice versa), where 0 means as quiet as possible and 1 is the same as the corresponding position selected in the instrument settings above. If multiple envelopes are targetting the same setting, they are multiplied before applying to the setting."),
 				);
 			} break;
@@ -381,8 +388,18 @@ export class TipPrompt implements Prompt {
 			case "envelopeSpeed": {
 				message = div(
 					h2("Envelope Speed"),
-					p("This setting controls the speed of ALL envelopes for the instrument. Each envelope 'plays' at a certain speed, and this slider can scale it to play faster or slower. Use this to fine-tune your tremolo or how fast something decays to get just the right effect."),
+					p("This setting controls the speed of ALL envelopes for the instrument. Each envelope 'plays' at a certain speed, and this slider can scale it to play faster or slower. You can use this to fine-tune your tremolo or how fast something decays to get just the right effect."),
 					p("Note that, while this setting is limited in the sense that it controls all envelopes at once, you can still achieve a variety of outcomes by trying combinations of modes of each envelope type, which typically differ only in speed."),
+				);
+			} break;
+			case "perEnvelopeSpeed": {
+				message = div(
+					h2("Individual Envelope Speed"),
+					p("This setting is applied per envelope rather than all of them simultaneously, unlike the envelope speed in the top dropdown."),
+					p("This controls the speed of this envelope as a multiplier of the global envelope speed and the envelope curve"),
+					p("The speed of an envelope changes how fast its runs. In BeepBox, this is equivalent to the numbers beside each envelope type's name."),
+					p("You can see an equivalence chart on the ", HTML.a({ href: "./faq.html", target: "_blank" }, "FAQ"), " page"),
+					p("This setting will not appear for note size, pitch, punch, or none envelopes"),
 				);
 			} break;
 			case "usedInstrument": {
@@ -442,21 +459,21 @@ export class TipPrompt implements Prompt {
 					h2("Clickless Transition"),
 					p("Sometimes, seamless and other transition types can make audible 'clicks' when changing between notes. Ticking this option will cause those clicks to be silenced as much as possible."),
 				);
-            } break;
+			} break;
 			case "aliases": {
 				message = div(
 					h2("Aliasing"),
-					p("UltraBox applies a technique called 'anti-aliasing' to instruments normally to help them sound cleaner even at high frequencies and low sample rates."),
+					p("Slarmoo's Box applies a technique called 'anti-aliasing' to instruments normally to help them sound cleaner even at high frequencies and low sample rates."),
 					p("When this setting is ticked that technique is disabled, so you may hear strange audio artifacts especially at high pitches and when bending notes. However, this can lend a grungy sound to an instrument that could be desirable."),
 				);
 			} break;
-            case "operatorWaveform": {
-                message = div(
-                    h2("Operator Waveform"),
-                    p('This setting controls the what kind of sound wave an individual FM wave uses.'),
-                    p('By defualt the FM synth uses sinewaves.'),
-                );
-            } break;
+			case "operatorWaveform": {
+				message = div(
+					h2("Operator Waveform"),
+					p('This setting controls the what kind of sound wave an individual FM wave uses.'),
+					p('By defualt the FM synth uses sinewaves.'),
+				);
+			} break;
 			case "filterType": {
 				message = div(
 					h2("Filter Type"),
@@ -469,7 +486,7 @@ export class TipPrompt implements Prompt {
 				message = div(
 					h2("Low-Pass Filter Cutoff Frequency"),
 					p("The lowest setting feels \"muffled\" or \"dark\", and the highest setting feels \"harsh\" or \"bright\"."),
-					p("Most sounds include a range of frequencies from low to high. UltraBox instruments have a filter that allows the lowest frequencies to pass through at full volume, but can reduce the volume of the higher frequencies that are above a cutoff frequency. This setting controls the cutoff frequency and thus the range of higher frequencies that are reduced."),
+					p("Most sounds include a range of frequencies from low to high. Slarmoo's Box instruments have a filter that allows the lowest frequencies to pass through at full volume, but can reduce the volume of the higher frequencies that are above a cutoff frequency. This setting controls the cutoff frequency and thus the range of higher frequencies that are reduced."),
 					p("This cutoff setting also determines which frequency resonates when the resonance peak setting is used."),
 				);
 			} break;
@@ -481,35 +498,35 @@ export class TipPrompt implements Prompt {
 				);
 			} break;
 			case "loopControls":
-			{
-				message = div(h2("Loop Controls"), p("This enables the use of parameters that control how a chip wave should repeat."));
-			}
-			break;
-				case "loopMode":
-			{
-				message = div(h2("Loop Mode"), p("This sets the way the chip wave loops when its ends are reached."), p("The \"Loop\" mode is the default: when the end of the loop is reached, it will jump back to the starting point of the loop."), p("The \"Ping-Pong\" mode starts playing the chip wave backwards when the end of the loop is reached. Once it reaches the start of the loop, it will start playing forwards again, endlessly going back and forth."), p("The \"Play Once\" mode stops the chip wave once the end is reached (or the start of the loop, if it's playing backwards)."), p("The \"Play Loop Once\" mode stops the chip wave once the end of the loop is reached (or the start of the loop, if it's playing backwards)."));
-			}
-			break;
+				{
+					message = div(h2("Loop Controls"), p("This enables the use of parameters that control how a chip wave should repeat."));
+				}
+				break;
+			case "loopMode":
+				{
+					message = div(h2("Loop Mode"), p("This sets the way the chip wave loops when its ends are reached."), p("The \"Loop\" mode is the default: when the end of the loop is reached, it will jump back to the starting point of the loop."), p("The \"Ping-Pong\" mode starts playing the chip wave backwards when the end of the loop is reached. Once it reaches the start of the loop, it will start playing forwards again, endlessly going back and forth."), p("The \"Play Once\" mode stops the chip wave once the end is reached (or the start of the loop, if it's playing backwards)."), p("The \"Play Loop Once\" mode stops the chip wave once the end of the loop is reached (or the start of the loop, if it's playing backwards)."));
+				}
+				break;
 			case "loopStart":
-			{
-				message = div(h2("Loop Start Point"), p("This specifies where the loop region of the chip wave starts. It's measured in \"samples\", or rather, it refers to a point on a waveform."), p("Be careful with tiny loop sizes (especially combined with high pitches), they may re-introduce aliasing even if the \"Aliasing\" checkbox is unchecked."));
-			}
-			break;
+				{
+					message = div(h2("Loop Start Point"), p("This specifies where the loop region of the chip wave starts. It's measured in \"samples\", or rather, it refers to a point on a waveform."), p("Be careful with tiny loop sizes (especially combined with high pitches), they may re-introduce aliasing even if the \"Aliasing\" checkbox is unchecked."));
+				}
+				break;
 			case "loopEnd":
-			{
-				message = div(h2("Loop End Point"), p("This specifies where the loop region of the chip wave ends. It's measured in \"samples\", or rather, it refers to a point on a waveform."), p("The button next to the input box sets this to end of the chip wave."), p("Be careful with tiny loop sizes (especially combined with high pitches), they may re-introduce aliasing even if the \"Aliasing\" checkbox is unchecked."));
-			}
-			break;
-				case "offset":
-			{
-				message = div(h2("Offset"), p("This specifies where the chip wave should start playing from. You can use this to chop up a large sample, to say, turn a drum loop into a drum kit! It's measured in \"samples\", or rather, it refers to a point on a waveform."));
-			}
-			break;
-				case "backwards":
-			{
-				message = div(h2("Backwards"), p("When set, the chip wave will start playing backwards. After checking this, you may want to adjust the offset to start from a different point that makes sense for this mode."));
-			}
-			break;
+				{
+					message = div(h2("Loop End Point"), p("This specifies where the loop region of the chip wave ends. It's measured in \"samples\", or rather, it refers to a point on a waveform."), p("The button next to the input box sets this to end of the chip wave."), p("Be careful with tiny loop sizes (especially combined with high pitches), they may re-introduce aliasing even if the \"Aliasing\" checkbox is unchecked."));
+				}
+				break;
+			case "offset":
+				{
+					message = div(h2("Offset"), p("This specifies where the chip wave should start playing from. You can use this to chop up a large sample, to say, turn a drum loop into a drum kit! It's measured in \"samples\", or rather, it refers to a point on a waveform."));
+				}
+				break;
+			case "backwards":
+				{
+					message = div(h2("Backwards"), p("When set, the chip wave will start playing backwards. After checking this, you may want to adjust the offset to start from a different point that makes sense for this mode."));
+				}
+				break;
 			case "decimalOffset": {
 				message = div(
 					h2("Decimal Offset"),
@@ -519,19 +536,19 @@ export class TipPrompt implements Prompt {
 			case "unisonVoices": {
 				message = div(
 					h2("Unison Voices"),
-					p("This setting controls how many voices there are in a unison. Unisons such as \"none\" or \"detune\" use 1 voice, while most other unisons use 2 voices."),
+					p("This setting controls how many voices there are in a unison. Unisons such as \"none\" or \"detune\" use 1 voice, many other unisons use 2 voices, and some use up to " + Config.unisonVoicesMax + " voices"),
 				);
 			} break;
 			case "unisonSpread": {
 				message = div(
 					h2("Unison Spread"),
-					p("This setting controls the distance between the two voices, in semitones. A small amount of spread causes the voice's waves to shift in and out from each other, causing a shimmering effect. Larger spread will cause the voices to act like separate notes."),
+					p("This setting controls the distance between the voices, in semitones. A small amount of spread causes the voice's waves to shift in and out from each other, causing a shimmering effect. Larger spread will cause the voices to act like separate notes."),
 				);
 			} break;
 			case "unisonOffset": {
 				message = div(
 					h2("Unison Offset"),
-					p("This setting controls the detune applied to BOTH voices, in semitones."),
+					p("This setting controls the detune applied to ALL voices, in semitones."),
 				);
 			} break;
 			case "unisonExpression": {
@@ -544,9 +561,122 @@ export class TipPrompt implements Prompt {
 			case "unisonSign": {
 				message = div(
 					h2("Unison Sign"),
-					p("This setting is a volume multiplier applied to the second voice. This setting will only work correctly with two voices."),
+					p("This setting is a volume multiplier applied to every voice EXCEPT the first. This setting will only work correctly with more than one voices."),
 				);
 			} break;
+			case "pitchRange": {
+				message = div(
+					h2("Pitch Envelope Start and End"),
+					p("These two settings will adjust where the start and end of the pitch envelope affects. Everything below start envelope will be the value of the lower bound, everything above end envelope will be upper bound, and everything inbetween will scale linearly based on pitch (the opposite is true if inverted)."),
+					p("This will NOT work properly if pitch start is greater than pitch end."),
+					p("These values are different than the MIDI numbers. These correspond to how many paino keys from the bottom of the song player a specific pitch is"),
+				);
+			} break;
+			case "noteSizeRange": {
+				message = div(
+					h2("Note Size Envelope Start and End"),
+					p("These two settings work vert similarly to the pitch range bounds, except for note size envelopes instead. Everything below start envelope will be the value of the lower bound, everything above end envelope will be upper bound, and everything inbetween will scale linearly based on note size (the opposite is true if inverted)."),
+					p("This will NOT work properly if note size start is greater than note size end."),
+				);
+			} break;
+			case "envelopeInvert": {
+				message = div(
+					h2("Envelope Inversion"),
+					p("This setting will invert the envelope curve. So instead of, for example, lower pitches leading to a smaller output, lower pitches can lead to a greater output."),
+				);
+			} break;
+			case "envelopeRange": {
+				message = div(
+					h2("Envelope Bounds"),
+					p("These two settings stretch or shrink the envelope vertically, allowing for different ranges of affect."),
+					p("This will NOT work properly if lower bound is greater than upper bound."),
+				)
+			} break;
+			case "modEnvelope": {
+				message = div(
+					h2("Envelope Target"),
+					p("This setting specifies which envelope of the specified instrument you would like to change."),
+				);
+			} break;
+			case "randomSteps": {
+				message = div(
+					h2("Random Envelope Steps"),
+					p("This setting changes how many \"steps\", or different possible values can be outputted. For example, a step size of 2 will output either 0 or 1, and a step size of 3 either 0, 0.5, or 1. Every step is equidistant from each other"),
+				);
+			} break;
+			case "randomSeed": {
+				message = div(
+					h2("Random Envelope Seed"),
+					p("There are 64 seeds, or pseudorandom patterns that you can choose from when enveloping a setting."),
+					p("The same seed will output the same value per tick or pitch if the other envelope settings are also the same, meaning that if two different songs use the same seed for their envelope they will have the same \"randomization\"."),
+				);
+			} break;
+			case "songeq": {
+				message = div(
+					h2("Song Eq Filter"),
+					p("Filters are a way of emphasizing or diminishing different parts of a sound. Musical notes have a fundamental (base) frequency, but the sound of a musical note also has parts at higher frequencies and filters can adjust the volume of each of these parts based on their frequency."),
+					p("Click in the filter editor to insert, delete, or drag a filter control point. The horizontal position of the point determines which frequencies it affects, and the vertical position determines how the volume is affected at that frequency."),
+					p("Insert a new point on the left side of the filter editor to add a \"high-pass\" filter point, which additionally reduces the volume of lower frequencies, or insert a new point on the right side to add a \"low-pass\" filter point which reduces the volume of higher frequencies."),
+					p("The Song Eq Filter applies to all instruments. This can be handy for getting the sound of a certain genre or fading in and out in combination with modulation"),				);
+			} break;
+			case "lfoEnvelopeWaveform": {
+				message = div(
+					h2("LFO Envelope Waveform"),
+					p("LFO envelopes can output a variety of different waveforms, from old tremolo's sine to more complex ones."),
+					p("These waves are: sines, squares, triangles, sawtooths, trapezoids, and stepped variants of triangles and sawtooths."),
+				);
+			} break;
+			case "randomEnvelopeType": {
+				message = div(
+					h2("Random Envelope Type"),
+					p("Random Envelopes can switch between being determined by the time in the song, the pitch of the note, or per note trigger."),
+				);
+			} break;
+			case "ringMod": {
+				message = div(
+					h2("Ring Modulation"),
+					p(`This setting multiplies a selected wave's frequency with an instrument frequency, this is useful for "bell-like" instruments.`),
+				);
+			} break;
+			case "RingModHz": {
+				message = div(
+					h2("Ring Modulation (Hertz)"),
+					p(`This setting changes the Hertz of the multiplied frequency.`),
+					// p(`The offset allows you to increment the Hertz by 1.`),
+				);
+			} break;
+			case "ringModChipWave": {
+				message = div(
+					h2("Ring Mod Chip Wave"),
+					p("This is the shape of the wave modulating your instrument's sound"),
+				);
+			} break;
+			case "granular": {
+				message = div(
+					h2("Granular Synthesis"),
+					p(`This effect is based on granular synthesis! It takes random points from a wave and rearranges them to form "sonic clouds".`),
+					p(`This particular slider controls the wet/dry mix of the granulation.`)
+				);
+			} break;
+			case "grainSize": {
+				message = div(
+					h2("Grain Size"),
+					p(`This setting controls the size of the grain.`),
+				);
+			} break;
+			case "grainAmount": {
+				message = div(
+					h2("Grain Freq"),
+					p(`This setting controls about how often a grain (a group of audio samples) is added to the output, from rarely to multiple at once.`),
+				);
+			} break;
+			case "grainRange": {
+				message = div(
+					h2("Grain Range"),
+					p(`This setting controls the range of randomization for grain sizes. `),
+				);
+			} break;
+			
 
 			default:
 				// Check for modSetinfo#
@@ -564,7 +694,7 @@ export class TipPrompt implements Prompt {
 						));
 					}
 					// Last element for mod settings is just some miscellaneous data for nerds like me.
-					pList[pList.length-1].style.setProperty("color", "var(--secondary-text)");
+					pList[pList.length - 1].style.setProperty("color", "var(--secondary-text)");
 					message = div(
 						h2(Config.modulators[modulator].promptName),
 						pList,
@@ -575,22 +705,22 @@ export class TipPrompt implements Prompt {
 					throw new Error("Unhandled TipPrompt type: " + type);
 				}
 		}
-		
-		this.container = div({class: "prompt", style: "width: 300px;"},
+
+		this.container = div({ class: "prompt", style: "width: 300px;" },
 			message,
 			this._closeButton,
 		);
-			
-			setTimeout(()=>this._closeButton.focus());
-			
+
+		setTimeout(() => this._closeButton.focus());
+
 		this._closeButton.addEventListener("click", this._close);
 	}
-		
-		private _close = (): void => { 
+
+	private _close = (): void => {
 		this._doc.undo();
 	}
-		
-		public cleanUp = (): void => { 
+
+	public cleanUp = (): void => {
 		this._closeButton.removeEventListener("click", this._close);
 	}
 }
