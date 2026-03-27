@@ -28,8 +28,7 @@ export class CustomScalePrompt implements Prompt {
                 "Note " + i + ":",
                 this._scaleFlags[i]
             );
-            scaleHolder.appendChild(this._scaleRows[i]);
-            console.log("new!");
+            scaleHolder.appendChild(this._scaleRows[i])
         }
 
         this._okayButton.addEventListener("click", this._saveChanges);
@@ -64,7 +63,7 @@ export class CustomScalePrompt implements Prompt {
             this._saveChanges();
         }
     }
-
+    
 
     private _saveChanges = (): void => {
         for (var i = 1; i < this._scaleFlags.length; i++) {

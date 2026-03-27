@@ -1,7 +1,7 @@
 // Copyright (c) 2012-2022 John Nesky and contributing authors, distributed under the MIT license, see accompanying the LICENSE.md file.
 
-import { Config } from "../synth/SynthConfig";
-import { SongDocument } from "./SongDocument";
+import {Config} from "../synth/SynthConfig";
+import {SongDocument} from "./SongDocument";
 
 export class KeyboardLayout {
 	private static _pianoAtC: ReadonlyArray<ReadonlyArray<number | null>> = [

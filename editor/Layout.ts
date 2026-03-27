@@ -4,9 +4,9 @@ import { HTML } from "imperative-html/dist/esm/elements-strict";
 import { ColorConfig } from "./ColorConfig";
 
 export class Layout {
-    private static readonly _layoutMap: { [K: string]: string } = {
-        "small": "",
-        "long": `\
+	private static readonly _layoutMap: {[K: string]: string} = {
+		"small": "",
+		"long": `\
 
 			/* long layout */
 			@media (min-width: 711px) {
@@ -93,7 +93,7 @@ export class Layout {
 				}
 			}
 		`,
-        "tall": `\
+		"tall": `\
 			/* tall layout */
 			@media (min-width: 711px) {
 				#beepboxEditorContainer {
@@ -190,7 +190,7 @@ export class Layout {
 				}
 			}
 		`,
-        "wide": `\
+		"wide": `\
 			/* wide (JB) layout */
 			@media (min-width: 1001px) {
 				#beepboxEditorContainer {
@@ -272,7 +272,7 @@ export class Layout {
 				}
 			}
 		`,
-        "flipped long": `\
+		"flipped long": `\
 
             	/* AB Special layout */
 			@media (min-width: 711px) {
@@ -359,7 +359,7 @@ export class Layout {
 				}
 			}
 		`,
-        "wide long": `\
+		"wide long": `\
 
 			@media (min-width: 711px) {
 				#beepboxEditorContainer {
@@ -443,7 +443,7 @@ export class Layout {
 				}
 			}
 		`,
-        "focused long": `\
+			"focused long": `\
 
 			/* focused long layout */
 			@media (min-width: 711px) {
@@ -533,11 +533,11 @@ export class Layout {
 			}
 		`,
 
-    }
-
-    private static readonly _styleElement: HTMLStyleElement = document.head.appendChild(HTML.style({ type: "text/css" }));
-
-    public static setLayout(layout: string): void {
-        this._styleElement.textContent = this._layoutMap[layout];
-    }
+	}
+		
+		private static readonly _styleElement: HTMLStyleElement = document.head.appendChild(HTML.style({type: "text/css"}));
+		
+	public static setLayout(layout: string): void {
+		this._styleElement.textContent = this._layoutMap[layout];
+	}
 }
