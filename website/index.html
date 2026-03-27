@@ -10,21 +10,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UltraBox</title>
-    <meta name="application-name" content="UltraBox" />
-    <meta name="apple-mobile-web-app-title" content="UltraBox">
-    <meta name="description" content="UltraBox is a mod of BeepBox that aims to combine every other beepmod into one." />
-    <meta name="keywords" content="chiptune, instrumental, music, song, melody, composition, tool, free, online, square wave, NES, NSF, ultrabox, beepbox, jummbox, pandorasbox, modbox, sandbox, goldbox, wackybox, todbox" />
+    <title>Slarmoo's Box</title>
+    <meta name="application-name" content="Slarmoo's Box" />
+    <meta name="apple-mobile-web-app-title" content="Slarmoo's Box">
+    <meta name="description" content="Slarmoo's Box is a mod of Ultrabox that aims to advance Beepbox's capabilities." />
+    <meta name="keywords" content="chiptune, instrumental, music, song, melody, composition, tool, free, online, square wave, NES, NSF, slarmoosbox, ultrabox, beepbox, jummbox, pandorasbox, modbox, sandbox, goldbox, wackybox, todbox, slarmoo, slarmoos" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="theme-color" content="#CCCCCC"/>
-    <meta name="msapplication-TileColor" content="#dba600" />
+    <meta name="theme-color" content="#247d1d" />
+    <meta name="msapplication-TileColor" content="#247d1d" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
     <meta name="format-detection" content="telephone=no" />
-    <meta property="og:image" content="/icon_maskable_192.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta property="og:image" content="https://slarmoo.github.io/slarmoosbox/website/icon_shadow_192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon_32.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
     <link href="https://fonts.googleapis.com/css?family=B612" rel="stylesheet" media="none" onload="if (this.media != 'all') this.media='all';" /> <!-- this is a trick to load CSS asynchronously. -->
     <style type="text/css">
 
@@ -73,7 +74,7 @@
             margin-top: 0.5em;
             margin-bottom: 0.5em;
             -webkit-text-stroke-width: 0;
-            color: var(--mod-title, #9c64f7);
+            color: var(--mod-title, #247d1d);
         }
 
         h2 {
@@ -92,7 +93,7 @@
             color: var(--link-accent, #98f);
         }
 
-        /* .donation form {
+        .donation form {
             display: inline;
         }
 
@@ -108,7 +109,7 @@
             cursor: pointer;
             padding: 0;
             margin: 0;
-        } */
+        } 
 
         /* wide screen */
 		@media (min-width: 711px) {
@@ -158,7 +159,6 @@
     <script>
         const image = localStorage.getItem('customTheme2');
         const el  = document.getElementById('secondImage');
-
         if (image != null && image !== "null" && image !== "undefined") {
             el.style.backgroundImage="url(" + image + ")";
             el.style.backgroundRepeat= "repeat";
@@ -166,21 +166,20 @@
     </script>
     <div id="beepboxEditorContainer">
         <noscript>
-            Sorry, UltraBox requires a JavaScript-enabled browser.
+            Sorry, Slarmoo's Box requires a JavaScript-enabled browser.
         </noscript>
     </div>
     <div id="text-content">
         <section>
 
             <h1>
-                <font>UltraBox</font>
-                <span id="goldboxPlant" style="display: inline; color:#62a13b"></span>
-                <!-- <span id="goldboxPlant" style="display: inline; color: var(--plant-color, var(--link-accent, #62a13b));"></span> -->
+                <font id="sbtitle">Slarmoo's Box</font>
+                <span id="plant" style="display: inline; color:#62a13b"></span>
+                <!-- <span id="plant" style="display: inline; color: var(--plant-color, var(--link-accent, #62a13b));"></span> -->
             </h1>
             
             <p id="introduction">
-                UltraBox is a mod first envisioned by Neptendo and made possible by contributing community members (see <a href="./credits.html">credits</a>).<br>
-                It takes elements from most of the beepbox mods available and puts them in one convenient package.
+                Slarmoo's Box is a mod of Ultrabox that aims to advance Beepbox's capabilities.
             </p>
             <!-- <p>
                 All song data is contained in the URL at the top of your browser.
@@ -191,18 +190,20 @@
                 If you have any questions, please visit the <a href="./faq.html">FAQ</a>. Visit the <a href="./patch_notes.html">patch notes</a> to see the latest changes made.
                 <img id="Hotdog" src="" width="500" height="333" onclick="changeHotdogSize()" />
             </p>
-            <!--
     <div class="donation">
-        BeepBox is a passion project, and will always be free to use. If you find it valuable and have the means, any gratuity via
+        BeepBox is a passion project, and will always be free to use. If you find it valuable and have the means, please feel free to show your gratitude to the original creator of Beepbox here: 
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_donations" />
             <input type="hidden" name="business" value="QZJTX9GRYEV9N" />
             <input type="hidden" name="currency_code" value="USD" />
             <input type="submit" name="submit" value="Paypal"/>
         </form>
-        would be appreciated!
+        <br/>
+        Additionally, Slarmoo's Box takes a lot of time to make and update. If you have found it valuable and are able to do so, please consider donating to Slarmoo here: 
+        <form action="https://www.paypal.com/donate/?hosted_button_id=BMLD7HPKFR6NG" method="post" target="_blank">
+            <input type="submit" name="submit" value="Paypal" />
+        </form>
     </div>
-    -->
         </section>
 
         <div class="column-container">
@@ -213,7 +214,7 @@
                     </h2>
                     <p>
                         You can add or remove notes by clicking on the gray rows at the top.
-                        UltraBox automatically plays the notes out loud for you. Try it!
+                        Slarmoo's Box automatically plays the notes out loud for you. Try it!
 		
                     </p>
                     <p>
@@ -224,7 +225,7 @@
                         </span>
                     </p>
                     <p>
-                        UltraBox can play several rows of patterns simultaneously, and each row has its own set of patterns.
+                        Slarmoo's Box can play several rows of patterns simultaneously, and each row has its own set of patterns.
                         Most rows can play melodies or harmonies, but the bottom row is for drums.
                     </p>
                     <p>
@@ -235,7 +236,7 @@
 
                     <div id="keyboard-instructions">
                         <p>
-                            When UltraBox has focus (click on its interface above), you can use these keyboard shortcuts: <br />
+                            When Slarmoo's Box has focus (click on its interface above), you can use these keyboard shortcuts: <br />
                         </p>
                         <ul>
                             <li><b>Spacebar</b>: play or pause the song</li>
@@ -243,15 +244,52 @@
 							<li><b>Z</b>: undo, <b>Y or Shift Z</b>: redo</li>
                             <li><b>C</b>: copy pattern from selection</li>
                             <li><b>V</b>: paste pattern into selection</li>
+                            <li><b>X</b>: cut pattern</li>
                             <li><b>0-9</b>: assign pattern number to selection</li>
 							<li><b>Arrows</b>: move selection</li>
-							<li><b>Ctrl + Arrows</b>: rearrange channels</li>
-							<li><b>[ ]</b>: move playhead backward or forward</li>
-							<li><b>F/H</b>: move to First or Highlighted pattern </li>
+							<li><b>Ctrl & Arrows</b>: move selected channel up or down</li>
+							<li><b>[ ]</b>: move playhead backward or forward one bar</li>
+							<li><b>F/H</b>: move to First or Highlighted pattern</li>
+                            <li><b>Shift F</b>: move to start of loop</li>
 							<li><b>Shift & Drag</b>: select part of a pattern</li>
-							<li>These are just a few shortcuts, check UltraBox's edit menu for more!</li>
-                            <!-- need to edit this eventually -->
+                            <li><b>Enter</b>: add a new bar after currently selected one</li>
+                            <li><b>Shift Enter</b>: add a new bar before currently selected one</li>
+                            <li><b>Backspace</b>: delete currently selected bar</li>
+                            <li><b>Ctrl Enter</b>: add channel</li>
+                            <li><b>Ctrl Backspace</b>: delete currently selected channel</li>
+                            <li><b>D</b>: duplicate a pattern</li>
+                            <li><b>N</b>: create a new blank pattern</li>
+                            <li><b>+/-</b>: move notes up or down</li>
+                            <li><b>Shift & +/-</b>: move notes up or down one octave</li>
+                            <li><b>A</b>: select entire song</li>
+                            <li><b>Shift A</b>: select current channel</li>
+                            <li><b>Shift ~</b>: new blank song</li>
+                            <li><b>B</b>: loop bar</li>
+                            <li><b>R</b>: random preset</li>
+                            <li><b>Shift R</b>: random instrument</li>
+                            <li><b>Alt R</b>: random instrument with currently selected intrument type</li>
+                            <li><b>Shift P</b>: open song player</li>
+                            <li><b>Alt E</b>: open/close all envelope dropdowns</li>
+                            <li><b>Alt F</b>: open/close all fm dropdowns</li>
                         </ul>
+                        If you have channel muting enabled: 
+                        <ul>
+                            <li><b>S</b>: Solo/unsolo a channel</li>
+                            <li><b>M</b> (or shift S): Mute/unmute a channel</li>
+                            <li><b>Shift M</b>: Mute/unmute entire song</li>
+                        </ul>
+                        And if you're in the song player:
+                        <ul>
+                            <li><b>Spacebar</b>: play or pause the song</li>
+                            <li><b>[ ]</b>: move playhead backward or forward one bar</li>
+							<li><b>F</b>: move to first pattern </li>
+                            <li><b>L</b>: toggle loop</li>
+                            <li><b>Z/+/-</b>: toggle zoom</li>
+                            <li><b> Ctrl E/P</b>: return to editor</li>
+                            <li><b>Ctrl S</b>: shorten song player link</li>
+                            <li><b>C</b>: copy link</li>
+                        </ul>
+                        <p>These are just a few shortcuts, check Slarmoo's Box's edit menu for more!</p>
                     </div>
                     <p>
                         In the note pattern editor, you can click and drag horizontally on a note to adjust its duration.
@@ -270,14 +308,40 @@
 
                     </p>
                     <p>
-                        UltraBox has many more features.
+                        Slarmoo's Box has many more features.
                         Try playing with the buttons and menus on the right side to find out what it can do!
                         You can also click on the label next to each option for a description of what it does.
                         Some features are hard to find anywhere though - for example, if your song has any modulator channels, you can hold Ctrl or Shift while the song is playing to record the movement of sliders directly! If you want to learn more tips, tricks, and best practices though, see below.
                     </p>
                     <p>
 						Want to see what people have made with BeepBox? Songs that were shared on Twitter prior to 2023-05-22 can now be browsed in <a href="https://twitter-archive.beepbox.co/" target="_blank">this interactive archive</a>!
-                        <!-- Additionally, there's an active <a href="https://discord.gg/beepbox">BeepBox Discord</a> where you can share songs and ask questions! -->
+                    </p>
+                </section>
+                <section>
+                    <h2>
+                        About
+                    </h2>
+                    <p>
+                        Slarmoo's Box is a mod of BeepBox developed by Slarmoo. The easiest way to contact the developers is via the <a href="https://discord.gg/Tc997TstJb" target="_blank">Beepbox Modding Discord</a>.<br><br>
+                    </p>
+                    <p>
+                        Slarmoo's Box does not claim ownership over songs created with it, so original songs belong to their authors.
+                    </p>
+                    <p>
+                        Neither Slarmoo's Box nor its creators assume responsibility for any copyrighted material played on Slarmoo's Box. No songs are ever received, recorded, or distributed by Slarmoo's Box's servers. All song data is contained in the URL after the hash (#) mark, and Slarmoo's Box running inside your browser converts that data into sound waves.
+                    </p>
+                    <p>
+                        Slarmoo's Box does not collect, track, or share any user data.
+                    </p>
+                    <p>
+                        You can download and use <a href="https://github.com/slarmoo/slarmoosbox" target="_blank">the source code</a> under the MIT license.
+                        The original BeepBox source code by John Nesky can be found <a href="https://github.com/johnnesky/beepbox" target="_blank">here</a>.
+                    </p>
+                    <p>
+                        The patch notes of Slarmoo's Box are available <a href="./patch_notes.html">here</a>.
+                    </p>     
+                    <p>
+                        To see everyone who helped with this project, visit the <a href="./credits.html">credits</a>
                     </p>
                 </section>
             </main>
@@ -323,51 +387,89 @@
     <script type="text/javascript">
 
         // Randomize display of header
-        // 1-in-9 chance to appear
-
+        
         const plants = [
-        // jummbox/goldbox plants    
-        "🍂", "🌿", "🌺", "🍃", "🍄", "🍀🌷", "🌈🍂🍁🍀🌷🍄🐲🌈🍃🌺🍄", " 1️⃣3️⃣1️⃣2️⃣",
-        // blubox plants
-        "≽(◕ ᴗ ◕)≼", "≽(ᴗ _ ᴗ)≼", "≽(⌐ _ ⌐)≼", "≽(ᵕ ‿ ᵕ)≼", 
+        // jummbox plants    
+        "🍂", "🌿", "🌺", "🍃", 
+        // goldbox plants
+        "🍄", "🍀🌷", "🌈🍂🍁🍀🌷🍄🐲🌈🍃🌺🍄", //" 1️⃣3️⃣1️⃣2️⃣",
+        //blubox plants
+        // "≽(◕ ᴗ ◕)≼", "≽(ᴗ _ ᴗ)≼", "≽(⌐ _ ⌐)≼", "≽(ᵕ ‿ ᵕ)≼", 
         // familiarbox plant (there were others, but the code of familiarbox is long gone)
-        // this is a reference to (now outdated?) lore jinx made for one of their projects 
-        "☀️⭐🕒👁️",
+        // this is actually a reference to really old lore chippy made for one of their projects 
+        // "☀️⭐🕒👁️",
         // suggested by mel, meant to supplement the lack of a worm logo
+        // (in case it doesn't show up, this is meant to be a worm emoji)
         "🪱",
-        // this is from paandorasbox (might have also been present in familiarbox?)
-        " :wackybox:",
-        // plant originally suggested by mel in reference to the "(don't) eat thegubbys" meme. has now been reduced to just the fish emoji
+        // I believe this is from paandorasbox (might have also been present in familiarbox???? maybe not though...)
+        //slarmoo - changed to not wackybox, because it isn't :p
+        "not :wackybox:",
+        // plant originally suggested by mel in reference to the "(don't) eat thegubbys" meme        
         "🐟",
         // blubox desktop plants 
         "⚡","🔵","💫",
-        // dogebox2 plants 
-        "🍕","🌭","🍔","🍟",
-        // Slarmoo's Box plants
-        "✨","🌈","🌧️","🪨","🐍","🌲","🌳","𓆏","🦀","🍄‍🟫",
         // LemmBox 
-		"🍋"
+		"🍋",
+        // Slarmoo's Box plants
+        "✨","🌈","🌧️","🪨","🐍","🌲","🌳","𓆏","🦀","🍄‍🟫","🌵","and Bobby","🥚",
+        "🌾","🎍","🐳","🪸","🐚","🍂🍁","🪸🪸🫧🐙🐡🐠🐠🫧🐟",
+        //Current version
+        "1.4.11"
         ];
-
-        if (Math.floor(Math.random() * 9) == 0) {
-            document.getElementById("goldboxPlant").innerHTML = "  " + plants[(Math.floor(Math.random() * plants.length))];  
-        }
-
         const date = new Date();
-
-        // UB birthday (june 4th)
-        if ((date.getDate() == 4) && date.getMonth() == 5) {
-            document.getElementById("goldboxPlant").innerHTML = "  🎂🎉";  
+        if (Math.floor(Math.random() * 3) == 0) { //more than doubled chance for a plant to show up
+            document.getElementById("plant").innerHTML = "  " + plants[(Math.floor(Math.random() * plants.length))];
+            //Slarmoo's Box holiday plants
+            const winterPlants = ["🎄", "🍪", "☃️", "🎁", "❄️"];
+            if ((date.getDate() >= 22 && date.getDate() <= 26) && date.getMonth() == 11) {
+                document.getElementById("plant").innerHTML = "  " + winterPlants[(Math.floor(Math.random() * winterPlants.length))];
+            }
+            //Slarmoo's Box Halloween plants
+            const spookyPlants = ["🎃", "🍬", "👻", "🐍", "🧪"];
+            if ((date.getDate() == 31) && date.getMonth() == 9) {
+                document.getElementById("plant").innerHTML = "  " + spookyPlants[(Math.floor(Math.random() * spookyPlants.length))];
+            }
+            //Slarmoo's Box valentines plants
+            const heartPlants = ["❤️", "🧡", "💛", "💚", "💙", "💜"];
+            if ((date.getDate() >= 13 && date.getDate() <= 15) && date.getMonth() == 1) {
+                document.getElementById("plant").innerHTML = "  " + heartPlants[(Math.floor(Math.random() * heartPlants.length))];
+            }
+            //Slarmoo's Box pi day plants
+            if ((date.getDate() == 14) && date.getMonth() == 2) {
+                const piePlants = ["π", "🥧", "🍏", "🍋", "3.14"];
+                document.getElementById("plant").innerHTML = "  " + piePlants[(Math.floor(Math.random() * piePlants.length))];
+            }
+        }
+        if ((date.getDate() == 1) && date.getMonth() == 3) {
+            const foolishPlants = ["xoBssybA", "<(\"𓆏\")", "\"Do people even read these?\" No probably not but I don't care!!!", "shitbox4 is the worst!", "The last two plants are unrelated", "( σ ‸σ)", "100% vegan", "https://tinyurl.com/iploggersong", "You're making a masterpiece", "Once was Ultrabox", "Free!", "plus", "check out My Abyss!", "is not full of water!", "The last two plants are unrelated", "Please send me this song!"];
+            document.getElementById("plant").innerHTML = "  " + foolishPlants[(Math.floor(Math.random() * foolishPlants.length))];
+            document.getElementById("sbtitle").innerText = "AbyssBox";
+            document.getElementById("sbtitle").style.color = "#bf2c5d";
+            document.getElementById("introduction").innerText = "AbyssBox is an all-encompassing mod of UltraBox that adds smaller but meaningful changes across the board. From new effects to quality of life changes to countless themes, AbyssBox overall makes the user experience more convenient and simple to use while also providing a different enough experience from UltraBox and its contemporaries to be worth using.";
+        }
+        if ((date.getDate() == 13) && date.getMonth() == 4) {
+            const years = date.getFullYear() - 2024;
+            const birthdayPlants = [years + " year" + (years != 1 ? "s" : "") + "!", "🎂", "🎉", "Happy Birthday!", "Anniversary"];
+            document.getElementById("plant").innerHTML = "  " + birthdayPlants[(Math.floor(Math.random() * birthdayPlants.length))];
         }
 
-        function changeHotdogSize() {
-            var image = document.getElementById('Hotdog');
-            image.width = Math.random() * (750 - 20) + 20;
-            image.height = Math.random() * (499 - 20) + 20;
+        if(Math.random() * 10000 < 1) {
+            document.getElementById("plant").addEventListener("click", function (event) {
+                window.open("./macandcheese.html", "_blank");
+            })
+            const a = document.createElement("a");
+            document.getElementById("plant").innerHTML = " macaroni and cheese";
+            document.getElementById("plant").style.color = "#bb8822";
         }
+
+        if(document.getElementById("plant").innerText.includes("🐲")) {
+            document.getElementById("plant").addEventListener("mouseover", function (event) {
+                document.getElementById("plant").innerText = " 🌈🍂🍁🍀🌷🍄🐍🌈🍃🌺🍄";
+            }, { once: true })
+        } 
 
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|android|ipad|playbook|silk/i.test(navigator.userAgent)) {
-            document.getElementById("introduction").innerHTML = "UltraBox is an online tool for sketching and sharing chiptune melodies. Make sure that your volume is turned up, then press the play button!";
+            document.getElementById("introduction").innerHTML = "Slarmoo's Box is an online tool for sketching and sharing chiptune melodies. Make sure that your volume is turned up, then press the play button!";
             document.getElementById("keyboard-instructions").style.display = "none";
             document.getElementById("mobile-instructions").style.display = "";
             document.getElementById("bar-editing").innerHTML = "Tap the boxes to move to a different part of the song, or tap on the currently selected box to swap which pattern is played during that part of the song.";
@@ -395,10 +497,14 @@
             // Go ahead and load js beepbox editor interface:
             var fileref = document.createElement("script");
             fileref.setAttribute("type", "text/javascript");
-            fileref.setAttribute("src", "beepbox_editor.min.js");
+            if ((date.getDate() == 1) && date.getMonth() == 3) {
+                fileref.setAttribute("src", "foolish_editor.min.js");
+            } else {
+                fileref.setAttribute("src", "beepbox_editor.min.js");
+            }
             document.head.appendChild(fileref);
         } else {
-            document.getElementById("beepboxEditorContainer").innerHTML = "Sorry, UltraBox doesn't support your browser. Try a recent version of Chrome, Firefox, Edge, Safari, or Opera.";
+            document.getElementById("beepboxEditorContainer").innerHTML = "Sorry, Slarmoo's Box doesn't support your browser. Try a recent version of Chrome, Firefox, Edge, Safari, or Opera.";
         }
 
 		// If the page was loaded with an old song version that old versions of BeepBox support,

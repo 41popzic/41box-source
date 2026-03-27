@@ -5,7 +5,7 @@ import { RecoveredSong, RecoveredVersion, SongRecovery, versionToKey } from "./S
 import { Prompt } from "./Prompt";
 import { HTML } from "imperative-html/dist/esm/elements-strict";
 
-	const {button, div, h2, p, select, option, iframe} = HTML;
+const { button, div, h2, p, select, option, iframe } = HTML;
 
 export class SongRecoveryPrompt implements Prompt {
 	private readonly _songContainer: HTMLDivElement = div();

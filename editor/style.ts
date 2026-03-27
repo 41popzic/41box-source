@@ -1,17 +1,17 @@
 // Copyright (c) 2012-2022 John Nesky and contributing authors, distributed under the MIT license, see accompanying the LICENSE.md file.
 
 import { getLocalStorageItem } from "../synth/SynthConfig";
-import {ColorConfig} from "./ColorConfig";
-import {HTML} from "imperative-html/dist/esm/elements-strict";
+import { ColorConfig } from "./ColorConfig";
+import { HTML } from "imperative-html/dist/esm/elements-strict";
 
 
 // Determine if the user's browser/OS adds scrollbars that occupy space.
 // See: https://www.filamentgroup.com/lab/scrollbars/
 const scrollBarTest: HTMLDivElement = document.body.appendChild(HTML.div({ style: "width:30px; height:30px; overflow: auto;" },
-	HTML.div({ style: "width:100%;height:40px" }),
+    HTML.div({ style: "width:100%;height:40px" }),
 ));
 if ((<any>scrollBarTest).firstChild.clientWidth < 30) {
-	document.documentElement.classList.add("obtrusive-scrollbars");
+    document.documentElement.classList.add("obtrusive-scrollbars");
 }
 document.body.removeChild(scrollBarTest);
 
@@ -589,6 +589,31 @@ html {
 	-webkit-mask-position: center;
 }
 .beepboxEditor .delete-envelope:disabled {
+	visibility: hidden;
+}
+
+.beepboxEditor .envelope-settings {
+	width: var(--button-size);
+	flex-shrink: 0;
+	flex-grow: 0;
+}
+.beepboxEditor .envelope-settings::before {
+	content: "";
+	position: absolute;
+	width: var(--button-size);
+	height: var(--button-size);
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	background: currentColor;
+	mask-image: var(--internal-add-symbol);
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-image: var(--internal-add-symbol);
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+.beepboxEditor .envelope-settings:disabled {
 	visibility: hidden;
 }
 

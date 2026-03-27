@@ -8,8 +8,9 @@ import { Slider } from "./HTMLWrapper";
 import { SongEditor } from "./SongEditor";
 import { HTML, SVG } from "imperative-html/dist/esm/elements-strict";
 import { ChangeSequence, UndoableChange } from "./Change";
-import { ChangeVolume, FilterMoveData, ChangeTempo, ChangePan, ChangeReverb, ChangeDistortion, ChangeOperatorAmplitude, ChangeFeedbackAmplitude, ChangePulseWidth, ChangeDetune, ChangeVibratoDepth, ChangeVibratoSpeed, ChangeVibratoDelay, ChangePanDelay, ChangeChorus, ChangeEQFilterSimplePeak, ChangeNoteFilterSimplePeak, ChangeStringSustain, ChangeEnvelopeSpeed, ChangeSupersawDynamism, ChangeSupersawShape, ChangeSupersawSpread, ChangePitchShift, ChangeChannelBar, ChangeDragSelectedNotes, ChangeEnsurePatternExists, ChangeNoteTruncate, ChangeNoteAdded, ChangePatternSelection, ChangePinTime, ChangeSizeBend, ChangePitchBend, ChangePitchAdded, ChangeArpeggioSpeed, ChangeBitcrusherQuantization, ChangeBitcrusherFreq, ChangeEchoSustain, ChangeEQFilterSimpleCut, ChangeNoteFilterSimpleCut, ChangeFilterMovePoint, ChangeDuplicateSelectedReusedPatterns, ChangeHoldingModRecording, ChangeDecimalOffset } from "./changes";
+import { ChangeVolume, FilterMoveData, ChangeTempo, ChangePan, ChangeReverb, ChangeDistortion, ChangeOperatorAmplitude, ChangeFeedbackAmplitude, ChangePulseWidth, ChangeDetune, ChangeVibratoDepth, ChangeVibratoSpeed, ChangeVibratoDelay, ChangePanDelay, ChangeChorus, ChangeEQFilterSimplePeak, ChangeNoteFilterSimplePeak, ChangeStringSustain, ChangeEnvelopeSpeed, ChangeSupersawDynamism, ChangeSupersawShape, ChangeSupersawSpread, ChangePitchShift, ChangeChannelBar, ChangeDragSelectedNotes, ChangeEnsurePatternExists, ChangeNoteTruncate, ChangeNoteAdded, ChangePatternSelection, ChangePinTime, ChangeSizeBend, ChangePitchBend, ChangePitchAdded, ChangeArpeggioSpeed, ChangeBitcrusherQuantization, ChangeBitcrusherFreq, ChangeEchoSustain, ChangeEQFilterSimpleCut, ChangeNoteFilterSimpleCut, ChangeFilterMovePoint, ChangeDuplicateSelectedReusedPatterns, ChangeHoldingModRecording, ChangeDecimalOffset, ChangePerEnvelopeSpeed, ChangeSongFilterMovePoint, ChangeRingMod, ChangeRingModHz, ChangeGranular, ChangeGrainSize, ChangeEnvelopeLowerBound, ChangeEnvelopeUpperBound, ChangeGrainAmounts, ChangeGrainRange } from "./changes";
 import { prettyNumber } from "./EditorConfig";
+import { EnvelopeEditor } from "./EnvelopeEditor";
 
 function makeEmptyReplacementElement<T extends Node>(node: T): T {
     const clone: T = <T>node.cloneNode(false);
@@ -36,28 +37,17 @@ class PatternCursor {
 export class PatternEditor {
     public controlMode: boolean = false;
     public shiftMode: boolean = false;
-    private readonly _svgNoteBackground: SVGPatternElement = SVG.pattern({ id: "patternEditorNoteBackground" + this._barOffset, x: "0", y: "0", patternUnits: "userSpaceOnUse" });
-    private readonly _svgDrumBackground: SVGPatternElement = SVG.pattern({ id: "patternEditorDrumBackground" + this._barOffset, x: "0", y: "0", patternUnits: "userSpaceOnUse" });
-    private readonly _svgModBackground: SVGPatternElement = SVG.pattern({ id: "patternEditorModBackground" + this._barOffset, x: "0", y: "0", patternUnits: "userSpaceOnUse" });
-    private readonly _svgBackground: SVGRectElement = SVG.rect({ x: "0", y: "0", "pointer-events": "none", fill: "url(#patternEditorNoteBackground" + this._barOffset + ")" });
-    private _svgNoteContainer: SVGSVGElement = SVG.svg();
-    private readonly _svgPlayhead: SVGRectElement = SVG.rect({ x: "0", y: "0", width: "4", fill: ColorConfig.playhead, "pointer-events": "none" });
-    private readonly _selectionRect: SVGRectElement = SVG.rect({ class: "dashed-line dash-move", fill: ColorConfig.boxSelectionFill, stroke: ColorConfig.hoverPreview, "stroke-width": 2, "stroke-dasharray": "5, 3", "fill-opacity": "0.4", "pointer-events": "none", visibility: "hidden" });
-    private readonly _svgPreview: SVGPathElement = SVG.path({ fill: "none", stroke: ColorConfig.hoverPreview, "stroke-width": "2", "pointer-events": "none" });
-    public modDragValueLabel: HTMLDivElement = HTML.div({ width: "90", "text-anchor": "start", contenteditable: "true", style: "display: flex, justify-content: center; align-items:center; position:absolute; pointer-events: none;", "dominant-baseline": "central", });
-    public _svg: SVGSVGElement = SVG.svg({ id:'firstImage', style: `background-image: url(${getLocalStorageItem("customTheme", "")}); background-repeat: no-repeat; background-size: 100% 100%; background-color: ${ColorConfig.editorBackground}; touch-action: none; position: absolute;`, width: "100%", height: "100%" },
-	SVG.defs(
-            this._svgNoteBackground,
-            this._svgDrumBackground,
-            this._svgModBackground,
-        ),
-        this._svgBackground,
-        this._selectionRect,
-        this._svgNoteContainer,
-        this._svgPreview,
-        this._svgPlayhead,
-    );
-    public readonly container: HTMLDivElement = HTML.div({ style: "height: 100%; overflow:hidden; position: relative; flex-grow: 1;" }, this._svg, this.modDragValueLabel);
+    private readonly _svgNoteBackground: SVGPatternElement;
+    private readonly _svgDrumBackground: SVGPatternElement;
+    private readonly _svgModBackground: SVGPatternElement;
+    private readonly _svgBackground: SVGRectElement;
+    private _svgNoteContainer: SVGSVGElement;
+    private readonly _svgPlayhead: SVGRectElement;
+    private readonly _selectionRect: SVGRectElement;
+    private readonly _svgPreview: SVGPathElement;
+    public modDragValueLabel: HTMLDivElement;
+    public _svg: SVGSVGElement;
+    public readonly container: HTMLDivElement;
 
     private readonly _defaultModBorder: number = 34;
     private readonly _backgroundPitchRows: SVGRectElement[] = [];
@@ -125,6 +115,29 @@ export class PatternEditor {
     private _followPlayheadBar: number = -1;
 
     constructor(private _doc: SongDocument, private _interactive: boolean, private _barOffset: number) {
+        this._svgNoteBackground = SVG.pattern({ id: "patternEditorNoteBackground" + this._barOffset, x: "0", y: "0", patternUnits: "userSpaceOnUse" });
+        this._svgDrumBackground = SVG.pattern({ id: "patternEditorDrumBackground" + this._barOffset, x: "0", y: "0", patternUnits: "userSpaceOnUse" });
+        this._svgModBackground = SVG.pattern({ id: "patternEditorModBackground" + this._barOffset, x: "0", y: "0", patternUnits: "userSpaceOnUse" });
+        this._svgBackground = SVG.rect({ x: "0", y: "0", "pointer-events": "none", fill: "url(#patternEditorNoteBackground" + this._barOffset + ")" });
+        this._svgNoteContainer = SVG.svg();
+        this._svgPlayhead = SVG.rect({ x: "0", y: "0", width: "4", fill: ColorConfig.playhead, "pointer-events": "none" });
+        this._selectionRect = SVG.rect({ class: "dashed-line dash-move", fill: ColorConfig.boxSelectionFill, stroke: ColorConfig.hoverPreview, "stroke-width": 2, "stroke-dasharray": "5, 3", "fill-opacity": "0.4", "pointer-events": "none", visibility: "hidden" });
+        this._svgPreview = SVG.path({ fill: "none", stroke: ColorConfig.hoverPreview, "stroke-width": "2", "pointer-events": "none" });
+        this.modDragValueLabel = HTML.div({ width: "90", "text-anchor": "start", contenteditable: "true", style: "display: flex, justify-content: center; align-items:center; position:absolute; pointer-events: none;", "dominant-baseline": "central", });
+        this._svg = SVG.svg({ id: 'firstImage', style: `background-image: url(${getLocalStorageItem("customTheme", "")}); background-repeat: no-repeat; background-size: 100% 100%; background-color: ${ColorConfig.editorBackground}; touch-action: none; position: absolute;`, width: "100%", height: "100%" },
+            SVG.defs(
+                this._svgNoteBackground,
+                this._svgDrumBackground,
+                this._svgModBackground,
+            ),
+            this._svgBackground,
+            this._selectionRect,
+            this._svgNoteContainer,
+            this._svgPreview,
+            this._svgPlayhead,
+        );
+        this.container = HTML.div({ style: "height: 100%; overflow:hidden; position: relative; flex-grow: 1;" }, this._svg, this.modDragValueLabel);
+
         for (let i: number = 0; i < Config.pitchesPerOctave; i++) {
             const rectangle: SVGRectElement = SVG.rect();
             rectangle.setAttribute("x", "1");
@@ -165,8 +178,8 @@ export class PatternEditor {
     }
 
     private _getMaxPitch(): number {
-		return this._doc.song.getChannelIsMod(this._doc.channel) ? Config.modCount - 1 : ( this._doc.song.getChannelIsNoise(this._doc.channel) ? Config.drumCount - 1 : Config.maxPitch );
-	}
+        return this._doc.song.getChannelIsMod(this._doc.channel) ? Config.modCount - 1 : (this._doc.song.getChannelIsNoise(this._doc.channel) ? Config.drumCount - 1 : Config.maxPitch);
+    }
 
     private _validateModDragLabelInput = (event: Event): void => {
         const label: HTMLDivElement = <HTMLDivElement>event.target;
@@ -197,7 +210,7 @@ export class PatternEditor {
             this._dragChange = sequence;
             this._doc.setProspectiveChange(this._dragChange);
 
-            sequence.append(new ChangeSizeBend(this._doc, this._modDragNote, this._modDragPin.time, presValue- Config.modulators[this._modDragSetting].convertRealFactor, this._modDragPin.interval, this.shiftMode));
+            sequence.append(new ChangeSizeBend(this._doc, this._modDragNote, this._modDragPin.time, presValue - Config.modulators[this._modDragSetting].convertRealFactor, this._modDragPin.interval, this.shiftMode));
 
         }
     }
@@ -304,7 +317,7 @@ export class PatternEditor {
 
                     this.modDragValueLabel.style.setProperty("color", "#666688");
                     this.modDragValueLabel.style.setProperty("display", "");
-                    const mod: number = Math.max( 0, Config.modCount - 1 - this._cursor.curNote.pitches[0]);
+                    const mod: number = Math.max(0, Config.modCount - 1 - this._cursor.curNote.pitches[0]);
 
                     let setting: number = this._doc.song.channels[this._doc.channel].instruments[this._doc.getCurrentInstrument(this._barOffset)].modulators[mod];
 
@@ -328,8 +341,7 @@ export class PatternEditor {
                     this.modDragValueLabel.style.setProperty("top", "" + this._modDragValueLabelTop + "px");
                     this.modDragValueLabel.textContent = "" + presValue;
 
-                }
-                else {
+                } else {
                     this.modDragValueLabel.style.setProperty("display", "none");
                     this.modDragValueLabel.style.setProperty("pointer-events", "none");
                     this.modDragValueLabel.setAttribute("contenteditable", "false");
@@ -582,12 +594,12 @@ export class PatternEditor {
     }
 
     public movePlayheadToMouse(): boolean {
-		if (this._mouseOver) {
-			this._doc.synth.playhead = this._doc.bar + this._barOffset + (this._mouseX / this._editorWidth);
-			return true;
-		}
-		return false;
-	}
+        if (this._mouseOver) {
+            this._doc.synth.playhead = this._doc.bar + this._barOffset + (this._mouseX / this._editorWidth);
+            return true;
+        }
+        return false;
+    }
 
     public resetCopiedPins = (): void => {
         const maxDivision: number = this._getMaxDivision();
@@ -630,11 +642,11 @@ export class PatternEditor {
             // note flash
             for (var i = 0; i < noteFlashElements.length; i++) {
                 var element: SVGPathElement = noteFlashElements[i];
-                const noteStart: number = Number(element.getAttribute("note-start"))/(this._doc.song.beatsPerBar * Config.partsPerBeat)
-                const noteEnd: number = Number(element.getAttribute("note-end"))/(this._doc.song.beatsPerBar * Config.partsPerBeat)
-                if ((modPlayhead>=noteStart)&&this._doc.prefs.notesFlashWhenPlayed) {
-                    const dist = noteEnd-noteStart
-                    element.style.opacity = String((1-(((modPlayhead-noteStart)-(dist/2))/(dist/2))))
+                const noteStart: number = Number(element.getAttribute("note-start")) / (this._doc.song.beatsPerBar * Config.partsPerBeat)
+                const noteEnd: number = Number(element.getAttribute("note-end")) / (this._doc.song.beatsPerBar * Config.partsPerBeat)
+                if ((modPlayhead >= noteStart) && this._doc.prefs.notesFlashWhenPlayed) {
+                    const dist = noteEnd - noteStart
+                    element.style.opacity = String((1 - (((modPlayhead - noteStart) - (dist / 2)) / (dist / 2))))
                 } else {
                     element.style.opacity = "0"
                 }
@@ -649,8 +661,8 @@ export class PatternEditor {
         } else {
             this._svgPlayhead.setAttribute("visibility", "hidden");
 
-             // dogeiscut: lazy fix boohoo
-             for (var i = 0; i < noteFlashElements.length; i++) {
+            // dogeiscut: lazy fix boohoo
+            for (var i = 0; i < noteFlashElements.length; i++) {
                 var element: SVGPathElement = noteFlashElements[i];
                 element.style.opacity = "0"
             }
@@ -719,35 +731,45 @@ export class PatternEditor {
         let changedPatterns: boolean = false;
 
         // Ceiling is applied usually to give the synth time to catch the mod updates, but rounds to 0 to avoid skipping the first part.
-        const currentPart: number = (realPart < timeQuantum / 2 ) ? 0 : Math.ceil(realPart / timeQuantum) * timeQuantum;
+        const currentPart: number = (realPart < timeQuantum / 2) ? 0 : Math.ceil(realPart / timeQuantum) * timeQuantum;
 
         // For a given setting and a given channel, find the instrument and mod number that influences the setting.
-        function getMatchingInstrumentAndMod(applyToMod: number, modChannel: Channel, modInsIndex?: number | undefined, modFilterIndex?: number | undefined): number[] {
+        function getMatchingInstrumentAndMod(applyToMod: number, modChannel: Channel, modInsIndex?: number | undefined, modFilterIndex?: number | undefined, modEnvIndex?: number | undefined): number[] {
             let startIndex: number = (modInsIndex == undefined) ? 0 : modInsIndex;
             let endIndex: number = (modInsIndex == undefined) ? modChannel.instruments.length - 1 : modInsIndex;
-            for (let instrumentIndex: number = startIndex; instrumentIndex <= endIndex; instrumentIndex++ ) {
+            for (let instrumentIndex: number = startIndex; instrumentIndex <= endIndex; instrumentIndex++) {
                 let instrument: Instrument = modChannel.instruments[instrumentIndex];
                 for (let mod: number = 0; mod < Config.modCount; mod++) {
                     // Non-song application
-                    if ( instrument.modulators[mod] == applyToMod && !Config.modulators[instrument.modulators[mod]].forSong && (instrument.modChannels[mod] == thisRef._doc.channel) ) {
+                    if (instrument.modulators[mod] == applyToMod && !Config.modulators[instrument.modulators[mod]].forSong && (instrument.modChannels[mod] == thisRef._doc.channel)) {
                         // This is a check if the instrument targeted is relevant. Is it the exact one being edited? An "all" or "active" target?
                         // For "active" target it doesn't check if the instrument is active, allowing write to other active instruments from an inactive one. Should be fine since audibly while writing you'll hear what you'd expect -
                         // the current channel's active instruments being modulated, which is what most people would expect even if editing an inactive instrument.
-                        if (  thisRef._doc.getCurrentInstrument() == instrument.modInstruments[mod]
-                            || instrument.modInstruments[mod] >= thisRef._doc.song.channels[thisRef._doc.channel].instruments.length )
-                        {
+                        if (thisRef._doc.getCurrentInstrument() == instrument.modInstruments[mod]
+                            || instrument.modInstruments[mod] >= thisRef._doc.song.channels[thisRef._doc.channel].instruments.length) {
                             // If it's an eq/note filter target, one additional step is performed to see if it matches the right modFilterType.
                             if (modFilterIndex != undefined && (applyToMod == Config.modulators.dictionary["eq filter"].index || applyToMod == Config.modulators.dictionary["note filter"].index)) {
                                 if (instrument.modFilterTypes[mod] == modFilterIndex)
                                     return [instrumentIndex, mod];
-                            }
-                            else
+                            } else if (modEnvIndex != undefined && applyToMod == Config.modulators.dictionary["individual envelope speed"].index ||
+                                applyToMod == Config.modulators.dictionary["individual envelope lower bound"].index ||
+                                applyToMod == Config.modulators.dictionary["individual envelope upper bound"].index
+                             ) {
+                                if (instrument.modEnvelopeNumbers[mod] == modEnvIndex)
+                                    return [instrumentIndex, mod];
+                            } else
                                 return [instrumentIndex, mod];
                         }
                     }
                     // Song wide application
-                    else if ( instrument.modulators[mod] == applyToMod && Config.modulators[instrument.modulators[mod]].forSong && (instrument.modChannels[mod] == -1) ) {
-                        return [instrumentIndex, mod];
+                    else if (instrument.modulators[mod] == applyToMod && Config.modulators[instrument.modulators[mod]].forSong && (instrument.modChannels[mod] == -1)) {
+                        // check song eq? 
+                        if (modFilterIndex != undefined && (applyToMod == Config.modulators.dictionary["song eq"].index)) {
+                            if (instrument.modFilterTypes[mod] == modFilterIndex)
+                                return [instrumentIndex, mod];
+                        }
+                        else
+                            return [instrumentIndex, mod];
                     }
                 }
             }
@@ -837,6 +859,7 @@ export class PatternEditor {
         const instrument: Instrument = this._doc.song.channels[this._doc.channel].instruments[this._doc.getCurrentInstrument()];
         let applyToMods: number[] = [];
         let applyToFilterTargets: number[] = [];
+        let applyToEnvelopeTargets: number[] = [];
         let applyValues: number[] = [];
         let toApply: boolean = true;
         let slider: Slider | null = null;
@@ -859,9 +882,60 @@ export class PatternEditor {
             if (toApply) applyValues.push(this._doc.song.tempo - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 this._doc.song.tempo = slider.getValueBeforeProspectiveChange();
             }
+        }
+        else if (change instanceof ChangeSequence && change.checkFirst() instanceof ChangeSongFilterMovePoint && !change.isCommitted()) {
+            // Pushes some pieces of data in each array, to be handled individually down below.
+            //   applyToMods:
+            //     mod index for songFilter
+            //     mod index for songFilter
+            //   applyValues:
+            //     new freq
+            //     new gain
+            //   applyToFilterTargets:
+            //     modFilterTarget freq index (X)
+            //     modFilterTarget gain index (Y)
+            //
+            const useChange: ChangeSongFilterMovePoint = change.checkFirst() as ChangeSongFilterMovePoint;
+            const preMoveData: FilterMoveData = useChange.getMoveData(true);
+            const postMoveData: FilterMoveData = useChange.getMoveData(false);
+            const song = this._doc.song;
+            let useFilter: FilterSettings = song.eqFilter;
+            var modulatorIndex = Config.modulators.dictionary["song eq"].index;
+
+            if (song.tmpEqFilterEnd == null) {
+                song.tmpEqFilterStart = new FilterSettings();
+                song.tmpEqFilterStart.fromJsonObject(song.eqFilter.toJsonObject());
+                song.tmpEqFilterEnd = song.tmpEqFilterStart;
+            }
+
+            const modifyPoint: FilterControlPoint | null = song.tmpEqFilterEnd.controlPoints[useChange.pointIndex];
+            if (modifyPoint != null && modifyPoint.type == useChange.pointType) {
+                modifyPoint.freq = postMoveData.freq;
+                modifyPoint.gain = postMoveData.gain;
+            }
+
+            applyToMods.push(modulatorIndex);
+            applyToMods.push(modulatorIndex);
+            if (toApply) applyValues.push(postMoveData.freq);
+            if (toApply) applyValues.push(postMoveData.gain);
+
+            // ModFilterTypes indices, one each for X/Y.
+            applyToFilterTargets.push(1 + useChange.pointIndex * 2);
+            applyToFilterTargets.push(1 + useChange.pointIndex * 2 + 1);
+
+            // Reset the original point, if it was the instrument's default eq/note filter.
+            for (let i: number = 0; i < useFilter.controlPointCount; i++) {
+                var point = useFilter.controlPoints[i];
+                if (Object.is(point, preMoveData.point)) {
+                    // Reset the filter point to its previous value, as just the mods are being changed.
+                    point.freq = preMoveData.freq;
+                    point.gain = preMoveData.gain;
+                }
+            }
+
         }
         /* Song reverb - a casualty of splitting to reverb per instrument, it's not modulate-able via slider!
         else if (change instanceof ChangeSongReverb) { } */
@@ -871,7 +945,7 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.volume - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null )
+            if (slider != null)
                 instrument.volume = slider.getValueBeforeProspectiveChange();
         }
         else if (change instanceof ChangePan) {
@@ -890,7 +964,7 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.reverb - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 instrument.reverb = slider.getValueBeforeProspectiveChange();
             }
         }
@@ -900,8 +974,71 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.distortion - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 instrument.distortion = slider.getValueBeforeProspectiveChange();
+            }
+        }
+        else if (change instanceof ChangeRingMod) {
+            var modulator = Config.modulators.dictionary["ring modulation"];
+            applyToMods.push(modulator.index);
+            if (toApply) applyValues.push(instrument.ringModulation - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index);
+            if (slider != null) {
+                instrument.ringModulation = slider.getValueBeforeProspectiveChange();
+            }
+        }
+        else if (change instanceof ChangeRingModHz) {
+            var modulator = Config.modulators.dictionary["ring mod hertz"];
+            applyToMods.push(modulator.index);
+            if (toApply) applyValues.push(instrument.ringModulationHz - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index);
+            if (slider != null) {
+                instrument.ringModulationHz = slider.getValueBeforeProspectiveChange();
+                songEditor.ringModHzNum.innerHTML = "(" + instrument.ringModulationHz + ")";
+            }
+        }
+        else if (change instanceof ChangeGranular) {
+            var modulator = Config.modulators.dictionary["granular"];
+            applyToMods.push(modulator.index);
+            if (toApply) applyValues.push(instrument.granular - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index);
+            if (slider != null) {
+                instrument.granular = slider.getValueBeforeProspectiveChange();
+            }
+        }
+        else if (change instanceof ChangeGrainAmounts) {
+            var modulator = Config.modulators.dictionary["grain freq"];
+            applyToMods.push(modulator.index);
+            if (toApply) applyValues.push(instrument.grainAmounts - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index);
+            if (slider != null) {
+                instrument.grainAmounts = slider.getValueBeforeProspectiveChange();                
+            }
+        }
+        else if (change instanceof ChangeGrainSize) {
+            var modulator = Config.modulators.dictionary["grain size"];
+            applyToMods.push(modulator.index);
+            if (toApply) applyValues.push(instrument.grainSize - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index);
+            if (slider != null) {
+                instrument.grainSize = slider.getValueBeforeProspectiveChange();
+                songEditor.grainSizeNum.innerHTML = "(" + (instrument.grainSize * Config.grainSizeStep) + ")";
+            }
+        }
+        else if (change instanceof ChangeGrainRange) {
+            var modulator = Config.modulators.dictionary["grain range"];
+            applyToMods.push(modulator.index);
+            if (toApply) applyValues.push(instrument.grainRange - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index);
+            if (slider != null) {
+                instrument.grainRange = slider.getValueBeforeProspectiveChange();
+                songEditor.grainRangeNum.innerHTML = "(" + (instrument.grainRange * Config.grainSizeStep) + ")";
             }
         }
         else if (change instanceof ChangeOperatorAmplitude) {
@@ -910,7 +1047,7 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.operators[change.operatorIndex].amplitude - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 instrument.operators[change.operatorIndex].amplitude = slider.getValueBeforeProspectiveChange();
             }
         }
@@ -920,7 +1057,7 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.feedbackAmplitude - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 instrument.feedbackAmplitude = slider.getValueBeforeProspectiveChange();
             }
         }
@@ -930,7 +1067,7 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.pulseWidth - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 instrument.pulseWidth = slider.getValueBeforeProspectiveChange();
             }
         }
@@ -941,7 +1078,7 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.decimalOffset - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 instrument.decimalOffset = slider.getValueBeforeProspectiveChange();
             }
         }
@@ -951,7 +1088,7 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.detune - modulator.convertRealFactor - Config.detuneCenter);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 instrument.detune = slider.getValueBeforeProspectiveChange() + Config.detuneCenter;
             }
         }
@@ -961,7 +1098,7 @@ export class PatternEditor {
             if (toApply) applyValues.push(instrument.vibratoDepth * 25 - modulator.convertRealFactor);
             // Move the actual value back, since we just want to update the modulated value and not the base slider.
             slider = songEditor.getSliderForModSetting(modulator.index);
-            if ( slider != null ) {
+            if (slider != null) {
                 instrument.vibratoDepth = slider.getValueBeforeProspectiveChange() / 25;
             }
         }
@@ -1021,7 +1158,7 @@ export class PatternEditor {
             const preMoveData: FilterMoveData = useChange.getMoveData(true);
             const postMoveData: FilterMoveData = useChange.getMoveData(false);
             let useFilter: FilterSettings = instrument.eqFilter;
-            var modulatorIndex;
+            let modulatorIndex;
 
             if (useChange.useNoteFilter) {
                 modulatorIndex = Config.modulators.dictionary["note filter"].index;
@@ -1214,6 +1351,42 @@ export class PatternEditor {
             if (slider != null) {
                 instrument.supersawShape = slider.getValueBeforeProspectiveChange();
             }
+        } else if (change instanceof ChangePerEnvelopeSpeed) {
+            var modulator = Config.modulators.dictionary["individual envelope speed"];
+            applyToMods.push(modulator.index);
+            const envelopeIndex: number = change.getIndex();
+            if (toApply) applyValues.push(EnvelopeEditor.convertIndexSpeed(instrument.envelopes[envelopeIndex].perEnvelopeSpeed, "index") - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index, envelopeIndex);
+            if (slider != null) {
+                instrument.envelopes[envelopeIndex].perEnvelopeSpeed = EnvelopeEditor.convertIndexSpeed(slider.getValueBeforeProspectiveChange(), "speed");
+            }
+            applyToEnvelopeTargets.push(envelopeIndex);
+
+        } else if (change instanceof ChangeEnvelopeLowerBound) {
+            var modulator = Config.modulators.dictionary["individual envelope lower bound"];
+            applyToMods.push(modulator.index);
+            const envelopeIndex: number = change.getIndex();
+            if (toApply) applyValues.push(instrument.envelopes[envelopeIndex].perEnvelopeLowerBound*10 - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index, envelopeIndex);
+            if (slider != null) {
+                instrument.envelopes[envelopeIndex].perEnvelopeLowerBound = slider.getValueBeforeProspectiveChange();
+            }
+            applyToEnvelopeTargets.push(envelopeIndex);
+
+        } else if (change instanceof ChangeEnvelopeUpperBound) {
+            var modulator = Config.modulators.dictionary["individual envelope upper bound"];
+            applyToMods.push(modulator.index);
+            const envelopeIndex: number = change.getIndex();
+            if (toApply) applyValues.push(instrument.envelopes[envelopeIndex].perEnvelopeUpperBound*10 - modulator.convertRealFactor);
+            // Move the actual value back, since we just want to update the modulated value and not the base slider.
+            slider = songEditor.getSliderForModSetting(modulator.index, envelopeIndex);
+            if (slider != null) {
+                instrument.envelopes[envelopeIndex].perEnvelopeUpperBound = slider.getValueBeforeProspectiveChange();
+            }
+            applyToEnvelopeTargets.push(envelopeIndex);
+
         }
 
         for (let applyIndex: number = 0; applyIndex < applyValues.length; applyIndex++) {
@@ -1232,10 +1405,10 @@ export class PatternEditor {
         }
 
         // Set the slider back to its previous value.
-        if ( slider != null )
+        if (slider != null)
             slider.updateValue(slider.getValueBeforeProspectiveChange());
 
-        for (let applyIndex: number = 0; applyIndex < applyToMods.length; applyIndex++ ) {
+        for (let applyIndex: number = 0; applyIndex < applyToMods.length; applyIndex++) {
             // Search the current bar (and only the current bar) for active instruments (and only active instruments) matching to the related mod to apply to.
             let usedPatterns: Pattern[] = [];
             let usedInstruments: Instrument[] = [];
@@ -1248,11 +1421,13 @@ export class PatternEditor {
                 let useInstrumentIndex: number = 0;
                 let useModIndex: number = 0;
 
-                if ( pattern == null ) {
+                if (pattern == null) {
                     // Hunt for instrument matching this setting and swap to it.
                     var rtn;
                     if (applyToFilterTargets.length > applyIndex)
                         rtn = getMatchingInstrumentAndMod(applyToMods[applyIndex], channel, undefined, applyToFilterTargets[applyIndex]);
+                    else if (applyToEnvelopeTargets.length > applyIndex)
+                        rtn = getMatchingInstrumentAndMod(applyToMods[applyIndex], channel, undefined, undefined, applyToEnvelopeTargets[applyIndex]);
                     else
                         rtn = getMatchingInstrumentAndMod(applyToMods[applyIndex], channel);
                     useInstrumentIndex = rtn[0];
@@ -1261,7 +1436,7 @@ export class PatternEditor {
                     // Found it in this channel, but the pattern doesn't exist. So, add a new pattern and swap to that instrument.
                     if (useInstrumentIndex != -1) {
                         sequence.append(new ChangeEnsurePatternExists(this._doc, channelIndex, currentBar));
-                        new ChangeDuplicateSelectedReusedPatterns(this._doc, currentBar, 1, channelIndex, 1);
+                        new ChangeDuplicateSelectedReusedPatterns(this._doc, currentBar, 1, channelIndex, 1, false);
 
                         pattern = this._doc.song.getPattern(channelIndex, currentBar)!;
 
@@ -1269,18 +1444,19 @@ export class PatternEditor {
 
                         changedPatterns = true;
                     }
-                }
-                else {
+                } else {
                     var rtn;
                     if (applyToFilterTargets.length > applyIndex)
                         rtn = getMatchingInstrumentAndMod(applyToMods[applyIndex], channel, pattern.instruments[0], applyToFilterTargets[applyIndex]);
+                    else if (applyToEnvelopeTargets.length > applyIndex)
+                        rtn = getMatchingInstrumentAndMod(applyToMods[applyIndex], channel, pattern.instruments[0], undefined, applyToEnvelopeTargets[applyIndex]);
                     else
                         rtn = getMatchingInstrumentAndMod(applyToMods[applyIndex], channel, pattern.instruments[0]);
                     useInstrumentIndex = rtn[0];
                     useModIndex = rtn[1];
 
                     if (useInstrumentIndex != -1) {
-                        new ChangeDuplicateSelectedReusedPatterns(this._doc, currentBar, 1, channelIndex, 1);
+                        new ChangeDuplicateSelectedReusedPatterns(this._doc, currentBar, 1, channelIndex, 1, false);
                         pattern = this._doc.song.getPattern(channelIndex, currentBar);
 
                         changedPatterns = true;
@@ -1298,20 +1474,20 @@ export class PatternEditor {
             }
 
             // If the setting wasn't found in any channel or instruments, add it to the first unused slot in any channel.
-            if ( usedInstrumentIndices.length == 0 ) {
+            if (usedInstrumentIndices.length == 0) {
                 for (let channelIndex: number = this._doc.song.pitchChannelCount + this._doc.song.noiseChannelCount; channelIndex < this._doc.song.getChannelCount(); channelIndex++) {
                     const channel: Channel = this._doc.song.channels[channelIndex];
                     let pattern: Pattern | null = this._doc.song.getPattern(channelIndex, currentBar);
                     let useInstrument: number = -1;
                     // If there's a pattern for this channel in this bar, it only makes sense to add the new slot in that instrument somewhere or give up and move to the next.
-                    if ( pattern != null ) {
+                    if (pattern != null) {
                         useInstrument = pattern.instruments[0];
                     }
                     // No pattern for this channel, so check through all the instruments for a free slot, and add a pattern if there's a free one.
                     else {
-                        for ( let instrumentIndex: number = 0; instrumentIndex < channel.instruments.length; instrumentIndex++ ) {
-                            for (let mod: number = 0; mod < Config.modCount; mod++ ) {
-                                if ( channel.instruments[instrumentIndex].modulators[mod] == Config.modulators.dictionary["none"].index ) {
+                        for (let instrumentIndex: number = 0; instrumentIndex < channel.instruments.length; instrumentIndex++) {
+                            for (let mod: number = 0; mod < Config.modCount; mod++) {
+                                if (channel.instruments[instrumentIndex].modulators[mod] == Config.modulators.dictionary["none"].index) {
                                     useInstrument = instrumentIndex;
 
                                     sequence.append(new ChangeEnsurePatternExists(this._doc, channelIndex, currentBar));
@@ -1331,17 +1507,19 @@ export class PatternEditor {
                     }
 
                     // Found a suitable instrument to use, now add the setting
-                    if ( useInstrument != -1 ) {
+                    if (useInstrument != -1) {
                         let instrument: Instrument = channel.instruments[useInstrument];
                         for (let mod: number = 0; mod < Config.modCount; mod++) {
-                            if ( instrument.modulators[mod] == Config.modulators.dictionary["none"].index ) {
+                            if (instrument.modulators[mod] == Config.modulators.dictionary["none"].index) {
                                 instrument.modulators[mod] = applyToMods[applyIndex];
-                                if ( Config.modulators[applyToMods[applyIndex]].forSong ) {
+                                if (Config.modulators[applyToMods[applyIndex]].forSong) {
+                                    if (applyToFilterTargets.length > applyIndex) {
+                                        instrument.modFilterTypes[mod] = applyToFilterTargets[applyIndex];
+                                    }
                                     instrument.modChannels[mod] = -1; // Song
-                                }
-                                else {
+                                } else {
                                     instrument.modChannels[mod] = this._doc.channel;
-                                    
+
                                     if (this._doc.song.channels[this._doc.channel].instruments.length > 1) {
                                         // Ctrl key or Shift key: set the new mod target to "active" modulation for the most flexibility, if there's more than one instrument in the channel.
                                         if (!this.controlMode || !this.shiftMode)
@@ -1357,6 +1535,9 @@ export class PatternEditor {
                                     if (applyToFilterTargets.length > applyIndex) {
                                         instrument.modFilterTypes[mod] = applyToFilterTargets[applyIndex];
                                     }
+                                    //or add appropriate envelope settings
+                                    else if (applyToEnvelopeTargets.length > applyIndex)
+                                        instrument.modEnvelopeNumbers[mod] = applyToEnvelopeTargets[applyIndex];
                                 }
 
                                 usedPatterns.push(pattern!);
@@ -1394,7 +1575,7 @@ export class PatternEditor {
                 // Explicitly set the mod to the applied value, just in case the note we add isn't picked up in the next synth run.
                 const modNoteIndex: number = Config.modCount - 1 - usedModIndices[i];
                 const usedInstrument: Instrument = usedInstruments[i];
-                if ( usedInstrument.modChannels[usedModIndices[i]] >= -1 ) {
+                if (usedInstrument.modChannels[usedModIndices[i]] >= -1) {
                     // Generate list of used instruments
                     let usedNewInstrumentIndices: number[] = [];
                     if (Config.modulators[applyToMods[applyIndex]].forSong) {
@@ -1417,20 +1598,20 @@ export class PatternEditor {
                     }
 
                     for (let instrumentIndex: number = 0; instrumentIndex < usedNewInstrumentIndices.length; instrumentIndex++) {
-                        this._doc.synth.setModValue(applyValues[applyIndex], applyValues[applyIndex], usedInstruments[i].modChannels[usedModIndices[i]], usedNewInstrumentIndices[instrumentIndex], applyToMods[applyIndex] );
+                        this._doc.synth.setModValue(applyValues[applyIndex], applyValues[applyIndex], usedInstruments[i].modChannels[usedModIndices[i]], usedNewInstrumentIndices[instrumentIndex], applyToMods[applyIndex]);
                         this._doc.synth.forceHoldMods(applyValues[applyIndex], usedInstruments[i].modChannels[usedModIndices[i]], usedNewInstrumentIndices[instrumentIndex], applyToMods[applyIndex]);
                     }
                 }
 
                 // Scan for a note starting around this point.
-                for ( let j: number = 0; j < usedPatterns[i].notes.length; j++ ) {
+                for (let j: number = 0; j < usedPatterns[i].notes.length; j++) {
                     const note: Note = usedPatterns[i].notes[j];
-                    if ( note.pitches[0] == modNoteIndex && note.start <= currentPart ) {
+                    if (note.pitches[0] == modNoteIndex && note.start <= currentPart) {
                         // Find latest pin that doesn't exceed this part.
-                        for (let pinIdx: number = 0; pinIdx < note.pins.length; pinIdx++ ) {
+                        for (let pinIdx: number = 0; pinIdx < note.pins.length; pinIdx++) {
                             const pin: NotePin = note.pins[pinIdx];
                             // Special case in there to prioritize picking the start of a note over the end of another (though they share the same time).
-                            if ( note.start + pin.time <= currentPart && (note.start + pin.time > latestPart || (note.start == latestPart) ) ) {
+                            if (note.start + pin.time <= currentPart && (note.start + pin.time > latestPart || (note.start == latestPart))) {
                                 latestPart = note.start + pin.time;
                                 latestPin = pin;
                                 latestPinIdx = pinIdx;
@@ -1496,8 +1677,8 @@ export class PatternEditor {
                     // But, we'll still smooth out previous pins if we're continuously holding.
                     if (continuous) {
                         for (let usePin: number = 0; usePin < latestNote.pins.length; usePin++) {
-                            if ( latestNote.pins[usePin].time >= prevPart && latestNote.pins[usePin].time <= currentPart)
-                            latestNote.pins[usePin].size = applyValues[applyIndex];
+                            if (latestNote.pins[usePin].time >= prevPart && latestNote.pins[usePin].time <= currentPart)
+                                latestNote.pins[usePin].size = applyValues[applyIndex];
                         }
                     }
                 }
@@ -1533,8 +1714,8 @@ export class PatternEditor {
 
                     if (continuous) {
                         for (let usePin: number = 0; usePin < latestNote.pins.length; usePin++) {
-                            if ( latestNote.pins[usePin].time >= prevPart && latestNote.pins[usePin].time <= currentPart)
-                            latestNote.pins[usePin].size = applyValues[applyIndex];
+                            if (latestNote.pins[usePin].time >= prevPart && latestNote.pins[usePin].time <= currentPart)
+                                latestNote.pins[usePin].size = applyValues[applyIndex];
                         }
                     }
                 }
@@ -1968,7 +2149,7 @@ export class PatternEditor {
                 } else if (this._cursor.pitchIndex == -1 || this._doc.song.getChannelIsMod(this._doc.channel)) {
 
                     if (!this._mouseDragging)
-                    sequence.append(new ChangePatternSelection(this._doc, 0, 0));
+                        sequence.append(new ChangePatternSelection(this._doc, 0, 0));
 
                     const bendPart: number =
                         Math.max(this._cursor.curNote.start,
@@ -2396,7 +2577,7 @@ export class PatternEditor {
 
         for (let j: number = 0; j < Config.pitchesPerOctave; j++) {
             let scale = this._doc.song.scale == Config.scales.dictionary["Custom"].index ? this._doc.song.scaleCustom : Config.scales[this._doc.song.scale].flags;
-            
+
             this._backgroundPitchRows[j].style.visibility = scale[j] ? "visible" : "hidden";
         }
 
@@ -2429,7 +2610,7 @@ export class PatternEditor {
         if (this._doc.prefs.showChannels) {
             if (!this._doc.song.getChannelIsMod(this._doc.channel)) {
                 let noteFlashColor: string = "#ffffff77";
-                    if (this._doc.prefs.notesFlashWhenPlayed) noteFlashColor = ColorConfig.getComputed("--note-flash-secondary");
+                if (this._doc.prefs.notesFlashWhenPlayed) noteFlashColor = ColorConfig.getComputed("--note-flash-secondary");
                 for (let channel: number = this._doc.song.pitchChannelCount + this._doc.song.noiseChannelCount - 1; channel >= 0; channel--) {
                     if (channel == this._doc.channel) continue;
                     if (this._doc.song.getChannelIsNoise(channel) != this._doc.song.getChannelIsNoise(this._doc.channel)) continue;
@@ -2458,7 +2639,7 @@ export class PatternEditor {
                                 notePath.setAttribute('note-start', String(note.start));
                                 notePath.setAttribute('note-end', String(
                                     note.end
-                                    ));
+                                ));
                             }
                         }
                     }
@@ -2470,15 +2651,15 @@ export class PatternEditor {
             const instrument: Instrument = this._doc.song.channels[this._doc.channel].instruments[this._doc.getCurrentInstrument(this._barOffset)];
             const chord: Chord = instrument.getChord();
             const transition: Transition = instrument.getTransition();
-            const displayNumberedChords: boolean = chord.customInterval || chord.arpeggiates || chord.strumParts > 0 || transition.slides;
+            const displayNumberedChords: boolean = chord.customInterval || chord.arpeggiates || chord.strumParts > 0 || transition.slides || chord.name == "monophonic";
             let noteFlashColor: string = "#ffffff";
-                if (this._doc.prefs.notesFlashWhenPlayed) noteFlashColor = ColorConfig.getComputed("--note-flash");
+            if (this._doc.prefs.notesFlashWhenPlayed) noteFlashColor = ColorConfig.getComputed("--note-flash");
             for (const note of this._pattern.notes) {
                 let disabled: boolean = false;
                 if (this._doc.song.getChannelIsMod(this._doc.channel)) {
                     const modIndex: number = instrument.modulators[Config.modCount - 1 - note.pitches[0]];
                     if ((modIndex == Config.modulators.dictionary["none"].index)
-                    || instrument.invalidModulators[Config.modCount - 1 - note.pitches[0]])
+                        || instrument.invalidModulators[Config.modCount - 1 - note.pitches[0]])
                         disabled = true;
                 }
                 for (let i: number = 0; i < note.pitches.length; i++) {
@@ -2496,7 +2677,7 @@ export class PatternEditor {
                     this._drawNote(notePath, pitch, note.start, note.pins, (this._pitchHeight - this._pitchBorder) / 2 + 1, true, this._octaveOffset);
                     this._svgNoteContainer.appendChild(notePath);
 
-                    if (this._doc.prefs.notesFlashWhenPlayed&&!disabled) {
+                    if (this._doc.prefs.notesFlashWhenPlayed && !disabled) {
                         notePath = SVG.path();
                         // const noteFlashColor = ColorConfig.getComputed("--note-flash") !== "" ? "var(--note-flash)" : "#ffffff";
                         notePath.setAttribute("fill", noteFlashColor);
@@ -2508,7 +2689,7 @@ export class PatternEditor {
                         notePath.setAttribute('note-start', String(note.start));
                         notePath.setAttribute('note-end', String(
                             note.end
-                            ));
+                        ));
                     }
 
                     let indicatorOffset: number = 2;

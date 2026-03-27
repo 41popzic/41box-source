@@ -5,8 +5,8 @@ export class oscilloscopeCanvas {
     public _EventUpdateCanvas:Function;
 
     constructor(public readonly canvas: HTMLCanvasElement, readonly scale: number = 1) {
-        this._EventUpdateCanvas = function(directlinkL: Float32Array, directlinkR ?: Float32Array): void {
-            if(directlinkR) {
+        this._EventUpdateCanvas = function (directlinkL: Float32Array, directlinkR?: Float32Array): void {
+            if (directlinkR) {
                 var ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
                 ctx.fillStyle = ColorConfig.getComputed("--editor-background");
@@ -17,7 +17,7 @@ export class oscilloscopeCanvas {
                     let x = i - (directlinkL.length - 1) + (canvas.width/scale);
                     let yl = (directlinkL[i] * (canvas.height/scale / 2) + (canvas.height/scale / 2));
 
-                    ctx.fillRect((x - 1)*scale, (yl - 1)*scale, 1*scale, 1.5*scale);
+                    ctx.fillRect((x - 1) * scale, (yl - 1) * scale, 1 * scale, 1.5 * scale);
                     if (x == 0) break;
                 }
                 ctx.fillStyle = ColorConfig.getComputed("--oscilloscope-line-R"); //less ctx style calls = less expensive??? also avoiding uncached colors
@@ -33,5 +33,5 @@ export class oscilloscopeCanvas {
         events.listen("oscilloscopeUpdate", this._EventUpdateCanvas);
     }
 
-    
+
 }

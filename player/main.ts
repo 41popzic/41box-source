@@ -1,17 +1,17 @@
 // Copyright (c) 2012-2022 John Nesky and contributing authors, distributed under the MIT license, see accompanying the LICENSE.md file.
 
-import { Dictionary, DictionaryArray, EnvelopeType, InstrumentType, Transition, Chord, Envelope, Config } from "../synth/SynthConfig";
+import { Dictionary, DictionaryArray, EnvelopeType, InstrumentType, Transition, Chord, Envelope, Config, sampleLoadEvents, SampleLoadedEvent } from "../synth/SynthConfig";
 import { ColorConfig } from "../editor/ColorConfig";
 import { NotePin, Note, Pattern, Instrument, Channel, Synth } from "../synth/synth";
 import { oscilloscopeCanvas } from "../global/Oscilloscope";
 import { HTML, SVG } from "imperative-html/dist/esm/elements-strict";
 
-	const {a, button, div, h1, input, canvas} = HTML;
-	const {svg, circle, rect, path} = SVG;
+const {a, button, div, h1, input, canvas} = HTML;
+const {svg, circle, rect, path} = SVG;
 
-	const isMobile: boolean = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|android|ipad|playbook|silk/i.test(navigator.userAgent);
+const isMobile: boolean = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|android|ipad|playbook|silk/i.test(navigator.userAgent);
 
-	document.head.appendChild(HTML.style({type: "text/css"}, `
+document.head.appendChild(HTML.style({type: "text/css"}, `
 	body {
 		color: ${ColorConfig.primaryText};
 		background: ${ColorConfig.editorBackground};
@@ -169,10 +169,10 @@ if (!showOscilloscope) {
 	synth.oscEnabled = false;
 }
 let titleText: HTMLHeadingElement = h1({ style: "flex-grow: 1; margin: 0 1px; margin-left: 10px; overflow: hidden;" }, "");
-	let editLink: HTMLAnchorElement = a({target: "_top", style: "margin: 0 4px;"}, "✎ Edit");
-	let copyLink: HTMLAnchorElement = a({href: "javascript:void(0)", style: "margin: 0 4px;"}, "⎘ Copy URL");
-	let shareLink: HTMLAnchorElement = a({href: "javascript:void(0)", style: "margin: 0 4px;"}, "⤳ Share");
-	let fullscreenLink: HTMLAnchorElement = a({target: "_top", style: "margin: 0 4px;"}, "⇱ Fullscreen");
+let editLink: HTMLAnchorElement = a({target: "_top", style: "margin: 0 4px;"}, "✎ Edit");
+let copyLink: HTMLAnchorElement = a({href: "javascript:void(0)", style: "margin: 0 4px;"}, "⎘ Copy URL");
+let shareLink: HTMLAnchorElement = a({href: "javascript:void(0)", style: "margin: 0 4px;"}, "⤳ Share");
+let fullscreenLink: HTMLAnchorElement = a({target: "_top", style: "margin: 0 4px;"}, "⇱ Fullscreen");
 
 let draggingPlayhead: boolean = false;
 	const playButton: HTMLButtonElement = button({style: "width: 100%; height: 100%; max-height: 50px;"});
@@ -189,22 +189,22 @@ let draggingPlayhead: boolean = false;
 );
 const volumeSlider: HTMLInputElement = input({ title: "volume", type: "range", value: 75, min: 0, max: 75, step: 1, style: "width: 12vw; max-width: 100px; margin: 0 1px;" });
 
-	const zoomIcon: SVGSVGElement = svg({width: 12, height: 12, viewBox: "0 0 12 12"},
-		circle({cx: "5", cy: "5", r: "4.5", "stroke-width": "1", stroke: "currentColor", fill: "none"}),
-		path({stroke: "currentColor", "stroke-width": "2", d: "M 8 8 L 11 11 M 5 2 L 5 8 M 2 5 L 8 5", fill: "none"}),
+const zoomIcon: SVGSVGElement = svg({width: 12, height: 12, viewBox: "0 0 12 12"},
+	circle({cx: "5", cy: "5", r: "4.5", "stroke-width": "1", stroke: "currentColor", fill: "none"}),
+	path({stroke: "currentColor", "stroke-width": "2", d: "M 8 8 L 11 11 M 5 2 L 5 8 M 2 5 L 8 5", fill: "none"}),
 );
-	const zoomButton: HTMLButtonElement = button({title: "zoom", style: "background: none; flex: 0 0 12px; margin: 0 3px; width: 12px; height: 12px; display: flex;"},
+const zoomButton: HTMLButtonElement = button({title: "zoom", style: "background: none; flex: 0 0 12px; margin: 0 3px; width: 12px; height: 12px; display: flex;"},
 	zoomIcon,
 );
 
-	const timeline: SVGSVGElement = svg({style: "min-width: 0; min-height: 0; touch-action: pan-y pinch-zoom;"});
-	const playhead: HTMLDivElement = div({style: `position: absolute; left: 0; top: 0; width: 2px; height: 100%; background: ${ColorConfig.playhead}; pointer-events: none;`});
-	const timelineContainer: HTMLDivElement = div({style: "display: flex; flex-grow: 1; flex-shrink: 1; position: relative;"}, timeline, playhead);
-	const visualizationContainer: HTMLDivElement = div({style: "display: flex; flex-grow: 1; flex-shrink: 1; height: 0; position: relative; align-items: center; overflow: hidden;"}, timelineContainer);
-	let noteFlashElementsPerBar: (SVGPathElement[])[];
-	let currentNoteFlashElements: SVGPathElement[] = [];
-	let currentNoteFlashBar: number = -1;
-	const notesFlashWhenPlayed: boolean = getLocalStorage("notesFlashWhenPlayed") == "true";
+const timeline: SVGSVGElement = svg({style: "min-width: 0; min-height: 0; touch-action: pan-y pinch-zoom;"});
+const playhead: HTMLDivElement = div({style: `position: absolute; left: 0; top: 0; width: 2px; height: 100%; background: ${ColorConfig.playhead}; pointer-events: none;`});
+const timelineContainer: HTMLDivElement = div({style: "display: flex; flex-grow: 1; flex-shrink: 1; position: relative;"}, timeline, playhead);
+const visualizationContainer: HTMLDivElement = div({style: "display: flex; flex-grow: 1; flex-shrink: 1; height: 0; position: relative; align-items: center; overflow: hidden;"}, timelineContainer);
+let noteFlashElementsPerBar: (SVGPathElement[])[];
+let currentNoteFlashElements: SVGPathElement[] = [];
+let currentNoteFlashBar: number = -1;
+const notesFlashWhenPlayed: boolean = getLocalStorage("notesFlashWhenPlayed") == "true";
 
 const outVolumeBarBg: SVGRectElement = SVG.rect({ "pointer-events": "none", width: "90%", height: "50%", x: "5%", y: "25%", fill: ColorConfig.uiWidgetBackground });
 const outVolumeBar: SVGRectElement = SVG.rect({ "pointer-events": "none", height: "50%", width: "0%", x: "5%", y: "25%", fill: "url('#volumeGrad2')" });
@@ -220,15 +220,23 @@ const volumeBarContainer: SVGSVGElement = SVG.svg({ style: `touch-action: none; 
 	outVolumeBar,
 	outVolumeCap,
 );
+const sampleLoadingBar: HTMLDivElement = div({ style: `width: 0%; height: 100%; background-color: ${ColorConfig.indicatorPrimary};` });
+// const sampleFailedBar: HTMLDivElement = div({ style: `width: 0%; height: 100%; background-color: ${ColorConfig.sampleFailed};` });
+const sampleLoadingBarContainer: HTMLDivElement = div({ class: `sampleLoadingContainer`, style: `overflow: hidden; margin: auto; width: 90%; height: 50%; background-color: var(--empty-sample-bar, ${ColorConfig.indicatorSecondary});`, preserveAspectRatio: "none" }, sampleLoadingBar, /*sampleFailedBar*/);
+const sampleLoadingStatusContainer: HTMLDivElement = div({},
+	div({ class: "selectRow", style: "overflow: hidden; margin: auto; width: 160px; height: 10px; " },
+		sampleLoadingBarContainer,
+	));
+const volumeBarContainerDiv: HTMLDivElement = div({ class: `volBarContainer`, style: "display:flex; flex-direction:column; touch-action: none; overflow: hidden; margin: auto" }, volumeBarContainer, sampleLoadingStatusContainer);
 document.body.appendChild(visualizationContainer);
 document.body.appendChild(
-		div({style: `flex-shrink: 0; height: 20vh; min-height: 22px; max-height: 70px; display: flex; align-items: center;`},
+	div({style: `flex-shrink: 0; height: 20vh; min-height: 22px; max-height: 70px; display: flex; align-items: center;`},
 		playButtonContainer,
 		loopButton,
 		volumeIcon,
 		volumeSlider,
 		zoomButton,
-		volumeBarContainer,
+		volumeBarContainerDiv,
 		oscilloscope.canvas, //make it auto remove itself later
 		titleText,
 		editLink,
@@ -418,6 +426,7 @@ function onToggleLoop(): void {
 	} else {
 		synth.loopRepeatCount = -1;
 	}
+	setLocalStorage("loopMode", synth.loopRepeatCount + "")
 	renderLoopIcon();
 }
 
@@ -428,6 +437,7 @@ function onVolumeChange(): void {
 
 function onToggleZoom(): void {
 	zoomEnabled = !zoomEnabled;
+	setLocalStorage("zoomMode", zoomEnabled + "")
 	renderZoomIcon();
 	renderTimeline();
 }
@@ -694,6 +704,7 @@ function onKeyPressed(event: KeyboardEvent): void {
 			renderPlayhead();
 			event.preventDefault();
 			break;
+		case 69: // e
 		case 80: // p
 			if (event.shiftKey) {
 				hashUpdatedExternally();
@@ -701,7 +712,38 @@ function onKeyPressed(event: KeyboardEvent): void {
 				event.preventDefault();
 			}
 			break;
+		case 90: // z
+		case 187: // +
+		case 61: // Firefox +
+		case 171: // Some users have this as +? Hmm.
+		case 189: // -
+		case 173: // Firefox -
+			onToggleZoom();
+			break;
+		case 76: // l
+			onToggleLoop();
+			break;
+		case 83: // s
+			if (event.ctrlKey) {
+				shortenUrl();
+				event.preventDefault();
+			}
+			break;
+		case 67: // c
+			onCopyClicked();
+			break;
 	}
+}
+
+function shortenUrl() {
+	hashUpdatedExternally();
+	let shortenerStrategy: string = "https://tinyurl.com/api-create.php?url=";
+	const localShortenerStrategy: string | null = window.localStorage.getItem("shortenerStrategySelect");
+
+	// if (localShortenerStrategy == "beepboxnet") shortenerStrategy = "https://www.beepbox.net/api-create.php?url=";
+	if (localShortenerStrategy == "isgd") shortenerStrategy = "https://is.gd/create.php?format=simple&url=";
+
+	window.open(shortenerStrategy + encodeURIComponent(new URL("#" + synth.song!.toBase64String(), location.href).href));
 }
 
 function onCopyClicked(): void {
@@ -728,6 +770,30 @@ function onShareClicked(): void {
 	(<any>navigator).share({ url: location.href });
 }
 
+function updateSampleLoadingBar(_e: Event): void {
+	// @TODO: Avoid this cast and type EventTarget/Event properly.
+	const e: SampleLoadedEvent = <SampleLoadedEvent>_e;
+	const percent: number = (
+		e.totalSamples === 0
+			? 0
+			: Math.floor((e.samplesLoaded / e.totalSamples) * 100)
+	);
+	// const failedPercent: number = (
+	// 	e.totalSamples === 0
+	// 		? 0
+	// 		: Math.floor((e.samplesFailed / e.totalSamples) * 100)
+	// );
+	// sampleNum = Boolean(percent > 0 && failedPercent > 0);
+	sampleLoadingBarContainer.title = "Total Samples: " + String(e.totalSamples) + "; Loaded Samples: " + String(e.samplesLoaded) + "; ";//Samples Failed: " + String(e.samplesFailed) + ";";
+	sampleLoadingBar.style.width = `${percent}%`;
+	// sampleFailedBar.style.width = `${failedPercent + Number(sampleNum)}%`;
+	if (e.totalSamples != 0) {
+		sampleLoadingBarContainer.style.backgroundColor = "var(--indicator-secondary)";
+	} else {
+		sampleLoadingBarContainer.style.backgroundColor = "var(--empty-sample-bar, var(--indicator-secondary))";
+	}
+}
+
 	if ( top !== self ) {
 	// In an iframe.
 	copyLink.style.display = "none";
@@ -741,7 +807,21 @@ function onShareClicked(): void {
 if (getLocalStorage("volume") != null) {
 	volumeSlider.value = getLocalStorage("volume")!;
 }
+if (getLocalStorage("loopMode") != null) {
+	synth.loopRepeatCount = parseInt(getLocalStorage("loopMode")!);
+}
+if (getLocalStorage("zoomMode") != null) {
+	zoomEnabled = getLocalStorage("zoomMode")! == "true";
+}
 setSynthVolume();
+hashUpdatedExternally();
+renderLoopIcon();
+renderZoomIcon();
+renderPlayButton();
+
+if (synth.song && synth.song.title) {
+	titleText.innerText = synth.song.title;
+}
 
 window.addEventListener("resize", onWindowResize);
 window.addEventListener("keydown", onKeyPressed);
@@ -761,11 +841,7 @@ zoomButton.addEventListener("click", onToggleZoom);
 copyLink.addEventListener("click", onCopyClicked);
 shareLink.addEventListener("click", onShareClicked);
 window.addEventListener("hashchange", hashUpdatedExternally);
-
-hashUpdatedExternally();
-renderLoopIcon();
-renderZoomIcon();
-renderPlayButton();
+sampleLoadEvents.addEventListener("sampleloaded", updateSampleLoadingBar.bind(this));
 
 // When compiling synth.ts as a standalone module named "beepbox", expose these classes as members to JavaScript:
-	export {Dictionary, DictionaryArray, EnvelopeType, InstrumentType, Transition, Chord, Envelope, Config, NotePin, Note, Pattern, Instrument, Channel, Synth};
+	export {Dictionary, DictionaryArray, EnvelopeType, InstrumentType, Transition, Chord, Envelope, Config, NotePin, Note, Pattern, Instrument, Channel, Synth as Synth};
