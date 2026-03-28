@@ -955,7 +955,7 @@ export class Config {
     public static readonly instrumentCountMin: number = 1;
     public static readonly layeredInstrumentCountMax: number = 10;
     public static readonly patternInstrumentCountMax: number = 10;
-	public static readonly partsPerBeat: number = 60;
+	public static readonly partsPerBeat: number = 120;
 	public static readonly ticksPerPart: number = 2;
 	public static readonly ticksPerArpeggio: number = 3;
 	public static readonly arpeggioPatterns: ReadonlyArray<ReadonlyArray<number>> = [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6, 7] ];
