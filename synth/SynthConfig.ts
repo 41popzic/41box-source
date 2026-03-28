@@ -924,6 +924,8 @@ export class Config {
         { name: "A", isWhiteKey: true, basePitch: 21 },
         { name: "A♯", isWhiteKey: false, basePitch: 22 },
         { name: "B", isWhiteKey: true, basePitch: 23 },
+        // { name: "what", isWhiteKey: true, basePitch: 41 },
+        // i was gonna put that in but idk bruh it ruins the perfect uniform of 41box
         // { name: "C+", isWhiteKey: false, basePitch: 24 },
         //taken from todbox, called "B#" for some reason lol
         // { name: "G- (actually F#-)", isWhiteKey: false, basePitch: 6 },
@@ -935,7 +937,7 @@ export class Config {
     ]);
     public static readonly blackKeyNameParents: ReadonlyArray<number> = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     public static readonly tempoMin: number = 1;
-    public static readonly tempoMax: number = 500;
+    public static readonly tempoMax: number = 1000;
     public static readonly octaveMin: number = -2;
     public static readonly octaveMax: number = 2;
     public static readonly echoDelayRange: number = 24;

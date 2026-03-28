@@ -7877,7 +7877,7 @@ class EnvelopeComputer {
         const prevNoteTicksStart: number = this.prevNoteTicksEnd;
         const prevNoteTicksEnd: number = prevNoteTicksStart + 1.0;
 
-        const beatsPerTick: number = 1.0 / (Config.ticksPerPart * Config.partsPerBeat);
+        const beatsPerTick: number = 0.2 / (Config.ticksPerPart * Config.partsPerBeat);
         const beatTimeStart: number[] = [];
         const beatTimeEnd: number[] = [];
 

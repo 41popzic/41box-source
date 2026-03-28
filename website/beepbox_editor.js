@@ -524,7 +524,7 @@ var beepbox = (function (exports) {
     ]);
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.tempoMin = 1;
-    Config.tempoMax = 500;
+    Config.tempoMax = 1000;
     Config.octaveMin = -2;
     Config.octaveMax = 2;
     Config.echoDelayRange = 24;
@@ -18702,7 +18702,7 @@ li.select2-results__option[role=group] > strong:hover {
             const prevNoteSecondsEndUnscaled = prevNoteSecondsStartUnscaled + secondsPerTickUnscaled;
             const prevNoteTicksStart = this.prevNoteTicksEnd;
             const prevNoteTicksEnd = prevNoteTicksStart + 1.0;
-            const beatsPerTick = 1.0 / (Config.ticksPerPart * Config.partsPerBeat);
+            const beatsPerTick = 0.2 / (Config.ticksPerPart * Config.partsPerBeat);
             const beatTimeStart = [];
             const beatTimeEnd = [];
             let noteSizeStart = this._noteSizeFinal;
