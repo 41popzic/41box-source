@@ -2341,7 +2341,7 @@ var beepbox = (function (exports) {
     }
     ColorConfig.colorLookup = new Map();
     ColorConfig.usesColorFormula = false;
-    ColorConfig.defaultTheme = "energized";
+    ColorConfig.defaultTheme = "41box";
     ColorConfig.themes = {
         "dark classic": ``,
         "dark competition": `
