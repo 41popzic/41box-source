@@ -2752,7 +2752,7 @@ var beepbox = (function (exports) {
     }
     ColorConfig.colorLookup = new Map();
     ColorConfig.usesColorFormula = false;
-    ColorConfig.defaultTheme = "slarmoosbox";
+    ColorConfig.defaultTheme = "energized";
     ColorConfig.themes = {
         "dark classic": ``,
         "dark competition": `
