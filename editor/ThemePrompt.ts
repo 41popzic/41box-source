@@ -11,6 +11,7 @@ const { button, div, h2, select, option, optgroup } = HTML;
 export class ThemePrompt implements Prompt {
 	private readonly _themeSelect: HTMLSelectElement = select({ style: "width: 100%;" },
 		optgroup({ label: "Default Themes" },
+			option({ value: "41box" }, "41Box"),
 			option({ value: "forest" }, "Forest"),
 			option({ value: "canyon" }, "Canyon"),
 			option({ value: "midnight" }, "Midnight"),
@@ -41,7 +42,8 @@ export class ThemePrompt implements Prompt {
 			option({ value: "dark competition" }, "BeepBox Competition Dark"),
 			option({ value: "jummbox classic" }, "JummBox Dark"),
 			// let's retire this again.
-			// option({ value: "jummbox light" }, "JummBox Light"), 
+			// why do you wanna retire jummbox light ;-;
+			option({ value: "jummbox light" }, "JummBox Light"), 
 			option({ value: "modbox classic" }, "Modbox"),
 			option({ value: "sandbox classic" }, "Sandbox"),
 			option({ value: "harrybox" }, "Haileybox"),
