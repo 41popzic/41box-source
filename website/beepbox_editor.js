@@ -524,9 +524,9 @@ var beepbox = (function (exports) {
     ]);
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.tempoMin = 1;
-    Config.tempoMax = 1000;
-    Config.octaveMin = -2;
-    Config.octaveMax = 2;
+    Config.tempoMax = 10000;
+    Config.octaveMin = -3;
+    Config.octaveMax = 3;
     Config.echoDelayRange = 24;
     Config.echoDelayStepTicks = 4;
     Config.echoSustainRange = 8;
