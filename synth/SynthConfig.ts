@@ -53,20 +53,20 @@ export const enum GranularEnvelopeType {
 export const enum EnvelopeType {
     none,
     noteSize,
-    pitch, //slarmoo's box 0.9
-    pseudorandom, //slarmoo's box 1.3
+    pitch, 
+    pseudorandom,
 	punch,
 	flare,
 	twang,
 	swell,
-	lfo, //renamed from tremolo in slarmoo's box 1.3
-    tremolo2, //deprecated as of slarmoo's box 1.3; Kept for updating integrity and drumsets
+	lfo, 
+    tremolo2, 
     decay,
     wibble,
     linear,
     rise,
     blip,
-    fall, //slarmoo's box 1.2
+    fall, 
     //add new envelope types here
 }
 
@@ -939,7 +939,7 @@ export class Config {
     ]);
     public static readonly blackKeyNameParents: ReadonlyArray<number> = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     public static readonly tempoMin: number = 1;
-    public static readonly tempoMax: number = 10000;
+    public static readonly tempoMax: number = 1337;
     public static readonly octaveMin: number = -3;
     public static readonly octaveMax: number = 3;
     public static readonly echoDelayRange: number = 24;
