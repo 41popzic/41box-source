@@ -943,7 +943,7 @@ export class Config {
     public static readonly octaveMin: number = -3;
     public static readonly octaveMax: number = 3;
     public static readonly echoDelayRange: number = 24;
-    public static readonly echoDelayStepTicks: number = 4;
+    public static readonly echoDelayStepTicks: number = 20;
     public static readonly echoSustainRange: number = 8;
     public static readonly echoShelfHz: number = 4000.0; // The cutoff freq of the shelf filter that is used to decay echoes.
     public static readonly echoShelfGain: number = Math.pow(2.0, -0.5);
@@ -961,7 +961,7 @@ export class Config {
     public static readonly patternInstrumentCountMax: number = 10;
 	public static readonly partsPerBeat: number = 120;
 	public static readonly ticksPerPart: number = 2;
-	public static readonly ticksPerArpeggio: number = 3;
+	public static readonly ticksPerArpeggio: number = 15;
 	public static readonly arpeggioPatterns: ReadonlyArray<ReadonlyArray<number>> = [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6, 7] ];
 	public static readonly rhythms: DictionaryArray<Rhythm> = toNameMap([
 		{ name: "÷3 (triplets)", stepsPerBeat: 3, /*ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: [/*0*/ 5, /*8*/ 12, /*16*/ 18 /*24*/] },
@@ -1130,21 +1130,21 @@ export class Config {
     public static readonly filterSimpleCutRange: number = 11;
     public static readonly filterSimplePeakRange: number = 8;
 
-    public static readonly fadeInRange: number = 10;
-    public static readonly fadeOutTicks: ReadonlyArray<number> = [-24, -12, -6, -3, -1, 6, 12, 24, 48, 72, 96];
+    public static readonly fadeInRange: number = 50;
+    public static readonly fadeOutTicks: ReadonlyArray<number> = [-120, -60, -30, -15, -5, 30, 60, 120, 240, 360, 480];
     public static readonly fadeOutNeutral: number = 4;
-    public static readonly drumsetFadeOutTicks: number = 48;
+    public static readonly drumsetFadeOutTicks: number = 240;
     public static readonly transitions: DictionaryArray<Transition> = toNameMap([
-        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: false },
-        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: false }
+        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: false },
+        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: false }
     ]);
     public static readonly vibratos: DictionaryArray<Vibrato> = toNameMap([
         { name: "none", amplitude: 0.0, type: 0, delayTicks: 0 },
         { name: "light", amplitude: 0.15, type: 0, delayTicks: 0 },
-        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 37 }, // It will fade in over the previous two ticks.
+        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 185 }, // It will fade in over the previous two ticks.
         { name: "heavy", amplitude: 0.45, type: 0, delayTicks: 0 },
         { name: "shaky", amplitude: 0.1, type: 1, delayTicks: 0 },
         //    { name: "very shaky", amplitude: 1, type: 0, delayTicks: 0 },
@@ -1154,9 +1154,9 @@ export class Config {
         //wackybox
         //	 { name: "quiver", amplitude: 0.001, type: 0, delayTicks: 0 },
         //  { name: "wub-wub", amplitude: 10.0, type: 0, delayTicks: 0 },
-        //     { name: "quiver delayed", amplitude: 0.001, type: 0, delayTicks: 18 },
+        //     { name: "quiver delayed", amplitude: 0.001, type: 0, delayTicks: 90 },
         //  { name: "vibrate", amplitude: 0.08, type: 0, delayTicks: 0 },
-        //    { name: "too much wub", amplitude: 30.0, type: 0, delayTicks: 18 },
+        //    { name: "too much wub", amplitude: 30.0, type: 0, delayTicks: 90 },
         //too much wub breaks things just a little bit at it's original amplitude
         //sandbox
     ]);
@@ -1175,6 +1175,7 @@ export class Config {
         { name: "dissonant", voices: 2, spread: 0.25, offset: 0.0, expression: 0.9, sign: 1.0 },
         { name: "fifth", voices: 2, spread: 3.5, offset: 3.5, expression: 0.9, sign: 1.0 },
         { name: "octave", voices: 2, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
+        { name: "triple octave", voices: 3, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
         { name: "bowed", voices: 2, spread: 0.02, offset: 0.0, expression: 1.0, sign: -1.0 },
         { name: "piano", voices: 2, spread: 0.01, offset: 0.0, expression: 1.0, sign: 0.7 },
         { name: "warbled", voices: 2, spread: 0.25, offset: 0.05, expression: 0.9, sign: -0.8 },

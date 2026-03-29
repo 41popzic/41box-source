@@ -529,7 +529,7 @@ var beepbox = (function (exports) {
     Config.octaveMin = -3;
     Config.octaveMax = 3;
     Config.echoDelayRange = 24;
-    Config.echoDelayStepTicks = 4;
+    Config.echoDelayStepTicks = 20;
     Config.echoSustainRange = 8;
     Config.echoShelfHz = 4000.0;
     Config.echoShelfGain = Math.pow(2.0, -0.5);
@@ -547,7 +547,7 @@ var beepbox = (function (exports) {
     Config.patternInstrumentCountMax = 10;
     Config.partsPerBeat = 120;
     Config.ticksPerPart = 2;
-    Config.ticksPerArpeggio = 3;
+    Config.ticksPerArpeggio = 15;
     Config.arpeggioPatterns = [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6, 7]];
     Config.rhythms = toNameMap([
         { name: "÷3 (triplets)", stepsPerBeat: 3, roundUpThresholds: [5, 12, 18] },
@@ -695,21 +695,21 @@ var beepbox = (function (exports) {
     Config.filterMorphCount = 10;
     Config.filterSimpleCutRange = 11;
     Config.filterSimplePeakRange = 8;
-    Config.fadeInRange = 10;
-    Config.fadeOutTicks = [-24, -12, -6, -3, -1, 6, 12, 24, 48, 72, 96];
+    Config.fadeInRange = 50;
+    Config.fadeOutTicks = [-120, -60, -30, -15, -5, 30, 60, 120, 240, 360, 480];
     Config.fadeOutNeutral = 4;
-    Config.drumsetFadeOutTicks = 48;
+    Config.drumsetFadeOutTicks = 240;
     Config.transitions = toNameMap([
-        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: false },
-        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: false }
+        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: false },
+        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: false }
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, type: 0, delayTicks: 0 },
         { name: "light", amplitude: 0.15, type: 0, delayTicks: 0 },
-        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 37 },
+        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 185 },
         { name: "heavy", amplitude: 0.45, type: 0, delayTicks: 0 },
         { name: "shaky", amplitude: 0.1, type: 1, delayTicks: 0 },
     ]);
@@ -726,6 +726,7 @@ var beepbox = (function (exports) {
         { name: "dissonant", voices: 2, spread: 0.25, offset: 0.0, expression: 0.9, sign: 1.0 },
         { name: "fifth", voices: 2, spread: 3.5, offset: 3.5, expression: 0.9, sign: 1.0 },
         { name: "octave", voices: 2, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
+        { name: "triple octave", voices: 3, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
         { name: "bowed", voices: 2, spread: 0.02, offset: 0.0, expression: 1.0, sign: -1.0 },
         { name: "piano", voices: 2, spread: 0.01, offset: 0.0, expression: 1.0, sign: 0.7 },
         { name: "warbled", voices: 2, spread: 0.25, offset: 0.05, expression: 0.9, sign: -0.8 },
