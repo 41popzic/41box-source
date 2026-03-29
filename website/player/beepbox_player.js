@@ -12761,7 +12761,7 @@ var beepbox = (function (exports) {
             let bits;
             let buffer = [];
             buffer.push(Song._variant);
-            buffer.push(base64IntToCharCode[Song._latestSlarmoosBoxVersion]);
+            buffer.push(base64IntToCharCode[Song._latest41BoxVersion]);
             buffer.push(78);
             var encodedSongTitle = encodeURIComponent(this.title);
             buffer.push(base64IntToCharCode[encodedSongTitle.length >> 6], base64IntToCharCode[encodedSongTitle.length & 0x3f]);
@@ -13795,7 +13795,7 @@ var beepbox = (function (exports) {
                                     }
                                 }
                             }
-                            else if ((fromSlarmoosBox || from41Box && beforeFour) || (fromUltraBox && beforeFive)) {
+                            else if ((fromSlarmoosBox && beforeFour) || (fromUltraBox && beforeFive)) {
                                 const rhythmMap = [1, 1, 0, 1, 2, 3, 4, 5];
                                 this.rhythm = clamp(0, Config.rhythms.length, rhythmMap[base64CharCodeToInt[compressed.charCodeAt(charIndex++)]]);
                             }
@@ -14344,7 +14344,7 @@ var beepbox = (function (exports) {
                                 }
                             }
                             else {
-                                if (fromSlarmoosBox && from41Box && !beforeFour) {
+                                if (from41Box || (fromSlarmoosBox && !beforeFour)) {
                                     const originalControlPointCount = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     this.eqFilter.controlPointCount = clamp(0, Config.filterMaxPoints + 1, originalControlPointCount);
                                     for (let i = this.eqFilter.controlPoints.length; i < this.eqFilter.controlPointCount; i++) {
@@ -14443,7 +14443,7 @@ var beepbox = (function (exports) {
                                 const instrument = this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator];
                                 instrument.unison = clamp(0, Config.unisons.length + 1, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                 const unisonLength = (beforeFive || !fromSlarmoosBox || !from41Box) ? 27 : Config.unisons.length;
-                                if (((fromUltraBox && !beforeFive) || fromSlarmoosBox || !from41Box) && (instrument.unison == unisonLength)) {
+                                if (((fromUltraBox && !beforeFive) || fromSlarmoosBox || from41Box) && (instrument.unison == unisonLength)) {
                                     instrument.unison = Config.unisons.length;
                                     instrument.unisonVoices = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     const unisonSpreadNegative = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -14514,7 +14514,7 @@ var beepbox = (function (exports) {
                                 instrument.convertLegacySettings(legacySettings, forceSimpleFilter);
                             }
                             else {
-                                if (fromSlarmoosBox && from41Box && !beforeFive) {
+                                if (from41Box || (fromSlarmoosBox && !beforeFive)) {
                                     instrument.effects = (base64CharCodeToInt[compressed.charCodeAt(charIndex++)] << 12) | (base64CharCodeToInt[compressed.charCodeAt(charIndex++)] << 6) | (base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                 }
                                 else {
@@ -14580,7 +14580,7 @@ var beepbox = (function (exports) {
                                         instrument.arpeggioSpeed = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                         instrument.fastTwoNoteArp = (base64CharCodeToInt[compressed.charCodeAt(charIndex++)]) ? true : false;
                                     }
-                                    if (instrument.chord == Config.chords.dictionary["monophonic"].index && fromSlarmoosBox && from41Box && !beforeFive) {
+                                    if (instrument.chord == Config.chords.dictionary["monophonic"].index && ((fromSlarmoosBox && !beforeFive) || from41Box)) {
                                         instrument.monoChordTone = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     }
                                 }
@@ -14950,7 +14950,7 @@ var beepbox = (function (exports) {
                                 let envelopeDiscrete = false;
                                 if ((fromJummBox && !beforeSix) || (fromUltraBox && !beforeFive) || (fromSlarmoosBox) || (from41Box)) {
                                     instrument.envelopeSpeed = clamp(0, Config.modulators.dictionary["envelope speed"].maxRawVol + 1, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
-                                    if (!fromSlarmoosBox || !from41Box || beforeFive) {
+                                    if ((!fromSlarmoosBox || beforeFive) && !from41Box) {
                                         envelopeDiscrete = (base64CharCodeToInt[compressed.charCodeAt(charIndex++)]) ? true : false;
                                     }
                                 }
@@ -14966,34 +14966,34 @@ var beepbox = (function (exports) {
                                         aa = pregoldToEnvelope[aa];
                                     if (fromJummBox)
                                         aa = jummToUltraEnvelope[aa];
-                                    if (!fromSlarmoosBox || !from41Box && aa >= 2)
+                                    if (!from41Box && !fromSlarmoosBox && aa >= 2)
                                         aa++;
                                     let updatedEnvelopes = false;
                                     let perEnvelopeSpeed = 1;
-                                    if (!fromSlarmoosBox || !from41Box || beforeThree) {
+                                    if (!fromSlarmoosBox && (!from41Box || beforeThree)) {
                                         updatedEnvelopes = true;
                                         perEnvelopeSpeed = Config.envelopes[aa].speed;
                                         aa = Config.envelopes[aa].type;
                                     }
-                                    else if (beforeFour && aa >= 3)
+                                    else if (!from41Box && beforeFour && aa >= 3)
                                         aa++;
                                     let isTremolo2 = false;
-                                    if ((fromSlarmoosBox || from41Box && !beforeThree && beforeFour) || updatedEnvelopes) {
+                                    if ((fromSlarmoosBox && !beforeThree && beforeFour) || updatedEnvelopes) {
                                         if (aa == 9)
                                             isTremolo2 = true;
                                         aa = slarURL3toURL4Envelope[aa];
                                     }
-                                    const envelope = clamp(0, ((fromSlarmoosBox || from41Box && !beforeThree || updatedEnvelopes) ? Config.newEnvelopes.length : Config.envelopes.length), aa);
+                                    const envelope = clamp(0, ((from41Box || fromSlarmoosBox && !beforeThree || updatedEnvelopes) ? Config.newEnvelopes.length : Config.envelopes.length), aa);
                                     let pitchEnvelopeStart = 0;
                                     let pitchEnvelopeEnd = Config.maxPitch;
                                     let envelopeInverse = false;
-                                    perEnvelopeSpeed = (fromSlarmoosBox || from41Box && !beforeThree) ? Config.newEnvelopes[envelope].speed : perEnvelopeSpeed;
+                                    perEnvelopeSpeed = (from41Box || fromSlarmoosBox && !beforeThree) ? Config.newEnvelopes[envelope].speed : perEnvelopeSpeed;
                                     let perEnvelopeLowerBound = 0;
                                     let perEnvelopeUpperBound = 1;
                                     let steps = 2;
                                     let seed = 2;
                                     let waveform = 0;
-                                    if (fromSlarmoosBox || from41Box && !beforeFour) {
+                                    if (from41Box || fromSlarmoosBox && !beforeFour) {
                                         if (Config.newEnvelopes[envelope].name == "lfo") {
                                             waveform = clamp(0, 7, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                             if (waveform == 5 || waveform == 6) {
@@ -15006,7 +15006,7 @@ var beepbox = (function (exports) {
                                             waveform = clamp(0, 4, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                         }
                                     }
-                                    if (fromSlarmoosBox || from41Box && !beforeThree) {
+                                    if (from41Box || fromSlarmoosBox && !beforeThree) {
                                         if (Config.newEnvelopes[envelope].name == "pitch") {
                                             if (!instrument.isNoiseInstrument) {
                                                 let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -15020,7 +15020,7 @@ var beepbox = (function (exports) {
                                             }
                                         }
                                         let checkboxValues = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
-                                        if (fromSlarmoosBox || from41Box && !beforeFive) {
+                                        if (from41Box || fromSlarmoosBox && !beforeFive) {
                                             envelopeDiscrete = (checkboxValues >> 1) == 1 ? true : false;
                                         }
                                         envelopeInverse = (checkboxValues & 1) == 1 ? true : false;
@@ -15030,7 +15030,7 @@ var beepbox = (function (exports) {
                                         perEnvelopeLowerBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                                         perEnvelopeUpperBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                                     }
-                                    if (!fromSlarmoosBox || !from41Box || beforeFour) {
+                                    if (!fromSlarmoosBox && !from41Box || beforeFour) {
                                         if (isTremolo2) {
                                             waveform = 0;
                                             if (envelopeInverse) {
@@ -15044,7 +15044,7 @@ var beepbox = (function (exports) {
                                         }
                                     }
                                     instrument.addEnvelope(target, index, envelope, true, pitchEnvelopeStart, pitchEnvelopeEnd, envelopeInverse, perEnvelopeSpeed, perEnvelopeLowerBound, perEnvelopeUpperBound, steps, seed, waveform, envelopeDiscrete);
-                                    if (fromSlarmoosBox || from41Box && beforeThree && !beforeTwo) {
+                                    if (fromSlarmoosBox && beforeThree && !beforeTwo) {
                                         let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                         instrument.envelopes[i].pitchEnvelopeStart = pitchEnvelopeCompact * 64 + base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                         pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -15055,7 +15055,7 @@ var beepbox = (function (exports) {
                                 let instrumentPitchEnvelopeStart = 0;
                                 let instrumentPitchEnvelopeEnd = Config.maxPitch;
                                 let instrumentEnvelopeInverse = false;
-                                if (fromSlarmoosBox || from41Box && beforeTwo) {
+                                if (fromSlarmoosBox && beforeTwo) {
                                     let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     instrumentPitchEnvelopeStart = pitchEnvelopeCompact * 64 + base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -16536,7 +16536,7 @@ var beepbox = (function (exports) {
     Song._oldestSlarmoosBoxVersion = 1;
     Song._latestSlarmoosBoxVersion = 5;
     Song._oldest41BoxVersion = 1;
-    Song._latest41BoxVersion = 5;
+    Song._latest41BoxVersion = 1;
     Song._variant = 0x70;
     class PickedString {
         constructor() {
