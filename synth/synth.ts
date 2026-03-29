@@ -3222,7 +3222,7 @@ export class Song {
     private static readonly _latestSlarmoosBoxVersion: number = 5;
     // One-character variant detection at the start of URL to distinguish variants such as JummBox, Or Goldbox. "j" and "g" respectively
     //also "u" is ultrabox lol
-    private static readonly _variant = 0x73; //"s" ~ slarmoo's box
+    private static readonly _variant = 0x70; //"p" ~ 41box
 
     public title: string;
     public scale: number;
