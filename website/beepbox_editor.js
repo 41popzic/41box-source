@@ -784,7 +784,7 @@ var beepbox = (function (exports) {
     Config.chorusMaxDelay = _a$1.chorusDelayRange * (1.0 + _a$1.chorusDelayOffsets[0].concat(_a$1.chorusDelayOffsets[1]).reduce((x, y) => Math.max(x, y)));
     Config.chords = toNameMap([
         { name: "simultaneous", customInterval: false, arpeggiates: false, strumParts: 0, singleTone: false },
-        { name: "strum", customInterval: false, arpeggiates: false, strumParts: 1, singleTone: false },
+        { name: "strum", customInterval: false, arpeggiates: false, strumParts: 5, singleTone: false },
         { name: "arpeggio", customInterval: false, arpeggiates: true, strumParts: 0, singleTone: true },
         { name: "custom interval", customInterval: true, arpeggiates: false, strumParts: 0, singleTone: true },
         { name: "monophonic", customInterval: false, arpeggiates: false, strumParts: 0, singleTone: true }
@@ -13597,17 +13597,17 @@ li.select2-results__option[role=group] > strong:hover {
                 let transition = Config.transitions.dictionary[transitionProperty];
                 if (instrumentObject["fadeInSeconds"] == undefined || instrumentObject["fadeOutTicks"] == undefined) {
                     const legacySettings = {
-                        "binary": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -1 },
-                        "seamless": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -1 },
-                        "sudden": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -3 },
-                        "hard": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -3 },
-                        "smooth": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                        "soft": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                        "slide": { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                        "cross fade": { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 6 },
-                        "hard fade": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 48 },
-                        "medium fade": { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 72 },
-                        "soft fade": { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 96 },
+                        "binary": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
+                        "seamless": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
+                        "sudden": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
+                        "hard": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
+                        "smooth": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                        "soft": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                        "slide": { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                        "cross fade": { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 30 },
+                        "hard fade": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 240 },
+                        "medium fade": { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 360 },
+                        "soft fade": { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 480 },
                     }[transitionProperty];
                     if (legacySettings != undefined) {
                         transition = Config.transitions.dictionary[legacySettings.transition];

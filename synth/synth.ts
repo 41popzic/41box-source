@@ -2391,20 +2391,20 @@ export class Instrument {
             let transition: Transition | undefined = Config.transitions.dictionary[transitionProperty];
             if (instrumentObject["fadeInSeconds"] == undefined || instrumentObject["fadeOutTicks"] == undefined) {
                 const legacySettings = (<any>{
-                    "binary": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -1 },
-                    "seamless": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -1 },
-                    "sudden": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -3 },
-                    "hard": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -3 },
-                    "smooth": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                    "soft": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -3 },
+                    "binary": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
+                    "seamless": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
+                    "sudden": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
+                    "hard": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
+                    "smooth": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                    "soft": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
                     // Note that the old slide transition has the same name as a new slide transition that is different.
                     // Only apply legacy settings if the instrument JSON was created before, based on the presence
                     // of the fade in/out fields.
-                    "slide": { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                    "cross fade": { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 6 },
-                    "hard fade": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 48 },
-                    "medium fade": { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 72 },
-                    "soft fade": { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 96 },
+                    "slide": { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                    "cross fade": { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 30 },
+                    "hard fade": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 240 },
+                    "medium fade": { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 360 },
+                    "soft fade": { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 480 },
                 })[transitionProperty];
                 if (legacySettings != undefined) {
                     transition = Config.transitions.dictionary[legacySettings.transition];
