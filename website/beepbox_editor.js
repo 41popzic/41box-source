@@ -12761,7 +12761,7 @@ li.select2-results__option[role=group] > strong:hover {
             this.target = target.index;
             let envelope = Config.envelopes.dictionary["none"];
             let isTremolo2 = false;
-            if (format == "slarmoosbox") {
+            if (format == "slarmoosbox" || format == "41box") {
                 if (envelopeObject["envelope"] == "tremolo2") {
                     envelope = Config.newEnvelopes[8];
                     isTremolo2 = true;
