@@ -16875,7 +16875,7 @@ li.select2-results__option[role=group] > strong:hover {
                                         aa++;
                                     let updatedEnvelopes = false;
                                     let perEnvelopeSpeed = 1;
-                                    if (!fromSlarmoosBox && (!from41Box || beforeThree)) {
+                                    if (!from41Box && (!fromSlarmoosBox || beforeThree)) {
                                         updatedEnvelopes = true;
                                         perEnvelopeSpeed = Config.envelopes[aa].speed;
                                         aa = Config.envelopes[aa].type;
@@ -16888,7 +16888,7 @@ li.select2-results__option[role=group] > strong:hover {
                                             isTremolo2 = true;
                                         aa = slarURL3toURL4Envelope[aa];
                                     }
-                                    const envelope = clamp(0, (((from41Box || fromSlarmoosBox) && !beforeThree || updatedEnvelopes) ? Config.newEnvelopes.length : Config.envelopes.length), aa);
+                                    const envelope = clamp(0, ((from41Box || (fromSlarmoosBox && !beforeThree) || updatedEnvelopes) ? Config.newEnvelopes.length : Config.envelopes.length), aa);
                                     let pitchEnvelopeStart = 0;
                                     let pitchEnvelopeEnd = Config.maxPitch;
                                     let envelopeInverse = false;
@@ -16935,7 +16935,7 @@ li.select2-results__option[role=group] > strong:hover {
                                         perEnvelopeLowerBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                                         perEnvelopeUpperBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                                     }
-                                    if ((!fromSlarmoosBox && !from41Box) || beforeFour) {
+                                    if ((!fromSlarmoosBox || beforeFour) && !from41Box) {
                                         if (isTremolo2) {
                                             waveform = 0;
                                             if (envelopeInverse) {
@@ -16949,7 +16949,7 @@ li.select2-results__option[role=group] > strong:hover {
                                         }
                                     }
                                     instrument.addEnvelope(target, index, envelope, true, pitchEnvelopeStart, pitchEnvelopeEnd, envelopeInverse, perEnvelopeSpeed, perEnvelopeLowerBound, perEnvelopeUpperBound, steps, seed, waveform, envelopeDiscrete);
-                                    if (fromSlarmoosBox && beforeThree && !beforeTwo) {
+                                    if ((fromSlarmoosBox || from41Box) && beforeThree && !beforeTwo) {
                                         let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                         instrument.envelopes[i].pitchEnvelopeStart = pitchEnvelopeCompact * 64 + base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                         pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -16960,7 +16960,7 @@ li.select2-results__option[role=group] > strong:hover {
                                 let instrumentPitchEnvelopeStart = 0;
                                 let instrumentPitchEnvelopeEnd = Config.maxPitch;
                                 let instrumentEnvelopeInverse = false;
-                                if (fromSlarmoosBox && beforeTwo) {
+                                if ((fromSlarmoosBox || from41Box) && beforeTwo) {
                                     let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     instrumentPitchEnvelopeStart = pitchEnvelopeCompact * 64 + base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
