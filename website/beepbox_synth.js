@@ -7054,15 +7054,15 @@ var beepbox = (function (exports) {
                         {
                             if ((beforeNine && fromBeepBox) || ((fromJummBox && beforeFive) || (beforeFour && fromGoldBox))) {
                                 const legacySettings = [
-                                    { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -1 },
-                                    { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -3 },
-                                    { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                                    { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 6 },
+                                    { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
+                                    { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
+                                    { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                                    { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 30 },
                                     { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 48 },
                                     { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 72 },
                                     { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 96 },
-                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
+                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
                                 ];
                                 if (beforeThree && fromBeepBox) {
                                     const channelIndex = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -7830,7 +7830,7 @@ var beepbox = (function (exports) {
                                         aa = pregoldToEnvelope[aa];
                                     if (fromJummBox)
                                         aa = jummToUltraEnvelope[aa];
-                                    if (!from41Box && !fromSlarmoosBox && aa >= 2)
+                                    if ((!from41Box && !fromSlarmoosBox) && aa >= 2)
                                         aa++;
                                     let updatedEnvelopes = false;
                                     let perEnvelopeSpeed = 1;
@@ -7842,22 +7842,22 @@ var beepbox = (function (exports) {
                                     else if (!from41Box && beforeFour && aa >= 3)
                                         aa++;
                                     let isTremolo2 = false;
-                                    if ((fromSlarmoosBox && !beforeThree && beforeFour) || updatedEnvelopes) {
+                                    if (((fromSlarmoosBox || from41Box) && !beforeThree && beforeFour) || updatedEnvelopes) {
                                         if (aa == 9)
                                             isTremolo2 = true;
                                         aa = slarURL3toURL4Envelope[aa];
                                     }
-                                    const envelope = clamp(0, ((from41Box || fromSlarmoosBox && !beforeThree || updatedEnvelopes) ? Config.newEnvelopes.length : Config.envelopes.length), aa);
+                                    const envelope = clamp(0, (((from41Box || fromSlarmoosBox) && !beforeThree || updatedEnvelopes) ? Config.newEnvelopes.length : Config.envelopes.length), aa);
                                     let pitchEnvelopeStart = 0;
                                     let pitchEnvelopeEnd = Config.maxPitch;
                                     let envelopeInverse = false;
-                                    perEnvelopeSpeed = (from41Box || fromSlarmoosBox && !beforeThree) ? Config.newEnvelopes[envelope].speed : perEnvelopeSpeed;
+                                    perEnvelopeSpeed = ((from41Box || fromSlarmoosBox) && !beforeThree) ? Config.newEnvelopes[envelope].speed : perEnvelopeSpeed;
                                     let perEnvelopeLowerBound = 0;
                                     let perEnvelopeUpperBound = 1;
                                     let steps = 2;
                                     let seed = 2;
                                     let waveform = 0;
-                                    if (from41Box || fromSlarmoosBox && !beforeFour) {
+                                    if ((from41Box || fromSlarmoosBox) && !beforeFour) {
                                         if (Config.newEnvelopes[envelope].name == "lfo") {
                                             waveform = clamp(0, 7, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                             if (waveform == 5 || waveform == 6) {
@@ -7870,7 +7870,7 @@ var beepbox = (function (exports) {
                                             waveform = clamp(0, 4, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                         }
                                     }
-                                    if (from41Box || fromSlarmoosBox && !beforeThree) {
+                                    if ((from41Box || fromSlarmoosBox) && !beforeThree) {
                                         if (Config.newEnvelopes[envelope].name == "pitch") {
                                             if (!instrument.isNoiseInstrument) {
                                                 let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -7884,7 +7884,7 @@ var beepbox = (function (exports) {
                                             }
                                         }
                                         let checkboxValues = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
-                                        if (from41Box || fromSlarmoosBox && !beforeFive) {
+                                        if ((from41Box || fromSlarmoosBox) && !beforeFive) {
                                             envelopeDiscrete = (checkboxValues >> 1) == 1 ? true : false;
                                         }
                                         envelopeInverse = (checkboxValues & 1) == 1 ? true : false;
@@ -7894,7 +7894,7 @@ var beepbox = (function (exports) {
                                         perEnvelopeLowerBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                                         perEnvelopeUpperBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                                     }
-                                    if (!fromSlarmoosBox && !from41Box || beforeFour) {
+                                    if ((!fromSlarmoosBox && !from41Box) || beforeFour) {
                                         if (isTremolo2) {
                                             waveform = 0;
                                             if (envelopeInverse) {

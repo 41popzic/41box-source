@@ -5077,15 +5077,15 @@ export class Song {
                 if ((beforeNine && fromBeepBox) || ((fromJummBox && beforeFive) || (beforeFour && fromGoldBox))) {
                     // this tag was used for a combination of transition and fade in/out.
                     const legacySettings = [
-                        { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -1 },
-                        { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -3 },
-                        { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                        { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                        { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 6 },
+                        { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
+                        { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
+                        { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                        { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                        { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 30 },
                         { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 48 },
                         { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 72 },
                         { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 96 },
-                        { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
+                        { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
                     ];
                     if (beforeThree && fromBeepBox) {
                         const channelIndex: number = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -5883,7 +5883,7 @@ export class Song {
                         let aa: number = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                         if ((beforeTwo && fromGoldBox) || (fromBeepBox)) aa = pregoldToEnvelope[aa];
                         if (fromJummBox) aa = jummToUltraEnvelope[aa];
-                        if (!from41Box && !fromSlarmoosBox && aa >= 2) aa++; //2 for pitch
+                        if ((!from41Box && !fromSlarmoosBox) && aa >= 2) aa++; //2 for pitch
                         let updatedEnvelopes: boolean = false;
                         let perEnvelopeSpeed: number = 1;
                         if (!fromSlarmoosBox && (!from41Box || beforeThree)) {
@@ -5892,22 +5892,22 @@ export class Song {
                             aa = Config.envelopes[aa].type; //update envelopes
                         } else if (!from41Box && beforeFour && aa >= 3) aa++; //3 for random
                         let isTremolo2: boolean = false;
-                        if ((fromSlarmoosBox && !beforeThree && beforeFour) || updatedEnvelopes) { //remove tremolo2
+                        if (((fromSlarmoosBox || from41Box) && !beforeThree && beforeFour) || updatedEnvelopes) { //remove tremolo2
                             if (aa == 9) isTremolo2 = true;
                             aa = slarURL3toURL4Envelope[aa];
                         }
-                        const envelope: number = clamp(0, ((from41Box || fromSlarmoosBox && !beforeThree || updatedEnvelopes) ? Config.newEnvelopes.length : Config.envelopes.length), aa);
+                        const envelope: number = clamp(0, (((from41Box || fromSlarmoosBox) && !beforeThree || updatedEnvelopes) ? Config.newEnvelopes.length : Config.envelopes.length), aa);
                         let pitchEnvelopeStart: number = 0;
                         let pitchEnvelopeEnd: number = Config.maxPitch;
                         let envelopeInverse: boolean = false;
-                        perEnvelopeSpeed = (from41Box || fromSlarmoosBox && !beforeThree) ? Config.newEnvelopes[envelope].speed : perEnvelopeSpeed;
+                        perEnvelopeSpeed = ((from41Box || fromSlarmoosBox) && !beforeThree) ? Config.newEnvelopes[envelope].speed : perEnvelopeSpeed;
                         let perEnvelopeLowerBound: number = 0;
                         let perEnvelopeUpperBound: number = 1;
                         let steps: number = 2;
                         let seed: number = 2;
                         let waveform: number = LFOEnvelopeTypes.sine;
                         //pull out unique envelope setting values first, then general ones
-                        if (from41Box || fromSlarmoosBox && !beforeFour) {
+                        if ((from41Box || fromSlarmoosBox) && !beforeFour) {
                             if (Config.newEnvelopes[envelope].name == "lfo") {
                                 waveform = clamp(0, LFOEnvelopeTypes.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                 if (waveform == LFOEnvelopeTypes.steppedSaw || waveform == LFOEnvelopeTypes.steppedTri) {
@@ -5919,7 +5919,7 @@ export class Song {
                                 waveform = clamp(0, RandomEnvelopeTypes.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]); //we use waveform for the random type as well
                             }
                         }
-                        if (from41Box || fromSlarmoosBox && !beforeThree) {
+                        if ((from41Box || fromSlarmoosBox) && !beforeThree) {
                             if (Config.newEnvelopes[envelope].name == "pitch") {
                                 if (!instrument.isNoiseInstrument) {
                                     let pitchEnvelopeCompact: number = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -5932,7 +5932,7 @@ export class Song {
                                 }
                             }
                             let checkboxValues: number = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
-                            if (from41Box || fromSlarmoosBox && !beforeFive) {
+                            if ((from41Box || fromSlarmoosBox) && !beforeFive) {
                                 envelopeDiscrete = (checkboxValues >> 1) == 1 ? true : false;
                             }
                             envelopeInverse = (checkboxValues & 1) == 1 ? true : false;
@@ -5942,7 +5942,7 @@ export class Song {
                             perEnvelopeLowerBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                             perEnvelopeUpperBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                         }
-                        if (!fromSlarmoosBox && !from41Box || beforeFour) { //update tremolo2
+                        if ((!fromSlarmoosBox && !from41Box) || beforeFour) { //update tremolo2
                             if (isTremolo2) {
                                 waveform = LFOEnvelopeTypes.sine;
                                 if (envelopeInverse) {
