@@ -712,7 +712,7 @@ var beepbox = (function (exports) {
         { name: "dissonant", voices: 2, spread: 0.25, offset: 0.0, expression: 0.9, sign: 1.0 },
         { name: "fifth", voices: 2, spread: 3.5, offset: 3.5, expression: 0.9, sign: 1.0 },
         { name: "octave", voices: 2, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
-        { name: "triple octave", voices: 3, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
+        { name: "triple octave", voices: 3, spread: 12.0, offset: 12.0, expression: 0.8, sign: 1.0 },
         { name: "bowed", voices: 2, spread: 0.02, offset: 0.0, expression: 1.0, sign: -1.0 },
         { name: "piano", voices: 2, spread: 0.01, offset: 0.0, expression: 1.0, sign: 0.7 },
         { name: "warbled", voices: 2, spread: 0.25, offset: 0.05, expression: 0.9, sign: -0.8 },
