@@ -479,7 +479,7 @@ var beepbox = (function (exports) {
     Config.attackVal = 0;
     Config.releaseVal = 0.25;
     Config.willReloadForCustomSamples = false;
-    Config.jsonFormat = "41box";
+    Config.jsonFormat = "slarmoosbox";
     Config.scales = toNameMap([
         { name: "Free", realName: "chromatic", flags: [true, true, true, true, true, true, true, true, true, true, true, true] },
         { name: "Major", realName: "ionian", flags: [true, false, true, false, true, true, false, true, false, true, false, true] },
@@ -489,7 +489,6 @@ var beepbox = (function (exports) {
         { name: "Dorian", realName: "dorian", flags: [true, false, true, true, false, true, false, true, false, true, true, false] },
         { name: "Phrygian", realName: "phrygian", flags: [true, true, false, true, false, true, false, true, true, false, true, false] },
         { name: "Locrian", realName: "locrian", flags: [true, true, false, true, false, true, true, false, true, false, true, false] },
-        { name: "Half Diminished", realName: "aeolian b5/locrian nat2", flags: [true, false, true, true, false, true, true, false, true, false, true, false] },
         { name: "Lydian Dominant", realName: "lydian dominant", flags: [true, false, true, false, true, false, true, true, false, true, true, false] },
         { name: "Phrygian Dominant", realName: "phrygian dominant", flags: [true, true, false, false, true, true, false, true, true, false, true, false] },
         { name: "Harmonic Major", realName: "harmonic major", flags: [true, false, true, false, true, true, false, true, true, false, false, true] },
@@ -498,9 +497,8 @@ var beepbox = (function (exports) {
         { name: "Blues Major", realName: "blues major", flags: [true, false, true, true, true, false, false, true, false, true, false, false] },
         { name: "Blues", realName: "blues", flags: [true, false, false, true, false, true, true, true, false, false, true, false] },
         { name: "Altered", realName: "altered", flags: [true, true, false, true, true, false, true, false, true, false, true, false] },
-        { name: "Major Pent.", realName: "major pentatonic", flags: [true, false, true, false, true, false, false, true, false, true, false, false] },
-        { name: "Minor Pent.", realName: "minor pentatonic", flags: [true, false, false, true, false, true, false, true, false, false, true, false] },
-        { name: "Locrian Pent.", realName: "iwato", flags: [true, true, false, false, false, true, true, false, false, false, true, false] },
+        { name: "Major Pentatonic", realName: "major pentatonic", flags: [true, false, true, false, true, false, false, true, false, true, false, false] },
+        { name: "Minor Pentatonic", realName: "minor pentatonic", flags: [true, false, false, true, false, true, false, true, false, false, true, false] },
         { name: "Whole Tone", realName: "whole tone", flags: [true, false, true, false, true, false, true, false, true, false, true, false] },
         { name: "Octatonic", realName: "octatonic", flags: [true, false, true, true, false, true, true, false, true, true, false, true] },
         { name: "Hexatonic", realName: "hexatonic", flags: [true, false, false, true, true, false, false, true, true, false, false, true] },
@@ -525,11 +523,11 @@ var beepbox = (function (exports) {
     ]);
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.tempoMin = 1;
-    Config.tempoMax = 1337;
-    Config.octaveMin = -3;
-    Config.octaveMax = 3;
+    Config.tempoMax = 500;
+    Config.octaveMin = -2;
+    Config.octaveMax = 2;
     Config.echoDelayRange = 24;
-    Config.echoDelayStepTicks = 20;
+    Config.echoDelayStepTicks = 4;
     Config.echoSustainRange = 8;
     Config.echoShelfHz = 4000.0;
     Config.echoShelfGain = Math.pow(2.0, -0.5);
@@ -545,14 +543,13 @@ var beepbox = (function (exports) {
     Config.instrumentCountMin = 1;
     Config.layeredInstrumentCountMax = 10;
     Config.patternInstrumentCountMax = 10;
-    Config.partsPerBeat = 120;
+    Config.partsPerBeat = 24;
     Config.ticksPerPart = 2;
-    Config.ticksPerArpeggio = 15;
+    Config.ticksPerArpeggio = 3;
     Config.arpeggioPatterns = [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6, 7]];
     Config.rhythms = toNameMap([
         { name: "÷3 (triplets)", stepsPerBeat: 3, roundUpThresholds: [5, 12, 18] },
         { name: "÷4 (standard)", stepsPerBeat: 4, roundUpThresholds: [3, 9, 17, 21] },
-        { name: "÷5 (quintuplets)", stepsPerBeat: 5, roundUpThresholds: null },
         { name: "÷6", stepsPerBeat: 6, roundUpThresholds: null },
         { name: "÷8", stepsPerBeat: 8, roundUpThresholds: null },
         { name: "÷12", stepsPerBeat: 12, roundUpThresholds: null },
@@ -695,21 +692,21 @@ var beepbox = (function (exports) {
     Config.filterMorphCount = 10;
     Config.filterSimpleCutRange = 11;
     Config.filterSimplePeakRange = 8;
-    Config.fadeInRange = 50;
-    Config.fadeOutTicks = [-120, -60, -30, -15, -5, 30, 60, 120, 240, 360, 480];
+    Config.fadeInRange = 10;
+    Config.fadeOutTicks = [-24, -12, -6, -3, -1, 6, 12, 24, 48, 72, 96];
     Config.fadeOutNeutral = 4;
-    Config.drumsetFadeOutTicks = 240;
+    Config.drumsetFadeOutTicks = 48;
     Config.transitions = toNameMap([
-        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: false },
-        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: false }
+        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: false },
+        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
+        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
+        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: true },
+        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: false }
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, type: 0, delayTicks: 0 },
         { name: "light", amplitude: 0.15, type: 0, delayTicks: 0 },
-        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 185 },
+        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 37 },
         { name: "heavy", amplitude: 0.45, type: 0, delayTicks: 0 },
         { name: "shaky", amplitude: 0.1, type: 1, delayTicks: 0 },
     ]);
@@ -726,7 +723,6 @@ var beepbox = (function (exports) {
         { name: "dissonant", voices: 2, spread: 0.25, offset: 0.0, expression: 0.9, sign: 1.0 },
         { name: "fifth", voices: 2, spread: 3.5, offset: 3.5, expression: 0.9, sign: 1.0 },
         { name: "octave", voices: 2, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
-        { name: "triple octave", voices: 3, spread: 12.0, offset: 12.0, expression: 0.8, sign: 1.0 },
         { name: "bowed", voices: 2, spread: 0.02, offset: 0.0, expression: 1.0, sign: -1.0 },
         { name: "piano", voices: 2, spread: 0.01, offset: 0.0, expression: 1.0, sign: 0.7 },
         { name: "warbled", voices: 2, spread: 0.25, offset: 0.05, expression: 0.9, sign: -0.8 },
@@ -784,7 +780,7 @@ var beepbox = (function (exports) {
     Config.chorusMaxDelay = _a$1.chorusDelayRange * (1.0 + _a$1.chorusDelayOffsets[0].concat(_a$1.chorusDelayOffsets[1]).reduce((x, y) => Math.max(x, y)));
     Config.chords = toNameMap([
         { name: "simultaneous", customInterval: false, arpeggiates: false, strumParts: 0, singleTone: false },
-        { name: "strum", customInterval: false, arpeggiates: false, strumParts: 5, singleTone: false },
+        { name: "strum", customInterval: false, arpeggiates: false, strumParts: 1, singleTone: false },
         { name: "arpeggio", customInterval: false, arpeggiates: true, strumParts: 0, singleTone: true },
         { name: "custom interval", customInterval: true, arpeggiates: false, strumParts: 0, singleTone: true },
         { name: "monophonic", customInterval: false, arpeggiates: false, strumParts: 0, singleTone: true }
@@ -12761,7 +12757,7 @@ li.select2-results__option[role=group] > strong:hover {
             this.target = target.index;
             let envelope = Config.envelopes.dictionary["none"];
             let isTremolo2 = false;
-            if (format == "slarmoosbox" || format == "41box") {
+            if (format == "slarmoosbox") {
                 if (envelopeObject["envelope"] == "tremolo2") {
                     envelope = Config.newEnvelopes[8];
                     isTremolo2 = true;
@@ -15402,7 +15398,7 @@ li.select2-results__option[role=group] > strong:hover {
             this.initToDefault((fromBeepBox && beforeNine) || ((fromJummBox && beforeFive) || (beforeFour && fromGoldBox)));
             const forceSimpleFilter = (fromBeepBox && beforeNine || fromJummBox && beforeFive);
             let willLoadLegacySamplesForOldSongs = false;
-            if (fromSlarmoosBox || fromUltraBox || fromGoldBox || from41Box) {
+            if (from41Box || fromSlarmoosBox || fromUltraBox || fromGoldBox) {
                 compressed = compressed.replaceAll("%7C", "|");
                 var compressed_array = compressed.split("|");
                 compressed = compressed_array.shift();
@@ -16095,15 +16091,15 @@ li.select2-results__option[role=group] > strong:hover {
                         {
                             if ((beforeNine && fromBeepBox) || ((fromJummBox && beforeFive) || (beforeFour && fromGoldBox))) {
                                 const legacySettings = [
-                                    { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
-                                    { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
-                                    { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
-                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
-                                    { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 30 },
+                                    { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -1 },
+                                    { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -3 },
+                                    { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -3 },
+                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
+                                    { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 6 },
                                     { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 48 },
                                     { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 72 },
                                     { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 96 },
-                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
                                 ];
                                 if (beforeThree && fromBeepBox) {
                                     const channelIndex = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -16871,7 +16867,7 @@ li.select2-results__option[role=group] > strong:hover {
                                         aa = pregoldToEnvelope[aa];
                                     if (fromJummBox)
                                         aa = jummToUltraEnvelope[aa];
-                                    if ((!from41Box && !fromSlarmoosBox) && aa >= 2)
+                                    if (!from41Box && !fromSlarmoosBox && aa >= 2)
                                         aa++;
                                     let updatedEnvelopes = false;
                                     let perEnvelopeSpeed = 1;
@@ -16883,7 +16879,7 @@ li.select2-results__option[role=group] > strong:hover {
                                     else if (!from41Box && beforeFour && aa >= 3)
                                         aa++;
                                     let isTremolo2 = false;
-                                    if (((fromSlarmoosBox || from41Box) && !beforeThree && beforeFour) || updatedEnvelopes) {
+                                    if ((fromSlarmoosBox && !beforeThree && beforeFour) || updatedEnvelopes) {
                                         if (aa == 9)
                                             isTremolo2 = true;
                                         aa = slarURL3toURL4Envelope[aa];
@@ -16892,13 +16888,13 @@ li.select2-results__option[role=group] > strong:hover {
                                     let pitchEnvelopeStart = 0;
                                     let pitchEnvelopeEnd = Config.maxPitch;
                                     let envelopeInverse = false;
-                                    perEnvelopeSpeed = ((from41Box || fromSlarmoosBox) && !beforeThree) ? Config.newEnvelopes[envelope].speed : perEnvelopeSpeed;
+                                    perEnvelopeSpeed = (from41Box || (fromSlarmoosBox && !beforeThree)) ? Config.newEnvelopes[envelope].speed : perEnvelopeSpeed;
                                     let perEnvelopeLowerBound = 0;
                                     let perEnvelopeUpperBound = 1;
                                     let steps = 2;
                                     let seed = 2;
                                     let waveform = 0;
-                                    if ((from41Box || fromSlarmoosBox) && !beforeFour) {
+                                    if (fromSlarmoosBox || from41Box && !beforeFour) {
                                         if (Config.newEnvelopes[envelope].name == "lfo") {
                                             waveform = clamp(0, 7, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                             if (waveform == 5 || waveform == 6) {
@@ -16911,7 +16907,7 @@ li.select2-results__option[role=group] > strong:hover {
                                             waveform = clamp(0, 4, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                         }
                                     }
-                                    if ((from41Box || fromSlarmoosBox) && !beforeThree) {
+                                    if (from41Box || (fromSlarmoosBox && !beforeThree)) {
                                         if (Config.newEnvelopes[envelope].name == "pitch") {
                                             if (!instrument.isNoiseInstrument) {
                                                 let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -16925,7 +16921,7 @@ li.select2-results__option[role=group] > strong:hover {
                                             }
                                         }
                                         let checkboxValues = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
-                                        if ((from41Box || fromSlarmoosBox) && !beforeFive) {
+                                        if (from41Box || (fromSlarmoosBox && !beforeFive)) {
                                             envelopeDiscrete = (checkboxValues >> 1) == 1 ? true : false;
                                         }
                                         envelopeInverse = (checkboxValues & 1) == 1 ? true : false;
@@ -16935,7 +16931,7 @@ li.select2-results__option[role=group] > strong:hover {
                                         perEnvelopeLowerBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                                         perEnvelopeUpperBound = base64CharCodeToInt[compressed.charCodeAt(charIndex++)] / 10;
                                     }
-                                    if ((!fromSlarmoosBox || beforeFour) && !from41Box) {
+                                    if ((!fromSlarmoosBox && !from41Box) || beforeFour) {
                                         if (isTremolo2) {
                                             waveform = 0;
                                             if (envelopeInverse) {
@@ -16949,7 +16945,7 @@ li.select2-results__option[role=group] > strong:hover {
                                         }
                                     }
                                     instrument.addEnvelope(target, index, envelope, true, pitchEnvelopeStart, pitchEnvelopeEnd, envelopeInverse, perEnvelopeSpeed, perEnvelopeLowerBound, perEnvelopeUpperBound, steps, seed, waveform, envelopeDiscrete);
-                                    if ((fromSlarmoosBox || from41Box) && beforeThree && !beforeTwo) {
+                                    if (fromSlarmoosBox && beforeThree && !beforeTwo) {
                                         let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                         instrument.envelopes[i].pitchEnvelopeStart = pitchEnvelopeCompact * 64 + base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                         pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -16960,7 +16956,7 @@ li.select2-results__option[role=group] > strong:hover {
                                 let instrumentPitchEnvelopeStart = 0;
                                 let instrumentPitchEnvelopeEnd = Config.maxPitch;
                                 let instrumentEnvelopeInverse = false;
-                                if ((fromSlarmoosBox || from41Box) && beforeTwo) {
+                                if (fromSlarmoosBox && beforeTwo) {
                                     let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     instrumentPitchEnvelopeStart = pitchEnvelopeCompact * 64 + base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                     pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];

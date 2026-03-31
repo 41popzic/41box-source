@@ -53,20 +53,20 @@ export const enum GranularEnvelopeType {
 export const enum EnvelopeType {
     none,
     noteSize,
-    pitch, 
-    pseudorandom,
+    pitch, //slarmoo's box 0.9
+    pseudorandom, //slarmoo's box 1.3
 	punch,
 	flare,
 	twang,
 	swell,
-	lfo, 
-    tremolo2, 
+	lfo, //renamed from tremolo in slarmoo's box 1.3
+    tremolo2, //deprecated as of slarmoo's box 1.3; Kept for updating integrity and drumsets
     decay,
     wibble,
     linear,
     rise,
     blip,
-    fall, 
+    fall, //slarmoo's box 1.2
     //add new envelope types here
 }
 
@@ -875,7 +875,7 @@ export class Config {
 
     public static willReloadForCustomSamples: boolean = false;
 
-    public static jsonFormat: string = "41box";
+    public static jsonFormat: string = "slarmoosbox";
     // public static thurmboxImportUrl: string = "https://file.garden/ZMQ0Om5nmTe-x2hq/PandoraArchive%20Samples/";
 
     public static readonly scales: DictionaryArray<Scale> = toNameMap([
@@ -889,7 +889,6 @@ export class Config {
         { name: "Dorian", realName: "dorian", flags: [true, false, true, true, false, true, false, true, false, true, true, false] }, // Dorian
         { name: "Phrygian", realName: "phrygian", flags: [true, true, false, true, false, true, false, true, true, false, true, false] }, // Phrygian
         { name: "Locrian", realName: "locrian", flags: [true, true, false, true, false, true, true, false, true, false, true, false] }, // Locrian
-        { name: "Half Diminished", realName: "aeolian b5/locrian nat2", flags: [true, false, true, true, false, true, true, false, true, false, true, false] }, // Half Diminished
         { name: "Lydian Dominant", realName: "lydian dominant", flags: [true, false, true, false, true, false, true, true, false, true, true, false] }, // Lydian Dominant
         { name: "Phrygian Dominant", realName: "phrygian dominant", flags: [true, true, false, false, true, true, false, true, true, false, true, false] }, // Phrygian Dominant
         { name: "Harmonic Major", realName: "harmonic major", flags: [true, false, true, false, true, true, false, true, true, false, false, true] }, // Harmonic Major
@@ -898,14 +897,12 @@ export class Config {
         { name: "Blues Major", realName: "blues major", flags: [true, false, true, true, true,false, false, true, false, true, false, false] }, // Blues Major
         { name: "Blues", realName: "blues", flags: [true, false, false, true, false, true, true, true, false, false, true, false] }, // Blues
         { name: "Altered", realName: "altered", flags: [true, true, false, true, true, false, true, false, true, false, true, false] }, // Altered
-        { name: "Major Pent.", realName: "major pentatonic", flags: [true, false, true, false, true, false, false, true, false, true, false, false] }, // Major Pentatonic
-        { name: "Minor Pent.", realName: "minor pentatonic", flags: [true, false, false, true, false, true, false, true, false, false, true, false] }, // Minor Pentatonic
-        { name: "Locrian Pent.", realName: "iwato", flags: [true, true, false, false, false, true, true, false, false, false, true, false] }, // Locrian Pentatonic
+        { name: "Major Pentatonic", realName: "major pentatonic", flags: [true, false, true, false, true, false, false, true, false, true, false, false] }, // Major Pentatonic
+        { name: "Minor Pentatonic", realName: "minor pentatonic", flags: [true, false, false, true, false, true, false, true, false, false, true, false] }, // Minor Pentatonic
         { name: "Whole Tone", realName: "whole tone", flags: [true, false, true, false, true, false, true, false, true, false, true, false] }, // Whole Tone
         { name: "Octatonic", realName: "octatonic", flags: [true, false, true, true, false, true, true, false, true, true, false, true] }, // Octatonic
         { name: "Hexatonic", realName: "hexatonic", flags: [true, false, false, true, true, false, false, true, true, false, false, true] }, // Hexatonic
         // TODO: remove these with 2.3
-        // slarmoo what does that mean
         // modbox
         { name: "No Dabbing (MB)", realName: "no dabbing", flags:[true, true, false, true, true, true, true, true, true, false, true, false] },
         // todbox
@@ -926,8 +923,6 @@ export class Config {
         { name: "A", isWhiteKey: true, basePitch: 21 },
         { name: "A♯", isWhiteKey: false, basePitch: 22 },
         { name: "B", isWhiteKey: true, basePitch: 23 },
-        // { name: "what", isWhiteKey: true, basePitch: 41 },
-        // i was gonna put that in but idk bruh it ruins the perfect uniform of 41box
         // { name: "C+", isWhiteKey: false, basePitch: 24 },
         //taken from todbox, called "B#" for some reason lol
         // { name: "G- (actually F#-)", isWhiteKey: false, basePitch: 6 },
@@ -939,11 +934,11 @@ export class Config {
     ]);
     public static readonly blackKeyNameParents: ReadonlyArray<number> = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     public static readonly tempoMin: number = 1;
-    public static readonly tempoMax: number = 1337;
-    public static readonly octaveMin: number = -3;
-    public static readonly octaveMax: number = 3;
+    public static readonly tempoMax: number = 500;
+    public static readonly octaveMin: number = -2;
+    public static readonly octaveMax: number = 2;
     public static readonly echoDelayRange: number = 24;
-    public static readonly echoDelayStepTicks: number = 20;
+    public static readonly echoDelayStepTicks: number = 4;
     public static readonly echoSustainRange: number = 8;
     public static readonly echoShelfHz: number = 4000.0; // The cutoff freq of the shelf filter that is used to decay echoes.
     public static readonly echoShelfGain: number = Math.pow(2.0, -0.5);
@@ -959,14 +954,13 @@ export class Config {
     public static readonly instrumentCountMin: number = 1;
     public static readonly layeredInstrumentCountMax: number = 10;
     public static readonly patternInstrumentCountMax: number = 10;
-	public static readonly partsPerBeat: number = 120;
+	public static readonly partsPerBeat: number = 24;
 	public static readonly ticksPerPart: number = 2;
-	public static readonly ticksPerArpeggio: number = 15;
+	public static readonly ticksPerArpeggio: number = 3;
 	public static readonly arpeggioPatterns: ReadonlyArray<ReadonlyArray<number>> = [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6, 7] ];
 	public static readonly rhythms: DictionaryArray<Rhythm> = toNameMap([
 		{ name: "÷3 (triplets)", stepsPerBeat: 3, /*ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: [/*0*/ 5, /*8*/ 12, /*16*/ 18 /*24*/] },
 		{ name: "÷4 (standard)", stepsPerBeat: 4, /*ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 0, 1, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: [/*0*/ 3, /*6*/ 9, /*12*/ 17, /*18*/ 21 /*24*/] },
-        { name: "÷5 (quintuplets)", stepsPerBeat: 5, /*ticksPerArpeggio: 5, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: null },
 		{ name: "÷6", stepsPerBeat: 6, /*ticksPerArpeggio: 4, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: null },
 		{ name: "÷8", stepsPerBeat: 8, /*ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3]]*/ roundUpThresholds: null },
         { name: "÷12", stepsPerBeat: 12, /*ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1], [0, 1, 2, 1]]*/ roundUpThresholds: null },
@@ -976,7 +970,7 @@ export class Config {
     public static readonly instrumentTypeNames: ReadonlyArray<string> = ["chip", "FM", "noise", "spectrum", "drumset", "harmonics", "PWM", "Picked String", "supersaw", "custom chip", "mod", "FM6op"];
     public static readonly instrumentTypeHasSpecialInterval: ReadonlyArray<boolean> = [true, true, false, false, false, true, false, false, false, false, false];
     public static readonly chipBaseExpression: number = 0.03375; // Doubled by unison feature, but affected by expression adjustments per unison setting and wave shape. Custom chip is multiplied by 0.05 in instrumentState.updateWaves
-    public static readonly fmBaseExpression: number = 0.03; 
+    public static readonly fmBaseExpression: number = 0.03;
     public static readonly noiseBaseExpression: number = 0.19;
     public static readonly spectrumBaseExpression: number = 0.3; // Spectrum can be in pitch or noise channels, the expression is doubled for noise.
     public static readonly drumsetBaseExpression: number = 0.45; // Drums tend to be loud but brief!
@@ -1130,21 +1124,21 @@ export class Config {
     public static readonly filterSimpleCutRange: number = 11;
     public static readonly filterSimplePeakRange: number = 8;
 
-    public static readonly fadeInRange: number = 50;
-    public static readonly fadeOutTicks: ReadonlyArray<number> = [-120, -60, -30, -15, -5, 30, 60, 120, 240, 360, 480];
+    public static readonly fadeInRange: number = 10;
+    public static readonly fadeOutTicks: ReadonlyArray<number> = [-24, -12, -6, -3, -1, 6, 12, 24, 48, 72, 96];
     public static readonly fadeOutNeutral: number = 4;
-    public static readonly drumsetFadeOutTicks: number = 240;
+    public static readonly drumsetFadeOutTicks: number = 48;
     public static readonly transitions: DictionaryArray<Transition> = toNameMap([
-        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: false },
-        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: false }
+        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: false },
+        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
+        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
+        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: true },
+        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: false }
     ]);
     public static readonly vibratos: DictionaryArray<Vibrato> = toNameMap([
         { name: "none", amplitude: 0.0, type: 0, delayTicks: 0 },
         { name: "light", amplitude: 0.15, type: 0, delayTicks: 0 },
-        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 185 }, // It will fade in over the previous two ticks.
+        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 37 }, // It will fade in over the previous two ticks.
         { name: "heavy", amplitude: 0.45, type: 0, delayTicks: 0 },
         { name: "shaky", amplitude: 0.1, type: 1, delayTicks: 0 },
         //    { name: "very shaky", amplitude: 1, type: 0, delayTicks: 0 },
@@ -1154,9 +1148,9 @@ export class Config {
         //wackybox
         //	 { name: "quiver", amplitude: 0.001, type: 0, delayTicks: 0 },
         //  { name: "wub-wub", amplitude: 10.0, type: 0, delayTicks: 0 },
-        //     { name: "quiver delayed", amplitude: 0.001, type: 0, delayTicks: 90 },
+        //     { name: "quiver delayed", amplitude: 0.001, type: 0, delayTicks: 18 },
         //  { name: "vibrate", amplitude: 0.08, type: 0, delayTicks: 0 },
-        //    { name: "too much wub", amplitude: 30.0, type: 0, delayTicks: 90 },
+        //    { name: "too much wub", amplitude: 30.0, type: 0, delayTicks: 18 },
         //too much wub breaks things just a little bit at it's original amplitude
         //sandbox
     ]);
@@ -1175,7 +1169,6 @@ export class Config {
         { name: "dissonant", voices: 2, spread: 0.25, offset: 0.0, expression: 0.9, sign: 1.0 },
         { name: "fifth", voices: 2, spread: 3.5, offset: 3.5, expression: 0.9, sign: 1.0 },
         { name: "octave", voices: 2, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
-        { name: "triple octave", voices: 3, spread: 12.0, offset: 12.0, expression: 0.8, sign: 1.0 },
         { name: "bowed", voices: 2, spread: 0.02, offset: 0.0, expression: 1.0, sign: -1.0 },
         { name: "piano", voices: 2, spread: 0.01, offset: 0.0, expression: 1.0, sign: 0.7 },
         { name: "warbled", voices: 2, spread: 0.25, offset: 0.05, expression: 0.9, sign: -0.8 },
@@ -1237,7 +1230,7 @@ export class Config {
     public static readonly chorusMaxDelay: number = Config.chorusDelayRange * (1.0 + Config.chorusDelayOffsets[0].concat(Config.chorusDelayOffsets[1]).reduce((x, y) => Math.max(x, y)));
     public static readonly chords: DictionaryArray<Chord> = toNameMap([
         { name: "simultaneous", customInterval: false, arpeggiates: false, strumParts: 0, singleTone: false },
-        { name: "strum", customInterval: false, arpeggiates: false, strumParts: 5, singleTone: false },
+        { name: "strum", customInterval: false, arpeggiates: false, strumParts: 1, singleTone: false },
         { name: "arpeggio", customInterval: false, arpeggiates: true, strumParts: 0, singleTone: true },
         { name: "custom interval", customInterval: true, arpeggiates: false, strumParts: 0, singleTone: true },
         { name: "monophonic", customInterval: false, arpeggiates: false, strumParts: 0, singleTone: true}
