@@ -10152,6 +10152,8 @@ var beepbox = (function (exports) {
                         }
                         if (time > song.beatsPerBar * Config.partsPerBeat)
                             continue;
+                        if (!Number.isFinite(time))
+                            continue;
                         if (note.pins.length == 0) {
                             note.start = time;
                             startInterval = interval;
@@ -10199,7 +10201,7 @@ var beepbox = (function (exports) {
                     else {
                         note.continuesLastPattern = false;
                     }
-                    if ((format != "ultrabox" && format != "slarmoosbox") && instrument.modulators[mod] == Config.modulators.dictionary["tempo"].index) {
+                    if ((format != "ultrabox" && format != "slarmoosbox" && format != "41box") && instrument.modulators[mod] == Config.modulators.dictionary["tempo"].index) {
                         for (const pin of note.pins) {
                             const oldMin = 30;
                             const newMin = 1;

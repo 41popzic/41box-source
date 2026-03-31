@@ -607,6 +607,7 @@ export class Pattern {
                     }
 
                     if (time > song.beatsPerBar * Config.partsPerBeat) continue;
+                    if (!Number.isFinite(time)) continue;
                     if (note.pins.length == 0) {
                         //if (time < noteClock) continue;
                         note.start = time;
@@ -657,7 +658,7 @@ export class Pattern {
                     note.continuesLastPattern = false;
                 }
 
-                if ((format != "ultrabox" && format != "slarmoosbox") && instrument.modulators[mod] == Config.modulators.dictionary["tempo"].index) {
+                if ((format != "ultrabox" && format != "slarmoosbox" && format !="41box") && instrument.modulators[mod] == Config.modulators.dictionary["tempo"].index) {
                     for (const pin of note.pins) {
                         const oldMin: number = 30;
                         const newMin: number = 1;
