@@ -3553,6 +3553,7 @@ export class Song {
 
     //This determines the url
     public toBase64String(): string {
+        
         let bits: BitFieldWriter;
         let buffer: number[] = [];
 
