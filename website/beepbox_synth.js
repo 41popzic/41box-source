@@ -6657,7 +6657,7 @@ var beepbox = (function (exports) {
                                     }
                                 }
                             }
-                            else if ((fromSlarmoosBox && beforeFour) || (fromUltraBox && beforeFive)) {
+                            else if (((fromSlarmoosBox && beforeFour) || from41Box) || (fromUltraBox && beforeFive)) {
                                 const rhythmMap = [1, 1, 0, 1, 2, 3, 4, 5];
                                 this.rhythm = clamp(0, Config.rhythms.length, rhythmMap[base64CharCodeToInt[compressed.charCodeAt(charIndex++)]]);
                             }
@@ -7855,7 +7855,7 @@ var beepbox = (function (exports) {
                                     let steps = 2;
                                     let seed = 2;
                                     let waveform = 0;
-                                    if (fromSlarmoosBox || from41Box && !beforeFour) {
+                                    if ((fromSlarmoosBox && !beforeFour) || from41Box) {
                                         if (Config.newEnvelopes[envelope].name == "lfo") {
                                             waveform = clamp(0, 7, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                             if (waveform == 5 || waveform == 6) {
@@ -7868,7 +7868,7 @@ var beepbox = (function (exports) {
                                             waveform = clamp(0, 4, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                         }
                                     }
-                                    if (from41Box || (fromSlarmoosBox && !beforeThree)) {
+                                    if ((fromSlarmoosBox && !beforeThree) || from41Box) {
                                         if (Config.newEnvelopes[envelope].name == "pitch") {
                                             if (!instrument.isNoiseInstrument) {
                                                 let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];

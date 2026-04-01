@@ -4675,7 +4675,7 @@ export class Song {
                             useFastTwoNoteArp = true;
                         }
                     }
-                } else if ((fromSlarmoosBox && beforeFour) || (fromUltraBox && beforeFive)) {
+                } else if (((fromSlarmoosBox && beforeFour) || from41Box) || (fromUltraBox && beforeFive)) {
                     const rhythmMap = [1, 1, 0, 1, 2, 3, 4, 5];
                     this.rhythm = clamp(0, Config.rhythms.length, rhythmMap[base64CharCodeToInt[compressed.charCodeAt(charIndex++)]]);
                 } else {
@@ -5909,7 +5909,7 @@ export class Song {
                         let seed: number = 2;
                         let waveform: number = LFOEnvelopeTypes.sine;
                         //pull out unique envelope setting values first, then general ones
-                        if (fromSlarmoosBox || from41Box && !beforeFour) {
+                        if ((fromSlarmoosBox && !beforeFour) || from41Box) {
                             if (Config.newEnvelopes[envelope].name == "lfo") {
                                 waveform = clamp(0, LFOEnvelopeTypes.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                 if (waveform == LFOEnvelopeTypes.steppedSaw || waveform == LFOEnvelopeTypes.steppedTri) {
@@ -5921,7 +5921,7 @@ export class Song {
                                 waveform = clamp(0, RandomEnvelopeTypes.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]); //we use waveform for the random type as well
                             }
                         }
-                        if (from41Box || (fromSlarmoosBox && !beforeThree)) {
+                        if ((fromSlarmoosBox && !beforeThree) || from41Box) {
                             if (Config.newEnvelopes[envelope].name == "pitch") {
                                 if (!instrument.isNoiseInstrument) {
                                     let pitchEnvelopeCompact: number = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -5958,7 +5958,7 @@ export class Song {
                         }
 
                         instrument.addEnvelope(target, index, envelope, true, pitchEnvelopeStart, pitchEnvelopeEnd, envelopeInverse, perEnvelopeSpeed, perEnvelopeLowerBound, perEnvelopeUpperBound, steps, seed, waveform, envelopeDiscrete);
-                        if (fromSlarmoosBox && beforeThree && !beforeTwo) {
+                        if (fromSlarmoosBox && beforeThree && !beforeTwo) { // what if it wasn't from Slarmoo's Box :O
                             let pitchEnvelopeCompact: number = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                             instrument.envelopes[i].pitchEnvelopeStart = pitchEnvelopeCompact * 64 + base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                             pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
