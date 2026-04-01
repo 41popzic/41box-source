@@ -1375,7 +1375,7 @@ export class Config {
         { name: "decay 2", type: EnvelopeType.decay, speed: 7.0 },
         { name: "decay 3", type: EnvelopeType.decay, speed: 4.0 },
         { name: "wibble-1", type: EnvelopeType.wibble, speed: 128.0 }, //Changed speed from 96 to 128. I forgot to include a 96 earlier, and now it's too late to add one, so we have this now. Hopefully no one notices
-        { name: "wibble 1", type: EnvelopeType.wibble, speed: 24.0 },
+        { name: "wibble 1", type: EnvelopeType.wibble, speed: 24.0 }, // slarmoo you thought you could get away with this
         { name: "wibble 2", type: EnvelopeType.wibble, speed: 12.0 },
         { name: "wibble 3", type: EnvelopeType.wibble, speed: 4.0 },
         { name: "linear-2", type: EnvelopeType.linear, speed: 256.0 },
