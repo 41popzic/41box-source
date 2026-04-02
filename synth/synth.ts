@@ -5344,7 +5344,8 @@ export class Song {
                 } else {
                     const instrument = this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator];
                     instrument.unison = clamp(0, Config.unisons.length + 1, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
-                    const unisonLength = (beforeFive || !fromSlarmoosBox || !from41Box) ? 27 : Config.unisons.length; //27 was the old length before I added >2 voice presets
+                    const unisonLength = ((beforeFive || !fromSlarmoosBox) && !from41Box) ? 27 : Config.unisons.length; //27 was the old length before I added >2 voice presets
+                    
                     if (((fromUltraBox && !beforeFive) || fromSlarmoosBox || from41Box) && (instrument.unison == unisonLength)) {
                         // if (instrument.unison == Config.unisons.length) {
                         instrument.unison = Config.unisons.length;
@@ -5921,7 +5922,7 @@ export class Song {
                                 waveform = clamp(0, RandomEnvelopeTypes.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]); //we use waveform for the random type as well
                             }
                         }
-                        if ((fromSlarmoosBox && !beforeThree) || from41Box) {
+                        if (from41Box || (!beforeThree && fromSlarmoosBox)) {
                             if (Config.newEnvelopes[envelope].name == "pitch") {
                                 if (!instrument.isNoiseInstrument) {
                                     let pitchEnvelopeCompact: number = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];

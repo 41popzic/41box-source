@@ -16345,7 +16345,7 @@ li.select2-results__option[role=group] > strong:hover {
                             else {
                                 const instrument = this.channels[instrumentChannelIterator].instruments[instrumentIndexIterator];
                                 instrument.unison = clamp(0, Config.unisons.length + 1, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
-                                const unisonLength = (beforeFive || !fromSlarmoosBox || !from41Box) ? 27 : Config.unisons.length;
+                                const unisonLength = ((beforeFive || !fromSlarmoosBox) && !from41Box) ? 27 : Config.unisons.length;
                                 if (((fromUltraBox && !beforeFive) || fromSlarmoosBox || from41Box) && (instrument.unison == unisonLength)) {
                                     instrument.unison = Config.unisons.length;
                                     instrument.unisonVoices = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -16909,7 +16909,7 @@ li.select2-results__option[role=group] > strong:hover {
                                             waveform = clamp(0, 4, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
                                         }
                                     }
-                                    if ((fromSlarmoosBox && !beforeThree) || from41Box) {
+                                    if (from41Box || (!beforeThree && fromSlarmoosBox)) {
                                         if (Config.newEnvelopes[envelope].name == "pitch") {
                                             if (!instrument.isNoiseInstrument) {
                                                 let pitchEnvelopeCompact = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
