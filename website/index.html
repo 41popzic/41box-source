@@ -383,8 +383,7 @@
         // (in case it doesn't show up, this is meant to be a worm emoji)
         "🪱",
         // I believe this is from paandorasbox (might have also been present in familiarbox???? maybe not though...)
-        //slarmoo - changed to not wackybox, because it isn't :p
-        "not :wackybox:",
+        "hi lemon",
         // plant originally suggested by mel in reference to the "(don't) eat thegubbys" meme        
         "🐟",
         // blubox desktop plants 
@@ -392,25 +391,25 @@
         // LemmBox 
 		"🍋",
         // Slarmoo's Box plants
-        "✨","🌈","🌧️","🪨","🐍","🌲","🌳","𓆏","🦀","🍄‍🟫","🌵","and Bobby","🥚",
+        "✨","🌈","🌧️","🪨","🐍","🌲","🌳","𓆏","🦀","🍄‍🟫","🌵","and (not) Bobby lmaoo                     ","🥚",
         "🌾","🎍","🐳","🪸","🐚","🍂🍁","🪸🪸🫧🐙🐡🐠🐠🫧🐟",
-        // First word that came to mind
-        "buh"
+        // uhh
+        "not hi lemon :eeheehee:"
         ];
         const date = new Date();
         if (Math.floor(Math.random() * 3) == 0) { //more than doubled chance for a plant to show up
             document.getElementById("plant").innerHTML = "  " + plants[(Math.floor(Math.random() * plants.length))];
-            //Slarmoo's Box holiday plants
+            //Slarmoo's Box (AND 41 BOX) holiday plants
             const winterPlants = ["🎄", "🍪", "☃️", "🎁", "❄️"];
             if ((date.getDate() >= 22 && date.getDate() <= 26) && date.getMonth() == 11) {
                 document.getElementById("plant").innerHTML = "  " + winterPlants[(Math.floor(Math.random() * winterPlants.length))];
             }
-            //Slarmoo's Box Halloween plants
+            //Slarmoo's Box Halloween plants (and 41box)
             const spookyPlants = ["🎃", "🍬", "👻", "🐍", "🧪"];
             if ((date.getDate() == 31) && date.getMonth() == 9) {
                 document.getElementById("plant").innerHTML = "  " + spookyPlants[(Math.floor(Math.random() * spookyPlants.length))];
             }
-            //Slarmoo's Box valentines plants
+            //Slarmoo's Box valentines plants (fuck it bro all of these are 41box)
             const heartPlants = ["❤️", "🧡", "💛", "💚", "💙", "💜"];
             if ((date.getDate() >= 13 && date.getDate() <= 15) && date.getMonth() == 1) {
                 document.getElementById("plant").innerHTML = "  " + heartPlants[(Math.floor(Math.random() * heartPlants.length))];
@@ -469,6 +468,7 @@
 
         if (browserHasRequiredFeatures()) {
             // Go ahead and load js beepbox editor interface:
+            // nah im good
             var fileref = document.createElement("script");
             fileref.setAttribute("type", "text/javascript");
             if ((date.getDate() == 1) && date.getMonth() == 365803285923) {
