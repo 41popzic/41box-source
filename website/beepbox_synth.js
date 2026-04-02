@@ -513,7 +513,7 @@ var beepbox = (function (exports) {
     Config.octaveMin = -2;
     Config.octaveMax = 2;
     Config.echoDelayRange = 24;
-    Config.echoDelayStepTicks = 4;
+    Config.echoDelayStepTicks = 20;
     Config.echoSustainRange = 8;
     Config.echoShelfHz = 4000.0;
     Config.echoShelfGain = Math.pow(2.0, -0.5);
@@ -529,13 +529,14 @@ var beepbox = (function (exports) {
     Config.instrumentCountMin = 1;
     Config.layeredInstrumentCountMax = 10;
     Config.patternInstrumentCountMax = 10;
-    Config.partsPerBeat = 24;
+    Config.partsPerBeat = 120;
     Config.ticksPerPart = 2;
-    Config.ticksPerArpeggio = 3;
+    Config.ticksPerArpeggio = 15;
     Config.arpeggioPatterns = [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6, 7]];
     Config.rhythms = toNameMap([
         { name: "÷3 (triplets)", stepsPerBeat: 3, roundUpThresholds: [5, 12, 18] },
         { name: "÷4 (standard)", stepsPerBeat: 4, roundUpThresholds: [3, 9, 17, 21] },
+        { name: "÷5 (quintuplets)", stepsPerBeat: 5, roundUpThresholds: null },
         { name: "÷6", stepsPerBeat: 6, roundUpThresholds: null },
         { name: "÷8", stepsPerBeat: 8, roundUpThresholds: null },
         { name: "÷12", stepsPerBeat: 12, roundUpThresholds: null },
@@ -679,20 +680,20 @@ var beepbox = (function (exports) {
     Config.filterSimpleCutRange = 11;
     Config.filterSimplePeakRange = 8;
     Config.fadeInRange = 10;
-    Config.fadeOutTicks = [-24, -12, -6, -3, -1, 6, 12, 24, 48, 72, 96];
+    Config.fadeOutTicks = [-120, -60, -30, -15, -5, 30, 60, 120, 240, 360, 480];
     Config.fadeOutNeutral = 4;
-    Config.drumsetFadeOutTicks = 48;
+    Config.drumsetFadeOutTicks = 240;
     Config.transitions = toNameMap([
-        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: false },
-        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: true },
-        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 3, includeAdjacentPatterns: false }
+        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: false },
+        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: true },
+        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: false }
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, type: 0, delayTicks: 0 },
         { name: "light", amplitude: 0.15, type: 0, delayTicks: 0 },
-        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 37 },
+        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 185 },
         { name: "heavy", amplitude: 0.45, type: 0, delayTicks: 0 },
         { name: "shaky", amplitude: 0.1, type: 1, delayTicks: 0 },
     ]);
@@ -766,7 +767,7 @@ var beepbox = (function (exports) {
     Config.chorusMaxDelay = _a.chorusDelayRange * (1.0 + _a.chorusDelayOffsets[0].concat(_a.chorusDelayOffsets[1]).reduce((x, y) => Math.max(x, y)));
     Config.chords = toNameMap([
         { name: "simultaneous", customInterval: false, arpeggiates: false, strumParts: 0, singleTone: false },
-        { name: "strum", customInterval: false, arpeggiates: false, strumParts: 1, singleTone: false },
+        { name: "strum", customInterval: false, arpeggiates: false, strumParts: 5, singleTone: false },
         { name: "arpeggio", customInterval: false, arpeggiates: true, strumParts: 0, singleTone: true },
         { name: "custom interval", customInterval: true, arpeggiates: false, strumParts: 0, singleTone: true },
         { name: "monophonic", customInterval: false, arpeggiates: false, strumParts: 0, singleTone: true }
@@ -5569,7 +5570,7 @@ var beepbox = (function (exports) {
             this.octave = 0;
             this.loopStart = 0;
             this.loopLength = 4;
-            this.tempo = 150;
+            this.tempo = 120;
             this.reverb = 0;
             this.beatsPerBar = 8;
             this.barCount = 16;
