@@ -880,7 +880,7 @@ export class Config {
 
     public static readonly scales: DictionaryArray<Scale> = toNameMap([
 
-        //   C     Db      D     Eb      E      F     F#      G     Ab      A     Bb      B      C
+        //   C     Db      D     Eb      E      F     F#      G     Ab      A     Bb      B      C    
         { name: "Free", realName: "chromatic", flags: [true, true, true, true, true, true, true, true, true, true, true, true] }, // Free
         { name: "Major", realName: "ionian", flags: [true, false, true, false, true, true, false, true, false, true, false, true] }, // Major
         { name: "Minor", realName: "aeolian", flags: [true, false, true, true, false, true, false, true, true, false, true, false] }, // Minor
