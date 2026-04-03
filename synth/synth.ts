@@ -4664,19 +4664,17 @@ export class Song {
                     let newRhythm = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                     this.rhythm = clamp(0, Config.rhythms.length, newRhythm);
                     if (fromJummBox && beforeThree || fromBeepBox) {
-                        if (this.rhythm == Config.rhythms.dictionary["÷3 (triplets)"].index || this.rhythm == Config.rhythms.dictionary["÷6"].index) {
-                            useSlowerArpSpeed = true;
-                        }
-                        if (this.rhythm >= Config.rhythms.dictionary["÷6"].index) {
-                            // @TODO: This assumes that 6 and 8 are in that order, but
-                            // if someone reorders Config.rhythms that may not be true,
-                            // so this check probably should instead look for those
-                            // specific rhythms.
-                            useFastTwoNoteArp = true;
-                        }
+                    const rhythmObj = Config.rhythms[this.rhythm] ?? Config.rhythms[1]; // fallback ÷4
+
+                    if (rhythmObj.stepsPerBeat == 3 || rhythmObj.stepsPerBeat == 6) {
+                        useSlowerArpSpeed = true;
+                    }
+                    if (rhythmObj.stepsPerBeat >= 6) {
+                        useFastTwoNoteArp = true;
+                    }
                     }
                 } else if (((fromSlarmoosBox && beforeFour) || from41Box) || (fromUltraBox && beforeFive)) {
-                    const rhythmMap = [1, 1, 0, 1, 2, 3, 4, 5];
+                    const rhythmMap = [0, 1, 2, 3, 4, 5, 6];
                     this.rhythm = clamp(0, Config.rhythms.length, rhythmMap[base64CharCodeToInt[compressed.charCodeAt(charIndex++)]]);
                 } else {
                     this.rhythm = clamp(0, Config.rhythms.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);

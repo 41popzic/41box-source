@@ -554,7 +554,6 @@ var beepbox = (function (exports) {
         { name: "÷5 (quintuplets)", stepsPerBeat: 5, roundUpThresholds: null },
         { name: "÷6", stepsPerBeat: 6, roundUpThresholds: null },
         { name: "÷8", stepsPerBeat: 8, roundUpThresholds: null },
-        { name: "÷10", stepsPerBeat: 10, roundUpThresholds: null },
         { name: "÷12", stepsPerBeat: 12, roundUpThresholds: null },
         { name: "freehand (÷24)", stepsPerBeat: 24, roundUpThresholds: null },
     ]);
@@ -15341,6 +15340,7 @@ li.select2-results__option[role=group] > strong:hover {
             return Config.envelopes[clamp(0, Config.envelopes.length, legacyIndex)];
         }
         fromBase64String(compressed, jsonFormat = "auto") {
+            var _a;
             if (compressed == null || compressed == "") {
                 Song._clearSamples();
                 this.initToDefault(true);
@@ -15707,16 +15707,17 @@ li.select2-results__option[role=group] > strong:hover {
                                 let newRhythm = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
                                 this.rhythm = clamp(0, Config.rhythms.length, newRhythm);
                                 if (fromJummBox && beforeThree || fromBeepBox) {
-                                    if (this.rhythm == Config.rhythms.dictionary["÷3 (triplets)"].index || this.rhythm == Config.rhythms.dictionary["÷6"].index) {
+                                    const rhythmObj = (_a = Config.rhythms[this.rhythm]) !== null && _a !== void 0 ? _a : Config.rhythms[1];
+                                    if (rhythmObj.stepsPerBeat == 3 || rhythmObj.stepsPerBeat == 6) {
                                         useSlowerArpSpeed = true;
                                     }
-                                    if (this.rhythm >= Config.rhythms.dictionary["÷6"].index) {
+                                    if (rhythmObj.stepsPerBeat >= 6) {
                                         useFastTwoNoteArp = true;
                                     }
                                 }
                             }
                             else if (((fromSlarmoosBox && beforeFour) || from41Box) || (fromUltraBox && beforeFive)) {
-                                const rhythmMap = [1, 1, 0, 1, 2, 3, 4, 5];
+                                const rhythmMap = [0, 1, 2, 3, 4, 5, 6];
                                 this.rhythm = clamp(0, Config.rhythms.length, rhythmMap[base64CharCodeToInt[compressed.charCodeAt(charIndex++)]]);
                             }
                             else {
