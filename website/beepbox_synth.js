@@ -7066,15 +7066,15 @@ var beepbox = (function (exports) {
                         {
                             if ((beforeNine && fromBeepBox) || ((fromJummBox && beforeFive) || (beforeFour && fromGoldBox))) {
                                 const legacySettings = [
-                                    { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -1 },
-                                    { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -3 },
-                                    { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
-                                    { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 6 },
-                                    { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 48 },
-                                    { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 72 },
-                                    { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 96 },
-                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -3 },
+                                    { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
+                                    { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
+                                    { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                                    { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 30 },
+                                    { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 240 },
+                                    { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 360 },
+                                    { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 480 },
+                                    { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
                                 ];
                                 if (beforeThree && fromBeepBox) {
                                     const channelIndex = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
