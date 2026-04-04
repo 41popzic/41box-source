@@ -665,13 +665,12 @@ var beepbox = (function (exports) {
         { name: "crackling", expression: 0.9, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
         { name: "pink", expression: 1.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
         { name: "brownian", expression: 1.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
-        { name: "uhhh", expression: 2.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
     ]);
     Config.filterFreqStep = 1.0 / 4.0;
     Config.filterFreqRange = 34;
     Config.filterFreqReferenceSetting = 28;
     Config.filterFreqReferenceHz = 8000.0;
-    Config.filterFreqMaxHz = _a.filterFreqReferenceHz * Math.pow(2.0, _a.filterFreqStep * (_a.filterFreqRange - 1 - _a.filterFreqReferenceSetting) + 5);
+    Config.filterFreqMaxHz = _a.filterFreqReferenceHz * Math.pow(2.0, _a.filterFreqStep * (_a.filterFreqRange - 1 - _a.filterFreqReferenceSetting));
     Config.filterFreqMinHz = 8.0;
     Config.filterGainRange = 15;
     Config.filterGainCenter = 7;
@@ -1046,7 +1045,7 @@ var beepbox = (function (exports) {
     Config.pitchesPerOctave = 12;
     Config.drumCount = 12;
     Config.pitchOctaves = 8;
-    Config.modCount = 8;
+    Config.modCount = 6;
     Config.maxPitch = _a.pitchOctaves * _a.pitchesPerOctave;
     Config.maximumTonesPerChannel = _a.maxChordSize * 2;
     Config.justIntonationSemitones = [1.0 / 2.0, 8.0 / 15.0, 9.0 / 16.0, 3.0 / 5.0, 5.0 / 8.0, 2.0 / 3.0, 32.0 / 45.0, 3.0 / 4.0, 4.0 / 5.0, 5.0 / 6.0, 8.0 / 9.0, 15.0 / 16.0, 1.0, 16.0 / 15.0, 9.0 / 8.0, 6.0 / 5.0, 5.0 / 4.0, 4.0 / 3.0, 45.0 / 32.0, 3.0 / 2.0, 8.0 / 5.0, 5.0 / 3.0, 16.0 / 9.0, 15.0 / 8.0, 2.0].map(x => Math.log2(x) * _a.pitchesPerOctave);

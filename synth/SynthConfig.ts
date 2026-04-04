@@ -1108,14 +1108,13 @@ export class Config {
         { name: "crackling", expression: 0.9, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
         { name: "pink", expression: 1.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
         { name: "brownian", expression: 1.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
-        { name: "uhhh", expression: 2.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
     ]);
 	
     public static readonly filterFreqStep: number = 1.0 / 4.0;
     public static readonly filterFreqRange: number = 34;
     public static readonly filterFreqReferenceSetting: number = 28;
     public static readonly filterFreqReferenceHz: number = 8000.0;
-    public static readonly filterFreqMaxHz: number = Config.filterFreqReferenceHz * Math.pow(2.0, Config.filterFreqStep * (Config.filterFreqRange - 1 - Config.filterFreqReferenceSetting) + 5); // ~24khz
+    public static readonly filterFreqMaxHz: number = Config.filterFreqReferenceHz * Math.pow(2.0, Config.filterFreqStep * (Config.filterFreqRange - 1 - Config.filterFreqReferenceSetting)); // ~19kh
     public static readonly filterFreqMinHz: number = 8.0;
     public static readonly filterGainRange: number = 15;
     public static readonly filterGainCenter: number = 7;
@@ -1537,7 +1536,7 @@ export class Config {
     public static readonly pitchesPerOctave: number = 12; // TODO: Use this for converting pitch to frequency.
     public static readonly drumCount: number = 12;
     public static readonly pitchOctaves: number = 8;
-    public static readonly modCount: number = 8;
+    public static readonly modCount: number = 6;
     public static readonly maxPitch: number = Config.pitchOctaves * Config.pitchesPerOctave;
     public static readonly maximumTonesPerChannel: number = Config.maxChordSize * 2;
     public static readonly justIntonationSemitones: number[] = [1.0 / 2.0, 8.0 / 15.0, 9.0 / 16.0, 3.0 / 5.0, 5.0 / 8.0, 2.0 / 3.0, 32.0 / 45.0, 3.0 / 4.0, 4.0 / 5.0, 5.0 / 6.0, 8.0 / 9.0, 15.0 / 16.0, 1.0, 16.0 / 15.0, 9.0 / 8.0, 6.0 / 5.0, 5.0 / 4.0, 4.0 / 3.0, 45.0 / 32.0, 3.0 / 2.0, 8.0 / 5.0, 5.0 / 3.0, 16.0 / 9.0, 15.0 / 8.0, 2.0].map(x => Math.log2(x) * Config.pitchesPerOctave);
