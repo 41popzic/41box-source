@@ -935,7 +935,7 @@ export class Config {
     ]);
     public static readonly blackKeyNameParents: ReadonlyArray<number> = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     public static readonly tempoMin: number = 1;
-    public static readonly tempoMax: number = 500;
+    public static readonly tempoMax: number = 4095;
     public static readonly octaveMin: number = -2;
     public static readonly octaveMax: number = 2;
     public static readonly echoDelayRange: number = 24;
@@ -1108,13 +1108,14 @@ export class Config {
         { name: "crackling", expression: 0.9, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
         { name: "pink", expression: 1.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
         { name: "brownian", expression: 1.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
+        { name: "uhhh", expression: 2.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
     ]);
 	
     public static readonly filterFreqStep: number = 1.0 / 4.0;
     public static readonly filterFreqRange: number = 34;
     public static readonly filterFreqReferenceSetting: number = 28;
     public static readonly filterFreqReferenceHz: number = 8000.0;
-    public static readonly filterFreqMaxHz: number = Config.filterFreqReferenceHz * Math.pow(2.0, Config.filterFreqStep * (Config.filterFreqRange - 1 - Config.filterFreqReferenceSetting)); // ~19khz
+    public static readonly filterFreqMaxHz: number = Config.filterFreqReferenceHz * Math.pow(2.0, Config.filterFreqStep * (Config.filterFreqRange - 1 - Config.filterFreqReferenceSetting) + 5); // ~24khz
     public static readonly filterFreqMinHz: number = 8.0;
     public static readonly filterGainRange: number = 15;
     public static readonly filterGainCenter: number = 7;
@@ -1303,6 +1304,7 @@ export class Config {
     public static readonly operatorCarrierInterval: ReadonlyArray<number> = [0.0, 0.04, -0.073, 0.091, 0.061, 0.024];
     public static readonly operatorAmplitudeMax: number = 15;
     public static readonly operatorFrequencies: DictionaryArray<OperatorFrequency> = toNameMap([
+        { name: "0.06×", mult: 0.0625, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.12×", mult: 0.125, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.25×", mult: 0.25, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.5×", mult: 0.5, hzOffset: 0.0, amplitudeSign: 1.0 },
@@ -1345,6 +1347,9 @@ export class Config {
         { name: "128×", mult: 128.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "250×", mult: 250.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "256×", mult: 256.0, hzOffset: 0.0, amplitudeSign: 1.0 },
+        { name: "500x", mult: 500.0, hzOffset: 0.0, amplitudeSign: 1.0 },
+        { name: "512×", mult: 512.0, hzOffset: 0.0, amplitudeSign: 1.0 },
+
     ]);
 
     //still used for drumsets
@@ -1523,16 +1528,16 @@ export class Config {
 	public static readonly supersawSpreadMax: number = 12;
 	public static readonly supersawShapeMax: number = 6;
     public static readonly pitchChannelCountMin: number = 1;
-    public static readonly pitchChannelCountMax: number = 60;
+    public static readonly pitchChannelCountMax: number = 120;
     public static readonly noiseChannelCountMin: number = 0;
-    public static readonly noiseChannelCountMax: number = 60;
+    public static readonly noiseChannelCountMax: number = 120;
     public static readonly modChannelCountMin: number = 0;
     public static readonly modChannelCountMax: number = 60;
     public static readonly noiseInterval: number = 6;
     public static readonly pitchesPerOctave: number = 12; // TODO: Use this for converting pitch to frequency.
     public static readonly drumCount: number = 12;
     public static readonly pitchOctaves: number = 8;
-    public static readonly modCount: number = 6;
+    public static readonly modCount: number = 8;
     public static readonly maxPitch: number = Config.pitchOctaves * Config.pitchesPerOctave;
     public static readonly maximumTonesPerChannel: number = Config.maxChordSize * 2;
     public static readonly justIntonationSemitones: number[] = [1.0 / 2.0, 8.0 / 15.0, 9.0 / 16.0, 3.0 / 5.0, 5.0 / 8.0, 2.0 / 3.0, 32.0 / 45.0, 3.0 / 4.0, 4.0 / 5.0, 5.0 / 6.0, 8.0 / 9.0, 15.0 / 16.0, 1.0, 16.0 / 15.0, 9.0 / 8.0, 6.0 / 5.0, 5.0 / 4.0, 4.0 / 3.0, 45.0 / 32.0, 3.0 / 2.0, 8.0 / 5.0, 5.0 / 3.0, 16.0 / 9.0, 15.0 / 8.0, 2.0].map(x => Math.log2(x) * Config.pitchesPerOctave);
@@ -1544,7 +1549,7 @@ export class Config {
     public static readonly songDetuneMin: number = 0;
     public static readonly songDetuneMax: number = 500;
     public static readonly unisonVoicesMin: number = 1;
-    public static readonly unisonVoicesMax: number = 9;
+    public static readonly unisonVoicesMax: number = 12;
     public static readonly unisonSpreadMin: number = -96;
     public static readonly unisonSpreadMax: number = 96; 
     public static readonly unisonOffsetMin: number = -96;
@@ -1694,7 +1699,7 @@ export class Config {
     }
 
     public static readonly perEnvelopeBoundMin: number = 0; //probably should leave at 0. Negative envelopes are problematic right now
-    public static readonly perEnvelopeBoundMax: number = 2; //max of 6.3 unless you update url
+    public static readonly perEnvelopeBoundMax: number = 4; //max of 6.3 unless you update url
     public static readonly randomEnvelopeSeedMax: number = 63; //if you increase this you'll need to update the url to support it
     public static readonly randomEnvelopeStepsMax: number = 32; 
 

@@ -524,7 +524,7 @@ var beepbox = (function (exports) {
     ]);
     Config.blackKeyNameParents = [-1, 1, -1, 1, -1, 1, -1, -1, 1, -1, 1, -1];
     Config.tempoMin = 1;
-    Config.tempoMax = 500;
+    Config.tempoMax = 4095;
     Config.octaveMin = -2;
     Config.octaveMax = 2;
     Config.echoDelayRange = 24;
@@ -679,12 +679,13 @@ var beepbox = (function (exports) {
         { name: "crackling", expression: 0.9, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
         { name: "pink", expression: 1.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
         { name: "brownian", expression: 1.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
+        { name: "uhhh", expression: 2.0, basePitch: 69, pitchFilterMult: 8.0, isSoft: true, samples: null },
     ]);
     Config.filterFreqStep = 1.0 / 4.0;
     Config.filterFreqRange = 34;
     Config.filterFreqReferenceSetting = 28;
     Config.filterFreqReferenceHz = 8000.0;
-    Config.filterFreqMaxHz = _a$1.filterFreqReferenceHz * Math.pow(2.0, _a$1.filterFreqStep * (_a$1.filterFreqRange - 1 - _a$1.filterFreqReferenceSetting));
+    Config.filterFreqMaxHz = _a$1.filterFreqReferenceHz * Math.pow(2.0, _a$1.filterFreqStep * (_a$1.filterFreqRange - 1 - _a$1.filterFreqReferenceSetting) + 5);
     Config.filterFreqMinHz = 8.0;
     Config.filterGainRange = 15;
     Config.filterGainCenter = 7;
@@ -846,6 +847,7 @@ var beepbox = (function (exports) {
     Config.operatorCarrierInterval = [0.0, 0.04, -0.073, 0.091, 0.061, 0.024];
     Config.operatorAmplitudeMax = 15;
     Config.operatorFrequencies = toNameMap([
+        { name: "0.06×", mult: 0.0625, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.12×", mult: 0.125, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.25×", mult: 0.25, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.5×", mult: 0.5, hzOffset: 0.0, amplitudeSign: 1.0 },
@@ -882,6 +884,8 @@ var beepbox = (function (exports) {
         { name: "128×", mult: 128.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "250×", mult: 250.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "256×", mult: 256.0, hzOffset: 0.0, amplitudeSign: 1.0 },
+        { name: "500x", mult: 500.0, hzOffset: 0.0, amplitudeSign: 1.0 },
+        { name: "512×", mult: 512.0, hzOffset: 0.0, amplitudeSign: 1.0 },
     ]);
     Config.envelopes = toNameMap([
         { name: "none", type: 0, speed: 1.0 },
@@ -1047,16 +1051,16 @@ var beepbox = (function (exports) {
     Config.supersawSpreadMax = 12;
     Config.supersawShapeMax = 6;
     Config.pitchChannelCountMin = 1;
-    Config.pitchChannelCountMax = 60;
+    Config.pitchChannelCountMax = 120;
     Config.noiseChannelCountMin = 0;
-    Config.noiseChannelCountMax = 60;
+    Config.noiseChannelCountMax = 120;
     Config.modChannelCountMin = 0;
     Config.modChannelCountMax = 60;
     Config.noiseInterval = 6;
     Config.pitchesPerOctave = 12;
     Config.drumCount = 12;
     Config.pitchOctaves = 8;
-    Config.modCount = 6;
+    Config.modCount = 8;
     Config.maxPitch = _a$1.pitchOctaves * _a$1.pitchesPerOctave;
     Config.maximumTonesPerChannel = _a$1.maxChordSize * 2;
     Config.justIntonationSemitones = [1.0 / 2.0, 8.0 / 15.0, 9.0 / 16.0, 3.0 / 5.0, 5.0 / 8.0, 2.0 / 3.0, 32.0 / 45.0, 3.0 / 4.0, 4.0 / 5.0, 5.0 / 6.0, 8.0 / 9.0, 15.0 / 16.0, 1.0, 16.0 / 15.0, 9.0 / 8.0, 6.0 / 5.0, 5.0 / 4.0, 4.0 / 3.0, 45.0 / 32.0, 3.0 / 2.0, 8.0 / 5.0, 5.0 / 3.0, 16.0 / 9.0, 15.0 / 8.0, 2.0].map(x => Math.log2(x) * _a$1.pitchesPerOctave);
@@ -1068,7 +1072,7 @@ var beepbox = (function (exports) {
     Config.songDetuneMin = 0;
     Config.songDetuneMax = 500;
     Config.unisonVoicesMin = 1;
-    Config.unisonVoicesMax = 9;
+    Config.unisonVoicesMax = 12;
     Config.unisonSpreadMin = -96;
     Config.unisonSpreadMax = 96;
     Config.unisonOffsetMin = -96;
@@ -1148,7 +1152,7 @@ var beepbox = (function (exports) {
         256: 63,
     };
     Config.perEnvelopeBoundMin = 0;
-    Config.perEnvelopeBoundMax = 2;
+    Config.perEnvelopeBoundMax = 4;
     Config.randomEnvelopeSeedMax = 63;
     Config.randomEnvelopeStepsMax = 32;
     Config.pickedStringDispersionCenterFreq = 6000.0;
