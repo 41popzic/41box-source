@@ -4674,7 +4674,7 @@ export class Song {
                     }
                     }
                 } else if (((fromSlarmoosBox && beforeFour) || from41Box) || (fromUltraBox && beforeFive)) {
-                    const rhythmMap = [0, 1, 2, 3, 4, 5, 6];
+                    const rhythmMap = [0, 1, 2, 3, 4, 5, 6, 7];
                     this.rhythm = clamp(0, Config.rhythms.length, rhythmMap[base64CharCodeToInt[compressed.charCodeAt(charIndex++)]]);
                 } else {
                     this.rhythm = clamp(0, Config.rhythms.length, base64CharCodeToInt[compressed.charCodeAt(charIndex++)]);
