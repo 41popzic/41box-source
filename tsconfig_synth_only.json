@@ -15,6 +15,7 @@
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUnusedLocals": true,
+		"strictPropertyInitialization": false,
 		"lib": [
 			"DOM",
 			"ES5",
