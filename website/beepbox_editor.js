@@ -846,7 +846,6 @@ var beepbox = (function (exports) {
     Config.operatorCarrierInterval = [0.0, 0.04, -0.073, 0.091, 0.061, 0.024];
     Config.operatorAmplitudeMax = 15;
     Config.operatorFrequencies = toNameMap([
-        { name: "0.06×", mult: 0.0625, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.12×", mult: 0.125, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.25×", mult: 0.25, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.5×", mult: 0.5, hzOffset: 0.0, amplitudeSign: 1.0 },
@@ -883,8 +882,6 @@ var beepbox = (function (exports) {
         { name: "128×", mult: 128.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "250×", mult: 250.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "256×", mult: 256.0, hzOffset: 0.0, amplitudeSign: 1.0 },
-        { name: "500x", mult: 500.0, hzOffset: 0.0, amplitudeSign: 1.0 },
-        { name: "512×", mult: 512.0, hzOffset: 0.0, amplitudeSign: 1.0 },
     ]);
     Config.envelopes = toNameMap([
         { name: "none", type: 0, speed: 1.0 },
@@ -1050,9 +1047,9 @@ var beepbox = (function (exports) {
     Config.supersawSpreadMax = 12;
     Config.supersawShapeMax = 6;
     Config.pitchChannelCountMin = 1;
-    Config.pitchChannelCountMax = 120;
+    Config.pitchChannelCountMax = 60;
     Config.noiseChannelCountMin = 0;
-    Config.noiseChannelCountMax = 120;
+    Config.noiseChannelCountMax = 60;
     Config.modChannelCountMin = 0;
     Config.modChannelCountMax = 60;
     Config.noiseInterval = 6;
@@ -1151,7 +1148,7 @@ var beepbox = (function (exports) {
         256: 63,
     };
     Config.perEnvelopeBoundMin = 0;
-    Config.perEnvelopeBoundMax = 4;
+    Config.perEnvelopeBoundMax = 2;
     Config.randomEnvelopeSeedMax = 63;
     Config.randomEnvelopeStepsMax = 32;
     Config.pickedStringDispersionCenterFreq = 6000.0;

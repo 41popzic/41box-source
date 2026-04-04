@@ -1303,7 +1303,6 @@ export class Config {
     public static readonly operatorCarrierInterval: ReadonlyArray<number> = [0.0, 0.04, -0.073, 0.091, 0.061, 0.024];
     public static readonly operatorAmplitudeMax: number = 15;
     public static readonly operatorFrequencies: DictionaryArray<OperatorFrequency> = toNameMap([
-        { name: "0.06×", mult: 0.0625, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.12×", mult: 0.125, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.25×", mult: 0.25, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "0.5×", mult: 0.5, hzOffset: 0.0, amplitudeSign: 1.0 },
@@ -1346,8 +1345,6 @@ export class Config {
         { name: "128×", mult: 128.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "250×", mult: 250.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "256×", mult: 256.0, hzOffset: 0.0, amplitudeSign: 1.0 },
-        { name: "500x", mult: 500.0, hzOffset: 0.0, amplitudeSign: 1.0 },
-        { name: "512×", mult: 512.0, hzOffset: 0.0, amplitudeSign: 1.0 },
 
     ]);
 
@@ -1527,9 +1524,9 @@ export class Config {
 	public static readonly supersawSpreadMax: number = 12;
 	public static readonly supersawShapeMax: number = 6;
     public static readonly pitchChannelCountMin: number = 1;
-    public static readonly pitchChannelCountMax: number = 120;
+    public static readonly pitchChannelCountMax: number = 60;
     public static readonly noiseChannelCountMin: number = 0;
-    public static readonly noiseChannelCountMax: number = 120;
+    public static readonly noiseChannelCountMax: number = 60;
     public static readonly modChannelCountMin: number = 0;
     public static readonly modChannelCountMax: number = 60;
     public static readonly noiseInterval: number = 6;
@@ -1698,7 +1695,7 @@ export class Config {
     }
 
     public static readonly perEnvelopeBoundMin: number = 0; //probably should leave at 0. Negative envelopes are problematic right now
-    public static readonly perEnvelopeBoundMax: number = 4; //max of 6.3 unless you update url
+    public static readonly perEnvelopeBoundMax: number = 2; //max of 6.3 unless you update url
     public static readonly randomEnvelopeSeedMax: number = 63; //if you increase this you'll need to update the url to support it
     public static readonly randomEnvelopeStepsMax: number = 32; 
 
