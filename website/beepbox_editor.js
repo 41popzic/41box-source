@@ -546,7 +546,7 @@ var beepbox = (function (exports) {
     Config.patternInstrumentCountMax = 10;
     Config.partsPerBeat = 240;
     Config.ticksPerPart = 2;
-    Config.ticksPerArpeggio = 15;
+    Config.ticksPerArpeggio = 30;
     Config.arpeggioPatterns = [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6, 7]];
     Config.rhythms = toNameMap([
         { name: "÷3 (triplets)", stepsPerBeat: 3, roundUpThresholds: [5, 12, 18] },
