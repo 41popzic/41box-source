@@ -528,7 +528,7 @@ var beepbox = (function (exports) {
     Config.octaveMin = -2;
     Config.octaveMax = 2;
     Config.echoDelayRange = 24;
-    Config.echoDelayStepTicks = 20;
+    Config.echoDelayStepTicks = 40;
     Config.echoSustainRange = 8;
     Config.echoShelfHz = 4000.0;
     Config.echoShelfGain = Math.pow(2.0, -0.5);
@@ -544,7 +544,7 @@ var beepbox = (function (exports) {
     Config.instrumentCountMin = 1;
     Config.layeredInstrumentCountMax = 10;
     Config.patternInstrumentCountMax = 10;
-    Config.partsPerBeat = 120;
+    Config.partsPerBeat = 240;
     Config.ticksPerPart = 2;
     Config.ticksPerArpeggio = 15;
     Config.arpeggioPatterns = [[0], [0, 1], [0, 1, 2, 1], [0, 1, 2, 3], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6, 7]];
@@ -552,11 +552,15 @@ var beepbox = (function (exports) {
         { name: "÷3 (triplets)", stepsPerBeat: 3, roundUpThresholds: [5, 12, 18] },
         { name: "÷4 (standard)", stepsPerBeat: 4, roundUpThresholds: [3, 9, 17, 21] },
         { name: "÷5 (quintuplets)", stepsPerBeat: 5, roundUpThresholds: null },
-        { name: "÷6", stepsPerBeat: 6, roundUpThresholds: null },
-        { name: "÷8", stepsPerBeat: 8, roundUpThresholds: null },
+        { name: "÷6 (sixths)", stepsPerBeat: 6, roundUpThresholds: null },
+        { name: "÷8 (eighths)", stepsPerBeat: 8, roundUpThresholds: null },
+        { name: "÷10", stepsPerBeat: 10, roundUpThresholds: null },
         { name: "÷12", stepsPerBeat: 12, roundUpThresholds: null },
-        { name: "freehand (÷24)", stepsPerBeat: 24, roundUpThresholds: null },
-        { name: "what the fuck (÷120)", stepsPerBeat: 120, roundUpThresholds: null },
+        { name: "÷15", stepsPerBeat: 15, roundUpThresholds: null },
+        { name: "÷16", stepsPerBeat: 16, roundUpThresholds: null },
+        { name: "÷20", stepsPerBeat: 20, roundUpThresholds: null },
+        { name: "÷24", stepsPerBeat: 24, roundUpThresholds: null },
+        { name: "no limit (÷48)", stepsPerBeat: 48, roundUpThresholds: null },
     ]);
     Config.instrumentTypeNames = ["chip", "FM", "noise", "spectrum", "drumset", "harmonics", "PWM", "Picked String", "supersaw", "custom chip", "mod", "FM6op"];
     Config.instrumentTypeHasSpecialInterval = [true, true, false, false, false, true, false, false, false, false, false];
@@ -696,20 +700,20 @@ var beepbox = (function (exports) {
     Config.filterSimpleCutRange = 11;
     Config.filterSimplePeakRange = 8;
     Config.fadeInRange = 10;
-    Config.fadeOutTicks = [-120, -60, -30, -15, -5, 30, 60, 120, 240, 360, 480];
+    Config.fadeOutTicks = [-240, -120, -60, -30, -10, 60, 120, 240, 480, 720, 960];
     Config.fadeOutNeutral = 4;
     Config.drumsetFadeOutTicks = 240;
     Config.transitions = toNameMap([
-        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: false },
-        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: true },
-        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 15, includeAdjacentPatterns: false }
+        { name: "normal", isSeamless: false, continues: false, slides: false, slideTicks: 30, includeAdjacentPatterns: false },
+        { name: "interrupt", isSeamless: true, continues: false, slides: false, slideTicks: 30, includeAdjacentPatterns: true },
+        { name: "continue", isSeamless: true, continues: true, slides: false, slideTicks: 30, includeAdjacentPatterns: true },
+        { name: "slide", isSeamless: true, continues: false, slides: true, slideTicks: 30, includeAdjacentPatterns: true },
+        { name: "slide in pattern", isSeamless: true, continues: false, slides: true, slideTicks: 30, includeAdjacentPatterns: false }
     ]);
     Config.vibratos = toNameMap([
         { name: "none", amplitude: 0.0, type: 0, delayTicks: 0 },
         { name: "light", amplitude: 0.15, type: 0, delayTicks: 0 },
-        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 185 },
+        { name: "delayed", amplitude: 0.3, type: 0, delayTicks: 370 },
         { name: "heavy", amplitude: 0.45, type: 0, delayTicks: 0 },
         { name: "shaky", amplitude: 0.1, type: 1, delayTicks: 0 },
     ]);
@@ -15718,7 +15722,7 @@ li.select2-results__option[role=group] > strong:hover {
                                 }
                             }
                             else if (((fromSlarmoosBox && beforeFour) || from41Box) || (fromUltraBox && beforeFive)) {
-                                const rhythmMap = [0, 1, 2, 3, 4, 5, 6, 7];
+                                const rhythmMap = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
                                 this.rhythm = clamp(0, Config.rhythms.length, rhythmMap[base64CharCodeToInt[compressed.charCodeAt(charIndex++)]]);
                             }
                             else {
