@@ -2392,20 +2392,20 @@ export class Instrument {
             let transition: Transition | undefined = Config.transitions.dictionary[transitionProperty];
             if (instrumentObject["fadeInSeconds"] == undefined || instrumentObject["fadeOutTicks"] == undefined) {
                 const legacySettings = (<any>{
-                    "binary": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
-                    "seamless": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
-                    "sudden": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
-                    "hard": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
-                    "smooth": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
-                    "soft": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                    "binary": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -10 },
+                    "seamless": { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -10 },
+                    "sudden": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -30 },
+                    "hard": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -30 },
+                    "smooth": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -30 },
+                    "soft": { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -30 },
                     // Note that the old slide transition has the same name as a new slide transition that is different.
                     // Only apply legacy settings if the instrument JSON was created before, based on the presence
                     // of the fade in/out fields.
-                    "slide": { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
-                    "cross fade": { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 30 },
-                    "hard fade": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 240 },
-                    "medium fade": { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 360 },
-                    "soft fade": { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 480 },
+                    "slide": { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -30 },
+                    "cross fade": { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 60 },
+                    "hard fade": { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 480 },
+                    "medium fade": { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 720 },
+                    "soft fade": { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 960 },
                 })[transitionProperty];
                 if (legacySettings != undefined) {
                     transition = Config.transitions.dictionary[legacySettings.transition];
@@ -5077,15 +5077,15 @@ export class Song {
                 if ((beforeNine && fromBeepBox) || ((fromJummBox && beforeFive) || (beforeFour && fromGoldBox))) {
                     // this tag was used for a combination of transition and fade in/out.
                     const legacySettings = [
-                        { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -5 },
-                        { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -15 },
-                        { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -15 },
-                        { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
-                        { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 30 },
-                        { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 240 },
-                        { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 360 },
-                        { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 480 },
-                        { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -15 },
+                        { transition: "interrupt", fadeInSeconds: 0.0, fadeOutTicks: -10 },
+                        { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: -30 },
+                        { transition: "normal", fadeInSeconds: 0.025, fadeOutTicks: -30 },
+                        { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -30 },
+                        { transition: "normal", fadeInSeconds: 0.04, fadeOutTicks: 60 },
+                        { transition: "normal", fadeInSeconds: 0.0, fadeOutTicks: 480 },
+                        { transition: "normal", fadeInSeconds: 0.0125, fadeOutTicks: 720 },
+                        { transition: "normal", fadeInSeconds: 0.06, fadeOutTicks: 960 },
+                        { transition: "slide in pattern", fadeInSeconds: 0.025, fadeOutTicks: -30 },
                     ];
                     if (beforeThree && fromBeepBox) {
                         const channelIndex: number = base64CharCodeToInt[compressed.charCodeAt(charIndex++)];
@@ -6784,7 +6784,7 @@ export class Song {
                 "effects": [],
                 "transition": "normal",
                 "fadeInSeconds": 0,
-                "fadeOutTicks": -3,
+                "fadeOutTicks": -6,
                 "chord": "harmony",
                 "wave": name,
                 "unison": "none",
