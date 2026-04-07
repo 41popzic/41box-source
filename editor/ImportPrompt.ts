@@ -27,7 +27,8 @@ export class ImportPrompt implements Prompt {
         // Currently this option is unnecessary (UB is handled the same as JB) but we're keeping it in case there's any future conflicts
         // There's also the situation where someone will see the "GoldBox" or "PaandorasBox" options and think they have to use one of those two
         option({ value: "UltraBox" }, "UltraBox"),
-        option({ value: "slarmoosbox"}, "Slarmoo's Box")
+        option({ value: "slarmoosbox"}, "Slarmoo's Box"),
+        option({ value: "41box"}, "41Box")
     );
 
     public readonly container: HTMLDivElement = div({ class: "prompt noSelection", style: "width: 300px;" },
@@ -37,6 +38,9 @@ export class ImportPrompt implements Prompt {
         ),
         p({ style: "text-align: left; margin: 0.5em 0;" },
             "BeepBox can also (crudely) import .mid files. There are many tools available for creating .mid files. Shorter and simpler songs are more likely to work well.",
+        ),
+        p({ style: "text-align: left; margin: 0.5em 0;" },
+            "Please note that when importing from another mod to 41Box, the Fade Out and Vibrato Delay values might not be imported accurately or properly, so you might need to adjust these later.",
         ),
         this._modeImportSelect,
         this._fileInput,
