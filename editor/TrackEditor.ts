@@ -23,7 +23,11 @@ export class TrackEditor {
     private readonly _downHighlight: SVGPathElement = SVG.path({ fill: ColorConfig.invertedText, stroke: ColorConfig.invertedText, "stroke-width": 1, "pointer-events": "none" });
     private readonly _barEditorPath: SVGPathElement = SVG.path({ fill: ColorConfig.uiWidgetBackground, stroke: ColorConfig.uiWidgetBackground, "stroke-width": 1, "pointer-events": "none" });
     private readonly _selectionRect: SVGRectElement = SVG.rect({ class: "dashed-line dash-move", fill: ColorConfig.boxSelectionFill, stroke: ColorConfig.hoverPreview, "stroke-width": 2, "stroke-dasharray": "5, 3", "fill-opacity": "0.4", "pointer-events": "none", visibility: "hidden", x: 1, y: 1, width: 62, height: 62 });
+    private readonly _barHighlight: SVGRectElement =
+    SVG.rect({ fill: ("white"), opacity: 0.07, x: 0, y: 0, width: 10, height: 10 });
     private readonly _svg: SVGSVGElement = SVG.svg({ style: `position: absolute; top: 0;` },
+    
+        //this._barHighlight,
         this._barEditorPath,
         this._selectionRect,
         this._barNumberContainer,
@@ -369,7 +373,16 @@ export class TrackEditor {
         this._renderedPatternCount = patternCount;
         const selectedPattern: number = this._doc.song.channels[this._doc.channel].bars[this._doc.bar];
         if (this._select.selectedIndex != selectedPattern) this._select.selectedIndex = selectedPattern;
-    }
+    
+        const barWidth = this._barWidth;
+
+this._barHighlight.setAttribute("x", "" + (this._doc.bar * barWidth));
+this._barHighlight.setAttribute("y", "0");
+this._barHighlight.setAttribute("width", "" + barWidth);
+this._barHighlight.setAttribute("height", "" + (Config.barEditorHeight + this._doc.song.getChannelCount() * ChannelRow.patternHeight));
+this._barHighlight.style.visibility = "visible";
+this._barHighlight.style.color = "255,255,255,0.07"    }
+
 
     public render(): void {
 

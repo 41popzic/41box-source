@@ -152,6 +152,8 @@ export class PatternEditor {
         this._svgDrumBackground.appendChild(this._backgroundDrumRow);
         this._backgroundModRow.setAttribute("fill", ColorConfig.pitchBackground);
         this._svgModBackground.appendChild(this._backgroundModRow);
+        
+        
 
         if (this._interactive) {
             this._updateCursorStatus();

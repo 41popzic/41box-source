@@ -532,6 +532,102 @@ export class Layout {
 				}
 			}
 		`,
+				"tall wide": `\
+				/* tall wide layout */
+				@media (min-width: 1001px) {
+					#beepboxEditorContainer {
+						max-width: initial;
+						height: 100vh;
+						padding-top: 0px;
+					}
+					.beepboxEditor {
+						width: 100%;
+						height: 100vh;
+						grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 192px;
+						grid-template-rows: minmax(481px, 1fr) minmax(0, min-content);
+						grid-template-areas: "pattern-area track-area settings-area";
+						justify-content: start;
+						align-content: start;
+					}
+					.beepboxEditor .pattern-area {
+						height: 100%;
+						width: 100%;
+						justify-self: start;
+					}
+					.beepboxEditor .track-area {
+						display: flex;
+						flex-direction: column;
+						width: 100%;
+						height: 100%;
+						max-height: 100%;
+						flex: 0;
+					}
+					.beepboxEditor .editor-widget-column {
+						flex: 0;
+					}
+					.beepboxEditor .trackAndMuteContainer {
+						width: 100%;
+						flex: 1 1 auto;
+						flex-basis: initial;
+						flex-grow: 0;
+						overflow-y: auto;
+						max-height: 97.5vh;
+						height: auto;
+						min-height: 0;
+					}
+					.beepboxEditor .instrument-settings-area {
+						overflow-y: auto;
+						display: grid;
+						position: relative;
+					}
+					.beepboxEditor .instrument-settings-area > .editor-controls {
+						position: static;
+						width: 100%;
+					}
+					
+					.beepboxEditor .song-settings-area {
+						overflow-y: auto;
+					}
+					
+					.beepboxEditor .settings-area {
+						width: 30em;
+						display: grid;
+						grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+						grid-template-rows: auto auto auto minmax(0, 1fr);
+						grid-template-areas:
+							"instrument-settings-area version-area"
+							"instrument-settings-area play-pause-area"
+							"instrument-settings-area menu-area"
+							"instrument-settings-area song-settings-area";
+					}
+					.beepboxEditor .version-area {
+						position: sticky;
+						top: 0;
+						z-index: 1;
+						background: ${ColorConfig.editorBackground};
+					}
+					.beepboxEditor .play-pause-area {
+						position: sticky;
+						top: 22px;
+						z-index: 1;
+						background: ${ColorConfig.editorBackground};
+					}
+					.beepboxEditor .menu-area {
+						position: sticky;
+						top: 82px;
+						z-index: 1;
+						background: ${ColorConfig.editorBackground};
+					}
+					
+					.beepboxEditor .trackContainer {
+						overflow: visible;
+					}
+					.song-settings-area       { grid-area: song-settings-area; }
+.version-area             { grid-area: version-area; }
+.play-pause-area         { grid-area: play-pause-area; }
+.menu-area               { grid-area: menu-area; }
+				}
+			`,
 
     }
 

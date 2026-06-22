@@ -1,7 +1,7 @@
 // Copyright (c) 2012-2022 John Nesky and contributing authors, distributed under the MIT license, see accompanying the LICENSE.md file.
 
 //import {Layout} from "./Layout";
-import { sampleLoadEvents, SampleLoadedEvent, InstrumentType, EffectType, Config, effectsIncludeTransition, effectsIncludeChord, effectsIncludePitchShift, effectsIncludeDetune, effectsIncludeVibrato, effectsIncludeNoteFilter, effectsIncludeDistortion, effectsIncludeBitcrusher, effectsIncludePanning, effectsIncludeChorus, effectsIncludeEcho, effectsIncludeReverb, effectsIncludeRingModulation, effectsIncludeGranular, DropdownID, calculateRingModHertz } from "../synth/SynthConfig";
+import { sampleLoadEvents, SampleLoadedEvent, InstrumentType, EffectType, Config, effectsIncludeTransition, effectsIncludeChord, effectsIncludePitchShift, effectsIncludeDetune, effectsIncludeVibrato, effectsIncludeNoteFilter, effectsIncludeDistortion, effectsIncludeBitcrusher, effectsIncludePanning, effectsIncludeChorus, effectsIncludeEcho, effectsIncludeReverb, effectsIncludeRingModulation, effectsIncludeGranular, DropdownID, calculateRingModHertz, /*effectsIncludePhaser*/ } from "../synth/SynthConfig";
 import { BarScrollBar } from "./BarScrollBar";
 import { BeatsPerBarPrompt } from "./BeatsPerBarPrompt";
 import { Change, ChangeGroup } from "./Change";
@@ -827,10 +827,10 @@ export class SongEditor {
         option({ value: "showDescription" }, "Show Description"),
         option({ value: "layout" }, "Set Layout..."),
         option({ value: "colorTheme" }, "Set Theme..."),
-	    option({ value: "customTheme" }, "Custom Theme..."),
+	    option({ value: "customTheme" }, "Custom Theme... (ADVANCED)"),
         ),
     );
-    private readonly _scaleSelect: HTMLSelectElement = buildOptions(select(), Config.scales.map(scale => scale.name));
+    private readonly _scaleSelect: HTMLSelectElement = select();
     private readonly _keySelect: HTMLSelectElement = buildOptions(select(), Config.keys.map(key => key.name).reverse());
     private readonly _octaveStepper: HTMLInputElement = input({ style: "width: 59.5%;", type: "number", min: Config.octaveMin, max: Config.octaveMax, value: "0" });
     private readonly _tempoSlider: Slider = new Slider(input({ style: "margin: 0; vertical-align: middle;", type: "range", min: "1", max: "500", value: "160", step: "1" }), this.doc, (oldValue: number, newValue: number) => new ChangeTempo(this.doc, oldValue, newValue), false);
@@ -885,6 +885,14 @@ export class SongEditor {
     private readonly _echoDelaySlider: Slider = new Slider(input({ style: "margin: 0;", type: "range", min: "0", max: Config.echoDelayRange - 1, value: "0", step: "1" }), this.doc, (oldValue: number, newValue: number) => new ChangeEchoDelay(this.doc, oldValue, newValue), false);
     private readonly _echoDelayRow: HTMLDivElement = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("echoDelay") }, "Echo Delay:"), this._echoDelaySlider.container);
     private readonly _rhythmSelect: HTMLSelectElement = buildOptions(select(), Config.rhythms.map(rhythm => rhythm.name));
+    //private readonly _phaserMixSlider: Slider = new Slider(input({ style: "margin: 0;", type: "range", min: "0", max: Config.phaserMixRange - 1, value: "0", step: "1" }), this.doc, (oldValue: number, newValue: number) => new ChangePhaserMix(this.doc, oldValue, newValue), false);
+    //private readonly _phaserMixRow: HTMLDivElement = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("phaserMix") }, span("Phaser:")), this._phaserMixSlider.container);
+    //private readonly _phaserFreqSlider: Slider = new Slider(input({ style: "margin: 0;", type: "range", min: "0", max: Config.phaserFreqRange - 1, value: "0", step: "1" }), this.doc, (oldValue: number, newValue: number) => new ChangePhaserFreq(this.doc, oldValue, newValue), false);
+    //private readonly _phaserFreqRow: HTMLDivElement = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("phaserFreq") }, span(" Freq:")), this._phaserFreqSlider.container);
+    //private readonly _phaserFeedbackSlider: Slider = new Slider(input({ style: "margin: 0;", type: "range", min: "0", max: Config.phaserFeedbackRange - 1, value: "0", step: "1" }), this.doc, (oldValue: number, newValue: number) => new ChangePhaserFeedback(this.doc, oldValue, newValue), false);
+    //private readonly _phaserFeedbackRow: HTMLDivElement = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("phaserFeedback") }, span(" Feedback:")), this._phaserFeedbackSlider.container);
+    //private readonly _phaserStagesSlider: Slider = new Slider(input({ style: "margin: 0;", type: "range", min: Config.phaserMinStages, max: Config.phaserMaxStages, value: "0", step: "1" }), this.doc, (oldValue: number, newValue: number) => new ChangePhaserStages(this.doc, oldValue, newValue), false);
+    //private readonly _phaserStagesRow: HTMLDivElement = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("phaserStages") }, span(" Stages:")), this._phaserStagesSlider.container);
     private readonly _pitchedPresetSelect: HTMLSelectElement = buildPresetOptions(false, "pitchPresetSelect");
     private readonly _drumPresetSelect: HTMLSelectElement = buildPresetOptions(true, "drumPresetSelect");
     private readonly _algorithmSelect: HTMLSelectElement = buildOptions(select(), Config.algorithms.map(algorithm => algorithm.name));
@@ -911,7 +919,7 @@ export class SongEditor {
     private readonly _panDelaySlider: Slider = new Slider(input({ style: "margin: 0;", type: "range", min: "0", max: Config.modulators.dictionary["pan delay"].maxRawVol, value: "0", step: "1" }), this.doc, (oldValue: number, newValue: number) => new ChangePanDelay(this.doc, oldValue, newValue), false);
     private readonly _panDelayRow: HTMLElement = div({ class: "selectRow dropFader" }, span({ class: "tip", style: "margin-left:4px;", onclick: () => this._openPrompt("panDelay") }, "‣ Delay:"), this._panDelaySlider.container);
     private readonly _panDropdownGroup: HTMLElement = div({ class: "editor-controls", style: "display: none;" }, this._panDelayRow);
-    private readonly _chipWaveSelect: HTMLSelectElement = buildOptions(select(), Config.chipWaves.map(wave => wave.name));
+    private readonly _chipWaveSelect: HTMLSelectElement = select();
     private readonly _chipNoiseSelect: HTMLSelectElement = buildOptions(select(), Config.chipNoises.map(wave => wave.name));
     // advloop addition
     // @TODO: Add a dropdown for these. Or maybe this checkbox is fine?
@@ -1008,7 +1016,8 @@ export class SongEditor {
 
     private readonly _unisonDropdown: HTMLButtonElement = button({ style: "margin-left:0em; height:1.5em; width: 10px; padding: 0px; font-size: 8px;", onclick: () => this._toggleDropdownMenu(DropdownID.Unison) }, "▼");
 
-    private readonly _unisonSelect: HTMLSelectElement = buildOptions(select(), Config.unisons.map(unison => unison.name));
+    private readonly _unisonSelect: HTMLSelectElement = select();
+
     private readonly _unisonSelectRow: HTMLElement = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("unison") }, "Unison:"), this._unisonDropdown, div({ class: "selectContainer", style: "width: 61.5%;" }, this._unisonSelect));
 
     private readonly _unisonVoicesInputBox: HTMLInputElement = input({ style: "width: 150%; height: 1.5em; font-size: 80%; margin-left: 0.4em; vertical-align: middle;", id: "unisonVoicesInputBox", type: "number", step: "1", min: Config.unisonVoicesMin, max: Config.unisonVoicesMax, value: 1 });
@@ -1229,6 +1238,10 @@ export class SongEditor {
         this._echoDelayRow,
         this._reverbRow,
         this._ringModContainerRow,
+        //this._phaserMixRow,
+        //this._phaserFreqRow,
+        //this._phaserFeedbackRow,    
+        //this._phaserStagesRow,
         this._granularContainerRow,
         div({ style: `padding: 2px 0; margin-left: 2em; display: flex; align-items: center;` },
             span({ style: `flex-grow: 1; text-align: center;` }, span({ class: "tip", onclick: () => this._openPrompt("envelopes") }, "Envelopes")),
@@ -1453,7 +1466,7 @@ export class SongEditor {
     private _openTransitionDropdown: boolean = false;
     private _openOperatorDropdowns: boolean[] = [];
     private _openPulseWidthDropdown: boolean = false;
-    private _openUnisonDropdown: boolean = false;
+    private _openUnisonDropdown: boolean = false; // i don't think this is used at all
 
     private outVolumeHistoricTimer: number = 0;
     private outVolumeHistoricCap: number = 0;
@@ -1473,6 +1486,10 @@ export class SongEditor {
         if (!("share" in navigator)) {
             this._fileMenu.removeChild(this._fileMenu.querySelector("[value='shareUrl']")!);
         }
+
+
+
+        const groups: Record<string, HTMLOptGroupElement> = {}; for (let i: number = 0; i < Config.scales.length; i++) { const scale = Config.scales[i]; if (!groups[scale.group]) { groups[scale.group] = optgroup({ label: scale.group }); this._scaleSelect.appendChild(groups[scale.group]); } groups[scale.group].appendChild( option( { value: i }, scale.name ) ); }
 
         this._scaleSelect.appendChild(optgroup({ label: "Edit" },
             option({ value: "forceScale" }, "Snap Notes To Scale"),
@@ -1511,6 +1528,27 @@ export class SongEditor {
             const frequencySelect: HTMLSelectElement = buildOptions(select({ style: "width: 100%;", title: "Frequency" }), Config.operatorFrequencies.map(freq => freq.name));
             const amplitudeSlider: Slider = new Slider(input({ type: "range", min: "0", max: Config.operatorAmplitudeMax, value: "0", step: "1", title: "Volume" }), this.doc, (oldValue: number, newValue: number) => new ChangeOperatorAmplitude(this.doc, operatorIndex, oldValue, newValue), false);
             const waveformSelect: HTMLSelectElement = buildOptions(select({ style: "width: 100%;", title: "Waveform" }), Config.operatorWaves.map(wave => wave.name));
+    
+            this._chipWaveSelect.innerHTML = "";
+            
+            const groups: Record<string, HTMLOptGroupElement> = {};
+
+        for (let i: number = 0; i < Config.chipWaves.length; i++) {
+            const wave = Config.chipWaves[i];
+
+            if (!groups[wave.group]) {
+                groups[wave.group] = optgroup({ label: wave.group });
+                this._chipWaveSelect.appendChild(groups[wave.group]);
+            }
+
+            groups[wave.group].appendChild(
+                option(
+                    { value: i },
+                    wave.name
+                )
+            );
+        }
+            
             const waveformDropdown: HTMLButtonElement = button({ style: "margin-left:0em; margin-right: 2px; height:1.5em; width: 8px; max-width: 10px; padding: 0px; font-size: 8px;", onclick: () => this._toggleDropdownMenu(DropdownID.FM, i) }, "▼");
             const waveformDropdownHint: HTMLSpanElement = span({ class: "tip", style: "margin-left: 10px;", onclick: () => this._openPrompt("operatorWaveform") }, "Wave:");
             const waveformPulsewidthSlider: Slider = new Slider(input({ style: "margin-left: 10px; width: 85%;", type: "range", min: "0", max: Config.pwmOperatorWaves.length - 1, value: "0", step: "1", title: "Pulse Width" }), this.doc, (oldValue: number, newValue: number) => new ChangeOperatorPulseWidth(this.doc, operatorIndex, oldValue, newValue), true);
@@ -1786,6 +1824,190 @@ export class SongEditor {
             const layoutOption: HTMLOptionElement = <HTMLOptionElement>this._optionsMenu.querySelector("[value=layout]");
             layoutOption.disabled = true;
             layoutOption.setAttribute("hidden", "");
+        }
+
+        /*const unisonCategories = [
+            {
+                label: "Classic",
+                unisons: [
+                    "shimmer",
+                    "hum",
+                    "honky tonk",
+                    "dissonant",
+                    "bowed",
+                    "piano",
+                    "warbled",
+                ],
+            },
+            {
+                label: "Polyphonic",
+                unisons: [
+                    "fifth",
+                    "triple fifth",
+                    "octave",
+                    "triple octave",
+                ],
+            },
+            {
+                label: "ModBox",
+                unisons: [
+                    "rising",
+                    "spinner",
+                    "detune",
+                    "vibrate",
+                    "fourths",
+                    "bass",
+                    "dirty",
+                    "stationary",
+                    "recurve",
+                    "voiced",
+                    "fluctuate",
+                ],
+            },
+            {
+                label: "Sandbox",
+                unisons: [
+                    "thin",
+                    "inject",
+                    "askewed",
+                    "resonance",
+                ],
+            },
+            {
+                label: "Slarmoo's Box",
+                unisons: [
+                    "augmented",
+                    "diminished",
+                    "chorus",
+                    "block",
+                    "extraterrestrial",
+                    "bow",
+                ],
+            },
+            {
+                label: "MidBox",
+                unisons: [
+                    "vary",
+                    "hold",
+                    "weird octave",
+                    "alternate fifth",
+                    "lone fifth",
+                    "hyper",
+                    "broke",
+                    "energetic",
+                    "bent",
+                    "offtune",
+                    "peak",
+                    "deep shift",
+                    "buried",
+                    "corrupt",
+                ],
+            },
+            {
+                label: "Misc",
+                unisons: [
+                    "hecking gosh",
+                    "FART",
+                ],
+            },
+        ];*/
+
+        const unisonCategories = [
+            {
+                label: "Classic",
+                unisons: [
+                    "none",
+                    "shimmer",
+                    "hum",
+                    "honky tonk",
+                    "dissonant",
+                    "bowed",
+                    "piano",
+                ],
+            },
+            {
+                label: "Dissonance",
+                unisons: [
+                    "warbled",
+                    "spinner",
+                    "recurve",
+                    "rising",
+                    "resonance",
+                    "chorus",
+                    "bow",
+                    "vary",
+                    "hold",
+                    "hyper",
+                ],
+            },
+            {
+                label: "Polyphonic",
+                unisons: [
+                    "fourths",
+                    "fifth",
+                    "triple fifth",
+                    "octave",
+                    "triple octave",
+                    "fluctuate",
+                    "weird octave",
+                    "alternate fifth",
+                    "peak",    
+                    "offtune",
+                ],
+            },
+            {
+                label: "Detune",
+                unisons: [
+                    "detune",
+                    "vibrate",
+                    "inject",
+                    "dirty",
+                    "stationary",
+                    "recurve",
+                    "voiced",
+                    "askewed",
+                    "broke",
+                    "energetic",
+                    "thin",
+                    "bass",
+                    "lone fifth",
+                    "bent",
+                    "corrupt",
+                    "buried",       
+                ],
+            },          
+            {
+                label: "Chords",
+                unisons: [
+                    "augmented",
+                    "diminished",
+                    "block",
+                    "extraterrestrial",
+                ],
+            },  
+            {
+                label: "Misc",
+                unisons: [
+                    "hecking gosh",
+                    "FART",
+                ],
+            },
+        ];
+
+        for (const category of unisonCategories) {
+            const group = document.createElement("optgroup");
+            group.label = category.label;
+
+            for (const unisonName of category.unisons) {
+                const unison = Config.unisons.dictionary[unisonName];
+
+                group.appendChild(new Option(
+                    unison.name,
+                    String(unison.index)
+                ));
+            }
+
+            this._unisonSelect.appendChild(group);
         }
     }
 
@@ -2139,6 +2361,14 @@ export class SongEditor {
                 return this._ringModSlider;
             case Config.modulators.dictionary["ring mod hertz"].index:
                 return this._ringModHzSlider;
+            //case Config.modulators.dictionary["phaser"].index:
+            //    return this._phaserMixSlider;
+            //case Config.modulators.dictionary["phaser frequency"].index:
+            //    return this._phaserFreqSlider;
+            //case Config.modulators.dictionary["phaser feedback"].index:
+            //    return this._phaserFeedbackSlider;    
+            //case Config.modulators.dictionary["phaser stages"].index:
+            //    return this._phaserStagesSlider;      
             case Config.modulators.dictionary["granular"].index:
                 return this._granularSlider;
             case Config.modulators.dictionary["grain freq"].index:
@@ -2965,6 +3195,22 @@ export class SongEditor {
                 this._granularContainerRow.style.display = "none";
             }
 
+            /*if (effectsIncludePhaser(instrument.effects)) {
+                this._phaserMixRow.style.display = "";
+                this._phaserMixSlider.updateValue(instrument.phaserMix);
+                this._phaserFreqRow.style.display = "";
+                this._phaserFreqSlider.updateValue(instrument.phaserFreq);
+                this._phaserFeedbackRow.style.display = "";
+                this._phaserFeedbackSlider.updateValue(instrument.phaserFeedback);
+                this._phaserStagesRow.style.display = "";
+                this._phaserStagesSlider.updateValue(instrument.phaserStages);
+            } else {
+                this._phaserMixRow.style.display = "none";
+                this._phaserFreqRow.style.display = "none";
+                this._phaserFeedbackRow.style.display = "none";
+                this._phaserStagesRow.style.display = "none";
+            }*/
+
             if (instrument.type == InstrumentType.chip || instrument.type == InstrumentType.customChipWave || instrument.type == InstrumentType.harmonics || instrument.type == InstrumentType.pickedString || instrument.type == InstrumentType.spectrum || instrument.type == InstrumentType.pwm || instrument.type == InstrumentType.noise || instrument.type == InstrumentType.drumset) {
                 this._unisonSelectRow.style.display = "";
                 setSelectedValue(this._unisonSelect, instrument.unison);
@@ -2974,6 +3220,7 @@ export class SongEditor {
                 this._unisonExpressionInputBox.value = instrument.unisonExpression + "";
                 this._unisonSignInputBox.value = instrument.unisonSign + "";
                 this._unisonDropdownGroup.style.display = (this._openUnisonDropdown ? "" : "none");
+                
             } else {
                 this._unisonSelectRow.style.display = "none";
                 this._unisonDropdownGroup.style.display = "none";
@@ -3240,6 +3487,7 @@ export class SongEditor {
                             anyInstrumentReverbs: boolean = false,
                             anyInstrumentRingMods: boolean = false,
                             anyInstrumentGranulars: boolean = false,
+                            //anyInstrumentPhasers: boolean = false,
                             anyInstrumentHasEnvelopes: boolean = false;
                         let allInstrumentPitchShifts: boolean = true,
                             allInstrumentNoteFilters: boolean = true,
@@ -3348,6 +3596,12 @@ export class SongEditor {
                             else {
                                 allInstrumentGranulars = false;
                             }
+                            /*if (effectsIncludePhaser(channel.instruments[instrumentIndex].effects)) {
+                                anyInstrumentPhasers = true;
+                            }
+                            else {
+                                anyInstrumentPhasers = false;
+                            }*/
                             if (channel.instruments[instrumentIndex].envelopes.length > 0) {
                                 anyInstrumentHasEnvelopes = true;
                             }
@@ -3489,6 +3743,13 @@ export class SongEditor {
                             unusedSettingList.push("+ grain size");
                             unusedSettingList.push("+ grain range");
                         }
+
+                        /*if (anyInstrumentPhasers) {
+                            settingList.push("phaser");
+                            settingList.push("phaser frequency");
+                            settingList.push("phaser feedback");
+                            settingList.push("phaser stages");
+                        }*/
 
                         if (anyInstrumentHasEnvelopes) {
                             settingList.push("envelope speed");
@@ -4574,7 +4835,7 @@ export class SongEditor {
                     this.doc.prefs.layout = "tall";
                     this.doc.prefs.visibleOctaves = 5;
                     this.doc.prefs.closePromptByClickoff = false;
-                    this.doc.prefs.colorTheme = "slarmoosbox";
+                    this.doc.prefs.colorTheme = "41box";
                     this.doc.prefs.frostedGlassBackground = false;
                     this.doc.prefs.instrumentButtonsAtTop = true;
                     this.doc.prefs.instrumentCopyPaste = true;
@@ -5345,7 +5606,7 @@ export class SongEditor {
     }
 
     private _whenSetUnison = (): void => {
-        this.doc.record(new ChangeUnison(this.doc, this._unisonSelect.selectedIndex));
+        this.doc.record(new ChangeUnison(this.doc, Number(this._unisonSelect.value)));
     }
 
     private _whenSetChord = (): void => {

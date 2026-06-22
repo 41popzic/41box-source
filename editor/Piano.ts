@@ -306,7 +306,7 @@ export class Piano {
                 this._pianoContainer.innerHTML = "";
                 for (let i: number = 0; i < this._pitchCount; i++) {
                     const pianoLabel: HTMLDivElement = HTML.div({ class: "piano-label", style: "font-weight: bold; -webkit-text-stroke-width: 0; font-size: 11px; font-family: sans-serif; position: absolute; padding-left: 15px; white-space: nowrap;" });
-                    const pianoKey: HTMLDivElement = HTML.div({ class: "piano-button", style: "background: gray;" }, pianoLabel);
+                    const pianoKey: HTMLDivElement = HTML.div({ class: "piano-button", style: "background: gray; position: relative;" }, pianoLabel);
                     this._pianoContainer.appendChild(pianoKey);
                     this._pianoLabels[i] = pianoLabel;
                     this._pianoKeys[i] = pianoKey;
@@ -320,6 +320,7 @@ export class Piano {
                 const pitchNameIndex: number = (j + Config.keys[this._doc.song.key].basePitch) % Config.pitchesPerOctave;
                 const isWhiteKey: boolean = Config.keys[pitchNameIndex].isWhiteKey;
                 this._pianoKeys[j].style.background = isWhiteKey ? ColorConfig.whitePianoKey : ColorConfig.blackPianoKey;
+                if (isWhiteKey) { this._pianoKeys[j].style.background = ColorConfig.whitePianoKey; this._pianoKeys[j].style.width = "32px"; this._pianoLabels[j].style.paddingLeft = "15px"; } else { this._pianoKeys[j].style.background = ColorConfig.blackPianoKey; this._pianoKeys[j].style.width = "24px"; this._pianoLabels[j].style.paddingLeft = "8.6777777777px"; };
                 let scale = this._doc.song.scale == Config.scales.dictionary["Custom"].index ? this._doc.song.scaleCustom : Config.scales[this._doc.song.scale].flags;
                 if (!scale[j % Config.pitchesPerOctave]) {
                     this._pianoKeys[j].classList.add("disabled");

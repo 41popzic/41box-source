@@ -70,6 +70,8 @@ export class LoopEditor {
         this.container.addEventListener("touchmove", this._whenTouchMoved);
         this.container.addEventListener("touchend", this._whenTouchReleased);
         this.container.addEventListener("touchcancel", this._whenTouchReleased);
+        this._loop.setAttribute("stroke-dasharray", "0");
+        this._barLoop.setAttribute("stroke-dasharray", "0");
     }
 
     private _updateCursorStatus(): void {
@@ -324,13 +326,14 @@ export class LoopEditor {
         if (this._renderedLoopStart != loopStart || this._renderedLoopStop != loopStop) {
             this._renderedLoopStart = loopStart;
             this._renderedLoopStop = loopStop;
+            const inset = 2.65;
+
             this._loop.setAttribute("d",
-                `M ${loopStart + radius} ${2} ` +
-                `L ${loopStop - radius} ${2} ` +
-                `A ${radius - 2} ${radius - 2} ${0} ${0} ${1} ${loopStop - radius} ${this._editorHeight - 2} ` +
-                `L ${loopStart + radius} ${this._editorHeight - 2} ` +
-                `A ${radius - 2} ${radius - 2} ${0} ${0} ${1} ${loopStart + radius} ${2} ` +
-                `z`
+                `M ${loopStart + inset} 2 ` +
+                `L ${loopStop - inset} 2 ` +
+                `L ${loopStop - inset} ${this._editorHeight - 2} ` +
+                `L ${loopStart + inset} ${this._editorHeight - 2} ` +
+                `Z`
             );
         }
 
@@ -341,14 +344,15 @@ export class LoopEditor {
                 this._barLoop.setAttribute("d", "");
             }
             else {
+                const top = radius * 0.5;
+                const bottom = radius * 1.5;
+                const inset = 2;
                 this._barLoop.setAttribute("d",
-                    `M ${barLoopStart} ${radius * 1.5} ` +
-                    `L ${barLoopStart - radius} ${radius}` +
-                    `L ${barLoopStart} ${radius * 0.5}` +
-                    `L ${barLoopEnd} ${radius * 0.5}` +
-                    `L ${barLoopEnd + radius} ${radius}` +
-                    `L ${barLoopEnd} ${radius * 1.5}` +
-                    `z`
+                    `M ${barLoopStart + inset} ${bottom} ` +
+                    `L ${barLoopStart + inset} ${top} ` +
+                    `L ${barLoopEnd - inset} ${top} ` +
+                    `L ${barLoopEnd - inset} ${bottom} ` +
+                    `Z`
                 );
             }
             this._renderedBarLoopStart = barLoopStart;

@@ -1,18 +1,33 @@
 {
-	"name": "slarmoosbox",
-	"version": "1.4.11",
-	"description": "Slarmoo's Box is a mod of Ultrabox that aims to advance Beepbox's capabilities.",
-	"author": "Slarmoo",
+	"name": "41box",
+	"description": "41box",
+	"author": "41popzic",
+	"version": "1.1",
 	"contributors": [
-		"Slarmoo",
-		"Main",
-		"Neputendo",
-		"LeoV",
-		"Mid",
-		"Choptop84"
+		{
+			"name": "Slarmoo"
+		},
+		{
+			"name": "Main"
+		},
+		{
+			"name": "Neputendo"
+		},
+		{
+			"name": "LeoV"
+		},
+		{
+			"name": "Mid"
+		},
+		{
+			"name": "Choptop84"
+		},
+		{
+			"name": "41popzic"
+		}
 	],
 	"license": "MIT",
-	"homepage": "https://slarmoo.github.io/slarmoosbox/website/",
+	"homepage": "https://41popzic.github.io/41box-app/",
 	"type": "module",
 	"main": "main.js",
 	"icon": "path.join(__dirname, 'icon.ico')",
@@ -26,33 +41,36 @@
 		"deploy-files": "bash ./scripts/deploy_files.sh",
 		"start": "electron ./to_deploy",
 		"package": "electron-packager ./to_deploy --platform=darwin,linux,win32 --arch=ia32,x64 --asar --overwrite && npm run build-offline-html",
-		"package-host": "electron-packager ./to_deploy slarmoosbox --asar --overwrite && npm run build-offline-html",
+		"package-host": "electron-packager ./to_deploy 41box --asar --overwrite && npm run build-offline-html",
 		"live_editor": "bash ./scripts/live_editor.sh",
 		"live_editor_typeless": "bash ./scripts/live_editor_typeless.sh",
 		"let": "npm run live_editor_typeless"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/slarmoo/slarmoosbox.git"
+		"url": "git+https://github.com/41popzic/41box-app.git"
 	},
 	"devDependencies": {
 		"@electron/packager": "^18.0.0",
 		"@rollup/plugin-node-resolve": "^15.1.0",
-		"electron": "^33.0.0",
+		"electron": "^42.0.1",
 		"rollup": "^2.79.1",
 		"rollup-plugin-sourcemaps": "^0.6.3",
 		"terser": "^5.19.2",
-		"typescript": "^5.4.5"
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
 		"@types/jquery": "^3.5.30",
 		"@types/select2": "^4.0.63",
-		"electron": "^29.1.1",
 		"electron-packager": "^17.1.2",
 		"esbuild": "^0.25.5",
 		"express": "^4.21.2",
 		"imperative-html": "^0.1.1",
 		"js-xxhash": "^4.0.0",
 		"select2": "^4.0.13"
+	},
+	"keywords": [],
+	"bugs": {
+		"url": "https://github.com/41popzic/41box-app/issues"
 	}
 }

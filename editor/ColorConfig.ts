@@ -5501,40 +5501,342 @@ export class ColorConfig {
 			--oscilloscope-line-R: white;
 			--oscilloscope-line-L: var(--secondary-text);
 		}`,
+		"fmbox": `
+		@font-face {
+  font-family: 'Inter-var-v4_1';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('https://rsms.me/inter/font-files/InterVariable.woff2?4_1') format("woff2");
+}
+
+.loopEditor { --ui-widget-focus: #f06000; }
+
+:root {
+  --page-margin: #121224;
+  --editor-background: #000000;
+  --hover-preview: #606090;
+  --playhead: #f0f0f0;
+  --primary-text: #f0f0f0;
+  --secondary-text: #9090d8;
+  --inverted-text: #121224;
+  --text-selection: rgb(36 00 240 / 60%);
+  --box-selection-fill: rgb(72 72 144 / 30%);
+  --loop-accent: #6000f0;
+  --link-accent: #9000f0;
+
+  --ui-widget-background: #121224;
+  --ui-widget-focus: #121224;
+  --pitch-background: #121224;
+  --tonic: #2400f090;
+  --fifth-note: #f0002490;
+  --third-note: #9000f090;
+
+  --white-piano-key: #121224;
+  --black-piano-key: #f0f0f0;
+  --white-piano-key-text: #f0f0f0;
+  --black-piano-key-text: #121224;
+
+  --use-color-formula: false;
+
+  --pitch-channel-limit: 10;
+  --track-editor-bg-pitch: #030018;
+  --track-editor-bg-pitch-dim: rgb(36 0 240 / 12%);
+  --track-editor-bg-noise: #180003;
+  --track-editor-bg-noise-dim: rgb(240 0 36 / 12%);
+  --track-editor-bg-mod: #0c0018;
+  --track-editor-bg-mod-dim: rgb(144 0 240 / 12%);
+
+  --multiplicative-mod-slider: #2400f0;
+  --overwriting-mod-slider: #f00024;
+
+  --indicator-primary: #f0002487;
+  --indicator-secondary: #f0002448;
+  --select2-opt-group: #12006060;
+  --input-box-outline: #121224;
+  --mute-button-normal: #2400f0;
+  --mute-button-mod: #9000f0;
+
+  --pitch1-secondary-channel: #002478;
+  --pitch1-primary-channel: #0048f0;
+  --pitch1-secondary-note: #002478;
+  --pitch1-primary-note: #0048f0;
+
+  --pitch2-secondary-channel: #121278;
+  --pitch2-primary-channel: #2424f0;
+  --pitch2-secondary-note: #121278;
+  --pitch2-primary-note: #2424f0;
+
+  --pitch3-secondary-channel: #120078;
+  --pitch3-primary-channel: #2400f0;
+  --pitch3-secondary-note: #120078;
+  --pitch3-primary-note: #2400f0;
+
+  --pitch4-secondary-channel: #2a0078;
+  --pitch4-primary-channel: #5400f0;
+  --pitch4-secondary-note: #2a0078;
+  --pitch4-primary-note: #5400f0;
+
+  --pitch5-secondary-channel: #360078;
+  --pitch5-primary-channel: #6c00f0;
+  --pitch5-secondary-note: #360078;
+  --pitch5-primary-note: #6c00f0;
+
+  --pitch6-secondary-channel: #480078;
+  --pitch6-primary-channel: #9000f0;
+  --pitch6-secondary-note: #480078;
+  --pitch6-primary-note: #9000f0;
+
+  --pitch7-secondary-channel: #600078;
+  --pitch7-primary-channel: #c000f0;
+  --pitch7-secondary-note: #600078;
+  --pitch7-primary-note: #c000f0;
+
+  --pitch8-secondary-channel: #710060;
+  --pitch8-primary-channel: #e200c0;
+  --pitch8-secondary-note: #710060;
+  --pitch8-primary-note: #e200c0;
+
+  --pitch9-secondary-channel: #780048;
+  --pitch9-primary-channel: #f00090;
+  --pitch9-secondary-note: #780048;
+  --pitch9-primary-note: #f00090;
+
+  --pitch10-secondary-channel: #780012;
+  --pitch10-primary-channel: #f00024;
+  --pitch10-secondary-note: #780012;
+  --pitch10-primary-note: #f00024;
+
+  --noise1-secondary-channel: #2942af;
+  --noise1-primary-channel: #5281ff;
+  --noise1-secondary-note: #2942af;
+  --noise1-primary-note: #5281ff;
+
+  --noise2-secondary-channel: #3629af;
+  --noise2-primary-channel: #6c52ff;
+  --noise2-secondary-note: #3629af;
+  --noise2-primary-note: #6c52ff;
+
+  --noise3-secondary-channel: #5029af;
+  --noise3-primary-channel: #a052ff;
+  --noise3-secondary-note: #5029af;
+  --noise3-primary-note: #a052ff;
+
+  --noise4-secondary-channel: #7f2493;
+  --noise4-primary-channel: #ff49e3;
+  --noise4-secondary-note: #7f2493;
+  --noise4-primary-note: #ff49e3;
+
+  --noise5-secondary-channel: #7f2935;
+  --noise5-primary-channel: #ff526b;
+  --noise5-secondary-note: #7f2935;
+  --noise5-primary-note: #ff526b;
+
+  --mod1-secondary-channel: #241e60;
+  --mod1-primary-channel: #3c30a8;
+  --mod1-secondary-note: #241e60;
+  --mod1-primary-note: #3c30a8;
+
+  --mod2-secondary-channel: #482460;
+  --mod2-primary-channel: #843cb4;
+  --mod2-secondary-note: #482460;
+  --mod2-primary-note: #843cb4;
+
+  --mod3-secondary-channel: #6c3060;
+  --mod3-primary-channel: #cc60c0;
+  --mod3-secondary-note: #6c3060;
+  --mod3-primary-note: #cc60c0;
+
+  --mod4-secondary-channel: #601e24;
+  --mod4-primary-channel: #a8303c;
+  --mod4-secondary-note: #601e24;
+  --mod4-primary-note: #a8303c;
+
+  --mod-label-primary: #121224;
+  --mod-label-secondary-text: #c0c0c0;
+  --mod-label-primary-text: #f0f0f0;
+
+  --disabled-note-primary: #606090;
+  --disabled-note-secondary: #303048;
+
+  --note-flash: #f0f0f090;
+  --note-flash-secondary: #f0f0f048;
+  --song-player-margin: #000000;
+  --progress-bar: #f00024;
+
+  font-family: Inter-var-v4_1, Roboto !important;
+  letter-spacing: -0.022em;
+  font-weight: 300;
+  font-variation-settings: "wght" 300, "opsz" 32;
+  font-feature-settings: "case", "dlig", "frac", "dnom" 0, "numr" 0, "subs" 0, "sups" 0, "tnum" 0, "zero" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0, "ss06" 0, "ss07" 0, "ss08" 0, "cv01" 0, "cv02", "cv03", "cv04", "cv05" 0, "cv06" 0, "cv07", "cv08" 0, "cv09" 0, "cv10" 0, "cv11" 0, "cv12" 0, "cv13" 0, "cpsp" 0, "c2sc" 0, "salt" 0, "aalt" 0, "calt" 0, "ccmp", "locl", "kern";
+}`,
+		
 "41box": `
-:root { 
-    --page-margin: #000a08;
-    --editor-background: #000a08;
-    --hover-preview: #ffffcc;
-    --playhead: #ccfff5;
-    --secondary-text: #cc9966;
-    --text-selection: #cc996655;
-    --box-selection-fill: #cc996633;
-    --loop-accent: #bb5500;
-    --link-accent: #cc7744;
-    --ui-widget-background: #150c08;
-    --ui-widget-focus: #24423d;
-    --pitch-background: #0f0d09;
-    --tonic: #4a2c1a;
-    --fifth-note: #b3612d;
-	--white-piano-key: #66998f;
-    --black-piano-key: #150c08;
-    --track-editor-bg-pitch: #88442240;
-    --track-editor-bg-pitch-dim: #220a0400;
-    --track-editor-bg-noise: #88442240;
-    --track-editor-bg-noise-dim: #220a0400;
-    --track-editor-bg-mod: #cc773340;
-    --track-editor-bg-mod-dim: #220a0400;
-    --multiplicative-mod-slider: #bb5500;
-    --overwriting-mod-slider: #cc7744;
-    --indicator-primary: #bb5500;
-    --indicator-secondary: #141f1d;
-    --select2-opt-group: #220a04;
-    --input-box-outline: #150c08;
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('https://rsms.me/inter/font-files/InterVariable.woff2?4_1') format("woff2");
+}
+		:root {
+			--page-margin: #010003;
+			--editor-background: #010003;
+			--text-selection: rgb(147 195 0);
+			--box-selection-fill: rgb(145 174 73 / 49%);
+			--loop-accent: #BCDE2C;
+			--link-accent: #edff9f;
+			--ui-widget-background: #261e2e;
+			--ui-widget-focus: #322042;
+			--pitch-background: #141c15;
+			--tonic: #282c21;
+			--fifth-note: #18221a;
+			--white-piano-key: #e3e3e3;
+			--black-piano-key: #2d2d2d;
+			--track-editor-bg-pitch: #38293e;
+			--track-editor-bg-pitch-dim: #251c29;
+			--track-editor-bg-noise: #2c304c;
+			--track-editor-bg-noise-dim: #191b2b;
+			--track-editor-bg-mod: #311b32;
+			--track-editor-bg-mod-dim: #1d101e;
+			--multiplicative-mod-slider: #977da9;
+			--overwriting-mod-slider: #798FA7;
+			--indicator-primary: #aae9ff;
+			--indicator-secondary: #253e46;
+			--select2-opt-group: #110d15;
+			--input-box-outline: #110d15;
+			--mute-button-normal: #8f5ad1;
+			--mute-button-mod: #482574;
+			--pitch1-secondary-channel: #6b7f19;
+			--pitch1-primary-channel: #BCDE2C;
+			--pitch1-secondary-note: #6b7f19;
+			--pitch1-primary-note: #BCDE2C;
+			--pitch2-secondary-channel: #497a31;
+			--pitch2-primary-channel: #7BD152;
+			--pitch2-secondary-note: #497a31;
+			--pitch2-primary-note: #7BD152;
+			--pitch3-secondary-channel: #286b40;
+			--pitch3-primary-channel: #45BE71;
+			--pitch3-secondary-note: #286b40;
+			--pitch3-primary-note: #45BE71;
+			--pitch4-secondary-channel: #125140;
+			--pitch4-primary-channel: #25A884;
+			--pitch4-secondary-note: #125140;
+			--pitch4-primary-note: #25A884;
+			--pitch5-secondary-channel: #114c49;
+			--pitch5-primary-channel: #21908C;
+			--pitch5-secondary-note: #114c49;
+			--pitch5-primary-note: #21908C;
+			--pitch6-secondary-channel: #143843;
+			--pitch6-primary-channel: #2B788E;
+			--pitch6-secondary-note: #143843;
+			--pitch6-primary-note: #2B788E;
+			--pitch7-secondary-channel: #1d354e;
+			--pitch7-primary-channel: #355F8D;
+			--pitch7-secondary-note: #1a2f46;
+			--pitch7-primary-note: #355F8D;
+			--pitch8-secondary-channel: #2c2e5a;
+			--pitch8-primary-channel: #414486;
+			--pitch8-secondary-note: #1e1f3d;
+			--pitch8-primary-note: #414486;
+			--pitch9-secondary-channel: #3c1f5e;
+			--pitch9-primary-channel: #5e3b89;
+			--pitch9-secondary-note: #25133b;
+			--pitch9-primary-note: #5e3b89;
+			--pitch10-secondary-channel: #510264;
+			--pitch10-primary-channel: #720d8a;
+			--pitch10-secondary-note: #440154;
+			--pitch10-primary-note: #720d8a;
+			--noise1-secondary-channel: #BCDE2C;
+			--noise1-primary-channel: #edff9f;
+			--noise1-secondary-note: #BCDE2C;
+			--noise1-primary-note: #edff9f;
+			--noise2-secondary-channel: #45BE71;
+			--noise2-primary-channel: #89ffb4;
+			--noise2-secondary-note: #45BE71;
+			--noise2-primary-note: #89ffb4;
+			--noise3-secondary-channel: #21908C;
+			--noise3-primary-channel: #72fffa;
+			--noise3-secondary-note: #21908C;
+			--noise3-primary-note: #72fffa;
+			--noise4-secondary-channel: #355F8D;
+			--noise4-primary-channel: #7cb6f5;
+			--noise4-secondary-note: #355F8D;
+			--noise4-primary-note: #7cb6f5;
+			--noise5-secondary-channel: #482574;
+			--noise5-primary-channel: #8f5ad1;
+			--noise5-secondary-note: #48257A;
+			--noise5-primary-note: #8f5ad1;
+			--mod1-secondary-channel: #815a16;
+			--mod1-primary-channel: #F5AB29;
+			--mod1-secondary-note: #815a16;
+			--mod1-primary-note: #F5AB29;
+			--mod2-secondary-channel: #4d341a;
+			--mod2-primary-channel: #C98540;
+			--mod2-secondary-note: #4d341a;
+			--mod2-primary-note: #C98540;
+			--mod3-secondary-channel: #643734;
+			--mod3-primary-channel: #A75D58;
+			--mod3-secondary-note: #643734;
+			--mod3-primary-note: #A75D58;
+			--mod4-secondary-channel: #461430;
+			--mod4-primary-channel: #812359;
+			--mod4-secondary-note: #3f112b;
+			--mod4-primary-note: #812359;
+			--mod-label-primary: #282828;
+			--mod-label-secondary-text: #707070;
+			--mod-label-primary-text: white;
+			--disabled-note-primary: #5d5d5d;
+			--disabled-note-secondary: #292929;
+
+			  font-family: Inter, Courier !important;
+  letter-spacing: 1.13552px;
+  line-height: 1.3;
+  /*font-weight: 300;
+  font-variation-settings: "wght" 300, "opsz" 32;
+  font-feature-settings: "case", "dlig", "frac", "dnom" 0, "numr" 0, "subs" 0, "sups" 0, "tnum" 0, "zero" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0, "ss06" 0, "ss07" 0, "ss08" 0, "cv01" 0, "cv02", "cv03", "cv04", "cv05" 0, "cv06" 0, "cv07", "cv08" 0, "cv09" 0, "cv10" 0, "cv11" 0, "cv12" 0, "cv13" 0, "cpsp" 0, "c2sc" 0, "salt" 0, "aalt" 0, "calt" 0, "ccmp", "locl", "kern";
+*/
+		}`,
+		"inter-energized": `
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('https://rsms.me/inter/font-files/InterVariable.woff2?4_1') format("woff2");
+}
+		:root {
+						--page-margin: #000a08;
+			--editor-background: #000a08;
+			--hover-preview: #ffffcc;
+			--playhead: #ccfff5;
+			--secondary-text: #d9d98c;
+			--text-selection: #ffff6659;
+			--box-selection-fill: #ffffff33;
+			--loop-accent: #ffff00;
+			--link-accent: #00ffcc;
+			--ui-widget-background: #141f1d;
+			--ui-widget-focus: #24423d;
+			--pitch-background: #001410;
+			--tonic: #00241d;
+			--fifth-note: #ffff6633;
+			--white-piano-key: #66998f;
+			--black-piano-key: #141f1d;
+			--track-editor-bg-pitch: #66998f40;
+			--track-editor-bg-pitch-dim: #293d3940;
+			--track-editor-bg-noise: #66998f40;
+			--track-editor-bg-noise-dim: #293d3940;
+			--track-editor-bg-mod: #99996640;
+			--track-editor-bg-mod-dim: #3d3d2940;
+			--multiplicative-mod-slider: #ffff00;
+			--overwriting-mod-slider: #00ffcc;
+			--indicator-primary: #ffff00;
+			--indicator-secondary: #141f1d;
+			--select2-opt-group: #1b312e;
+			--input-box-outline: #141f1d;
 			--mute-button-normal: #00ffcc;
 			--mute-button-mod: #00997a;
-
-    --pitch1-secondary-channel: #bfbf40;
+			--pitch1-secondary-channel: #bfbf40;
 			--pitch1-primary-channel: #ffff64;
 			--pitch1-secondary-note: #bfbf40;
 			--pitch1-primary-note: #ffff64;
@@ -5574,8 +5876,7 @@ export class ColorConfig {
 			--pitch10-primary-channel: #e0ff7d;
 			--pitch10-secondary-note: #a2bf40;
 			--pitch10-primary-note: #e0ff7d;
-
-   			--noise1-secondary-channel: #a6a659;
+			--noise1-secondary-channel: #a6a659;
 			--noise1-primary-channel: #ffffcc;
 			--noise1-secondary-note: #a6a659;
 			--noise1-primary-note: #ffffcc;
@@ -5595,8 +5896,7 @@ export class ColorConfig {
 			--noise5-primary-channel: #ffffcc;
 			--noise5-secondary-note: #a6a659;
 			--noise5-primary-note: #ffffcc;
-
-   --mod1-secondary-channel: #a3a329;
+			--mod1-secondary-channel: #a3a329;
 			--mod1-primary-channel: #ffff00;
 			--mod1-secondary-note: #a3a329;
 			--mod1-primary-note: #ffff00;
@@ -5617,7 +5917,521 @@ export class ColorConfig {
 			--mod-label-primary-text: white;
 			--disabled-note-primary: #808080;
 			--disabled-note-secondary: #666666;
-}`,
+
+			  font-family: Inter, Courier !important;
+  letter-spacing: 1.13552px;
+  line-height: 1.3;
+  /*font-weight: 300;
+  font-variation-settings: "wght" 300, "opsz" 32;
+  font-feature-settings: "case", "dlig", "frac", "dnom" 0, "numr" 0, "subs" 0, "sups" 0, "tnum" 0, "zero" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0, "ss06" 0, "ss07" 0, "ss08" 0, "cv01" 0, "cv02", "cv03", "cv04", "cv05" 0, "cv06" 0, "cv07", "cv08" 0, "cv09" 0, "cv10" 0, "cv11" 0, "cv12" 0, "cv13" 0, "cpsp" 0, "c2sc" 0, "salt" 0, "aalt" 0, "calt" 0, "ccmp", "locl", "kern";
+*/
+		}`,
+		"inter-nebula": `
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('https://rsms.me/inter/font-files/InterVariable.woff2?4_1') format("woff2");
+}
+		:root {
+			--page-margin: #040410;
+			--editor-background: #150e1f;
+			--playhead: rgba(255, 255, 255, 0.9);
+			--secondary-text: #8C849A;
+			--text-selection: rgba(141,79,201,0.99);
+			--box-selection-fill: #311E44;
+			--loop-accent: #CC688C;
+			--link-accent: #817DC9;
+			--ui-widget-background: #44394F;
+			--ui-widget-focus: #7A6386;
+			--pitch-background: #393e4f40;
+			--tonic: #7D5C9EC0;
+			--fifth-note: #ab77bd50;
+			--white-piano-key: #EEEEEE;
+			--black-piano-key: #5F5566;
+			--use-color-formula: true;
+			--track-editor-bg-pitch: #46374C;
+			--track-editor-bg-pitch-dim: #1F1C2850;
+			--track-editor-bg-noise: #3D353B;
+			--track-editor-bg-noise-dim: #16131550;
+			--track-editor-bg-mod: #623F4C;
+			--track-editor-bg-mod-dim: #361A2450;
+			--multiplicative-mod-slider: #9F6E6A;
+			--overwriting-mod-slider: #A664B5;
+			--indicator-primary: #CC6B8E;
+			--indicator-secondary: #44394F;
+			--select2-opt-group: #6A576F;
+			--input-box-outline: #222;
+			--mute-button-normal: #BF91DC;
+			--mute-button-mod: #DC8C9A;
+			--mod-label-primary: #3A2840;
+			--mod-label-secondary-text: #62485E;
+			--mod-label-primary-text: white;
+			--pitch-secondary-channel-hue: -96;
+			--pitch-secondary-channel-hue-scale: 4.2;
+			--pitch-secondary-channel-sat: 50.3;
+			--pitch-secondary-channel-sat-scale: 0.1;
+			--pitch-secondary-channel-lum: 40;
+			--pitch-secondary-channel-lum-scale: 0.05;
+			--pitch-primary-channel-hue: -96;
+			--pitch-primary-channel-hue-scale: 4.2;
+			--pitch-primary-channel-sat: 70;
+			--pitch-primary-channel-sat-scale: 0.1;
+			--pitch-primary-channel-lum: 67.5;
+			--pitch-primary-channel-lum-scale: 0.05;
+			--pitch-secondary-note-hue: -96;
+			--pitch-secondary-note-hue-scale: 4.2;
+			--pitch-secondary-note-sat: 70.9;
+			--pitch-secondary-note-sat-scale: 0.1;
+			--pitch-secondary-note-lum: 25;
+			--pitch-secondary-note-lum-scale: 0.05;
+			--pitch-primary-note-hue: -96;
+			--pitch-primary-note-hue-scale: 4.2;
+			--pitch-primary-note-sat: 90;
+			--pitch-primary-note-sat-scale: 0.05;
+			--pitch-primary-note-lum: 85.6;
+			--pitch-primary-note-lum-scale: 0.025;
+			--noise-secondary-channel-hue: 16;
+			--noise-secondary-channel-hue-scale: -1.33;
+			--noise-secondary-channel-sat: 25;
+			--noise-secondary-channel-sat-scale: 0;
+			--noise-secondary-channel-lum: 42;
+			--noise-secondary-channel-lum-scale: 0;
+			--noise-primary-channel-hue: 16;
+			--noise-primary-channel-hue-scale: -1.33;
+			--noise-primary-channel-sat: 33;
+			--noise-primary-channel-sat-scale: 0;
+			--noise-primary-channel-lum: 63.5;
+			--noise-primary-channel-lum-scale: 0;
+			--noise-secondary-note-hue: 12;
+			--noise-secondary-note-hue-scale: -1.33;
+			--noise-secondary-note-sat: 33.5;
+			--noise-secondary-note-sat-scale: 0;
+			--noise-secondary-note-lum: 55;
+			--noise-secondary-note-lum-scale: 0;
+			--noise-primary-note-hue: 12;
+			--noise-primary-note-hue-scale: -1.33;
+			--noise-primary-note-sat: 46.5;
+			--noise-primary-note-sat-scale: 0;
+			--noise-primary-note-lum: 74;
+			--noise-primary-note-lum-scale: 0;
+			--mod-secondary-channel-hue: 12;
+			--mod-secondary-channel-hue-scale: -.75;
+			--mod-secondary-channel-sat: 50;
+			--mod-secondary-channel-sat-scale: 0;
+			--mod-secondary-channel-lum: 50;
+			--mod-secondary-channel-lum-scale: 0;
+			--mod-primary-channel-hue: 12;
+			--mod-primary-channel-hue-scale: -.75;
+			--mod-primary-channel-sat: 70;
+			--mod-primary-channel-sat-scale: 0;
+			--mod-primary-channel-lum: 80;
+			--mod-primary-channel-lum-scale: 0;
+			--mod-secondary-note-hue: 12;
+			--mod-secondary-note-hue-scale: -.75;
+			--mod-secondary-note-sat: 75;
+			--mod-secondary-note-sat-scale: 0;
+			--mod-secondary-note-lum: 45;
+			--mod-secondary-note-lum-scale: 0;
+			--mod-primary-note-hue: 12;
+			--mod-primary-note-hue-scale: -.75;
+			--mod-primary-note-sat: 85;
+			--mod-primary-note-sat-scale: 0;
+			--mod-primary-note-lum: 85;
+			--mod-primary-note-lum-scale: 0;
+			--disabled-note-primary: #aaa;
+
+			  font-family: Inter, Courier !important;
+  letter-spacing: 1.13552px;
+  line-height: 1.3;
+  /*font-weight: 300;
+  font-variation-settings: "wght" 300, "opsz" 32;
+  font-feature-settings: "case", "dlig", "frac", "dnom" 0, "numr" 0, "subs" 0, "sups" 0, "tnum" 0, "zero" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0, "ss06" 0, "ss07" 0, "ss08" 0, "cv01" 0, "cv02", "cv03", "cv04", "cv05" 0, "cv06" 0, "cv07", "cv08" 0, "cv09" 0, "cv10" 0, "cv11" 0, "cv12" 0, "cv13" 0, "cpsp" 0, "c2sc" 0, "salt" 0, "aalt" 0, "calt" 0, "ccmp", "locl", "kern";
+*/
+		}`,
+		"inter-autumn": `
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('https://rsms.me/inter/font-files/InterVariable.woff2?4_1') format("woff2");
+}
+		:root {
+			--page-margin: #060304;
+			--editor-background: #060304;
+			--text-selection: rgb(115 80 76);
+			--box-selection-fill: rgb(174 73 81 / 45%);
+			--loop-accent: #834A69;
+			--ui-widget-background: #2a2523;
+			--ui-widget-focus: #4e4c44;
+			--pitch-background: #121212;
+			--tonic: #4f4f4f;
+			--fifth-note: #222;
+			--white-piano-key: #b59b9b;
+			--black-piano-key: #231e1e;
+			--track-editor-bg-pitch: #352f38;
+			--track-editor-bg-pitch-dim: #232025;
+			--track-editor-bg-noise: #3c3029;
+			--track-editor-bg-noise-dim: #251d19;
+			--track-editor-bg-mod: #202623;
+			--track-editor-bg-mod-dim: #131715;
+			--multiplicative-mod-slider: #D9D16E;
+			--overwriting-mod-slider: #2D826F;
+			--indicator-primary: #D9D16E;
+			--indicator-secondary: #444226;
+			--select2-opt-group: #20191c;
+			--input-box-outline: #20191c;
+			--mute-button-normal: var(--pitch2-primary-channel);
+			--mute-button-mod: var(--pitch4-primary-channel);
+			--pitch1-secondary-channel: #704a34;
+			--pitch1-primary-channel: #D9895A;
+			--pitch1-secondary-note: #704a34;
+			--pitch1-primary-note: #D9895A;
+			--pitch2-secondary-channel: #5f3538;
+			--pitch2-primary-channel: #AE4951;
+			--pitch2-secondary-note: #5f3538;
+			--pitch2-primary-note: #AE4951;
+			--pitch3-secondary-channel: #5c4336;
+			--pitch3-primary-channel: #CA9A81;
+			--pitch3-secondary-note: #5c4336;
+			--pitch3-primary-note: #CA9A81;
+			--pitch4-secondary-channel: #1d3143;
+			--pitch4-primary-channel: #386995;
+			--pitch4-secondary-note: #1d3143;
+			--pitch4-primary-note: #386995;
+			--pitch5-secondary-channel: #9c8a58;
+			--pitch5-primary-channel: #D9D16E;
+			--pitch5-secondary-note: #7c783f;
+			--pitch5-primary-note: #D9D16E;
+			--pitch6-secondary-channel: #886562;
+			--pitch6-primary-channel: #D3A9A5;
+			--pitch6-secondary-note: #886562;
+			--pitch6-primary-note: #D3A9A5;
+			--pitch7-secondary-channel: #1c3f37;
+			--pitch7-primary-channel: #2D826F;
+			--pitch7-secondary-note: #1c3f37;
+			--pitch7-primary-note: #2D826F;
+			--pitch8-secondary-channel: #442e2d;
+			--pitch8-primary-channel: #815150;
+			--pitch8-secondary-note: #442e2d;
+			--pitch8-primary-note: #815150;
+			--pitch9-secondary-channel: #8e6f60;
+			--pitch9-primary-channel: #E5B8A1;
+			--pitch9-secondary-note: #8e6f60;
+			--pitch9-primary-note: #E5B8A1;
+			--pitch10-secondary-channel: #4f3142;
+			--pitch10-primary-channel: #834A69;
+			--pitch10-secondary-note: #4f3142;
+			--pitch10-primary-note: #834A69;
+			--noise1-secondary-channel: #6b5346;
+			--noise1-primary-channel: #b99c89;
+			--noise1-secondary-note: #6b5346;
+			--noise1-primary-note: #F0D0BB;
+			--noise2-secondary-channel: #4a3839;
+			--noise2-primary-channel: #9c6b6e;
+			--noise2-secondary-note: #4a3839;
+			--noise2-primary-note: #c18b8f;
+			--noise3-secondary-channel: #2d3c4a;
+			--noise3-primary-channel: #536e86;
+			--noise3-secondary-note: #2d3c4a;
+			--noise3-primary-note: #8fa8c0;
+			--noise4-secondary-channel: #273f3a;
+			--noise4-primary-channel: #4e8377;
+			--noise4-secondary-note: #273f3a;
+			--noise4-primary-note: #87baae;
+			--noise5-secondary-channel: #372730;
+			--noise5-primary-channel: #7f5e70;
+			--noise5-secondary-note: #372730;
+			--noise5-primary-note: #cc96b3;
+			--mod1-secondary-channel: #783f1f;
+			--mod1-primary-channel: #dc6d2c;
+			--mod1-secondary-note: #783f1f;
+			--mod1-primary-note: #dc6d2c;
+			--mod2-secondary-channel: #0b3153;
+			--mod2-primary-channel: #1464ac;
+			--mod2-secondary-note: #0b3153;
+			--mod2-primary-note: #1464ac;
+			--mod3-secondary-channel: #075040;
+			--mod3-primary-channel: #08a17f;
+			--mod3-secondary-note: #075040;
+			--mod3-primary-note: #08a17f;
+			--mod4-secondary-channel: #631640;
+			--mod4-primary-channel: #b4186d;
+			--mod4-secondary-note: #631640;
+			--mod4-primary-note: #b4186d;
+			--mod-label-primary: #000;
+			--mod-label-secondary-text: #707070;
+			--mod-label-primary-text: white;
+			--disabled-note-primary: #5d5d5d;
+			--disabled-note-secondary: #292929;
+
+			  font-family: Inter, Courier !important;
+  letter-spacing: 1.13552px;
+  line-height: 1.3;
+  /*font-weight: 300;
+  font-variation-settings: "wght" 300, "opsz" 32;
+  font-feature-settings: "case", "dlig", "frac", "dnom" 0, "numr" 0, "subs" 0, "sups" 0, "tnum" 0, "zero" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0, "ss06" 0, "ss07" 0, "ss08" 0, "cv01" 0, "cv02", "cv03", "cv04", "cv05" 0, "cv06" 0, "cv07", "cv08" 0, "cv09" 0, "cv10" 0, "cv11" 0, "cv12" 0, "cv13" 0, "cpsp" 0, "c2sc" 0, "salt" 0, "aalt" 0, "calt" 0, "ccmp", "locl", "kern";
+*/
+		}`,
+		"inter-forest": `
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('https://rsms.me/inter/font-files/InterVariable.woff2?4_1') format("woff2");
+}
+		:root {
+			--page-margin: #010c03;
+					--editor-background: #010c03;
+					--hover-preview: #efe;
+					--playhead: rgba(232, 255, 232, 0.9);
+					--primary-text: #efe;
+					--secondary-text: #70A070;
+					--inverted-text: #280228;
+					--text-selection: rgba(255,68,199,0.99);
+					--box-selection-fill: #267aa3;
+					--loop-accent: #ffe845;
+					--link-accent: #9f8;
+					--ui-widget-background: #203829;
+					--ui-widget-focus: #487860;
+					--pitch-background: #203829;
+					--tonic: #2b8d20;
+					--fifth-note: #385840;
+					--white-piano-key: #bda;
+					--black-piano-key: #573;
+                    --black-piano-key-text: #ffffff;
+					--use-color-formula: true;
+					--track-editor-bg-pitch: #254820;
+					--track-editor-bg-pitch-dim: #102819;
+					--track-editor-bg-noise: #304050;
+					--track-editor-bg-noise-dim: #102030;
+					--track-editor-bg-mod: #506030;
+					--track-editor-bg-mod-dim: #2a300a;
+					--multiplicative-mod-slider: #205c8f;
+					--overwriting-mod-slider: #20ac6f;
+					--indicator-primary: #dcd866;
+					--indicator-secondary: #203829;
+					--select2-opt-group: #1a6f5a;
+					--input-box-outline: #242;
+					--mute-button-normal: #49e980;
+					--mute-button-mod: #c2e502;
+					--mod-label-primary: #133613;
+					--mod-label-secondary-text: rgb(27, 126, 40);
+					--mod-label-primary-text: #efe;
+					--pitch-secondary-channel-hue: 120;
+					--pitch-secondary-channel-hue-scale: 8.1;
+					--pitch-secondary-channel-sat: 59;
+					--pitch-secondary-channel-sat-scale: 0.1;
+					--pitch-secondary-channel-lum: 50;
+					--pitch-secondary-channel-lum-scale: 0.04;
+					--pitch-primary-channel-hue: 120;
+					--pitch-primary-channel-hue-scale: 8.1;
+					--pitch-primary-channel-sat: 86;
+					--pitch-primary-channel-sat-scale: 0.1;
+					--pitch-primary-channel-lum: 70;
+					--pitch-primary-channel-lum-scale: 0.04;
+					--pitch-secondary-note-hue: 120;
+					--pitch-secondary-note-hue-scale: 8.1;
+					--pitch-secondary-note-sat: 85;
+					--pitch-secondary-note-sat-scale: 0.1;
+					--pitch-secondary-note-lum: 30;
+					--pitch-secondary-note-lum-scale: 0.04;
+					--pitch-primary-note-hue: 120;
+					--pitch-primary-note-hue-scale: 8.1;
+					--pitch-primary-note-sat: 90;
+					--pitch-primary-note-sat-scale: 0.05;
+					--pitch-primary-note-lum: 80;
+					--pitch-primary-note-lum-scale: 0.025;
+					--noise-secondary-channel-hue: 200;
+					--noise-secondary-channel-hue-scale: 1.1;
+					--noise-secondary-channel-sat: 25;
+					--noise-secondary-channel-sat-scale: 0;
+					--noise-secondary-channel-lum: 22;
+					--noise-secondary-channel-lum-scale: 0;
+					--noise-primary-channel-hue: 200;
+					--noise-primary-channel-hue-scale: 1.1;
+					--noise-primary-channel-sat: 48;
+					--noise-primary-channel-sat-scale: 0;
+					--noise-primary-channel-lum: 65;
+					--noise-primary-channel-lum-scale: 0;
+					--noise-secondary-note-hue: 200;
+					--noise-secondary-note-hue-scale: 1.1;
+					--noise-secondary-note-sat: 33.5;
+					--noise-secondary-note-sat-scale: 0;
+					--noise-secondary-note-lum: 33;
+					--noise-secondary-note-lum-scale: 0;
+					--noise-primary-note-hue: 200;
+					--noise-primary-note-hue-scale: 1.1;
+					--noise-primary-note-sat: 46.5;
+					--noise-primary-note-sat-scale: 0;
+					--noise-primary-note-lum: 64;
+					--noise-primary-note-lum-scale: 0;
+					--mod-secondary-channel-hue: 40;
+					--mod-secondary-channel-hue-scale: 1.8;
+					--mod-secondary-channel-sat: 44;
+					--mod-secondary-channel-sat-scale: 0;
+					--mod-secondary-channel-lum: 50;
+					--mod-secondary-channel-lum-scale: 0;
+					--mod-primary-channel-hue: 40;
+					--mod-primary-channel-hue-scale: 1.8;
+					--mod-primary-channel-sat: 60;
+					--mod-primary-channel-sat-scale: 0;
+					--mod-primary-channel-lum: 80;
+					--mod-primary-channel-lum-scale: 0;
+					--mod-secondary-note-hue: 40;
+					--mod-secondary-note-hue-scale: 1.8;
+					--mod-secondary-note-sat: 62;
+					--mod-secondary-note-sat-scale: 0;
+					--mod-secondary-note-lum: 55;
+					--mod-secondary-note-lum-scale: 0;
+					--mod-primary-note-hue: 40;
+					--mod-primary-note-hue-scale: 1.8;
+					--mod-primary-note-sat: 66;
+					--mod-primary-note-sat-scale: 0;
+					--mod-primary-note-lum: 85;
+					--mod-primary-note-lum-scale: 0;
+					--disabled-note-primary:    #536e5c;
+					--disabled-note-secondary:  #395440;
+
+			  font-family: Inter, Courier !important;
+  letter-spacing: 1.13552px;
+  line-height: 1.3;
+  /*font-weight: 300;
+  font-variation-settings: "wght" 300, "opsz" 32;
+  font-feature-settings: "case", "dlig", "frac", "dnom" 0, "numr" 0, "subs" 0, "sups" 0, "tnum" 0, "zero" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0, "ss06" 0, "ss07" 0, "ss08" 0, "cv01" 0, "cv02", "cv03", "cv04", "cv05" 0, "cv06" 0, "cv07", "cv08" 0, "cv09" 0, "cv10" 0, "cv11" 0, "cv12" 0, "cv13" 0, "cpsp" 0, "c2sc" 0, "salt" 0, "aalt" 0, "calt" 0, "ccmp", "locl", "kern";
+*/
+		}`,
+		"inter-moonlight": `
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+  src: url('https://rsms.me/inter/font-files/InterVariable.woff2?4_1') format("woff2");
+}
+		:root {
+--page-margin: #020514;
+			--editor-background: #020514;
+			--primary-text: #D4DCE9;
+			--secondary-text: #3E87DA;
+			--text-selection: #03599bd9;
+			--box-selection-fill: hsl(206deg 66% 41% / 85%);
+			--loop-accent: #639BD6;
+			--link-accent: #A8C6E8;
+			--ui-widget-background: #1e2940;
+			--ui-widget-focus: #324b81;
+			--pitch-background: #223849;
+			--tonic: #33536c;
+			--fifth-note: hsl(206deg 36% 16%);
+			--white-piano-key: #c1bfe9;
+			--black-piano-key: #454354;
+			--track-editor-bg-pitch: #25568d80;
+			--track-editor-bg-pitch-dim: #10253c80;
+			--track-editor-bg-noise: #25568d80;
+			--track-editor-bg-noise-dim: #10253c80;
+			--track-editor-bg-mod: #25568d80;
+			--track-editor-bg-mod-dim: #10253c80;
+			--multiplicative-mod-slider: #0476cd;
+			--overwriting-mod-slider: #035899;
+			--indicator-primary: #57a1f4;
+			--indicator-secondary: #2e5684;
+			--select2-opt-group: #24355c;
+			--input-box-outline: #141e34;
+			--mute-button-normal: #6ebffc;
+			--mute-button-mod: #0a92fa;
+			--pitch1-secondary-channel: #47425c;
+			--pitch1-primary-channel: #918bac;
+			--pitch1-secondary-note: #6b6489;
+			--pitch1-primary-note: #a8a3bf;
+			--pitch2-secondary-channel: #626493;
+			--pitch2-primary-channel: #bdbed3;
+			--pitch2-secondary-note: #626493;
+			--pitch2-primary-note: #bdbed3;
+			--pitch3-secondary-channel: #6e89b4;
+			--pitch3-primary-channel: #d4dce9;
+			--pitch3-secondary-note: #6e89b4;
+			--pitch3-primary-note: #d4dce9;
+			--pitch4-secondary-channel: #4c77a9;
+			--pitch4-primary-channel: #a8c6e8;
+			--pitch4-secondary-note: #4c77a9;
+			--pitch4-primary-note: #a8c6e8;
+			--pitch5-secondary-channel: #314e6d;
+			--pitch5-primary-channel: #639bd6;
+			--pitch5-secondary-note: #46698f;
+			--pitch5-primary-note: #639bd6;
+			--pitch6-secondary-channel: #143d6b;
+			--pitch6-primary-channel: #3e87da;
+			--pitch6-secondary-note: #143d6b;
+			--pitch6-primary-note: #3e87da;
+			--pitch7-secondary-channel: #314e6d;
+			--pitch7-primary-channel: #639bd6;
+			--pitch7-secondary-note: #314e6d;
+			--pitch7-primary-note: #639bd6;
+			--pitch8-secondary-channel: #4c77a9;
+			--pitch8-primary-channel: #a8c6e8;
+			--pitch8-secondary-note: #4c77a9;
+			--pitch8-primary-note: #a8c6e8;
+			--pitch9-secondary-channel: #6e89b4;
+			--pitch9-primary-channel: #d4dce9;
+			--pitch9-secondary-note: #6e89b4;
+			--pitch9-primary-note: #d4dce9;
+			--pitch10-secondary-channel: #626493;
+			--pitch10-primary-channel: #bdbed3;
+			--pitch10-secondary-note: #626493;
+			--pitch10-primary-note: #bdbed3;
+			--noise1-secondary-channel: #4b4a55;
+			--noise1-primary-channel: #9795a3;
+			--noise1-secondary-note: #4b4a55;
+			--noise1-primary-note: #9795a3;
+			--noise2-secondary-channel: #858e9d;
+			--noise2-primary-channel: #d7dce5;
+			--noise2-secondary-note: #858e9d;
+			--noise2-primary-note: #d7dce5;
+			--noise3-secondary-channel: #394e65;
+			--noise3-primary-channel: #809bb7;
+			--noise3-secondary-note: #394e65;
+			--noise3-primary-note: #809bb7;
+			--noise4-secondary-channel: #37577b;
+			--noise4-primary-channel: #6189b8;
+			--noise4-secondary-note: #37577b;
+			--noise4-primary-note: #6189b8;
+			--noise5-secondary-channel: #223849;
+			--noise5-primary-channel: #5588af;
+			--noise5-secondary-note: #223849;
+			--noise5-primary-note: #5588af;
+			--mod1-secondary-channel: #3e336c;
+			--mod1-primary-channel: #6d60a4;
+			--mod1-secondary-note: #3e336c;
+			--mod1-primary-note: #6d60a4;
+			--mod2-secondary-channel: #716791;
+			--mod2-primary-channel: #bdbed3;
+			--mod2-secondary-note: #716791;
+			--mod2-primary-note: #bdbed3;
+			--mod3-secondary-channel: #6b91bd;
+			--mod3-primary-channel: #4b8fdd;
+			--mod3-secondary-note: #597ca7;
+			--mod3-primary-note: #7eade3;
+			--mod4-secondary-channel: #14559f;
+			--mod4-primary-channel: #3386e6;
+			--mod4-secondary-note: #14559f;
+			--mod4-primary-note: #3386e6;
+			--mod-label-primary: #1e2940;
+			--mod-label-secondary-text: #748ebe;
+			--mod-label-primary-text: white;
+			--disabled-note-primary: #828282;
+			--disabled-note-secondary: #4f4f4f;
+
+			  font-family: Inter, Courier !important;
+  letter-spacing: 1.13552px;
+  line-height: 1.3;
+  /*font-weight: 300;
+  font-variation-settings: "wght" 300, "opsz" 32;
+  font-feature-settings: "case", "dlig", "frac", "dnom" 0, "numr" 0, "subs" 0, "sups" 0, "tnum" 0, "zero" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0, "ss06" 0, "ss07" 0, "ss08" 0, "cv01" 0, "cv02", "cv03", "cv04", "cv05" 0, "cv06" 0, "cv07", "cv08" 0, "cv09" 0, "cv10" 0, "cv11" 0, "cv12" 0, "cv13" 0, "cpsp" 0, "c2sc" 0, "salt" 0, "aalt" 0, "calt" 0, "ccmp", "locl", "kern";
+*/
+		}`,
 		"voxonium":
 			`:root {
 			--page-margin: #02070D;

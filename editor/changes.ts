@@ -1009,8 +1009,7 @@ export class ChangeRandomGeneratedInstrument extends Change {
                 { item: InstrumentType.pickedString, weight: 2 },
                 { item: InstrumentType.spectrum, weight: 2 },
                 { item: InstrumentType.fm, weight: 2 },
-                { item: InstrumentType.fm6op, weight: 2 },
-            ]);
+                { item: InstrumentType.fm6op, weight: 2 },            ]);
             instrument.preset = instrument.type = type;
 
             instrument.fadeIn = (Math.random() < 0.5) ? 0 : selectCurvedDistribution(0, Config.fadeInRange - 1, 0, 2);
@@ -2313,7 +2312,7 @@ export class ChangeVibrato extends Change {
         if (oldValue != newValue) {
             instrument.vibrato = newValue;
             instrument.vibratoDepth = Config.vibratos[instrument.vibrato].amplitude;
-            instrument.vibratoDelay = Config.vibratos[instrument.vibrato].delayTicks / 2;
+            instrument.vibratoDelay = Config.vibratos[instrument.vibrato].delayTicks / 20;
             instrument.vibratoSpeed = 10; // default
             instrument.vibratoType = Config.vibratos[instrument.vibrato].type;
             instrument.preset = instrument.type;
@@ -2726,6 +2725,48 @@ export class ChangeBitcrusherQuantization extends ChangeInstrumentSlider {
         if (oldValue != newValue) this._didSomething();
     }
 }
+
+/*export class ChangePhaserMix extends ChangeInstrumentSlider {
+    constructor(doc: SongDocument, oldValue: number, newValue: number) {
+        super(doc);
+        this._instrument.phaserMix = newValue;
+        // doc.synth.unsetMod(Config.modulators.dictionary["..."].index, doc.channel, doc.getCurrentInstrument());
+        doc.notifier.changed();
+        if (oldValue != newValue) this._didSomething();
+    }
+}
+
+export class ChangePhaserFreq extends ChangeInstrumentSlider {
+    constructor(doc: SongDocument, oldValue: number, newValue: number) {
+        super(doc);
+        this._instrument.phaserFreq = newValue;
+        // doc.synth.unsetMod(Config.modulators.dictionary["..."].index, doc.channel, doc.getCurrentInstrument());
+        doc.notifier.changed();
+        if (oldValue != newValue) this._didSomething();
+    }
+}
+
+export class ChangePhaserFeedback extends ChangeInstrumentSlider {
+    constructor(doc: SongDocument, oldValue: number, newValue: number) {
+        super(doc);
+        this._instrument.phaserFeedback = newValue;
+        // doc.synth.unsetMod(Config.modulators.dictionary["..."].index, doc.channel, doc.getCurrentInstrument());
+        doc.notifier.changed();
+        if (oldValue != newValue) this._didSomething();
+    }
+}
+
+export class ChangePhaserStages extends ChangeInstrumentSlider {
+    constructor(doc: SongDocument, oldValue: number, newValue: number) {
+        super(doc);
+        this._instrument.phaserStages = newValue;
+        // doc.synth.unsetMod(Config.modulators.dictionary["..."].index, doc.channel, doc.getCurrentInstrument());
+        doc.notifier.changed();
+        if (oldValue != newValue) this._didSomething();
+    }
+}
+*/
+
 
 export class ChangeStringSustain extends ChangeInstrumentSlider {
     constructor(doc: SongDocument, oldValue: number, newValue: number) {

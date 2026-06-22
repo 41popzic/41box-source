@@ -79,7 +79,7 @@ export class Box {
         if (this._renderedBorderRight != borderRight) {
             this.container.style.setProperty("border-right", borderRight);
             this._renderedBorderRight = borderRight;
-        }
+            }
     }
 }
 
@@ -88,6 +88,7 @@ export class ChannelRow {
 
     private _renderedBarWidth: number = -1;
     private _renderedBarHeight: number = -1;
+    private _renderedSelected: boolean = false;
     private _boxes: Box[] = [];
 
     public readonly container: HTMLElement = HTML.div({ class: "channelRow" });
@@ -109,6 +110,15 @@ export class ChannelRow {
                 this.container.removeChild(this._boxes[x].container);
             }
             this._boxes.length = this._doc.song.barCount;
+        }
+
+        const isSelectedChannel = (this.index === this._doc.channel);
+
+        if (this._renderedSelected !== isSelectedChannel) {
+            this.container.style.background = isSelectedChannel
+                ? "rgba(255, 255, 255, 0.07)"
+                : "";
+            this._renderedSelected = isSelectedChannel;
         }
 
         if (this._renderedBarWidth != barWidth) {
@@ -140,7 +150,7 @@ export class ChannelRow {
                 box.setVisibility("hidden");
             }
             if (i == this._doc.synth.loopBarStart) {
-                box.setBorderLeft(`1px dashed ${ColorConfig.uiWidgetFocus}`);
+                box.setBorderLeft(`1px dashed ${    ColorConfig.uiWidgetFocus}`);
             }
             else {
                 box.setBorderLeft("none");

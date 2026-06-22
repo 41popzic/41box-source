@@ -10,8 +10,19 @@ const { button, div, h2, select, option, optgroup } = HTML;
 
 export class ThemePrompt implements Prompt {
 	private readonly _themeSelect: HTMLSelectElement = select({ style: "width: 100%;" },
-		optgroup({ label: "Default Themes" },
-			option({ value: "41box" }, "41Box"),
+		optgroup({ label: "41Box Regular Themes"},
+			option({ value: "41box"}, "41Box Regular"),
+		),
+		optgroup({ label: "41Box Inter Themes"},
+			option({ value: "inter-energized"}, "Inter Energized"),
+			option({ value: "inter-nebula"}, "Inter Nebula"),
+			option({ value: "inter-autumn"}, "Inter Autumn"),	
+			option({ value: "inter-forest"}, "Inter Forest"),
+			option({ value: "inter-moonlight"}, "Inter Moonlight"),
+
+		),
+		
+		optgroup({ label: "JummBox Themes" },
 			option({ value: "forest" }, "Forest"),
 			option({ value: "canyon" }, "Canyon"),
 			option({ value: "midnight" }, "Midnight"),
@@ -40,9 +51,7 @@ export class ThemePrompt implements Prompt {
 			option({ value: "dark classic" }, "BeepBox Dark"),
 			option({ value: "light classic" }, "BeepBox Light"),
 			option({ value: "dark competition" }, "BeepBox Competition Dark"),
-			option({ value: "jummbox classic" }, "JummBox Dark"),
-			// let's retire this again.
-			// why do you wanna retire jummbox light ;-;
+			option({ value: "jummbox classic" }, "JummBox Classic"),
 			option({ value: "jummbox light" }, "JummBox Light"), 
 			option({ value: "modbox classic" }, "Modbox"),
 			option({ value: "sandbox classic" }, "Sandbox"),
@@ -71,6 +80,7 @@ export class ThemePrompt implements Prompt {
 			option({ value: "voxonium" }, "Voxonium"),
 			option({ value: "axobox"}, "AxoBox"),
 			option({ value: "lemmbox dark"}, "LemmBox"),
+			option({ value: "fmbox" }, "FMBox"),
 		),
 		optgroup({ label: "Misc" },
 			option({ value: "azur lane" }, "Azur Lane"),
