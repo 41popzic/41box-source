@@ -3208,10 +3208,10 @@ export class Song {
     private static readonly _oldestSlarmoosBoxVersion: number = 1;
     private static readonly _latestSlarmoosBoxVersion: number = 5;
     private static readonly _oldest41BoxVersion: number = 1;
-    private static readonly _latest41BoxVersion: number = 2;
+    private static readonly _latest41BoxVersion: number = 3;
     // One-character variant detection at the start of URL to distinguish variants such as JummBox, Or Goldbox. "j" and "g" respectively
     //also "u" is ultrabox lol
-    private static readonly _variant = 0x70; //"p" ~ 41box //where's the p in 41box you ask?? well, uhh it's from my display name -41popzic
+    private static readonly _variant = 0x70; //"p" ~ 41box //where's the p in 41box you ask?? there isn't. it's from my display name -41popzic
 
     public title: string;
     public scale: number;

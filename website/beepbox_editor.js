@@ -19255,7 +19255,7 @@ li.select2-results__option[role=group] > strong:hover {
     Song._oldestSlarmoosBoxVersion = 1;
     Song._latestSlarmoosBoxVersion = 5;
     Song._oldest41BoxVersion = 1;
-    Song._latest41BoxVersion = 2;
+    Song._latest41BoxVersion = 3;
     Song._variant = 0x70;
     class PickedString {
         constructor() {
