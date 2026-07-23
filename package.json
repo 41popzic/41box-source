@@ -2,7 +2,7 @@
 	"name": "41box",
 	"description": "41box",
 	"author": "41popzic",
-	"version": "1.1",
+	"version": "1.2",
 	"contributors": [
 		{
 			"name": "Slarmoo"
@@ -53,6 +53,7 @@
 	"devDependencies": {
 		"@electron/packager": "^18.0.0",
 		"@rollup/plugin-node-resolve": "^15.1.0",
+		"@types/jquery": "^4.0.1",
 		"electron": "^42.0.1",
 		"rollup": "^2.79.1",
 		"rollup-plugin-sourcemaps": "^0.6.3",
@@ -60,7 +61,6 @@
 		"typescript": "^5.9.3"
 	},
 	"dependencies": {
-		"@types/jquery": "^3.5.30",
 		"@types/select2": "^4.0.63",
 		"electron-packager": "^17.1.2",
 		"esbuild": "^0.25.5",

@@ -275,7 +275,7 @@ html {
 
 .beepboxEditor .track-area {
 	grid-area: track-area;
-	background-image: url(${getLocalStorageItem("customTheme2", "")});
+	background-image: url(${getLocalStorageItem("customThemeImage", "")});
 }
 
 .beepboxEditor .loopEditor {
@@ -863,11 +863,11 @@ html {
   width: -moz-available !important;
   width: -webkit-fill-available !important;
 }
-@media (min-width: 711px) {
-	.select2 {
-	  width: calc(var(--settings-area-width) * 0.625) !important;
-	}
-}
+//@media (min-width: 711px) {
+//	.select2 {
+//	  width: calc(var(--settings-area-width) * 0.625) !important;
+//	}
+//}
 
 .select2-container--default .select2-selection--single{
   border-radius: 0px;
@@ -1585,7 +1585,7 @@ li.select2-results__option[role=group] > strong:hover {
 /* wide screen */
 @media (min-width: 711px) {
 	#beepboxEditorContainer {
-		background-image: url(${getLocalStorageItem("customTheme2", "")});
+		background-image: url(${getLocalStorageItem("customThemeImage", "")});
 		display: table;
 	}
 	.beepboxEditor {

@@ -1738,7 +1738,7 @@ var beepbox = (function (exports) {
             return (_a = EditorConfig.presetCategories[0].presets.dictionary) === null || _a === void 0 ? void 0 : _a[TypePresets === null || TypePresets === void 0 ? void 0 : TypePresets[instrument]];
         }
     }
-    EditorConfig.version = "1.1.1";
+    EditorConfig.version = "1.2";
     EditorConfig.versionDisplayName = "41Box " + EditorConfig.version;
     EditorConfig.releaseNotesURL = "./patch_notes.html";
     EditorConfig.isOnMac = /^Mac/i.test(navigator.platform) || /Mac OS X/i.test(navigator.userAgent) || /^(iPhone|iPad|iPod)/i.test(navigator.platform) || /(iPhone|iPad|iPod)/i.test(navigator.userAgent);
@@ -1762,63 +1762,63 @@ var beepbox = (function (exports) {
         },
         {
             name: "Retro Presets", presets: toNameMap([
-                { name: "square wave", midiProgram: 80, settings: { "type": "chip", "eqFilter": [], "effects": ["aliasing"], "transition": "interrupt", "fadeInSeconds": 0, "fadeOutTicks": -1, "chord": "arpeggio", "wave": "square", "unison": "none", "envelopes": [] } },
-                { name: "triangle wave", midiProgram: 71, settings: { "type": "chip", "eqFilter": [], "effects": ["aliasing"], "transition": "interrupt", "fadeInSeconds": 0, "fadeOutTicks": -1, "chord": "arpeggio", "wave": "triangle", "unison": "none", "envelopes": [] } },
-                { name: "square lead", midiProgram: 80, generalMidi: true, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "simultaneous", "wave": "square", "unison": "hum", "envelopes": [] } },
-                { name: "sawtooth lead 1", midiProgram: 81, generalMidi: true, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }], "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "simultaneous", "wave": "sawtooth", "unison": "shimmer", "envelopes": [] } },
-                { name: "sawtooth lead 2", midiProgram: 81, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1 }], "effects": ["vibrato", "aliasing"], "vibrato": "light", "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "chord": "simultaneous", "wave": "sawtooth", "unison": "hum", "envelopes": [] } },
+                { name: "square wave", midiProgram: 80, settings: { "type": "chip", "eqFilter": [], "effects": ["aliasing"], "transition": "interrupt", "fadeInSeconds": 0, "fadeOutTicks": -10, "chord": "arpeggio", "wave": "square", "unison": "none", "envelopes": [] } },
+                { name: "triangle wave", midiProgram: 71, settings: { "type": "chip", "eqFilter": [], "effects": ["aliasing"], "transition": "interrupt", "fadeInSeconds": 0, "fadeOutTicks": -10, "chord": "arpeggio", "wave": "triangle", "unison": "none", "envelopes": [] } },
+                { name: "square lead", midiProgram: 80, generalMidi: true, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "simultaneous", "wave": "square", "unison": "hum", "envelopes": [] } },
+                { name: "sawtooth lead 1", midiProgram: 81, generalMidi: true, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }], "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "simultaneous", "wave": "sawtooth", "unison": "shimmer", "envelopes": [] } },
+                { name: "sawtooth lead 2", midiProgram: 81, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1 }], "effects": ["vibrato", "aliasing"], "vibrato": "light", "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "chord": "simultaneous", "wave": "sawtooth", "unison": "hum", "envelopes": [] } },
                 { name: "chip noise", midiProgram: 116, isNoise: true, settings: { "type": "noise", "transition": "hard", "effects": ["aliasing"], "chord": "arpeggio", "filterCutoffHz": 4000, "filterResonance": 0, "filterEnvelope": "steady", "wave": "retro" } },
-                { name: "supersaw lead", midiProgram: 81, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 2 }], "effects": ["reverb"], "reverb": 67, "fadeInSeconds": 0, "fadeOutTicks": -6, "pulseWidth": 50, "dynamism": 100, "spread": 58, "shape": 0, "envelopes": [] } },
-                { name: "FM twang", midiProgram: 32, settings: { "type": "FM", "eqFilter": [], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "twang 2", "index": 1 }] } },
-                { name: "FM bass", midiProgram: 36, settings: { "type": "FM", "eqFilter": [], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "custom interval", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "2×", "amplitude": 11 }, { "frequency": "1×", "amplitude": 7 }, { "frequency": "1×", "amplitude": 9 }, { "frequency": "20×", "amplitude": 3 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "twang 2", "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "operatorAmplitude", "envelope": "twang 2", "index": 3 }] } },
-                { name: "FM flute", midiProgram: 73, settings: { "type": "FM", "eqFilter": [], "effects": [], "transition": "normal", "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 6 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "twang 2", "index": 1 }] } },
-                { name: "FM organ", midiProgram: 16, settings: { "type": "FM", "eqFilter": [], "effects": ["vibrato"], "vibrato": "delayed", "transition": "normal", "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "chord": "custom interval", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 14 }, { "frequency": "2×", "amplitude": 14 }, { "frequency": "1×", "amplitude": 11 }, { "frequency": "2×", "amplitude": 11 }], "envelopes": [] } },
+                { name: "supersaw lead", midiProgram: 81, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 2 }], "effects": ["reverb"], "reverb": 67, "fadeInSeconds": 0, "fadeOutTicks": -60, "pulseWidth": 50, "dynamism": 100, "spread": 58, "shape": 0, "envelopes": [] } },
+                { name: "FM twang", midiProgram: 32, settings: { "type": "FM", "eqFilter": [], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "twang 2", "index": 1 }] } },
+                { name: "FM bass", midiProgram: 36, settings: { "type": "FM", "eqFilter": [], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "custom interval", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "2×", "amplitude": 11 }, { "frequency": "1×", "amplitude": 7 }, { "frequency": "1×", "amplitude": 9 }, { "frequency": "20×", "amplitude": 3 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "twang 2", "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "operatorAmplitude", "envelope": "twang 2", "index": 3 }] } },
+                { name: "FM flute", midiProgram: 73, settings: { "type": "FM", "eqFilter": [], "effects": [], "transition": "normal", "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 6 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "twang 2", "index": 1 }] } },
+                { name: "FM organ", midiProgram: 16, settings: { "type": "FM", "eqFilter": [], "effects": ["vibrato"], "vibrato": "delayed", "transition": "normal", "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "chord": "custom interval", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 14 }, { "frequency": "2×", "amplitude": 14 }, { "frequency": "1×", "amplitude": 11 }, { "frequency": "2×", "amplitude": 11 }], "envelopes": [] } },
                 { name: "FM sine", midiProgram: 55, settings: { "type": "FM", "eqFilter": [], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "effects": [], "panDelay": 10, "fadeInSeconds": 0, "fadeOutTicks": -1, "algorithm": "1 2 3 4", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine" }, { "frequency": "1×", "amplitude": 0, "waveform": "sine" }, { "frequency": "1×", "amplitude": 0, "waveform": "sine" }, { "frequency": "1×", "amplitude": 0, "waveform": "sine" }], "envelopes": [] } },
-                { name: "NES Pulse", midiProgram: 80, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "unison": "none", "vibrato": "none", "envelopes": [], "customChipWave": [-24, -24, -24, -24, -23, -23, -23, -23, -22, -22, -22, -22, -21, -21, -21, -21, -20, -20, -20, -20, -19, -19, -19, -19, -18, -18, -18, -18, -17, -17, -17, -17, 24, 24, 24, 24, 23, 23, 23, 23, 22, 22, 22, 22, 21, 21, 21, 21, 20, 20, 20, 20, 19, 19, 19, 19, 18, 18, 18, 18, 17, 17, 17, 17] } },
-                { name: "Gameboy Pulse", midiProgram: 80, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [-24, -20, -17, -15, -13, -13, -11, -11, -11, -9, -9, -9, -9, -7, -7, -7, -7, -7, -5, -5, -5, -5, -5, -5, -3, -3, -3, -3, -3, -3, -3, -3, 24, 20, 17, 15, 13, 13, 11, 11, 11, 9, 9, 9, 9, 7, 7, 7, 7, 7, 5, 5, 5, 5, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3] } },
-                { name: "VRC6 Sawtooth", midiProgram: 81, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [-24, -20, -16, -13, -10, -8, -6, -5, -4, -4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 8, 8, 8, 8, 8, 8, 8, 8, 12, 12, 12, 12, 12, 12, 12, 12, 16, 16, 16, 16, 16, 16, 16, 16, 20, 20, 20, 20, 20, 20, 20, 20, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24] } },
-                { name: "Atari Square", midiProgram: 80, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [-24, -24, -24, -23, -23, -23, -22, -22, -22, -21, -21, -21, -20, -20, -20, -19, -19, -19, -18, -18, -18, -17, -17, -17, -16, -16, -16, -15, -15, -15, -14, -14, -14, -13, -13, -13, 24, 24, 24, 23, 23, 23, 22, 22, 22, 21, 21, 21, 20, 20, 20, 19, 19, 19, 18, 18, 18, 17, 17, 17, 16, 16, 15, 15] } },
-                { name: "Atari Bass", midiProgram: 36, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "interrupt", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [-24, -24, -24, -24, -24, -24, -24, -24, -24, 24, 24, 24, 24, 24, 24, -24, -24, -24, 24, 24, 24, -24, -24, -24, 24, 24, 24, -24, -24, -24, 24, 24, -24, -24, -24, -24, -24, -24, -24, -24, -24, 24, 24, 24, 24, 24, 24, -24, -24, 24, 24, 24, 24, 24, -24, -24, -24, -24, 24, 24, -24, -24, 24, 24] } },
-                { name: "Sunsoft Bass", midiProgram: 36, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [24, 24, 15, 15, 9, 9, -4, -4, 0, 0, -13, -13, -19, -19, -24, -24, -24, -24, -10, -10, 0, 0, -7, -7, -7, -7, 0, 0, 6, 6, -4, -4, 3, 3, -4, -4, 3, 3, 3, 3, 9, 9, 15, 15, 15, 15, 6, 6, -4, -4, -4, -4, -4, -4, -4, -4, -4, -4, 3, 3, 12, 12, 24, 24] } },
+                { name: "NES Pulse", midiProgram: 80, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "unison": "none", "vibrato": "none", "envelopes": [], "customChipWave": [-24, -24, -24, -24, -23, -23, -23, -23, -22, -22, -22, -22, -21, -21, -21, -21, -20, -20, -20, -20, -19, -19, -19, -19, -18, -18, -18, -18, -17, -17, -17, -17, 24, 24, 24, 24, 23, 23, 23, 23, 22, 22, 22, 22, 21, 21, 21, 21, 20, 20, 20, 20, 19, 19, 19, 19, 18, 18, 18, 18, 17, 17, 17, 17] } },
+                { name: "Gameboy Pulse", midiProgram: 80, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [-24, -20, -17, -15, -13, -13, -11, -11, -11, -9, -9, -9, -9, -7, -7, -7, -7, -7, -5, -5, -5, -5, -5, -5, -3, -3, -3, -3, -3, -3, -3, -3, 24, 20, 17, 15, 13, 13, 11, 11, 11, 9, 9, 9, 9, 7, 7, 7, 7, 7, 5, 5, 5, 5, 5, 5, 3, 3, 3, 3, 3, 3, 3, 3] } },
+                { name: "VRC6 Sawtooth", midiProgram: 81, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [-24, -20, -16, -13, -10, -8, -6, -5, -4, -4, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 8, 8, 8, 8, 8, 8, 8, 8, 12, 12, 12, 12, 12, 12, 12, 12, 16, 16, 16, 16, 16, 16, 16, 16, 20, 20, 20, 20, 20, 20, 20, 20, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24] } },
+                { name: "Atari Square", midiProgram: 80, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [-24, -24, -24, -23, -23, -23, -22, -22, -22, -21, -21, -21, -20, -20, -20, -19, -19, -19, -18, -18, -18, -17, -17, -17, -16, -16, -16, -15, -15, -15, -14, -14, -14, -13, -13, -13, 24, 24, 24, 23, 23, 23, 22, 22, 22, 21, 21, 21, 20, 20, 20, 19, 19, 19, 18, 18, 18, 17, 17, 17, 16, 16, 15, 15] } },
+                { name: "Atari Bass", midiProgram: 36, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "interrupt", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [-24, -24, -24, -24, -24, -24, -24, -24, -24, 24, 24, 24, 24, 24, 24, -24, -24, -24, 24, 24, 24, -24, -24, -24, 24, 24, 24, -24, -24, -24, 24, 24, -24, -24, -24, -24, -24, -24, -24, -24, -24, 24, 24, 24, 24, 24, 24, -24, -24, 24, 24, 24, 24, 24, -24, -24, -24, -24, 24, 24, -24, -24, 24, 24] } },
+                { name: "Sunsoft Bass", midiProgram: 36, settings: { "type": "custom chip", "effects": ["aliasing"], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "arpeggio", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }], "unison": "none", "envelopes": [], "customChipWave": [24, 24, 15, 15, 9, 9, -4, -4, 0, 0, -13, -13, -19, -19, -24, -24, -24, -24, -10, -10, 0, 0, -7, -7, -7, -7, 0, 0, 6, 6, -4, -4, 3, 3, -4, -4, 3, 3, 3, 3, 9, 9, 15, 15, 15, 15, 6, 6, -4, -4, -4, -4, -4, -4, -4, -4, -4, -4, 3, 3, 12, 12, 24, 24] } },
             ])
         },
         {
             name: "Keyboard Presets", presets: toNameMap([
-                { name: "grand piano 1", midiProgram: 0, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 2.8284 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.125 }], "reverb": 67, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "harmonics": [100, 100, 86, 86, 86, 71, 71, 71, 0, 86, 71, 71, 71, 57, 57, 71, 57, 14, 57, 57, 57, 57, 57, 57, 57, 57, 29, 57], "unison": "piano", "stringSustain": 79, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "note size" }] } },
-                { name: "bright piano", midiProgram: 1, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.7071 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 1.4142 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 24, "chord": "simultaneous", "harmonics": [100, 100, 86, 86, 71, 71, 0, 71, 71, 71, 71, 71, 71, 14, 57, 57, 57, 57, 57, 57, 29, 57, 57, 57, 57, 57, 57, 57], "unison": "piano", "stringSustain": 86, "envelopes": [] } },
-                { name: "electric grand", midiProgram: 2, generalMidi: true, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "wave": "1/8 pulse", "unison": "shimmer", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }] } },
-                { name: "honky-tonk piano", midiProgram: 3, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 0.3536 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "harmonics": [100, 100, 86, 71, 86, 71, 43, 71, 43, 43, 57, 57, 57, 29, 57, 57, 57, 57, 57, 57, 43, 57, 57, 57, 43, 43, 43, 43], "unison": "honky tonk", "stringSustain": 71, "envelopes": [] } },
-                { name: "electric piano 1", midiProgram: 4, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 0.5 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "simultaneous", "harmonics": [86, 100, 100, 71, 71, 57, 57, 43, 43, 43, 29, 29, 29, 14, 14, 14, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0], "unison": "none", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 2" }] } },
-                { name: "electric piano 2", midiProgram: 5, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 12 }, { "frequency": "1×", "amplitude": 6 }, { "frequency": "1×", "amplitude": 9 }, { "frequency": "16×", "amplitude": 6 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 3 }] } },
-                { name: "harpsichord", midiProgram: 6, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "high-pass", "cutoffHz": 250, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 2.8284 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 24, "chord": "simultaneous", "harmonics": [100, 100, 100, 86, 57, 86, 86, 86, 86, 57, 57, 71, 71, 86, 86, 71, 71, 86, 86, 71, 71, 71, 71, 71, 71, 71, 71, 71], "unison": "none", "stringSustain": 79, "envelopes": [] } },
-                { name: "clavinet", midiProgram: 7, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.3536 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "3⟲", "feedbackAmplitude": 6, "operators": [{ "frequency": "3×", "amplitude": 15 }, { "frequency": "~1×", "amplitude": 6 }, { "frequency": "8×", "amplitude": 4 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 2" }, { "target": "feedbackAmplitude", "envelope": "twang 2" }] } },
-                { name: "dulcimer", midiProgram: 15, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "strum", "harmonics": [100, 100, 100, 86, 100, 86, 57, 100, 100, 86, 100, 86, 100, 86, 100, 71, 57, 71, 71, 100, 86, 71, 86, 86, 100, 86, 86, 86], "unison": "piano", "stringSustain": 79, "envelopes": [] } },
-                { name: "grand piano 2", midiProgram: 0, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [{ "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 2.8284 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.125 }], "reverb": 67, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "harmonics": [100, 86, 86, 86, 86, 71, 71, 57, 0, 57, 29, 43, 57, 57, 57, 43, 43, 0, 29, 43, 43, 43, 43, 43, 43, 29, 0, 29], "unison": "piano", "stringSustain": 79, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "note size" }] } },
-                { name: "grand piano 3", midiProgram: 0, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 4 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 4 }, { "type": "peak", "cutoffHz": 2378.41, "linearGain": 0.25 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 125, "linearGain": 0.0884 }], "reverb": 67, "fadeInSeconds": 0, "fadeOutTicks": 48, "harmonics": [100, 100, 86, 86, 86, 71, 71, 71, 0, 71, 71, 71, 71, 57, 57, 71, 57, 14, 57, 57, 57, 57, 57, 57, 57, 57, 29, 57], "unison": "piano", "stringSustain": 86, "stringSustainType": "acoustic", "envelopes": [{ "target": "noteFilterFreq", "envelope": "note size", "index": 0 }, { "target": "noteFilterFreq", "envelope": "twang 1", "index": 1 }, { "target": "noteFilterFreq", "envelope": "twang 1", "index": 1 }] } },
+                { name: "grand piano 1", midiProgram: 0, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 2.8284 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.125 }], "reverb": 67, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "harmonics": [100, 100, 86, 86, 86, 71, 71, 71, 0, 86, 71, 71, 71, 57, 57, 71, 57, 14, 57, 57, 57, 57, 57, 57, 57, 57, 29, 57], "unison": "piano", "stringSustain": 79, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "note size" }] } },
+                { name: "bright piano", midiProgram: 1, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.7071 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 1.4142 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 240, "chord": "simultaneous", "harmonics": [100, 100, 86, 86, 71, 71, 0, 71, 71, 71, 71, 71, 71, 14, 57, 57, 57, 57, 57, 57, 29, 57, 57, 57, 57, 57, 57, 57], "unison": "piano", "stringSustain": 86, "envelopes": [] } },
+                { name: "electric grand", midiProgram: 2, generalMidi: true, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "wave": "1/8 pulse", "unison": "shimmer", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }] } },
+                { name: "honky-tonk piano", midiProgram: 3, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 0.3536 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "harmonics": [100, 100, 86, 71, 86, 71, 43, 71, 43, 43, 57, 57, 57, 29, 57, 57, 57, 57, 57, 57, 43, 57, 57, 57, 43, 43, 43, 43], "unison": "honky tonk", "stringSustain": 71, "envelopes": [] } },
+                { name: "electric piano 1", midiProgram: 4, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 0.5 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "simultaneous", "harmonics": [86, 100, 100, 71, 71, 57, 57, 43, 43, 43, 29, 29, 29, 14, 14, 14, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0], "unison": "none", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 2" }] } },
+                { name: "electric piano 2", midiProgram: 5, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 12 }, { "frequency": "1×", "amplitude": 6 }, { "frequency": "1×", "amplitude": 9 }, { "frequency": "16×", "amplitude": 6 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 3 }] } },
+                { name: "harpsichord", midiProgram: 6, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "high-pass", "cutoffHz": 250, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 2.8284 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 240, "chord": "simultaneous", "harmonics": [100, 100, 100, 86, 57, 86, 86, 86, 86, 57, 57, 71, 71, 86, 86, 71, 71, 86, 86, 71, 71, 71, 71, 71, 71, 71, 71, 71], "unison": "none", "stringSustain": 79, "envelopes": [] } },
+                { name: "clavinet", midiProgram: 7, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.3536 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "3⟲", "feedbackAmplitude": 6, "operators": [{ "frequency": "3×", "amplitude": 15 }, { "frequency": "~1×", "amplitude": 6 }, { "frequency": "8×", "amplitude": 4 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 2" }, { "target": "feedbackAmplitude", "envelope": "twang 2" }] } },
+                { name: "dulcimer", midiProgram: 15, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "strum", "harmonics": [100, 100, 100, 86, 100, 86, 57, 100, 100, 86, 100, 86, 100, 86, 100, 71, 57, 71, 71, 100, 86, 71, 86, 86, 100, 86, 86, 86], "unison": "piano", "stringSustain": 79, "envelopes": [] } },
+                { name: "grand piano 2", midiProgram: 0, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [{ "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 2.8284 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.125 }], "reverb": 67, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "harmonics": [100, 86, 86, 86, 86, 71, 71, 57, 0, 57, 29, 43, 57, 57, 57, 43, 43, 0, 29, 43, 43, 43, 43, 43, 43, 29, 0, 29], "unison": "piano", "stringSustain": 79, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "note size" }] } },
+                { name: "grand piano 3", midiProgram: 0, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 4 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 4 }, { "type": "peak", "cutoffHz": 2378.41, "linearGain": 0.25 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 125, "linearGain": 0.0884 }], "reverb": 67, "fadeInSeconds": 0, "fadeOutTicks": 480, "harmonics": [100, 100, 86, 86, 86, 71, 71, 71, 0, 71, 71, 71, 71, 57, 57, 71, 57, 14, 57, 57, 57, 57, 57, 57, 57, 57, 29, 57], "unison": "piano", "stringSustain": 86, "stringSustainType": "acoustic", "envelopes": [{ "target": "noteFilterFreq", "envelope": "note size", "index": 0 }, { "target": "noteFilterFreq", "envelope": "twang 1", "index": 1 }, { "target": "noteFilterFreq", "envelope": "twang 1", "index": 1 }] } },
             ])
         },
         {
             name: "Idiophone Presets", presets: toNameMap([
                 { name: "celesta", midiProgram: 8, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 5657, "filterResonance": 14, "filterEnvelope": "twang 2", "vibrato": "none", "algorithm": "(1 2)←(3 4)", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "~1×", "amplitude": 11, "envelope": "custom" }, { "frequency": "8×", "amplitude": 6, "envelope": "custom" }, { "frequency": "20×", "amplitude": 3, "envelope": "twang 1" }, { "frequency": "3×", "amplitude": 1, "envelope": "twang 2" }] } },
-                { name: "glockenspiel", midiProgram: 9, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 193, "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "noteFilterType": true, "noteSimpleCut": 9, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 48, "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 2, "operators": [{ "frequency": "1×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "20×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "feedbackAmplitude", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
-                { name: "music box 1", midiProgram: 10, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "strum", "harmonics": [100, 0, 0, 100, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 71, 0], "unison": "none", "stringSustain": 64, "envelopes": [] } },
-                { name: "music box 2", midiProgram: 10, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 0.7071 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "strum", "harmonics": [100, 57, 57, 0, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "none", "stringSustain": 29, "envelopes": [] } },
+                { name: "glockenspiel", midiProgram: 9, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 193, "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "noteFilterType": true, "noteSimpleCut": 9, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 480, "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 2, "operators": [{ "frequency": "1×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "20×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "feedbackAmplitude", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "music box 1", midiProgram: 10, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "strum", "harmonics": [100, 0, 0, 100, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 71, 0], "unison": "none", "stringSustain": 64, "envelopes": [] } },
+                { name: "music box 2", midiProgram: 10, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 0.7071 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "strum", "harmonics": [100, 57, 57, 0, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "none", "stringSustain": 29, "envelopes": [] } },
                 { name: "vibraphone", midiProgram: 11, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard fade", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "twang 2", "vibrato": "none", "algorithm": "1 2 3 4", "feedbackType": "1→2→3→4", "feedbackAmplitude": 3, "feedbackEnvelope": "twang 1", "operators": [{ "frequency": "1×", "amplitude": 9, "envelope": "custom" }, { "frequency": "~1×", "amplitude": 9, "envelope": "custom" }, { "frequency": "9×", "amplitude": 3, "envelope": "custom" }, { "frequency": "4×", "amplitude": 9, "envelope": "custom" }] } },
-                { name: "marimba", midiProgram: 12, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 197, "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.7071 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 48, "algorithm": "1 2←(3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "13×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }], "isDrum": false } },
-                { name: "kalimba", midiProgram: 108, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 198, "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "noteFilterType": true, "noteSimpleCut": 7, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 0.5 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 48, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "20×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }], "isDrum": false } },
+                { name: "marimba", midiProgram: 12, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 197, "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.7071 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 480, "algorithm": "1 2←(3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "13×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }], "isDrum": false } },
+                { name: "kalimba", midiProgram: 108, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 198, "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "noteFilterType": true, "noteSimpleCut": 7, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 0.5 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 480, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "20×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }], "isDrum": false } },
                 { name: "xylophone", midiProgram: 13, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard", "chord": "strum", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "twang 1", "vibrato": "none", "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "1×", "amplitude": 9, "envelope": "custom" }, { "frequency": "6×", "amplitude": 9, "envelope": "custom" }, { "frequency": "11×", "amplitude": 9, "envelope": "custom" }, { "frequency": "20×", "amplitude": 6, "envelope": "twang 1" }] } },
-                { name: "tubular bell", midiProgram: 14, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 105.11, "linearGain": 0.3536 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 96, "chord": "strum", "harmonics": [43, 71, 0, 100, 0, 100, 0, 86, 0, 0, 86, 0, 14, 71, 14, 14, 57, 14, 14, 43, 14, 14, 43, 14, 14, 43, 14, 14], "unison": "shimmer", "stringSustain": 86, "envelopes": [] } },
+                { name: "tubular bell", midiProgram: 14, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 105.11, "linearGain": 0.3536 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 960, "chord": "strum", "harmonics": [43, 71, 0, 100, 0, 100, 0, 86, 0, 0, 86, 0, 14, 71, 14, 14, 57, 14, 14, 43, 14, 14, 43, 14, 14, 43, 14, 14], "unison": "shimmer", "stringSustain": 86, "envelopes": [] } },
                 { name: "bell synth", midiProgram: 14, settings: { "type": "FM", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 2000, "filterResonance": 29, "filterEnvelope": "twang 3", "vibrato": "none", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "~2×", "amplitude": 10, "envelope": "custom" }, { "frequency": "7×", "amplitude": 6, "envelope": "twang 3" }, { "frequency": "20×", "amplitude": 1, "envelope": "twang 1" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }] } },
                 { name: "rain drop", midiProgram: 96, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 4000, "filterResonance": 14, "filterEnvelope": "twang 1", "vibrato": "none", "algorithm": "(1 2)←(3 4)", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "1×", "amplitude": 12, "envelope": "custom" }, { "frequency": "6×", "amplitude": 4, "envelope": "custom" }, { "frequency": "20×", "amplitude": 3, "envelope": "twang 1" }, { "frequency": "1×", "amplitude": 6, "envelope": "tremolo1" }] } },
                 { name: "crystal", midiProgram: 98, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard fade", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "twang 2", "vibrato": "delayed", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 4, "feedbackEnvelope": "twang 1", "operators": [{ "frequency": "1×", "amplitude": 10, "envelope": "custom" }, { "frequency": "3×", "amplitude": 7, "envelope": "custom" }, { "frequency": "6×", "amplitude": 4, "envelope": "custom" }, { "frequency": "13×", "amplitude": 4, "envelope": "custom" }] } },
                 { name: "tinkle bell", midiProgram: 112, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard", "chord": "strum", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "twang 2", "vibrato": "none", "algorithm": "1 2 3 4", "feedbackType": "1→2→3→4", "feedbackAmplitude": 5, "feedbackEnvelope": "twang 3", "operators": [{ "frequency": "~2×", "amplitude": 7, "envelope": "custom" }, { "frequency": "5×", "amplitude": 7, "envelope": "custom" }, { "frequency": "7×", "amplitude": 7, "envelope": "custom" }, { "frequency": "16×", "amplitude": 7, "envelope": "custom" }] } },
-                { name: "agogo", midiProgram: 113, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 205, "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "noteFilterType": true, "noteSimpleCut": 8, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 48, "algorithm": "1 2 3 4", "feedbackType": "1→4", "feedbackAmplitude": 15, "operators": [{ "frequency": "2×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "13×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "feedbackAmplitude", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "agogo", midiProgram: 113, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 205, "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "noteFilterType": true, "noteSimpleCut": 8, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 480, "algorithm": "1 2 3 4", "feedbackType": "1→4", "feedbackAmplitude": 15, "operators": [{ "frequency": "2×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "13×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "feedbackAmplitude", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
             ])
         },
         {
             name: "Guitar Presets", presets: toNameMap([
                 { name: "nylon guitar", midiProgram: 24, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 5657, "filterResonance": 14, "filterEnvelope": "twang 1", "vibrato": "none", "algorithm": "1←2←3←4", "feedbackType": "3⟲", "feedbackAmplitude": 6, "feedbackEnvelope": "twang 1", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "1×", "amplitude": 6, "envelope": "steady" }, { "frequency": "5×", "amplitude": 2, "envelope": "steady" }, { "frequency": "7×", "amplitude": 4, "envelope": "steady" }] } },
-                { name: "steel guitar", midiProgram: 25, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "strum", "harmonics": [100, 100, 86, 71, 71, 71, 86, 86, 71, 57, 43, 43, 43, 57, 57, 57, 57, 57, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43], "unison": "none", "stringSustain": 71, "envelopes": [] } },
+                { name: "steel guitar", midiProgram: 25, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "strum", "harmonics": [100, 100, 86, 71, 71, 71, 86, 86, 71, 57, 43, 43, 43, 57, 57, 57, 57, 57, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43], "unison": "none", "stringSustain": 71, "envelopes": [] } },
                 { name: "jazz guitar", midiProgram: 26, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "hard", "chord": "strum", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "twang 2", "interval": "union", "vibrato": "none", "harmonics": [100, 100, 86, 71, 57, 71, 71, 43, 57, 71, 57, 43, 29, 29, 29, 29, 29, 29, 29, 29, 14, 14, 14, 14, 14, 14, 14, 0] } },
                 { name: "clean guitar", midiProgram: 27, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "hard", "chord": "strum", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "twang 2", "interval": "union", "vibrato": "none", "harmonics": [86, 100, 100, 100, 86, 57, 86, 100, 100, 100, 71, 57, 43, 71, 86, 71, 57, 57, 71, 71, 71, 71, 57, 57, 57, 57, 57, 43] } },
                 { name: "muted guitar", midiProgram: 28, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard", "chord": "strum", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "twang 1", "vibrato": "none", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 7, "feedbackEnvelope": "twang 2", "operators": [{ "frequency": "1×", "amplitude": 13, "envelope": "custom" }, { "frequency": "1×", "amplitude": 4, "envelope": "twang 3" }, { "frequency": "4×", "amplitude": 4, "envelope": "twang 2" }, { "frequency": "16×", "amplitude": 4, "envelope": "twang 1" }] } },
@@ -1835,7 +1835,7 @@ var beepbox = (function (exports) {
                 { name: "bass synth 1", midiProgram: 38, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard", "chord": "strum", "filterCutoffHz": 4000, "filterResonance": 43, "filterEnvelope": "twang 2", "vibrato": "none", "algorithm": "1←3 2←4", "feedbackType": "3⟲ 4⟲", "feedbackAmplitude": 9, "feedbackEnvelope": "twang 2", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "1×", "amplitude": 10, "envelope": "custom" }, { "frequency": "1×", "amplitude": 14, "envelope": "twang 1" }, { "frequency": "~1×", "amplitude": 13, "envelope": "twang 2" }] } },
                 { name: "bass synth 2", midiProgram: 39, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 1000, "filterResonance": 57, "filterEnvelope": "punch", "vibrato": "none", "algorithm": "1←(2 3 4)", "feedbackType": "1→2", "feedbackAmplitude": 4, "feedbackEnvelope": "twang 3", "operators": [{ "frequency": "1×", "amplitude": 9, "envelope": "custom" }, { "frequency": "1×", "amplitude": 9, "envelope": "steady" }, { "frequency": "3×", "amplitude": 0, "envelope": "steady" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }] } },
                 { name: "bass & lead", midiProgram: 87, generalMidi: true, settings: { "type": "chip", "transition": "hard", "effects": "reverb", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 86, "filterEnvelope": "twang 2", "wave": "sawtooth", "interval": "shimmer", "vibrato": "none" } },
-                { name: "dubstep yoi yoi", midiProgram: 87, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.7071 }], "effects": ["note filter", "bitcrusher"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 594.6, "linearGain": 11.3137 }], "bitcrusherOctave": 1.5, "bitcrusherQuantization": 0, "transition": "slide", "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "chord": "arpeggio", "wave": "sawtooth", "unison": "none", "envelopes": [{ "target": "noteFilterFreq", "envelope": "flare 2", "index": 0 }] } },
+                { name: "dubstep yoi yoi", midiProgram: 87, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.7071 }], "effects": ["note filter", "bitcrusher"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 594.6, "linearGain": 11.3137 }], "bitcrusherOctave": 1.5, "bitcrusherQuantization": 0, "transition": "slide", "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "chord": "arpeggio", "wave": "sawtooth", "unison": "none", "envelopes": [{ "target": "noteFilterFreq", "envelope": "flare 2", "index": 0 }] } },
             ])
         },
         {
@@ -1851,21 +1851,21 @@ var beepbox = (function (exports) {
         },
         {
             name: "Distortion Presets", presets: toNameMap([
-                { name: "overdrive guitar", midiProgram: 29, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.7071 }, { "type": "high-pass", "cutoffHz": 210.22, "linearGain": 1 }, { "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 1 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.5 }], "effects": ["note filter", "distortion"], "noteFilter": [{ "type": "high-pass", "cutoffHz": 297.3, "linearGain": 2 }, { "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.7071 }], "distortion": 71, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 12, "chord": "strum", "harmonics": [86, 100, 100, 86, 86, 86, 86, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57], "unison": "none", "stringSustain": 71, "envelopes": [{ "target": "noteFilterFreq", "envelope": "note size", "index": 1 }] } },
-                { name: "distortion guitar", midiProgram: 30, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.7071 }, { "type": "high-pass", "cutoffHz": 210.22, "linearGain": 1 }, { "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 1 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 0.25 }], "effects": ["note filter", "distortion", "reverb"], "noteFilter": [{ "type": "high-pass", "cutoffHz": 353.55, "linearGain": 2 }, { "type": "low-pass", "cutoffHz": 2000, "linearGain": 1 }], "distortion": 86, "reverb": 67, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 12, "chord": "strum", "harmonics": [86, 100, 100, 86, 86, 86, 86, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57], "unison": "none", "stringSustain": 71, "envelopes": [{ "target": "noteFilterFreq", "envelope": "note size", "index": 1 }] } },
-                { name: "charango synth", midiProgram: 84, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 1 }], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "strum", "algorithm": "1←(2 3←4)", "feedbackType": "1→2→3→4", "feedbackAmplitude": 8, "operators": [{ "frequency": "3×", "amplitude": 13 }, { "frequency": "~1×", "amplitude": 5 }, { "frequency": "4×", "amplitude": 6 }, { "frequency": "3×", "amplitude": 7 }], "envelopes": [{ "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
-                { name: "guitar harmonics", midiProgram: 31, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 2 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "strum", "algorithm": "1←(2 3)←4", "feedbackType": "1⟲", "feedbackAmplitude": 2, "operators": [{ "frequency": "4×", "amplitude": 12 }, { "frequency": "16×", "amplitude": 5 }, { "frequency": "1×", "amplitude": 2 }, { "frequency": "~1×", "amplitude": 12 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 1", "index": 1 }, { "target": "operatorAmplitude", "envelope": "punch", "index": 2 }, { "target": "operatorAmplitude", "envelope": "twang 1", "index": 3 }] } },
-                { name: "PWM overdrive", midiProgram: 29, settings: { "type": "PWM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 1.4142 }], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "strum", "pulseWidth": 17.67767, "envelopes": [{ "target": "pulseWidth", "envelope": "punch" }] } },
-                { name: "PWM distortion", midiProgram: 30, settings: { "type": "PWM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 2 }], "effects": ["vibrato"], "vibrato": "delayed", "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "strum", "pulseWidth": 50, "envelopes": [{ "target": "pulseWidth", "envelope": "swell 1" }] } },
-                { name: "FM overdrive", midiProgram: 29, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 1 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "strum", "algorithm": "1←(2 3←4)", "feedbackType": "1→2", "feedbackAmplitude": 2, "operators": [{ "frequency": "~1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 12 }, { "frequency": "~2×", "amplitude": 6 }, { "frequency": "1×", "amplitude": 12 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "twang 1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "swell 3", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "punch" }] } },
-                { name: "FM distortion", midiProgram: 30, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 2 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "strum", "algorithm": "1←(2 3←4)", "feedbackType": "1→2", "feedbackAmplitude": 4, "operators": [{ "frequency": "~1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 11 }, { "frequency": "1×", "amplitude": 9 }, { "frequency": "~2×", "amplitude": 4 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "swell 3", "index": 3 }] } },
+                { name: "overdrive guitar", midiProgram: 29, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.7071 }, { "type": "high-pass", "cutoffHz": 210.22, "linearGain": 1 }, { "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 1 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.5 }], "effects": ["note filter", "distortion"], "noteFilter": [{ "type": "high-pass", "cutoffHz": 297.3, "linearGain": 2 }, { "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.7071 }], "distortion": 71, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 120, "chord": "strum", "harmonics": [86, 100, 100, 86, 86, 86, 86, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57], "unison": "none", "stringSustain": 71, "envelopes": [{ "target": "noteFilterFreq", "envelope": "note size", "index": 1 }] } },
+                { name: "distortion guitar", midiProgram: 30, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.7071 }, { "type": "high-pass", "cutoffHz": 210.22, "linearGain": 1 }, { "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 1 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 0.25 }], "effects": ["note filter", "distortion", "reverb"], "noteFilter": [{ "type": "high-pass", "cutoffHz": 353.55, "linearGain": 2 }, { "type": "low-pass", "cutoffHz": 2000, "linearGain": 1 }], "distortion": 86, "reverb": 67, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 120, "chord": "strum", "harmonics": [86, 100, 100, 86, 86, 86, 86, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57, 57], "unison": "none", "stringSustain": 71, "envelopes": [{ "target": "noteFilterFreq", "envelope": "note size", "index": 1 }] } },
+                { name: "charango synth", midiProgram: 84, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 1 }], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "strum", "algorithm": "1←(2 3←4)", "feedbackType": "1→2→3→4", "feedbackAmplitude": 8, "operators": [{ "frequency": "3×", "amplitude": 13 }, { "frequency": "~1×", "amplitude": 5 }, { "frequency": "4×", "amplitude": 6 }, { "frequency": "3×", "amplitude": 7 }], "envelopes": [{ "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
+                { name: "guitar harmonics", midiProgram: 31, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 2 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "strum", "algorithm": "1←(2 3)←4", "feedbackType": "1⟲", "feedbackAmplitude": 2, "operators": [{ "frequency": "4×", "amplitude": 12 }, { "frequency": "16×", "amplitude": 5 }, { "frequency": "1×", "amplitude": 2 }, { "frequency": "~1×", "amplitude": 12 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 1", "index": 1 }, { "target": "operatorAmplitude", "envelope": "punch", "index": 2 }, { "target": "operatorAmplitude", "envelope": "twang 1", "index": 3 }] } },
+                { name: "PWM overdrive", midiProgram: 29, settings: { "type": "PWM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 1.4142 }], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "strum", "pulseWidth": 17.67767, "envelopes": [{ "target": "pulseWidth", "envelope": "punch" }] } },
+                { name: "PWM distortion", midiProgram: 30, settings: { "type": "PWM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 2 }], "effects": ["vibrato"], "vibrato": "delayed", "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "strum", "pulseWidth": 50, "envelopes": [{ "target": "pulseWidth", "envelope": "swell 1" }] } },
+                { name: "FM overdrive", midiProgram: 29, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 1 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "strum", "algorithm": "1←(2 3←4)", "feedbackType": "1→2", "feedbackAmplitude": 2, "operators": [{ "frequency": "~1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 12 }, { "frequency": "~2×", "amplitude": 6 }, { "frequency": "1×", "amplitude": 12 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "twang 1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "swell 3", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "punch" }] } },
+                { name: "FM distortion", midiProgram: 30, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 2 }], "effects": ["reverb"], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "strum", "algorithm": "1←(2 3←4)", "feedbackType": "1→2", "feedbackAmplitude": 4, "operators": [{ "frequency": "~1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 11 }, { "frequency": "1×", "amplitude": 9 }, { "frequency": "~2×", "amplitude": 4 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "swell 3", "index": 3 }] } },
             ])
         },
         {
             name: "Bellows Presets", presets: toNameMap([
                 { name: "drawbar organ 1", midiProgram: 16, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "harmonics", "effects": "reverb", "transition": "hard", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "steady", "interval": "union", "vibrato": "none", "harmonics": [86, 86, 0, 86, 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] } },
                 { name: "drawbar organ 2", midiProgram: 16, midiSubharmonicOctaves: 1, settings: { "type": "harmonics", "effects": "reverb", "transition": "hard", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "steady", "interval": "union", "vibrato": "none", "harmonics": [86, 29, 71, 86, 71, 14, 0, 100, 0, 0, 0, 86, 0, 0, 0, 71, 0, 0, 0, 57, 0, 0, 0, 29, 0, 0, 0, 0] } },
-                { name: "percussive organ", midiProgram: 17, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "FM", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "effects": ["vibrato", "note filter", "reverb"], "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2500, "linearGain": 0.5 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 2500, "linearGain": 0.5 }], "panDelay": 0, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -3, "algorithm": "1 2 3 4", "feedbackType": "1→3 2→4", "feedbackAmplitude": 7, "operators": [{ "frequency": "1×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "3×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }, { "target": "feedbackAmplitude", "envelope": "decay 1" }] } },
+                { name: "percussive organ", midiProgram: 17, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "FM", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "effects": ["vibrato", "note filter", "reverb"], "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2500, "linearGain": 0.5 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 2500, "linearGain": 0.5 }], "panDelay": 0, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -30, "algorithm": "1 2 3 4", "feedbackType": "1→3 2→4", "feedbackAmplitude": 7, "operators": [{ "frequency": "1×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "3×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }, { "target": "feedbackAmplitude", "envelope": "decay 1" }] } },
                 { name: "rock organ", midiProgram: 18, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "hard", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 14, "filterEnvelope": "punch", "vibrato": "delayed", "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 2, "feedbackEnvelope": "flare 1", "operators": [{ "frequency": "1×", "amplitude": 9, "envelope": "custom" }, { "frequency": "4×", "amplitude": 9, "envelope": "custom" }, { "frequency": "6×", "amplitude": 9, "envelope": "custom" }, { "frequency": "2×", "amplitude": 5, "envelope": "steady" }] } },
                 { name: "pipe organ", midiProgram: 19, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "FM", "transition": "cross fade", "effects": "reverb", "chord": "harmony", "filterCutoffHz": 5657, "filterResonance": 43, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 5, "feedbackEnvelope": "steady", "operators": [{ "frequency": "1×", "amplitude": 8, "envelope": "custom" }, { "frequency": "2×", "amplitude": 9, "envelope": "custom" }, { "frequency": "4×", "amplitude": 9, "envelope": "custom" }, { "frequency": "8×", "amplitude": 8, "envelope": "custom" }] } },
                 { name: "reed organ", midiProgram: 20, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 29, "filterEnvelope": "steady", "interval": "union", "vibrato": "none", "harmonics": [71, 86, 100, 86, 71, 100, 57, 71, 71, 71, 43, 43, 43, 71, 43, 71, 57, 57, 57, 57, 57, 57, 57, 29, 43, 29, 29, 14] } },
@@ -1876,37 +1876,37 @@ var beepbox = (function (exports) {
         },
         {
             name: "String Presets", presets: toNameMap([
-                { name: "violin 1", midiProgram: 40, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 105.11, "linearGain": 0.3536 }], "effects": ["vibrato", "reverb"], "vibrato": "delayed", "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 6, "chord": "simultaneous", "algorithm": "(1 2)←(3 4)", "feedbackType": "1→2", "feedbackAmplitude": 5, "operators": [{ "frequency": "4×", "amplitude": 9 }, { "frequency": "3×", "amplitude": 9 }, { "frequency": "2×", "amplitude": 7 }, { "frequency": "7×", "amplitude": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 1", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
+                { name: "violin 1", midiProgram: 40, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 105.11, "linearGain": 0.3536 }], "effects": ["vibrato", "reverb"], "vibrato": "delayed", "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 60, "chord": "simultaneous", "algorithm": "(1 2)←(3 4)", "feedbackType": "1→2", "feedbackAmplitude": 5, "operators": [{ "frequency": "4×", "amplitude": 9 }, { "frequency": "3×", "amplitude": 9 }, { "frequency": "2×", "amplitude": 7 }, { "frequency": "7×", "amplitude": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 1", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
                 { name: "viola", midiProgram: 41, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "cross fade", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 29, "filterEnvelope": "steady", "vibrato": "delayed", "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 8, "feedbackEnvelope": "swell 1", "operators": [{ "frequency": "2×", "amplitude": 11, "envelope": "custom" }, { "frequency": "7×", "amplitude": 7, "envelope": "custom" }, { "frequency": "13×", "amplitude": 4, "envelope": "custom" }, { "frequency": "1×", "amplitude": 5, "envelope": "steady" }] } },
-                { name: "cello", midiProgram: 42, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 297.3, "linearGain": 0.7071 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 5.6569 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.0884 }], "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 12, "chord": "simultaneous", "algorithm": "(1 2)←3←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "16×", "amplitude": 5 }, { "frequency": "~1×", "amplitude": 10 }, { "frequency": "1×", "amplitude": 9 }, { "frequency": "6×", "amplitude": 3 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 1" }, { "target": "operatorAmplitude", "envelope": "swell 1", "index": 3 }] } },
+                { name: "cello", midiProgram: 42, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 297.3, "linearGain": 0.7071 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 5.6569 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.0884 }], "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 120, "chord": "simultaneous", "algorithm": "(1 2)←3←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "16×", "amplitude": 5 }, { "frequency": "~1×", "amplitude": 10 }, { "frequency": "1×", "amplitude": 9 }, { "frequency": "6×", "amplitude": 3 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 1" }, { "target": "operatorAmplitude", "envelope": "swell 1", "index": 3 }] } },
                 { name: "contrabass", midiProgram: 43, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "cross fade", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 29, "filterEnvelope": "steady", "vibrato": "delayed", "algorithm": "(1 2)←3←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "16×", "amplitude": 5, "envelope": "custom" }, { "frequency": "1×", "amplitude": 10, "envelope": "custom" }, { "frequency": "1×", "amplitude": 10, "envelope": "steady" }, { "frequency": "6×", "amplitude": 3, "envelope": "swell 1" }] } },
                 { name: "fiddle", midiProgram: 110, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 29, "filterEnvelope": "steady", "vibrato": "delayed", "algorithm": "(1 2)←(3 4)", "feedbackType": "3⟲ 4⟲", "feedbackAmplitude": 5, "feedbackEnvelope": "twang 1", "operators": [{ "frequency": "2×", "amplitude": 10, "envelope": "custom" }, { "frequency": "8×", "amplitude": 8, "envelope": "custom" }, { "frequency": "1×", "amplitude": 8, "envelope": "steady" }, { "frequency": "16×", "amplitude": 3, "envelope": "steady" }] } },
-                { name: "tremolo strings", midiProgram: 44, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "effects": ["note filter", "chorus", "reverb"], "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.1768 }], "chorus": 100, "reverb": 0, "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "algorithm": "1 2 3 4", "feedbackType": "1→2→3→4", "feedbackAmplitude": 12, "operators": [{ "frequency": "1×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "7×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 4, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "tremolo strings", midiProgram: 44, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "effects": ["note filter", "chorus", "reverb"], "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.1768 }], "chorus": 100, "reverb": 0, "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "algorithm": "1 2 3 4", "feedbackType": "1→2→3→4", "feedbackAmplitude": 12, "operators": [{ "frequency": "1×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "7×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 4, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
                 { name: "strings", midiProgram: 48, generalMidi: true, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "cross fade", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 43, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "(1 2)←(3 4)", "feedbackType": "4⟲", "feedbackAmplitude": 5, "feedbackEnvelope": "twang 3", "operators": [{ "frequency": "4×", "amplitude": 9, "envelope": "custom" }, { "frequency": "3×", "amplitude": 9, "envelope": "custom" }, { "frequency": "2×", "amplitude": 7, "envelope": "steady" }, { "frequency": "7×", "amplitude": 3, "envelope": "swell 1" }] } },
                 { name: "slow strings", midiProgram: 49, generalMidi: true, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "soft fade", "chord": "harmony", "filterCutoffHz": 1414, "filterResonance": 0, "filterEnvelope": "swell 2", "vibrato": "none", "algorithm": "(1 2)←(3 4)", "feedbackType": "4⟲", "feedbackAmplitude": 6, "feedbackEnvelope": "flare 3", "operators": [{ "frequency": "4×", "amplitude": 10, "envelope": "custom" }, { "frequency": "3×", "amplitude": 10, "envelope": "custom" }, { "frequency": "2×", "amplitude": 7, "envelope": "steady" }, { "frequency": "7×", "amplitude": 4, "envelope": "swell 1" }] } },
                 { name: "strings synth 1", midiProgram: 50, generalMidi: true, settings: { "type": "chip", "transition": "soft fade", "effects": "chorus & reverb", "chord": "harmony", "filterCutoffHz": 1414, "filterResonance": 43, "filterEnvelope": "steady", "wave": "sawtooth", "interval": "hum", "vibrato": "delayed" } },
                 { name: "strings synth 2", midiProgram: 51, generalMidi: true, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "soft fade", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 43, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 12, "feedbackEnvelope": "swell 1", "operators": [{ "frequency": "3×", "amplitude": 6, "envelope": "custom" }, { "frequency": "2×", "amplitude": 7, "envelope": "custom" }, { "frequency": "1×", "amplitude": 8, "envelope": "custom" }, { "frequency": "1×", "amplitude": 9, "envelope": "custom" }] } },
                 { name: "orchestra hit 1", midiProgram: 55, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "hard fade", "chord": "harmony", "filterCutoffHz": 8000, "filterResonance": 14, "filterEnvelope": "custom", "vibrato": "none", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 14, "feedbackEnvelope": "twang 3", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "twang 3" }, { "frequency": "2×", "amplitude": 15, "envelope": "flare 3" }, { "frequency": "4×", "amplitude": 15, "envelope": "flare 2" }, { "frequency": "8×", "amplitude": 15, "envelope": "flare 1" }] } },
-                { name: "violin 2", midiProgram: 40, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 105.11, "linearGain": 0.3536 }], "effects": ["vibrato", "reverb"], "vibrato": "light", "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 6, "chord": "simultaneous", "algorithm": "(1 2)←(3 4)", "feedbackType": "4⟲", "feedbackAmplitude": 5, "feedbackEnvelope": "twang 3", "operators": [{ "frequency": "4×", "amplitude": 15, "envelope": "custom" }, { "frequency": "3×", "amplitude": 13, "envelope": "custom" }, { "frequency": "2×", "amplitude": 7, "envelope": "steady" }, { "frequency": "7×", "amplitude": 8, "envelope": "swell 1" }] } },
-                { name: "orchestra hit 2", midiProgram: 55, midiSubharmonicOctaves: 1, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 588, "effects": ["vibrato", "note filter", "chorus", "reverb"], "vibrato": "delayed", "vibratoDepth": 0.3, "vibratoDelay": 18.5, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": true, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.5 }], "chorus": 100, "reverb": 0, "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 14, "operators": [{ "frequency": "1×", "amplitude": 12, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "3×", "amplitude": 12, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
-                { name: "supersaw string", midiProgram: 41, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 1.4142 }, { "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 0.1768 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "high-pass", "cutoffHz": 500, "linearGain": 0.1768 }], "reverb": 33, "fadeInSeconds": 0.0263, "fadeOutTicks": 6, "pulseWidth": 35.35534, "dynamism": 83, "spread": 8, "shape": 50, "envelopes": [{ "target": "noteFilterFreq", "envelope": "twang 1", "index": 0 }] } },
-                { name: "supersaw string 2", midiProgram: 41, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 2 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 2 }], "effects": ["note filter", "chorus", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 1 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 1 }], "chorus": 57, "reverb": 42, "fadeInSeconds": 0.0575, "fadeOutTicks": -6, "pulseWidth": 50, "dynamism": 67, "spread": 58, "shape": 0, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }, { "target": "pulseWidth", "envelope": "flare 2" }] } },
+                { name: "violin 2", midiProgram: 40, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 105.11, "linearGain": 0.3536 }], "effects": ["vibrato", "reverb"], "vibrato": "light", "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 60, "chord": "simultaneous", "algorithm": "(1 2)←(3 4)", "feedbackType": "4⟲", "feedbackAmplitude": 5, "feedbackEnvelope": "twang 3", "operators": [{ "frequency": "4×", "amplitude": 15, "envelope": "custom" }, { "frequency": "3×", "amplitude": 13, "envelope": "custom" }, { "frequency": "2×", "amplitude": 7, "envelope": "steady" }, { "frequency": "7×", "amplitude": 8, "envelope": "swell 1" }] } },
+                { name: "orchestra hit 2", midiProgram: 55, midiSubharmonicOctaves: 1, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 588, "effects": ["vibrato", "note filter", "chorus", "reverb"], "vibrato": "delayed", "vibratoDepth": 0.3, "vibratoDelay": 18.5, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": true, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.5 }], "chorus": 100, "reverb": 0, "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 14, "operators": [{ "frequency": "1×", "amplitude": 12, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "3×", "amplitude": 12, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "supersaw string", midiProgram: 41, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 1.4142 }, { "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 0.1768 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "high-pass", "cutoffHz": 500, "linearGain": 0.1768 }], "reverb": 33, "fadeInSeconds": 0.0263, "fadeOutTicks": 60, "pulseWidth": 35.35534, "dynamism": 83, "spread": 8, "shape": 50, "envelopes": [{ "target": "noteFilterFreq", "envelope": "twang 1", "index": 0 }] } },
+                { name: "supersaw string 2", midiProgram: 41, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 2 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 2 }], "effects": ["note filter", "chorus", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 1 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 1 }], "chorus": 57, "reverb": 42, "fadeInSeconds": 0.0575, "fadeOutTicks": -60, "pulseWidth": 50, "dynamism": 67, "spread": 58, "shape": 0, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }, { "target": "pulseWidth", "envelope": "flare 2" }] } },
             ])
         },
         {
             name: "Vocal Presets", presets: toNameMap([
-                { name: "choir soprano", midiProgram: 94, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 2 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 5.6569 }, { "type": "high-pass", "cutoffHz": 707.11, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.25 }, { "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 11.3137 }], "effects": ["vibrato", "chorus", "reverb"], "vibrato": "shaky", "chorus": 100, "reverb": 33, "fadeInSeconds": 0.0413, "fadeOutTicks": 24, "harmonics": [100, 100, 86, 57, 29, 29, 57, 71, 57, 29, 14, 14, 14, 29, 43, 57, 43, 29, 14, 14, 14, 14, 14, 14, 0, 0, 0, 0], "unison": "none", "envelopes": [] } },
-                { name: "choir tenor", midiProgram: 52, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [{ "type": "peak", "cutoffHz": 1000, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 297.3, "linearGain": 0.7071 }, { "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 11.3137 }], "effects": ["vibrato", "chorus", "reverb"], "vibrato": "shaky", "chorus": 100, "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 48, "chord": "simultaneous", "harmonics": [86, 100, 100, 86, 71, 57, 43, 29, 29, 29, 29, 43, 43, 43, 29, 29, 29, 29, 29, 29, 29, 29, 29, 14, 14, 14, 14, 14], "unison": "none", "envelopes": [] } },
-                { name: "choir bass", midiProgram: 52, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 11.3137 }], "effects": ["vibrato", "chorus", "reverb"], "vibrato": "shaky", "chorus": 100, "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 48, "chord": "simultaneous", "harmonics": [71, 86, 100, 100, 86, 86, 57, 43, 29, 29, 29, 29, 29, 29, 43, 43, 43, 43, 43, 29, 29, 29, 29, 14, 14, 14, 14, 14], "unison": "none", "envelopes": [] } },
-                { name: "solo soprano", midiProgram: 85, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 2 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 5.6569 }, { "type": "high-pass", "cutoffHz": 707.11, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.25 }], "effects": ["vibrato", "reverb"], "vibrato": "shaky", "reverb": 33, "fadeInSeconds": 0.0413, "fadeOutTicks": 12, "harmonics": [86, 100, 86, 43, 14, 14, 57, 71, 57, 14, 14, 14, 14, 14, 43, 57, 43, 14, 14, 14, 14, 14, 14, 14, 0, 0, 0, 0], "unison": "none", "envelopes": [] } },
-                { name: "solo tenor", midiProgram: 85, settings: { "type": "harmonics", "eqFilter": [{ "type": "peak", "cutoffHz": 1000, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 297.3, "linearGain": 0.7071 }, { "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 11.3137 }], "effects": ["vibrato", "reverb"], "vibrato": "shaky", "reverb": 33, "fadeInSeconds": 0.0413, "fadeOutTicks": 12, "harmonics": [86, 100, 100, 86, 71, 57, 43, 29, 29, 29, 29, 43, 43, 43, 29, 29, 29, 29, 29, 29, 29, 29, 29, 14, 14, 14, 14, 14], "unison": "none", "envelopes": [] } },
-                { name: "solo bass", midiProgram: 85, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 8 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 8 }, { "type": "high-pass", "cutoffHz": 210.22, "linearGain": 1.4142 }], "effects": ["vibrato", "reverb"], "vibrato": "shaky", "reverb": 33, "transition": "normal", "fadeInSeconds": 0.0263, "fadeOutTicks": 12, "chord": "simultaneous", "harmonics": [71, 86, 100, 100, 86, 86, 57, 43, 29, 29, 29, 29, 29, 29, 43, 43, 43, 43, 43, 29, 29, 29, 29, 14, 14, 14, 14, 14], "unison": "none", "envelopes": [] } },
+                { name: "choir soprano", midiProgram: 94, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 2 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 5.6569 }, { "type": "high-pass", "cutoffHz": 707.11, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.25 }, { "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 11.3137 }], "effects": ["vibrato", "chorus", "reverb"], "vibrato": "shaky", "chorus": 100, "reverb": 33, "fadeInSeconds": 0.0413, "fadeOutTicks": 240, "harmonics": [100, 100, 86, 57, 29, 29, 57, 71, 57, 29, 14, 14, 14, 29, 43, 57, 43, 29, 14, 14, 14, 14, 14, 14, 0, 0, 0, 0], "unison": "none", "envelopes": [] } },
+                { name: "choir tenor", midiProgram: 52, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [{ "type": "peak", "cutoffHz": 1000, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 297.3, "linearGain": 0.7071 }, { "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 11.3137 }], "effects": ["vibrato", "chorus", "reverb"], "vibrato": "shaky", "chorus": 100, "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 480, "chord": "simultaneous", "harmonics": [86, 100, 100, 86, 71, 57, 43, 29, 29, 29, 29, 43, 43, 43, 29, 29, 29, 29, 29, 29, 29, 29, 29, 14, 14, 14, 14, 14], "unison": "none", "envelopes": [] } },
+                { name: "choir bass", midiProgram: 52, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 11.3137 }], "effects": ["vibrato", "chorus", "reverb"], "vibrato": "shaky", "chorus": 100, "reverb": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 480, "chord": "simultaneous", "harmonics": [71, 86, 100, 100, 86, 86, 57, 43, 29, 29, 29, 29, 29, 29, 43, 43, 43, 43, 43, 29, 29, 29, 29, 14, 14, 14, 14, 14], "unison": "none", "envelopes": [] } },
+                { name: "solo soprano", midiProgram: 85, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 2 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 5.6569 }, { "type": "high-pass", "cutoffHz": 707.11, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.25 }], "effects": ["vibrato", "reverb"], "vibrato": "shaky", "reverb": 33, "fadeInSeconds": 0.0413, "fadeOutTicks": 120, "harmonics": [86, 100, 86, 43, 14, 14, 57, 71, 57, 14, 14, 14, 14, 14, 43, 57, 43, 14, 14, 14, 14, 14, 14, 14, 0, 0, 0, 0], "unison": "none", "envelopes": [] } },
+                { name: "solo tenor", midiProgram: 85, settings: { "type": "harmonics", "eqFilter": [{ "type": "peak", "cutoffHz": 1000, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 297.3, "linearGain": 0.7071 }, { "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 11.3137 }], "effects": ["vibrato", "reverb"], "vibrato": "shaky", "reverb": 33, "fadeInSeconds": 0.0413, "fadeOutTicks": 120, "harmonics": [86, 100, 100, 86, 71, 57, 43, 29, 29, 29, 29, 43, 43, 43, 29, 29, 29, 29, 29, 29, 29, 29, 29, 14, 14, 14, 14, 14], "unison": "none", "envelopes": [] } },
+                { name: "solo bass", midiProgram: 85, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 8 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 8 }, { "type": "high-pass", "cutoffHz": 210.22, "linearGain": 1.4142 }], "effects": ["vibrato", "reverb"], "vibrato": "shaky", "reverb": 33, "transition": "normal", "fadeInSeconds": 0.0263, "fadeOutTicks": 120, "chord": "simultaneous", "harmonics": [71, 86, 100, 100, 86, 86, 57, 43, 29, 29, 29, 29, 29, 29, 43, 43, 43, 43, 43, 29, 29, 29, 29, 14, 14, 14, 14, 14], "unison": "none", "envelopes": [] } },
                 { name: "voice ooh", midiProgram: 53, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 1414, "filterResonance": 57, "filterEnvelope": "steady", "interval": "union", "vibrato": "shaky", "harmonics": [100, 57, 43, 43, 14, 14, 0, 0, 0, 14, 29, 29, 14, 0, 14, 29, 29, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] } },
                 { name: "voice synth", midiProgram: 54, generalMidi: true, settings: { "type": "chip", "transition": "medium fade", "effects": "chorus & reverb", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 57, "filterEnvelope": "steady", "wave": "rounded", "interval": "union", "vibrato": "light" } },
                 { name: "vox synth lead", midiProgram: 85, generalMidi: true, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "cross fade", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "steady", "vibrato": "light", "algorithm": "(1 2 3)←4", "feedbackType": "1→2→3→4", "feedbackAmplitude": 2, "feedbackEnvelope": "punch", "operators": [{ "frequency": "2×", "amplitude": 10, "envelope": "custom" }, { "frequency": "9×", "amplitude": 5, "envelope": "custom" }, { "frequency": "20×", "amplitude": 1, "envelope": "custom" }, { "frequency": "~1×", "amplitude": 4, "envelope": "steady" }] } },
-                { name: "tiny robot", midiProgram: 85, settings: { "type": "FM", "eqFilter": [], "effects": ["vibrato", "reverb"], "vibrato": "delayed", "reverb": 33, "transition": "slide", "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 2, "operators": [{ "frequency": "2×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 7 }, { "frequency": "~1×", "amplitude": 7 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "punch", "index": 1 }, { "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
-                { name: "yowie", midiProgram: 85, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "effects": ["note filter", "reverb"], "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 6, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2000, "linearGain": 4 }], "reverb": 0, "fadeInSeconds": 0.0413, "fadeOutTicks": 6, "algorithm": "1←2←(3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 12, "operators": [{ "frequency": "2×", "amplitude": 12, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "16×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 1 }, { "target": "feedbackAmplitude", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
-                { name: "mouse", midiProgram: 85, settings: { "type": "FM", "eqFilter": [], "effects": ["vibrato", "reverb"], "vibrato": "light", "reverb": 33, "transition": "slide in pattern", "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "chord": "simultaneous", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "2×", "amplitude": 13 }, { "frequency": "5×", "amplitude": 12 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteVolume", "envelope": "note size" }, { "target": "feedbackAmplitude", "envelope": "flare 2" }] } },
+                { name: "tiny robot", midiProgram: 85, settings: { "type": "FM", "eqFilter": [], "effects": ["vibrato", "reverb"], "vibrato": "delayed", "reverb": 33, "transition": "slide", "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 2, "operators": [{ "frequency": "2×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 7 }, { "frequency": "~1×", "amplitude": 7 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "punch", "index": 1 }, { "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
+                { name: "yowie", midiProgram: 85, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "effects": ["note filter", "reverb"], "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 6, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2000, "linearGain": 4 }], "reverb": 0, "fadeInSeconds": 0.0413, "fadeOutTicks": 60, "algorithm": "1←2←(3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 12, "operators": [{ "frequency": "2×", "amplitude": 12, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "16×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 1 }, { "target": "feedbackAmplitude", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "mouse", midiProgram: 85, settings: { "type": "FM", "eqFilter": [], "effects": ["vibrato", "reverb"], "vibrato": "light", "reverb": 33, "transition": "slide in pattern", "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "chord": "simultaneous", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "2×", "amplitude": 13 }, { "frequency": "5×", "amplitude": 12 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteVolume", "envelope": "note size" }, { "target": "feedbackAmplitude", "envelope": "flare 2" }] } },
                 { name: "gumdrop", midiProgram: 85, settings: { "type": "FM", "effects": "reverb", "transition": "hard", "chord": "harmony", "filterCutoffHz": 8000, "filterResonance": 0, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 0, "feedbackEnvelope": "steady", "operators": [{ "frequency": "2×", "amplitude": 15, "envelope": "punch" }, { "frequency": "4×", "amplitude": 15, "envelope": "punch" }, { "frequency": "7×", "amplitude": 15, "envelope": "punch" }, { "frequency": "1×", "amplitude": 10, "envelope": "twang 1" }] } },
                 { name: "echo drop", midiProgram: 102, generalMidi: true, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "hard", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "punch", "vibrato": "none", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 2, "feedbackEnvelope": "steady", "operators": [{ "frequency": "~2×", "amplitude": 11, "envelope": "custom" }, { "frequency": "~1×", "amplitude": 5, "envelope": "steady" }, { "frequency": "11×", "amplitude": 2, "envelope": "steady" }, { "frequency": "16×", "amplitude": 5, "envelope": "swell 3" }] } },
                 { name: "dark choir", midiProgram: 85, settings: { "type": "spectrum", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 29, "filterEnvelope": "swell 1", "spectrum": [43, 14, 14, 14, 14, 14, 14, 100, 14, 14, 14, 57, 14, 14, 100, 14, 43, 14, 43, 14, 14, 43, 14, 29, 14, 29, 14, 14, 29, 0] } },
@@ -1917,8 +1917,8 @@ var beepbox = (function (exports) {
                 { name: "trumpet", midiProgram: 56, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 43, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 9, "feedbackEnvelope": "swell 1", "operators": [{ "frequency": "1×", "amplitude": 14, "envelope": "custom" }, { "frequency": "1×", "amplitude": 8, "envelope": "steady" }, { "frequency": "1×", "amplitude": 5, "envelope": "flare 2" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }] } },
                 { name: "trombone", midiProgram: 57, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 43, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←(2 3 4)", "feedbackType": "2⟲", "feedbackAmplitude": 7, "feedbackEnvelope": "swell 1", "operators": [{ "frequency": "1×", "amplitude": 14, "envelope": "custom" }, { "frequency": "1×", "amplitude": 8, "envelope": "steady" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }] } },
                 { name: "tuba", midiProgram: 58, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 43, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←(2 3 4)", "feedbackType": "2⟲", "feedbackAmplitude": 8, "feedbackEnvelope": "swell 1", "operators": [{ "frequency": "1×", "amplitude": 14, "envelope": "custom" }, { "frequency": "1×", "amplitude": 6, "envelope": "steady" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }] } },
-                { name: "muted trumpet", midiProgram: 59, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 4000, "linearGain": 2.8284 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 1 }], "reverb": 33, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "1×", "amplitude": 13 }, { "frequency": "1×", "amplitude": 5 }, { "frequency": "9×", "amplitude": 5 }, { "frequency": "13×", "amplitude": 7 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 1" }, { "target": "operatorAmplitude", "envelope": "swell 1", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "flare 2" }] } },
-                { name: "french horn", midiProgram: 60, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 1 }, { "type": "peak", "cutoffHz": 2378.41, "linearGain": 2.8284 }], "effects": ["reverb"], "reverb": 33, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 12 }, { "frequency": "1×", "amplitude": 10 }, { "frequency": "~1×", "amplitude": 8 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "flare 2", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "swell 1" }] } },
+                { name: "muted trumpet", midiProgram: 59, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 4000, "linearGain": 2.8284 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 1 }], "reverb": 33, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "1×", "amplitude": 13 }, { "frequency": "1×", "amplitude": 5 }, { "frequency": "9×", "amplitude": 5 }, { "frequency": "13×", "amplitude": 7 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 1" }, { "target": "operatorAmplitude", "envelope": "swell 1", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "flare 2" }] } },
+                { name: "french horn", midiProgram: 60, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 1 }, { "type": "peak", "cutoffHz": 2378.41, "linearGain": 2.8284 }], "effects": ["reverb"], "reverb": 33, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 12 }, { "frequency": "1×", "amplitude": 10 }, { "frequency": "~1×", "amplitude": 8 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "flare 2", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "swell 1" }] } },
                 { name: "brass section", midiProgram: 61, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "punch", "vibrato": "none", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 6, "feedbackEnvelope": "swell 1", "operators": [{ "frequency": "1×", "amplitude": 14, "envelope": "custom" }, { "frequency": "1×", "amplitude": 12, "envelope": "custom" }, { "frequency": "1×", "amplitude": 10, "envelope": "swell 1" }, { "frequency": "~1×", "amplitude": 10, "envelope": "swell 1" }] } },
                 { name: "brass synth 1", midiProgram: 62, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 29, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 11, "feedbackEnvelope": "swell 1", "operators": [{ "frequency": "1×", "amplitude": 14, "envelope": "custom" }, { "frequency": "1×", "amplitude": 14, "envelope": "custom" }, { "frequency": "1×", "amplitude": 12, "envelope": "flare 1" }, { "frequency": "~1×", "amplitude": 8, "envelope": "flare 2" }] } },
                 { name: "brass synth 2", midiProgram: 63, generalMidi: true, settings: { "type": "FM", "transition": "soft", "effects": "reverb", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 43, "filterEnvelope": "twang 3", "vibrato": "none", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 9, "feedbackEnvelope": "swell 1", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "1×", "amplitude": 10, "envelope": "flare 1" }, { "frequency": "~1×", "amplitude": 7, "envelope": "flare 1" }] } },
@@ -1937,162 +1937,171 @@ var beepbox = (function (exports) {
                 { name: "english horn", midiProgram: 69, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "cross fade", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1 2←(3 4)", "feedbackType": "2⟲", "feedbackAmplitude": 2, "feedbackEnvelope": "steady", "operators": [{ "frequency": "4×", "amplitude": 12, "envelope": "custom" }, { "frequency": "2×", "amplitude": 10, "envelope": "custom" }, { "frequency": "1×", "amplitude": 8, "envelope": "punch" }, { "frequency": "8×", "amplitude": 4, "envelope": "steady" }] } },
                 { name: "bassoon", midiProgram: 70, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 707, "filterResonance": 57, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 2, "feedbackEnvelope": "steady", "operators": [{ "frequency": "2×", "amplitude": 11, "envelope": "custom" }, { "frequency": "1×", "amplitude": 6, "envelope": "steady" }, { "frequency": "6×", "amplitude": 6, "envelope": "swell 1" }, { "frequency": "1×", "amplitude": 0, "envelope": "steady" }] } },
                 { name: "clarinet", midiProgram: 71, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 1414, "filterResonance": 14, "filterEnvelope": "steady", "interval": "union", "vibrato": "none", "harmonics": [100, 43, 86, 57, 86, 71, 86, 71, 71, 71, 71, 71, 71, 43, 71, 71, 57, 57, 57, 57, 57, 57, 43, 43, 43, 29, 14, 0] } },
-                { name: "harmonica", midiProgram: 22, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 778, "effects": ["note filter", "reverb"], "noteFilterType": true, "noteSimpleCut": 9, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 9, "operators": [{ "frequency": "2×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }, { "target": "feedbackAmplitude", "envelope": "tremolo2", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "harmonica", midiProgram: 22, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 778, "effects": ["note filter", "reverb"], "noteFilterType": true, "noteSimpleCut": 9, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 9, "operators": [{ "frequency": "2×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }, { "target": "feedbackAmplitude", "envelope": "tremolo2", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
             ])
         },
         {
             name: "Flute Presets", presets: toNameMap([
-                { name: "flute 1", midiProgram: 73, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 9656.85, "linearGain": 0.5 }], "eqFilterType": true, "eqSimpleCut": 9, "eqSimplePeak": 1, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 832, "eqSubFilters1": [], "effects": ["reverb"], "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "algorithm": "1←(2 3 4)", "feedbackType": "4⟲", "feedbackAmplitude": 7, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 4, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 1, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "punch", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "feedbackAmplitude", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 7, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "flute 1", midiProgram: 73, generalMidi: true, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 9656.85, "linearGain": 0.5 }], "eqFilterType": true, "eqSimpleCut": 9, "eqSimplePeak": 1, "envelopeSpeed": 12, "discreteEnvelope": false, "preset": 832, "eqSubFilters1": [], "effects": ["reverb"], "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "algorithm": "1←(2 3 4)", "feedbackType": "4⟲", "feedbackAmplitude": 7, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 4, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 1, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "punch", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "feedbackAmplitude", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 7, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
                 { name: "recorder", midiProgram: 74, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 29, "filterEnvelope": "swell 2", "interval": "union", "vibrato": "none", "harmonics": [100, 43, 57, 43, 57, 43, 43, 43, 43, 43, 43, 43, 43, 29, 29, 29, 29, 29, 29, 29, 14, 14, 14, 14, 14, 14, 14, 0] } },
                 { name: "whistle", midiProgram: 78, generalMidi: true, settings: { "type": "harmonics", "effects": "chorus & reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 43, "filterEnvelope": "steady", "interval": "union", "vibrato": "delayed", "harmonics": [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] } },
                 { name: "ocarina", midiProgram: 79, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 43, "filterEnvelope": "steady", "interval": "union", "vibrato": "none", "harmonics": [100, 14, 57, 14, 29, 14, 14, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] } },
                 { name: "piccolo", midiProgram: 72, generalMidi: true, settings: { "type": "FM", "effects": "reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 5657, "filterResonance": 43, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1←3 2←4", "feedbackType": "4⟲", "feedbackAmplitude": 15, "feedbackEnvelope": "twang 1", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "1×", "amplitude": 10, "envelope": "custom" }, { "frequency": "~2×", "amplitude": 3, "envelope": "punch" }, { "frequency": "~1×", "amplitude": 5, "envelope": "punch" }] } },
                 { name: "shakuhachi", midiProgram: 77, generalMidi: true, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "soft", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 14, "filterEnvelope": "steady", "vibrato": "delayed", "algorithm": "1←(2 3←4)", "feedbackType": "3→4", "feedbackAmplitude": 15, "feedbackEnvelope": "steady", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "2×", "amplitude": 3, "envelope": "punch" }, { "frequency": "~1×", "amplitude": 4, "envelope": "twang 1" }, { "frequency": "20×", "amplitude": 15, "envelope": "steady" }] } },
-                { name: "pan flute", midiProgram: 75, generalMidi: true, settings: { "type": "spectrum", "eqFilter": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 5.6569 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.7071 }], "reverb": 33, "fadeInSeconds": 0.0125, "fadeOutTicks": -3, "spectrum": [100, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 71, 0, 0, 14, 0, 57, 0, 29, 14, 29, 14, 14, 29, 14, 29, 14, 14, 29, 14], "envelopes": [{ "target": "noteFilterFreq", "envelope": "twang 1", "index": 0 }, { "target": "noteVolume", "envelope": "punch" }] } },
+                { name: "pan flute", midiProgram: 75, generalMidi: true, settings: { "type": "spectrum", "eqFilter": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 5.6569 }], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.7071 }], "reverb": 33, "fadeInSeconds": 0.0125, "fadeOutTicks": -30, "spectrum": [100, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 71, 0, 0, 14, 0, 57, 0, 29, 14, 29, 14, 14, 29, 14, 29, 14, 14, 29, 14], "envelopes": [{ "target": "noteFilterFreq", "envelope": "twang 1", "index": 0 }, { "target": "noteVolume", "envelope": "punch" }] } },
                 { name: "blown bottle", midiProgram: 76, generalMidi: true, settings: { "type": "FM", "effects": "chorus & reverb", "transition": "cross fade", "chord": "harmony", "filterCutoffHz": 5657, "filterResonance": 57, "filterEnvelope": "steady", "vibrato": "none", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 7, "feedbackEnvelope": "twang 1", "operators": [{ "frequency": "1×", "amplitude": 15, "envelope": "custom" }, { "frequency": "3×", "amplitude": 4, "envelope": "custom" }, { "frequency": "6×", "amplitude": 2, "envelope": "custom" }, { "frequency": "11×", "amplitude": 2, "envelope": "custom" }] } },
                 { name: "calliope", midiProgram: 82, generalMidi: true, settings: { "type": "spectrum", "transition": "cross fade", "effects": "reverb", "chord": "harmony", "filterCutoffHz": 5657, "filterResonance": 14, "filterEnvelope": "steady", "spectrum": [100, 0, 0, 0, 0, 0, 0, 86, 0, 0, 0, 71, 0, 0, 57, 0, 43, 0, 29, 14, 14, 29, 14, 14, 14, 14, 14, 14, 14, 14] } },
                 { name: "chiffer", midiProgram: 83, generalMidi: true, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "punch", "spectrum": [86, 0, 0, 0, 0, 0, 0, 71, 0, 0, 0, 71, 0, 0, 57, 0, 57, 0, 43, 14, 14, 43, 14, 29, 14, 29, 29, 29, 29, 14] } },
-                { name: "breath noise", midiProgram: 121, generalMidi: true, settings: { "type": "spectrum", "eqFilter": [], "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "noteFilter": [{ "type": "high-pass", "cutoffHz": 840.9, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }], "reverb": 33, "fadeInSeconds": 0.0413, "fadeOutTicks": 12, "spectrum": [71, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 71, 0, 0, 29, 0, 100, 29, 14, 29, 100, 29, 100, 14, 14, 71, 0, 29, 0, 0], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 1" }] } },
+                { name: "breath noise", midiProgram: 121, generalMidi: true, settings: { "type": "spectrum", "eqFilter": [], "effects": ["chord type", "note filter", "reverb"], "chord": "strum", "noteFilter": [{ "type": "high-pass", "cutoffHz": 840.9, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }], "reverb": 33, "fadeInSeconds": 0.0413, "fadeOutTicks": 120, "spectrum": [71, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 71, 0, 0, 29, 0, 100, 29, 14, 29, 100, 29, 100, 14, 14, 71, 0, 29, 0, 0], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 1" }] } },
                 { name: "flute 2", midiProgram: 73, generalMidi: true, settings: { "type": "harmonics", "effects": "reverb", "transition": "seamless", "chord": "harmony", "filterCutoffHz": 1414, "filterResonance": 14, "filterEnvelope": "steady", "interval": "union", "vibrato": "delayed", "harmonics": [100, 43, 86, 57, 86, 71, 86, 71, 71, 71, 71, 71, 71, 43, 71, 71, 57, 57, 57, 57, 57, 57, 43, 43, 43, 29, 14, 0] } },
             ])
         },
         {
             name: "Pad Presets", presets: toNameMap([
-                { name: "new age pad", midiProgram: 88, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["chorus"], "chorus": 100, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "2×", "amplitude": 14 }, { "frequency": "~1×", "amplitude": 4 }, { "frequency": "6×", "amplitude": 3 }, { "frequency": "13×", "amplitude": 3 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 2", "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "feedbackAmplitude", "envelope": "swell 3" }] } },
-                { name: "warm pad", midiProgram: 89, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 1 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 96, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 7, "operators": [{ "frequency": "1×", "amplitude": 14 }, { "frequency": "1×", "amplitude": 6 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 3" }, { "target": "operatorAmplitude", "envelope": "swell 1", "index": 1 }] } },
-                { name: "polysynth pad", midiProgram: 90, generalMidi: true, settings: { "type": "chip", "eqFilter": [], "effects": ["vibrato", "note filter", "chorus"], "vibrato": "delayed", "noteFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 1 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "wave": "sawtooth", "unison": "honky tonk", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }] } },
-                { name: "space voice pad", midiProgram: 91, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 2828.43, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 1414.21, "linearGain": 0.1768 }], "effects": ["chorus"], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "chord": "simultaneous", "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "1×", "amplitude": 10 }, { "frequency": "2×", "amplitude": 8 }, { "frequency": "3×", "amplitude": 7 }, { "frequency": "11×", "amplitude": 2 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "punch", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "swell 2" }] } },
-                { name: "bowed glass pad", midiProgram: 92, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 96, "chord": "simultaneous", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 10 }, { "frequency": "2×", "amplitude": 12 }, { "frequency": "3×", "amplitude": 7 }, { "frequency": "7×", "amplitude": 4 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "operatorAmplitude", "envelope": "flare 3", "index": 3 }] } },
-                { name: "metallic pad", midiProgram: 93, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "chord": "simultaneous", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 13, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "~1×", "amplitude": 9 }, { "frequency": "1×", "amplitude": 7 }, { "frequency": "11×", "amplitude": 7 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "swell 2", "index": 2 }, { "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
-                { name: "sweep pad", midiProgram: 95, generalMidi: true, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 4 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 96, "chord": "simultaneous", "wave": "sawtooth", "unison": "hum", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "flare 3" }] } },
-                { name: "atmosphere", midiProgram: 99, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 1 }], "effects": ["chorus", "reverb"], "chorus": 100, "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "strum", "algorithm": "1←(2 3 4)", "feedbackType": "3⟲ 4⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 14 }, { "frequency": "~1×", "amplitude": 10 }, { "frequency": "3×", "amplitude": 7 }, { "frequency": "1×", "amplitude": 7 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 3", "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang 2", "index": 2 }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 3 }] } },
-                { name: "brightness", midiProgram: 100, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 2 }], "effects": ["chorus"], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "chord": "simultaneous", "harmonics": [100, 86, 86, 86, 43, 57, 43, 71, 43, 43, 43, 57, 43, 43, 57, 71, 57, 43, 29, 43, 57, 57, 43, 29, 29, 29, 29, 14], "unison": "octave", "stringSustain": 86, "envelopes": [] } },
-                { name: "goblins", midiProgram: 101, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 11.3137 }], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.5 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 96, "chord": "simultaneous", "algorithm": "1←2←3←4", "feedbackType": "1⟲", "feedbackAmplitude": 10, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "4×", "amplitude": 5 }, { "frequency": "1×", "amplitude": 10 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 2" }, { "target": "operatorAmplitude", "envelope": "swell 3", "index": 1 }, { "target": "operatorAmplitude", "envelope": "tremolo1", "index": 2 }, { "target": "feedbackAmplitude", "envelope": "flare 3" }] } },
-                { name: "sci-fi", midiProgram: 103, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "peak", "cutoffHz": 9513.66, "linearGain": 2.8284 }], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 48, "chord": "simultaneous", "algorithm": "(1 2)←3←4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 8, "operators": [{ "frequency": "~1×", "amplitude": 13 }, { "frequency": "2×", "amplitude": 10 }, { "frequency": "5×", "amplitude": 5 }, { "frequency": "11×", "amplitude": 8 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "operatorAmplitude", "envelope": "tremolo5", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
-                { name: "flutter pad", midiProgram: 90, settings: { "type": "FM", "eqFilter": [], "effects": ["vibrato", "note filter", "chorus"], "vibrato": "delayed", "noteFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 4 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "algorithm": "(1 2)←(3 4)", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 9, "operators": [{ "frequency": "1×", "amplitude": 13 }, { "frequency": "5×", "amplitude": 7 }, { "frequency": "7×", "amplitude": 5 }, { "frequency": "~1×", "amplitude": 6 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "tremolo1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "punch", "index": 3 }] } },
-                { name: "feedback pad", midiProgram: 89, settings: { "type": "FM", "eqFilter": [{ "type": "peak", "cutoffHz": 2378.41, "linearGain": 8 }], "effects": [], "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 96, "chord": "custom interval", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 8, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 15 }, { "frequency": "~1×", "amplitude": 15 }], "envelopes": [{ "target": "feedbackAmplitude", "envelope": "swell 2" }] } },
-                { name: "supersaw pad", midiProgram: 93, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }], "effects": ["reverb"], "reverb": 100, "fadeInSeconds": 0.0263, "fadeOutTicks": 24, "pulseWidth": 50, "dynamism": 100, "spread": 58, "shape": 0, "envelopes": [] } },
+                { name: "new age pad", midiProgram: 88, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["chorus"], "chorus": 100, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "2×", "amplitude": 14 }, { "frequency": "~1×", "amplitude": 4 }, { "frequency": "6×", "amplitude": 3 }, { "frequency": "13×", "amplitude": 3 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 2", "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "feedbackAmplitude", "envelope": "swell 3" }] } },
+                { name: "warm pad", midiProgram: 89, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 1 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 960, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 7, "operators": [{ "frequency": "1×", "amplitude": 14 }, { "frequency": "1×", "amplitude": 6 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 3" }, { "target": "operatorAmplitude", "envelope": "swell 1", "index": 1 }] } },
+                { name: "polysynth pad", midiProgram: 90, generalMidi: true, settings: { "type": "chip", "eqFilter": [], "effects": ["vibrato", "note filter", "chorus"], "vibrato": "delayed", "noteFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 1 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "wave": "sawtooth", "unison": "honky tonk", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }] } },
+                { name: "space voice pad", midiProgram: 91, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 2828.43, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 1414.21, "linearGain": 0.1768 }], "effects": ["chorus"], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "chord": "simultaneous", "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "1×", "amplitude": 10 }, { "frequency": "2×", "amplitude": 8 }, { "frequency": "3×", "amplitude": 7 }, { "frequency": "11×", "amplitude": 2 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "punch", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "swell 2" }] } },
+                { name: "bowed glass pad", midiProgram: 92, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 960, "chord": "simultaneous", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 10 }, { "frequency": "2×", "amplitude": 12 }, { "frequency": "3×", "amplitude": 7 }, { "frequency": "7×", "amplitude": 4 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "operatorAmplitude", "envelope": "flare 3", "index": 3 }] } },
+                { name: "metallic pad", midiProgram: 93, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "chord": "simultaneous", "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 13, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "~1×", "amplitude": 9 }, { "frequency": "1×", "amplitude": 7 }, { "frequency": "11×", "amplitude": 7 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "swell 2", "index": 2 }, { "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
+                { name: "sweep pad", midiProgram: 95, generalMidi: true, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 4 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 960, "chord": "simultaneous", "wave": "sawtooth", "unison": "hum", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "flare 3" }] } },
+                { name: "atmosphere", midiProgram: 99, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 1 }], "effects": ["chorus", "reverb"], "chorus": 100, "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "strum", "algorithm": "1←(2 3 4)", "feedbackType": "3⟲ 4⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 14 }, { "frequency": "~1×", "amplitude": 10 }, { "frequency": "3×", "amplitude": 7 }, { "frequency": "1×", "amplitude": 7 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell 3", "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang 2", "index": 2 }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 3 }] } },
+                { name: "brightness", midiProgram: 100, generalMidi: true, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 2 }], "effects": ["chorus"], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "chord": "simultaneous", "harmonics": [100, 86, 86, 86, 43, 57, 43, 71, 43, 43, 43, 57, 43, 43, 57, 71, 57, 43, 29, 43, 57, 57, 43, 29, 29, 29, 29, 14], "unison": "octave", "stringSustain": 86, "envelopes": [] } },
+                { name: "goblins", midiProgram: 101, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 11.3137 }], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.5 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 960, "chord": "simultaneous", "algorithm": "1←2←3←4", "feedbackType": "1⟲", "feedbackAmplitude": 10, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "4×", "amplitude": 5 }, { "frequency": "1×", "amplitude": 10 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 2" }, { "target": "operatorAmplitude", "envelope": "swell 3", "index": 1 }, { "target": "operatorAmplitude", "envelope": "tremolo1", "index": 2 }, { "target": "feedbackAmplitude", "envelope": "flare 3" }] } },
+                { name: "sci-fi", midiProgram: 103, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "peak", "cutoffHz": 9513.66, "linearGain": 2.8284 }], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 480, "chord": "simultaneous", "algorithm": "(1 2)←3←4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 8, "operators": [{ "frequency": "~1×", "amplitude": 13 }, { "frequency": "2×", "amplitude": 10 }, { "frequency": "5×", "amplitude": 5 }, { "frequency": "11×", "amplitude": 8 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "operatorAmplitude", "envelope": "tremolo5", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "twang 3" }] } },
+                { name: "flutter pad", midiProgram: 90, settings: { "type": "FM", "eqFilter": [], "effects": ["vibrato", "note filter", "chorus"], "vibrato": "delayed", "noteFilter": [{ "type": "low-pass", "cutoffHz": 4000, "linearGain": 4 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "algorithm": "(1 2)←(3 4)", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 9, "operators": [{ "frequency": "1×", "amplitude": 13 }, { "frequency": "5×", "amplitude": 7 }, { "frequency": "7×", "amplitude": 5 }, { "frequency": "~1×", "amplitude": 6 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }, { "target": "operatorAmplitude", "envelope": "tremolo1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "punch", "index": 3 }] } },
+                { name: "feedback pad", midiProgram: 89, settings: { "type": "FM", "eqFilter": [{ "type": "peak", "cutoffHz": 2378.41, "linearGain": 8 }], "effects": [], "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": 960, "chord": "custom interval", "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 8, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 15 }, { "frequency": "~1×", "amplitude": 15 }], "envelopes": [{ "target": "feedbackAmplitude", "envelope": "swell 2" }] } },
+                { name: "supersaw pad", midiProgram: 93, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }], "effects": ["reverb"], "reverb": 100, "fadeInSeconds": 0.0263, "fadeOutTicks": 240, "pulseWidth": 50, "dynamism": 100, "spread": 58, "shape": 0, "envelopes": [] } },
             ])
         },
         {
             name: "Drum Presets", presets: toNameMap([
                 { name: "standard drumset", midiProgram: 116, isNoise: true, settings: { "type": "drumset", "effects": "reverb", "drums": [{ "filterEnvelope": "twang 1", "spectrum": [57, 71, 71, 86, 86, 86, 71, 71, 71, 71, 57, 57, 57, 57, 43, 43, 43, 43, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29] }, { "filterEnvelope": "twang 1", "spectrum": [0, 0, 0, 100, 71, 71, 57, 86, 57, 57, 57, 71, 43, 43, 57, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43] }, { "filterEnvelope": "twang 1", "spectrum": [0, 0, 0, 0, 100, 57, 43, 43, 29, 57, 43, 29, 71, 43, 43, 43, 43, 57, 43, 43, 43, 43, 43, 43, 43, 43, 29, 43, 43, 43] }, { "filterEnvelope": "twang 1", "spectrum": [0, 0, 0, 0, 0, 71, 57, 43, 43, 43, 57, 57, 43, 29, 57, 43, 43, 43, 29, 43, 57, 43, 43, 43, 43, 43, 43, 29, 43, 43] }, { "filterEnvelope": "decay 2", "spectrum": [0, 14, 29, 43, 86, 71, 29, 43, 43, 43, 43, 29, 71, 29, 71, 29, 43, 43, 43, 43, 57, 43, 43, 57, 43, 43, 43, 57, 57, 57] }, { "filterEnvelope": "decay 1", "spectrum": [0, 0, 14, 14, 14, 14, 29, 29, 29, 43, 43, 43, 57, 57, 57, 71, 71, 71, 71, 71, 71, 71, 71, 57, 57, 57, 57, 43, 43, 43] }, { "filterEnvelope": "twang 3", "spectrum": [43, 43, 43, 71, 29, 29, 43, 43, 43, 29, 43, 43, 43, 29, 29, 43, 43, 29, 29, 29, 57, 14, 57, 43, 43, 57, 43, 43, 57, 57] }, { "filterEnvelope": "decay 3", "spectrum": [29, 43, 43, 43, 43, 29, 29, 43, 29, 29, 43, 29, 14, 29, 43, 29, 43, 29, 57, 29, 43, 57, 43, 71, 43, 71, 57, 57, 71, 71] }, { "filterEnvelope": "twang 3", "spectrum": [43, 29, 29, 43, 29, 29, 29, 57, 29, 29, 29, 57, 43, 43, 29, 29, 57, 43, 43, 43, 71, 43, 43, 71, 57, 71, 71, 71, 71, 71] }, { "filterEnvelope": "decay 3", "spectrum": [57, 57, 57, 43, 57, 57, 43, 43, 57, 43, 43, 43, 71, 57, 43, 57, 86, 71, 57, 86, 71, 57, 86, 100, 71, 86, 86, 86, 86, 86] }, { "filterEnvelope": "flare 1", "spectrum": [0, 0, 14, 14, 14, 14, 29, 29, 29, 43, 43, 43, 57, 57, 71, 71, 86, 86, 100, 100, 100, 100, 100, 100, 100, 100, 86, 57, 29, 0] }, { "filterEnvelope": "decay 2", "spectrum": [14, 14, 14, 14, 29, 14, 14, 29, 14, 43, 14, 43, 57, 86, 57, 57, 100, 57, 43, 43, 57, 100, 57, 43, 29, 14, 0, 0, 0, 0] }] } },
-                { name: "steel pan", midiProgram: 114, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.1768 }], "effects": ["note filter", "chorus", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }], "chorus": 67, "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 24, "chord": "simultaneous", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "~1×", "amplitude": 14 }, { "frequency": "7×", "amplitude": 3 }, { "frequency": "3×", "amplitude": 5 }, { "frequency": "4×", "amplitude": 4 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay 2" }, { "target": "operatorAmplitude", "envelope": "flare 1", "index": 1 }, { "target": "operatorAmplitude", "envelope": "flare 2", "index": 2 }, { "target": "operatorAmplitude", "envelope": "swell 2", "index": 3 }] } },
-                { name: "steel pan synth", midiProgram: 114, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -3, "chord": "simultaneous", "algorithm": "1 2 3←4", "feedbackType": "1⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "~1×", "amplitude": 12 }, { "frequency": "2×", "amplitude": 15 }, { "frequency": "4×", "amplitude": 14 }, { "frequency": "~1×", "amplitude": 3 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 1" }, { "target": "operatorAmplitude", "envelope": "note size", "index": 0 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 1 }, { "target": "operatorAmplitude", "envelope": "flare 1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "flare 2", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "flare 1" }] } },
-                { name: "timpani", midiProgram: 47, generalMidi: true, settings: { "type": "spectrum", "eqFilter": [{ "type": "peak", "cutoffHz": 6727.17, "linearGain": 5.6569 }], "effects": ["pitch shift", "note filter", "reverb"], "pitchShiftSemitones": 15, "noteFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.5 }], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "spectrum": [100, 0, 0, 0, 86, 0, 0, 71, 0, 14, 43, 14, 43, 43, 0, 29, 43, 29, 29, 29, 43, 29, 43, 29, 43, 43, 43, 43, 43, 43], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 1" }, { "target": "pitchShift", "envelope": "twang 1" }] } },
-                { name: "dark strike", midiProgram: 47, settings: { "type": "spectrum", "eqFilter": [], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.7071 }], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "spectrum": [0, 0, 14, 14, 14, 29, 29, 43, 43, 86, 43, 43, 43, 29, 86, 29, 29, 29, 86, 29, 14, 14, 14, 14, 0, 0, 0, 0, 0, 0], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 2" }] } },
+                { name: "steel pan", midiProgram: 114, generalMidi: true, settings: { "type": "FM", "eqFilter": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.1768 }], "effects": ["note filter", "chorus", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }], "chorus": 67, "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 240, "chord": "simultaneous", "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "~1×", "amplitude": 14 }, { "frequency": "7×", "amplitude": 3 }, { "frequency": "3×", "amplitude": 5 }, { "frequency": "4×", "amplitude": 4 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "decay 2" }, { "target": "operatorAmplitude", "envelope": "flare 1", "index": 1 }, { "target": "operatorAmplitude", "envelope": "flare 2", "index": 2 }, { "target": "operatorAmplitude", "envelope": "swell 2", "index": 3 }] } },
+                { name: "steel pan synth", midiProgram: 114, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -30, "chord": "simultaneous", "algorithm": "1 2 3←4", "feedbackType": "1⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "~1×", "amplitude": 12 }, { "frequency": "2×", "amplitude": 15 }, { "frequency": "4×", "amplitude": 14 }, { "frequency": "~1×", "amplitude": 3 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 1" }, { "target": "operatorAmplitude", "envelope": "note size", "index": 0 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 1 }, { "target": "operatorAmplitude", "envelope": "flare 1", "index": 2 }, { "target": "operatorAmplitude", "envelope": "flare 2", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "flare 1" }] } },
+                { name: "timpani", midiProgram: 47, generalMidi: true, settings: { "type": "spectrum", "eqFilter": [{ "type": "peak", "cutoffHz": 6727.17, "linearGain": 5.6569 }], "effects": ["pitch shift", "note filter", "reverb"], "pitchShiftSemitones": 15, "noteFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.5 }], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "spectrum": [100, 0, 0, 0, 86, 0, 0, 71, 0, 14, 43, 14, 43, 43, 0, 29, 43, 29, 29, 29, 43, 29, 43, 29, 43, 43, 43, 43, 43, 43], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 1" }, { "target": "pitchShift", "envelope": "twang 1" }] } },
+                { name: "dark strike", midiProgram: 47, settings: { "type": "spectrum", "eqFilter": [], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.7071 }], "reverb": 33, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "spectrum": [0, 0, 14, 14, 14, 29, 29, 43, 43, 86, 43, 43, 43, 29, 86, 29, 29, 29, 86, 29, 14, 14, 14, 14, 0, 0, 0, 0, 0, 0], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 2" }] } },
                 { name: "woodblock", midiProgram: 115, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -2.5, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 2828, "filterResonance": 14, "filterEnvelope": "twang 1", "spectrum": [0, 14, 29, 43, 43, 57, 86, 86, 71, 57, 57, 43, 43, 57, 86, 86, 43, 43, 71, 57, 57, 57, 57, 57, 86, 86, 71, 71, 71, 71] } },
                 { name: "taiko drum", midiProgram: 116, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -0.5, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 2828, "filterResonance": 29, "filterEnvelope": "twang 1", "spectrum": [71, 100, 100, 43, 43, 71, 71, 43, 43, 43, 43, 43, 43, 57, 29, 57, 43, 57, 43, 43, 57, 43, 43, 43, 43, 43, 43, 43, 43, 43] } },
                 { name: "melodic drum", midiProgram: 117, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -1.5, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 2828, "filterResonance": 43, "filterEnvelope": "twang 1", "spectrum": [100, 71, 71, 57, 57, 43, 43, 71, 43, 43, 43, 57, 43, 43, 57, 43, 43, 43, 43, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29] } },
                 { name: "drum synth", midiProgram: 118, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -2, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard fade", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 43, "filterEnvelope": "decay 1", "spectrum": [100, 86, 71, 57, 43, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29] } },
                 { name: "tom-tom", midiProgram: 116, isNoise: true, midiSubharmonicOctaves: -1, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "twang 1", "spectrum": [100, 29, 14, 0, 0, 86, 14, 43, 29, 86, 29, 14, 29, 57, 43, 43, 43, 43, 57, 43, 43, 43, 29, 57, 43, 43, 43, 43, 43, 43] } },
                 { name: "metal pipe", midiProgram: 117, isNoise: true, midiSubharmonicOctaves: -1.5, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 8000, "filterResonance": 14, "filterEnvelope": "twang 2", "spectrum": [29, 43, 86, 43, 43, 43, 43, 43, 100, 29, 14, 14, 100, 14, 14, 0, 0, 0, 0, 0, 14, 29, 29, 14, 0, 0, 14, 29, 0, 0] } },
-                { name: "synth kick", midiProgram: 47, settings: { "type": "FM", "eqFilter": [], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -6, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "8×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "operatorFrequency", "envelope": "twang 1", "index": 0 }, { "target": "noteVolume", "envelope": "twang 2" }] } },
+                { name: "synth kick", midiProgram: 47, settings: { "type": "FM", "eqFilter": [], "effects": [], "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": -60, "chord": "simultaneous", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "8×", "amplitude": 15 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "operatorFrequency", "envelope": "twang 1", "index": 0 }, { "target": "noteVolume", "envelope": "twang 2" }] } },
             ])
         },
         {
             name: "Novelty Presets", presets: toNameMap([
-                { name: "guitar fret noise", midiProgram: 120, generalMidi: true, settings: { "type": "spectrum", "eqFilter": [{ "type": "high-pass", "cutoffHz": 1000, "linearGain": 0.1768 }], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 5.6569 }], "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": -3, "chord": "simultaneous", "spectrum": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 29, 14, 0, 0, 43, 0, 43, 0, 71, 43, 0, 57, 0], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "flare 1" }, { "target": "noteVolume", "envelope": "twang 2" }] } },
-                { name: "fifth saw lead", midiProgram: 86, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 1.4142 }], "chorus": 67, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 48, "chord": "simultaneous", "wave": "sawtooth", "unison": "fifth", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }] } },
-                { name: "fifth swell", midiProgram: 86, midiSubharmonicOctaves: 1, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 2000, "linearGain": 2 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "chord": "simultaneous", "wave": "sawtooth", "unison": "fifth", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 3" }] } },
-                { name: "soundtrack", midiProgram: 97, generalMidi: true, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }], "chorus": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 72, "chord": "simultaneous", "wave": "sawtooth", "unison": "fifth", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "flare 3" }] } },
+                { name: "guitar fret noise", midiProgram: 120, generalMidi: true, settings: { "type": "spectrum", "eqFilter": [{ "type": "high-pass", "cutoffHz": 1000, "linearGain": 0.1768 }], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 5.6569 }], "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": -30, "chord": "simultaneous", "spectrum": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 29, 14, 0, 0, 43, 0, 43, 0, 71, 43, 0, 57, 0], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "flare 1" }, { "target": "noteVolume", "envelope": "twang 2" }] } },
+                { name: "fifth saw lead", midiProgram: 86, generalMidi: true, midiSubharmonicOctaves: 1, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 1.4142 }], "chorus": 67, "transition": "normal", "fadeInSeconds": 0, "fadeOutTicks": 480, "chord": "simultaneous", "wave": "sawtooth", "unison": "fifth", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 3" }] } },
+                { name: "fifth swell", midiProgram: 86, midiSubharmonicOctaves: 1, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 2000, "linearGain": 2 }], "chorus": 100, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "chord": "simultaneous", "wave": "sawtooth", "unison": "fifth", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell 3" }] } },
+                { name: "soundtrack", midiProgram: 97, generalMidi: true, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter", "chorus"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }], "chorus": 67, "transition": "normal", "fadeInSeconds": 0.0413, "fadeOutTicks": 720, "chord": "simultaneous", "wave": "sawtooth", "unison": "fifth", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "flare 3" }] } },
                 { name: "reverse cymbal", midiProgram: 119, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -3, settings: { "type": "spectrum", "effects": "none", "transition": "soft", "chord": "harmony", "filterCutoffHz": 4000, "filterResonance": 14, "filterEnvelope": "swell 3", "spectrum": [29, 57, 57, 29, 57, 57, 29, 29, 43, 29, 29, 43, 29, 29, 57, 57, 14, 57, 14, 57, 71, 71, 57, 86, 57, 100, 86, 86, 86, 86] } },
                 { name: "seashore", midiProgram: 122, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -3, settings: { "type": "spectrum", "transition": "soft fade", "effects": "reverb", "chord": "harmony", "filterCutoffHz": 2828, "filterResonance": 0, "filterEnvelope": "swell 3", "spectrum": [14, 14, 29, 29, 43, 43, 43, 57, 57, 57, 57, 57, 57, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 57] } },
-                { name: "bird tweet", midiProgram: 123, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [], "effects": ["chord type", "vibrato", "reverb"], "chord": "strum", "vibrato": "heavy", "reverb": 67, "fadeInSeconds": 0.0575, "fadeOutTicks": -6, "harmonics": [0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "hum", "envelopes": [{ "target": "noteVolume", "envelope": "decay 1" }] } },
-                { name: "telephone ring", midiProgram: 124, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 1 }], "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": -3, "chord": "arpeggio", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "2×", "amplitude": 12 }, { "frequency": "1×", "amplitude": 4 }, { "frequency": "20×", "amplitude": 1 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "tremolo4" }, { "target": "operatorAmplitude", "envelope": "tremolo1", "index": 1 }] } },
+                { name: "bird tweet", midiProgram: 123, generalMidi: true, settings: { "type": "harmonics", "eqFilter": [], "effects": ["chord type", "vibrato", "reverb"], "chord": "strum", "vibrato": "heavy", "reverb": 67, "fadeInSeconds": 0.0575, "fadeOutTicks": -60, "harmonics": [0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "hum", "envelopes": [{ "target": "noteVolume", "envelope": "decay 1" }] } },
+                { name: "telephone ring", midiProgram: 124, generalMidi: true, settings: { "type": "FM", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 1 }], "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": -30, "chord": "arpeggio", "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "2×", "amplitude": 12 }, { "frequency": "1×", "amplitude": 4 }, { "frequency": "20×", "amplitude": 1 }, { "frequency": "1×", "amplitude": 0 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "tremolo4" }, { "target": "operatorAmplitude", "envelope": "tremolo1", "index": 1 }] } },
                 { name: "helicopter", midiProgram: 125, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -0.5, settings: { "type": "spectrum", "effects": "reverb", "transition": "seamless", "chord": "arpeggio", "filterCutoffHz": 1414, "filterResonance": 14, "filterEnvelope": "tremolo4", "spectrum": [14, 43, 43, 57, 57, 57, 71, 71, 71, 71, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 71, 71, 71, 71, 71, 71, 71, 57, 57] } },
                 { name: "applause", midiProgram: 126, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -3, settings: { "type": "spectrum", "effects": "reverb", "transition": "soft fade", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "swell 3", "spectrum": [14, 14, 29, 29, 29, 43, 43, 57, 71, 71, 86, 86, 86, 71, 71, 57, 57, 57, 71, 86, 86, 86, 86, 86, 71, 71, 57, 57, 57, 57] } },
                 { name: "gunshot", midiProgram: 127, generalMidi: true, isNoise: true, midiSubharmonicOctaves: -2, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard fade", "chord": "strum", "filterCutoffHz": 1414, "filterResonance": 29, "filterEnvelope": "twang 1", "spectrum": [14, 29, 43, 43, 57, 57, 57, 71, 71, 71, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 86, 71, 71, 71, 71, 57, 57, 57, 57, 43] } },
-                { name: "scoot", midiProgram: 92, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 707.11, "linearGain": 4 }], "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": -3, "chord": "simultaneous", "wave": "double saw", "unison": "shimmer", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "flare 1" }] } },
-                { name: "buzz saw", midiProgram: 30, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.5 }], "effects": [], "transition": "normal", "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "chord": "custom interval", "algorithm": "1←2←3←4", "feedbackType": "1⟲", "feedbackAmplitude": 4, "operators": [{ "frequency": "5×", "amplitude": 13 }, { "frequency": "1×", "amplitude": 10 }, { "frequency": "~1×", "amplitude": 6 }, { "frequency": "11×", "amplitude": 12 }], "envelopes": [] } },
-                { name: "mosquito", midiProgram: 93, settings: { "type": "PWM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 2 }], "effects": ["vibrato"], "vibrato": "shaky", "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": -6, "chord": "simultaneous", "pulseWidth": 4.41942, "envelopes": [{ "target": "pulseWidth", "envelope": "tremolo6" }] } },
+                { name: "scoot", midiProgram: 92, settings: { "type": "chip", "eqFilter": [], "effects": ["note filter"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 707.11, "linearGain": 4 }], "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": -30, "chord": "simultaneous", "wave": "double saw", "unison": "shimmer", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "flare 1" }] } },
+                { name: "buzz saw", midiProgram: 30, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.5 }], "effects": [], "transition": "normal", "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "chord": "custom interval", "algorithm": "1←2←3←4", "feedbackType": "1⟲", "feedbackAmplitude": 4, "operators": [{ "frequency": "5×", "amplitude": 13 }, { "frequency": "1×", "amplitude": 10 }, { "frequency": "~1×", "amplitude": 6 }, { "frequency": "11×", "amplitude": 12 }], "envelopes": [] } },
+                { name: "mosquito", midiProgram: 93, settings: { "type": "PWM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 2 }], "effects": ["vibrato"], "vibrato": "shaky", "transition": "normal", "fadeInSeconds": 0.0575, "fadeOutTicks": -60, "chord": "simultaneous", "pulseWidth": 4.41942, "envelopes": [{ "target": "pulseWidth", "envelope": "tremolo6" }] } },
                 { name: "breathing", midiProgram: 126, isNoise: true, midiSubharmonicOctaves: -1, settings: { "type": "spectrum", "effects": "reverb", "transition": "hard fade", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 14, "filterEnvelope": "swell 2", "spectrum": [14, 14, 14, 29, 29, 29, 29, 29, 43, 29, 29, 43, 43, 43, 29, 29, 71, 43, 86, 86, 57, 100, 86, 86, 86, 86, 71, 86, 71, 57] } },
                 { name: "klaxon synth", midiProgram: 125, isNoise: true, midiSubharmonicOctaves: -1, settings: { "type": "noise", "effects": "reverb", "transition": "slide", "chord": "harmony", "filterCutoffHz": 2000, "filterResonance": 86, "filterEnvelope": "steady", "wave": "buzz" } },
-                { name: "theremin", midiProgram: 40, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.7071 }], "effects": ["vibrato", "reverb"], "vibrato": "heavy", "reverb": 33, "transition": "slide in pattern", "fadeInSeconds": 0.0263, "fadeOutTicks": -6, "chord": "simultaneous", "harmonics": [100, 71, 57, 43, 29, 29, 14, 14, 14, 14, 14, 14, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "none", "envelopes": [] } },
-                { name: "sonar ping", midiProgram: 121, settings: { "type": "spectrum", "eqFilter": [], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.5 }], "reverb": 33, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "chord": "simultaneous", "spectrum": [100, 43, 29, 29, 14, 14, 14, 14, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 2" }] } },
+                { name: "theremin", midiProgram: 40, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.7071 }], "effects": ["vibrato", "reverb"], "vibrato": "heavy", "reverb": 33, "transition": "slide in pattern", "fadeInSeconds": 0.0263, "fadeOutTicks": -60, "chord": "simultaneous", "harmonics": [100, 71, 57, 43, 29, 29, 14, 14, 14, 14, 14, 14, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "none", "envelopes": [] } },
+                { name: "sonar ping", midiProgram: 121, settings: { "type": "spectrum", "eqFilter": [], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.5 }], "reverb": 33, "transition": "normal", "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "chord": "simultaneous", "spectrum": [100, 43, 29, 29, 14, 14, 14, 14, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang 2" }] } },
             ])
         },
         {
             name: "UltraBox Presets", presets: toNameMap([
                 { name: "nes white", midiProgram: 116, generalMidi: true, isNoise: true, settings: { "type": "noise", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 8, "eqSimplePeak": 0, "eqSubFilters1": [], "effects": [], "fadeInSeconds": 0, "fadeOutTicks": 0, "wave": "1-bit white", "envelopes": [] } },
                 { name: "nes ping", midiProgram: 116, generalMidi: true, isNoise: true, settings: { "type": "noise", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 8, "eqSimplePeak": 0, "eqSubFilters1": [], "effects": [], "fadeInSeconds": 0, "fadeOutTicks": 0, "wave": "1-bit metallic", "envelopes": [] } },
-                { name: "distorted pulse vocal", generalMidi: false, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }], "effects": ["transition type", "pitch shift", "vibrato", "note filter", "bitcrusher", "echo", "reverb"], "transition": "normal", "clicklessTransition": false, "pitchShiftSemitones": 0, "vibrato": "delayed", "vibratoDepth": 0.3, "vibratoDelay": 18.5, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 840.9, "linearGain": 11.3137 }, { "type": "low-pass", "cutoffHz": 297.3, "linearGain": 8 }, { "type": "peak", "cutoffHz": 500, "linearGain": 11.3137 }, { "type": "high-pass", "cutoffHz": 62.5, "linearGain": 1.4142 }, { "type": "peak", "cutoffHz": 176.78, "linearGain": 11.3137 }, { "type": "high-pass", "cutoffHz": 250, "linearGain": 11.3137 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 840.9, "linearGain": 11.3137 }, { "type": "low-pass", "cutoffHz": 297.3, "linearGain": 8 }, { "type": "peak", "cutoffHz": 500, "linearGain": 11.3137 }, { "type": "high-pass", "cutoffHz": 62.5, "linearGain": 1.4142 }, { "type": "peak", "cutoffHz": 176.78, "linearGain": 11.3137 }, { "type": "high-pass", "cutoffHz": 250, "linearGain": 11.3137 }], "bitcrusherOctave": 6.5, "bitcrusherQuantization": 71, "echoSustain": 14, "echoDelayBeats": 0.167, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -3, "wave": "1/8 pulse", "unison": "none", "envelopes": [] } },
-                { name: "dubstep bwah", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.7071 }], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters1": [], "effects": ["panning", "transition type", "chord type"], "transition": "interrupt", "clicklessTransition": false, "chord": "custom interval", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "pan": 0, "panDelay": 10, "fadeInSeconds": 0, "fadeOutTicks": -1, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 10, "operators": [{ "frequency": "2×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "note size" }, { "target": "operatorAmplitude", "envelope": "swell 2", "index": 1 }, { "target": "operatorAmplitude", "envelope": "punch", "index": 2 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 3 }] } },
-                { name: "FM cool bass", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 1 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 0.7071 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 1 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 0.7071 }], "effects": ["transition type", "note filter", "reverb"], "transition": "interrupt", "clicklessTransition": false, "noteFilterType": true, "noteSimpleCut": 9, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -1, "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "2×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "13×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }, { "target": "operatorAmplitude", "envelope": "twang 2", "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "operatorAmplitude", "envelope": "twang 2", "index": 3 }] } },
-                { name: "FM funky bass", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.1768 }], "eqFilterType": true, "eqSimpleCut": 5, "eqSimplePeak": 0, "eqSubFilters1": [], "effects": ["transition type", "reverb"], "transition": "normal", "clicklessTransition": false, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -3, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "punch" }, { "target": "noteVolume", "envelope": "note size" }] } },
-                { name: "talking bass", generalMidi: false, settings: { "type": "FM", "eqFilter": [], "effects": ["chord type"], "chord": "custom interval", "fadeInSeconds": 0, "fadeOutTicks": -3, "algorithm": "1←(2 3)←4", "feedbackType": "1⟲", "feedbackAmplitude": 15, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "2×", "amplitude": 8 }, { "frequency": "2×", "amplitude": 5 }, { "frequency": "1×", "amplitude": 12 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "note size", "index": 2 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "note size" }] } },
-                { name: "synth marimba", generalMidi: false, settings: { "type": "Picked String", "eqFilter": [{ "type": "high-pass", "cutoffHz": 176.78, "linearGain": 1 }, { "type": "peak", "cutoffHz": 4000, "linearGain": 0.5 }], "effects": ["note filter", "echo"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1.4142 }], "echoSustain": 71, "echoDelayBeats": 0.5, "fadeInSeconds": 0, "fadeOutTicks": -1, "harmonics": [86, 100, 29, 29, 0, 0, 0, 100, 0, 0, 0, 86, 29, 0, 14, 100, 0, 0, 0, 0, 0, 14, 0, 0, 14, 0, 0, 86], "unison": "fifth", "stringSustain": 7, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }] } },
-                { name: "italian accordian", generalMidi: false, settings: { "type": "custom chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6000, "linearGain": 0.5 }], "eqFilterType": true, "eqSimpleCut": 8, "eqSimplePeak": 1, "eqSubFilters1": [], "effects": ["chorus", "reverb"], "chorus": 71, "reverb": 45, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "wave": "square", "unison": "honky tonk", "customChipWave": { "0": -24, "1": -24, "2": -24, "3": -24, "4": -24, "5": -24, "6": -24, "7": -24, "8": -24, "9": -24, "10": -24, "11": -24, "12": -24, "13": -24, "14": -24, "15": -24, "16": 24, "17": 24, "18": 24, "19": 24, "20": 24, "21": 24, "22": 24, "23": 24, "24": -24, "25": -24, "26": -24, "27": -24, "28": -24, "29": -24, "30": -24, "31": -24, "32": -24, "33": -24, "34": -24, "35": -24, "36": -24, "37": -24, "38": -24, "39": -24, "40": 24, "41": 24, "42": 24, "43": 24, "44": 24, "45": 24, "46": 24, "47": 24, "48": -24, "49": -24, "50": -24, "51": -24, "52": -24, "53": -24, "54": -24, "55": -24, "56": -24, "57": -24, "58": -24, "59": -24, "60": -24, "61": -24, "62": -24, "63": -24 }, "customChipWaveIntegral": { "0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0, "14": 0, "15": 0, "16": 0, "17": 0, "18": 0, "19": 0, "20": 0, "21": 0, "22": 0, "23": 0, "24": 0, "25": 0, "26": 0, "27": 0, "28": 0, "29": 0, "30": 0, "31": 0, "32": 0, "33": 0, "34": 0, "35": 0, "36": 0, "37": 0, "38": 0, "39": 0, "40": 0, "41": 0, "42": 0, "43": 0, "44": 0, "45": 0, "46": 0, "47": 0, "48": 0, "49": 0, "50": 0, "51": 0, "52": 0, "53": 0, "54": 0, "55": 0, "56": 0, "57": 0, "58": 0, "59": 0, "60": 0, "61": 0, "62": 0, "63": 0, "64": 0 }, "envelopes": [] } },
-                { name: "chip supersaw", generalMidi: false, settings: { "type": "custom chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.7071 }], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters1": [], "effects": ["transition type", "vibrato", "chorus", "reverb"], "transition": "interrupt", "clicklessTransition": false, "vibrato": "delayed", "vibratoDepth": 0.3, "vibratoDelay": 18.5, "vibratoSpeed": 10, "vibratoType": 0, "chorus": 29, "reverb": 29, "fadeInSeconds": 0, "fadeOutTicks": -1, "wave": "square", "unison": "dissonant", "customChipWave": { "0": 22, "1": 22, "2": 16, "3": 6, "4": 0, "5": -3, "6": -8, "7": -10, "8": -13, "9": -16, "10": -19, "11": -19, "12": -20, "13": -22, "14": -22, "15": -24, "16": -24, "17": -24, "18": -24, "19": -24, "20": -24, "21": -24, "22": -24, "23": -24, "24": -24, "25": -24, "26": -24, "27": -24, "28": -24, "29": -24, "30": -24, "31": 24, "32": 24, "33": 16, "34": 9, "35": 6, "36": 4, "37": 2, "38": 0, "39": -1, "40": -3, "41": -4, "42": -4, "43": -6, "44": -6, "45": -6, "46": -6, "47": -5, "48": -5, "49": -4, "50": -2, "51": -2, "52": 1, "53": 4, "54": 6, "55": 8, "56": 10, "57": 12, "58": 14, "59": 16, "60": 18, "61": 19, "62": 22, "63": 24 }, "customChipWaveIntegral": { "0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0, "14": 0, "15": 0, "16": 0, "17": 0, "18": 0, "19": 0, "20": 0, "21": 0, "22": 0, "23": 0, "24": 0, "25": 0, "26": 0, "27": 0, "28": 0, "29": 0, "30": 0, "31": 0, "32": 0, "33": 0, "34": 0, "35": 0, "36": 0, "37": 0, "38": 0, "39": 0, "40": 0, "41": 0, "42": 0, "43": 0, "44": 0, "45": 0, "46": 0, "47": 0, "48": 0, "49": 0, "50": 0, "51": 0, "52": 0, "53": 0, "54": 0, "55": 0, "56": 0, "57": 0, "58": 0, "59": 0, "60": 0, "61": 0, "62": 0, "63": 0, "64": 0 }, "envelopes": [] } },
-                { name: "fm supersaw", generalMidi: false, settings: { "type": "FM6op", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }], "effects": ["transition type", "pitch shift", "note filter", "chorus", "reverb"], "transition": "continue", "clicklessTransition": false, "pitchShiftSemitones": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [], "noteSubFilters0": [], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 1 }], "chorus": 71, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -1, "algorithm": "1 2 3 4 5 6", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 13, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 15, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 10, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "3×", "amplitude": 7, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 9, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 6, "waveform": "sawtooth", "pulseWidth": 5 }], "envelopes": [] } },
-                { name: "wind", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 250.03, "linearGain": 11.3137 }], "eqFilterType": true, "eqSimpleCut": 0, "eqSimplePeak": 7, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["transition type", "reverb"], "transition": "continue", "clicklessTransition": false, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -1, "algorithm": "1←(2 3 4)", "feedbackType": "1→3 2→4", "feedbackAmplitude": 15, "operators": [{ "frequency": "16×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "16×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "16×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "16×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [] } },
-                { name: "mrow", generalMidi: false, settings: { "type": "FM", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters0": [], "effects": ["chord type", "reverb"], "chord": "custom interval", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "reverb": 35, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "4×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "flare 1", "index": 0 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 1 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 2 }, { "target": "operatorAmplitude", "envelope": "flare 3", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "flare 1" }] } },
-                { name: "vocal why", generalMidi: false, settings: { "type": "harmonics", "eqFilter": [], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 840.9, "linearGain": 11.3137 }], "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "harmonics": [100, 86, 29, 29, 14, 14, 0, 14, 14, 43, 71, 100, 100, 86, 71, 71, 57, 57, 43, 43, 43, 43, 43, 0, 0, 0, 0, 0], "unison": "octave", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "note size" }] } },
+                { name: "distorted pulse vocal", generalMidi: false, settings: { "type": "chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }], "effects": ["transition type", "pitch shift", "vibrato", "note filter", "bitcrusher", "echo", "reverb"], "transition": "normal", "clicklessTransition": false, "pitchShiftSemitones": 0, "vibrato": "delayed", "vibratoDepth": 0.3, "vibratoDelay": 18.5, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 840.9, "linearGain": 11.3137 }, { "type": "low-pass", "cutoffHz": 297.3, "linearGain": 8 }, { "type": "peak", "cutoffHz": 500, "linearGain": 11.3137 }, { "type": "high-pass", "cutoffHz": 62.5, "linearGain": 1.4142 }, { "type": "peak", "cutoffHz": 176.78, "linearGain": 11.3137 }, { "type": "high-pass", "cutoffHz": 250, "linearGain": 11.3137 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 840.9, "linearGain": 11.3137 }, { "type": "low-pass", "cutoffHz": 297.3, "linearGain": 8 }, { "type": "peak", "cutoffHz": 500, "linearGain": 11.3137 }, { "type": "high-pass", "cutoffHz": 62.5, "linearGain": 1.4142 }, { "type": "peak", "cutoffHz": 176.78, "linearGain": 11.3137 }, { "type": "high-pass", "cutoffHz": 250, "linearGain": 11.3137 }], "bitcrusherOctave": 6.5, "bitcrusherQuantization": 71, "echoSustain": 14, "echoDelayBeats": 0.167, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -30, "wave": "1/8 pulse", "unison": "none", "envelopes": [] } },
+                { name: "dubstep bwah", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.7071 }], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters1": [], "effects": ["panning", "transition type", "chord type"], "transition": "interrupt", "clicklessTransition": false, "chord": "custom interval", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "pan": 0, "panDelay": 10, "fadeInSeconds": 0, "fadeOutTicks": -10, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 10, "operators": [{ "frequency": "2×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "note size" }, { "target": "operatorAmplitude", "envelope": "swell 2", "index": 1 }, { "target": "operatorAmplitude", "envelope": "punch", "index": 2 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 3 }] } },
+                { name: "FM cool bass", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 1 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 0.7071 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 1 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 0.7071 }], "effects": ["transition type", "note filter", "reverb"], "transition": "interrupt", "clicklessTransition": false, "noteFilterType": true, "noteSimpleCut": 9, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -10, "algorithm": "1←(2 3←4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "2×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "13×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }, { "target": "operatorAmplitude", "envelope": "twang 2", "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang 3", "index": 2 }, { "target": "operatorAmplitude", "envelope": "twang 2", "index": 3 }] } },
+                { name: "FM funky bass", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.1768 }], "eqFilterType": true, "eqSimpleCut": 5, "eqSimplePeak": 0, "eqSubFilters1": [], "effects": ["transition type", "reverb"], "transition": "normal", "clicklessTransition": false, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -30, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "punch" }, { "target": "noteVolume", "envelope": "note size" }] } },
+                { name: "talking bass", generalMidi: false, settings: { "type": "FM", "eqFilter": [], "effects": ["chord type"], "chord": "custom interval", "fadeInSeconds": 0, "fadeOutTicks": -30, "algorithm": "1←(2 3)←4", "feedbackType": "1⟲", "feedbackAmplitude": 15, "operators": [{ "frequency": "1×", "amplitude": 15 }, { "frequency": "2×", "amplitude": 8 }, { "frequency": "2×", "amplitude": 5 }, { "frequency": "1×", "amplitude": 12 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "note size", "index": 2 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "note size" }] } },
+                { name: "synth marimba", generalMidi: false, settings: { "type": "Picked String", "eqFilter": [{ "type": "high-pass", "cutoffHz": 176.78, "linearGain": 1 }, { "type": "peak", "cutoffHz": 4000, "linearGain": 0.5 }], "effects": ["note filter", "echo"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1.4142 }], "echoSustain": 71, "echoDelayBeats": 0.5, "fadeInSeconds": 0, "fadeOutTicks": -10, "harmonics": [86, 100, 29, 29, 0, 0, 0, 100, 0, 0, 0, 86, 29, 0, 14, 100, 0, 0, 0, 0, 0, 14, 0, 0, 14, 0, 0, 86], "unison": "fifth", "stringSustain": 7, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }] } },
+                { name: "italian accordian", generalMidi: false, settings: { "type": "custom chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 6000, "linearGain": 0.5 }], "eqFilterType": true, "eqSimpleCut": 8, "eqSimplePeak": 1, "eqSubFilters1": [], "effects": ["chorus", "reverb"], "chorus": 71, "reverb": 45, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "wave": "square", "unison": "honky tonk", "customChipWave": { "0": -24, "1": -24, "2": -24, "3": -24, "4": -24, "5": -24, "6": -24, "7": -24, "8": -24, "9": -24, "10": -24, "11": -24, "12": -24, "13": -24, "14": -24, "15": -24, "16": 24, "17": 24, "18": 24, "19": 24, "20": 24, "21": 24, "22": 24, "23": 24, "24": -24, "25": -24, "26": -24, "27": -24, "28": -24, "29": -24, "30": -24, "31": -24, "32": -24, "33": -24, "34": -24, "35": -24, "36": -24, "37": -24, "38": -24, "39": -24, "40": 24, "41": 24, "42": 24, "43": 24, "44": 24, "45": 24, "46": 24, "47": 24, "48": -24, "49": -24, "50": -24, "51": -24, "52": -24, "53": -24, "54": -24, "55": -24, "56": -24, "57": -24, "58": -24, "59": -24, "60": -24, "61": -24, "62": -24, "63": -24 }, "customChipWaveIntegral": { "0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0, "14": 0, "15": 0, "16": 0, "17": 0, "18": 0, "19": 0, "20": 0, "21": 0, "22": 0, "23": 0, "24": 0, "25": 0, "26": 0, "27": 0, "28": 0, "29": 0, "30": 0, "31": 0, "32": 0, "33": 0, "34": 0, "35": 0, "36": 0, "37": 0, "38": 0, "39": 0, "40": 0, "41": 0, "42": 0, "43": 0, "44": 0, "45": 0, "46": 0, "47": 0, "48": 0, "49": 0, "50": 0, "51": 0, "52": 0, "53": 0, "54": 0, "55": 0, "56": 0, "57": 0, "58": 0, "59": 0, "60": 0, "61": 0, "62": 0, "63": 0, "64": 0 }, "envelopes": [] } },
+                { name: "chip supersaw", generalMidi: false, settings: { "type": "custom chip", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.7071 }], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters1": [], "effects": ["transition type", "vibrato", "chorus", "reverb"], "transition": "interrupt", "clicklessTransition": false, "vibrato": "delayed", "vibratoDepth": 0.3, "vibratoDelay": 18.5, "vibratoSpeed": 10, "vibratoType": 0, "chorus": 29, "reverb": 29, "fadeInSeconds": 0, "fadeOutTicks": -10, "wave": "square", "unison": "dissonant", "customChipWave": { "0": 22, "1": 22, "2": 16, "3": 6, "4": 0, "5": -3, "6": -8, "7": -10, "8": -13, "9": -16, "10": -19, "11": -19, "12": -20, "13": -22, "14": -22, "15": -24, "16": -24, "17": -24, "18": -24, "19": -24, "20": -24, "21": -24, "22": -24, "23": -24, "24": -24, "25": -24, "26": -24, "27": -24, "28": -24, "29": -24, "30": -24, "31": 24, "32": 24, "33": 16, "34": 9, "35": 6, "36": 4, "37": 2, "38": 0, "39": -1, "40": -3, "41": -4, "42": -4, "43": -6, "44": -6, "45": -6, "46": -6, "47": -5, "48": -5, "49": -4, "50": -2, "51": -2, "52": 1, "53": 4, "54": 6, "55": 8, "56": 10, "57": 12, "58": 14, "59": 16, "60": 18, "61": 19, "62": 22, "63": 24 }, "customChipWaveIntegral": { "0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0, "14": 0, "15": 0, "16": 0, "17": 0, "18": 0, "19": 0, "20": 0, "21": 0, "22": 0, "23": 0, "24": 0, "25": 0, "26": 0, "27": 0, "28": 0, "29": 0, "30": 0, "31": 0, "32": 0, "33": 0, "34": 0, "35": 0, "36": 0, "37": 0, "38": 0, "39": 0, "40": 0, "41": 0, "42": 0, "43": 0, "44": 0, "45": 0, "46": 0, "47": 0, "48": 0, "49": 0, "50": 0, "51": 0, "52": 0, "53": 0, "54": 0, "55": 0, "56": 0, "57": 0, "58": 0, "59": 0, "60": 0, "61": 0, "62": 0, "63": 0, "64": 0 }, "envelopes": [] } },
+                { name: "fm supersaw", generalMidi: false, settings: { "type": "FM6op", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.7071 }], "effects": ["transition type", "pitch shift", "note filter", "chorus", "reverb"], "transition": "continue", "clicklessTransition": false, "pitchShiftSemitones": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [], "noteSubFilters0": [], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 1 }], "chorus": 71, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -10, "algorithm": "1 2 3 4 5 6", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 13, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 15, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 10, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "3×", "amplitude": 7, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 9, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 6, "waveform": "sawtooth", "pulseWidth": 5 }], "envelopes": [] } },
+                { name: "wind", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 250.03, "linearGain": 11.3137 }], "eqFilterType": true, "eqSimpleCut": 0, "eqSimplePeak": 7, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["transition type", "reverb"], "transition": "continue", "clicklessTransition": false, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -10, "algorithm": "1←(2 3 4)", "feedbackType": "1→3 2→4", "feedbackAmplitude": 15, "operators": [{ "frequency": "16×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "16×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "16×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "16×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [] } },
+                { name: "mrow", generalMidi: false, settings: { "type": "FM", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "eqSubFilters0": [], "effects": ["chord type", "reverb"], "chord": "custom interval", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "reverb": 35, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "algorithm": "1←3 2←4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "4×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "flare 1", "index": 0 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 1 }, { "target": "operatorAmplitude", "envelope": "note size", "index": 2 }, { "target": "operatorAmplitude", "envelope": "flare 3", "index": 3 }, { "target": "feedbackAmplitude", "envelope": "flare 1" }] } },
+                { name: "vocal why", generalMidi: false, settings: { "type": "harmonics", "eqFilter": [], "effects": ["note filter", "reverb"], "noteFilter": [{ "type": "low-pass", "cutoffHz": 840.9, "linearGain": 11.3137 }], "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "harmonics": [100, 86, 29, 29, 14, 14, 0, 14, 14, 43, 71, 100, 100, 86, 71, 71, 57, 57, 43, 43, 43, 43, 43, 0, 0, 0, 0, 0], "unison": "octave", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "note size" }] } },
             ])
         },
         {
             name: "Slarmoo's Box Presets", presets: toNameMap([
-                { name: "radio fm", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.3536 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.3536 }], "effects": ["detune", "vibrato", "bitcrusher", "reverb"], "detuneCents": 0, "vibrato": "none", "vibratoDepth": 0, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "bitcrusherOctave": 6.5, "bitcrusherQuantization": 43, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 6, "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 4, "operators": [{ "frequency": "1×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "0.12×", "amplitude": 7, "waveform": "trapezoid", "pulseWidth": 5 }, { "frequency": "0.5×", "amplitude": 10, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 5, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
-                { name: "anguished underworld", generalMidi: false, settings: { "type": "FM6op", "eqFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }], "effects": ["note filter", "distortion", "bitcrusher", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.5 }], "distortion": 43, "aliases": false, "bitcrusherOctave": 4.5, "bitcrusherQuantization": 43, "reverb": 0, "fadeInSeconds": 0.075, "fadeOutTicks": 6, "algorithm": "1 2←4 3←(5 6)", "feedbackType": "1→5 2→6 3→4", "feedbackAmplitude": 4, "operators": [{ "frequency": "0.25×", "amplitude": 14, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "0.5×", "amplitude": 13, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 12, "waveform": "trapezoid", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "0.75×", "amplitude": 3, "waveform": "ramp", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }, { "target": "operatorAmplitude", "envelope": "decay -1", "index": 5 }, { "target": "feedbackAmplitude", "envelope": "wibble 3" }], "isDrum": false } },
-                { name: "faint sorrow", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4240.89, "linearGain": 2 }], "eqFilterType": true, "eqSimpleCut": 8, "eqSimplePeak": 4, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["detune", "vibrato", "echo", "reverb"], "detuneCents": 22, "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "echoSustain": 100, "echoDelayBeats": 0.667, "reverb": 87, "fadeInSeconds": 0.075, "fadeOutTicks": 48, "algorithm": "1 2 3 4", "feedbackType": "1⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
-                { name: "bright sorrow fm", generalMidi: false, settings: { "type": "FM", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [], "effects": ["chord type", "note filter", "echo", "reverb"], "chord": "strum", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2000, "linearGain": 2.8284 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 2000, "linearGain": 2.8284 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 1.4142 }], "echoSustain": 71, "echoDelayBeats": 1.333, "reverb": 61, "fadeInSeconds": 0, "fadeOutTicks": 48, "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 2, "operators": [{ "frequency": "1×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
-                { name: "wet sorrow fm", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.7071 }], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["vibrato", "reverb"], "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "reverb": 23, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 4, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "decay 3", "index": 2 }], "isDrum": false } },
-                { name: "scream fm", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 250, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.7071 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 250, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.7071 }], "effects": ["detune", "note filter", "distortion", "reverb"], "detuneCents": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 1681.79, "linearGain": 0.125 }, { "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 11.3137 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 1681.79, "linearGain": 0.125 }, { "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 11.3137 }], "distortion": 0, "aliases": false, "reverb": 87, "fadeInSeconds": 0.135, "fadeOutTicks": -3, "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 11, "operators": [{ "frequency": "4×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "7×", "amplitude": 5, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "detune", "envelope": "swell 1" }, { "target": "feedbackAmplitude", "envelope": "tremolo4" }], "isDrum": false } },
-                { name: "anguished radio fm pad", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 9513.66, "linearGain": 4 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 62.5, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 9513.66, "linearGain": 4 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.0884 }], "eqSubFilters4": [], "effects": ["detune", "note filter", "bitcrusher", "chorus", "echo", "reverb"], "detuneCents": -16, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [], "noteSubFilters0": [], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 11.3137 }], "noteSubFilters2": [{ "type": "low-pass", "cutoffHz": 105.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 11.3137 }], "noteSubFilters4": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 11.3137 }], "bitcrusherOctave": 5.5, "bitcrusherQuantization": 43, "chorus": 29, "echoSustain": 43, "echoDelayBeats": 1, "reverb": 58, "fadeInSeconds": 0, "fadeOutTicks": 48, "algorithm": "1←3 2←4", "feedbackType": "1→3", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
-                { name: "juicy kick", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 11.3137 }, { "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 11.3137 }, { "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }], "effects": [], "fadeInSeconds": 0, "fadeOutTicks": -6, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "20×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorFrequency", "envelope": "twang 1", "index": 0 }, { "target": "noteVolume", "envelope": "twang 2" }], "isDrum": false } },
-                { name: "good vibes supersaw", generalMidi: false, settings: { "type": "supersaw", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 6, "discreteEnvelope": false, "pitchEnvelopeStart": 37, "pitchEnvelopeEnd": 96, "pitchEnvelopeInverse": true, "eqSubFilters0": [], "effects": ["transition type", "detune", "chorus", "reverb"], "transition": "interrupt", "clicklessTransition": false, "detuneCents": 30, "chorus": 14, "reverb": 23, "fadeInSeconds": 0.0263, "fadeOutTicks": 12, "pulseWidth": 26, "decimalOffset": 0, "dynamism": 33, "spread": 33, "shape": 17, "envelopes": [{ "target": "supersawShape", "envelope": "pitch" }, { "target": "detune", "envelope": "tremolo2" }], "isDrum": false } },
-                { name: "ethereal", generalMidi: false, isNoise: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "peak", "cutoffHz": 4000, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 1.4142 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 4, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "peak", "cutoffHz": 4000, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 1.4142 }], "eqSubFilters1": [], "effects": ["transition type", "chord type", "pitch shift", "detune", "vibrato", "note filter", "bitcrusher", "chorus", "reverb"], "transition": "continue", "clicklessTransition": false, "chord": "simultaneous", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "pitchShiftSemitones": 12, "detuneCents": 36, "vibrato": "custom", "vibratoDepth": 0.12, "vibratoDelay": 36, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 0.0884 }, { "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.7071 }], "noteSubFilters0": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 0.0884 }, { "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.7071 }], "bitcrusherOctave": 4.5, "bitcrusherQuantization": 43, "chorus": 71, "reverb": 100, "fadeInSeconds": 0, "fadeOutTicks": -1, "spectrum": [43, 0, 0, 0, 0, 0, 0, 71, 0, 0, 0, 57, 0, 0, 57, 0, 43, 0, 43, 0, 0, 29, 0, 29, 0, 14, 14, 14, 0, 0], "unison": "none", "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "pitchEnvelopeStart1": 0, "pitchEnvelopeEnd1": 96, "envelopeInverse1": false, "pitchEnvelopeStart2": 0, "pitchEnvelopeEnd2": 96, "envelopeInverse2": false, "envelopes": [{ "target": "noteVolume", "envelope": "note size" }, { "target": "detune", "envelope": "tremolo3" }, { "target": "bitcrusherQuantization", "envelope": "note size" }], "isDrum": false } },
-                { name: "walrus wuh", generalMidi: false, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 2 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 74.33, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "pitchEnvelopeInverse": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 2 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 74.33, "linearGain": 2.8284 }], "effects": ["note filter", "bitcrusher", "chorus", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.125 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.125 }], "bitcrusherOctave": 4, "bitcrusherQuantization": 71, "chorus": 86, "reverb": 32, "fadeInSeconds": 0.0263, "fadeOutTicks": 48, "pulseWidth": 50, "decimalOffset": 0, "dynamism": 100, "spread": 50, "shape": 0, "envelopes": [{ "target": "noteVolume", "envelope": "punch" }, { "target": "bitcrusherQuantization", "envelope": "decay 3" }], "isDrum": false } },
-                { name: "saturnic", generalMidi: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 4240.89, "linearGain": 2 }], "eqFilterType": true, "eqSimpleCut": 8, "eqSimplePeak": 4, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["vibrato", "chorus", "echo", "reverb"], "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "chorus": 100, "echoSustain": 71, "echoDelayBeats": 0.5, "reverb": 45, "fadeInSeconds": 0.0125, "fadeOutTicks": 72, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 15, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
-                { name: "glassy harmonics", generalMidi: false, settings: { "type": "harmonics", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.5 }], "effects": ["detune", "note filter", "chorus", "reverb"], "detuneCents": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [], "noteSubFilters0": [], "chorus": 14, "reverb": 29, "fadeInSeconds": 0, "fadeOutTicks": -3, "harmonics": [100, 0, 43, 29, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 14, 29, 14, 0, 14, 0, 0, 0, 0, 100, 0, 0, 14, 0], "unison": "none", "envelopes": [], "isDrum": false } },
-                { name: "plucked", generalMidi: false, settings: { "type": "Picked String", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.0884 }], "effects": ["transition type", "echo", "reverb"], "transition": "interrupt", "clicklessTransition": false, "echoSustain": 100, "echoDelayBeats": 1.333, "reverb": 26, "fadeInSeconds": 0, "fadeOutTicks": 24, "harmonics": [100, 86, 57, 0, 0, 57, 57, 57, 86, 57, 57, 43, 43, 43, 29, 29, 14, 14, 29, 14, 14, 14, 29, 100, 57, 43, 14, 14], "unison": "none", "stringSustain": 14, "envelopes": [], "isDrum": false } },
-                { name: "spectrum wind", generalMidi: false, isNoise: true, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.7071 }], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["note filter", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 1.4142 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 1.4142 }], "reverb": 87, "fadeInSeconds": 0, "fadeOutTicks": 12, "spectrum": [29, 0, 0, 0, 0, 0, 0, 71, 0, 0, 0, 14, 57, 14, 0, 57, 57, 0, 0, 57, 0, 71, 14, 29, 100, 71, 0, 100, 14, 86], "unison": "none", "envelopes": [], "isDrum": true } },
-                { name: "hi-hat", generalMidi: false, isNoise: true, settings: { "type": "noise", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters1": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters2": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters3": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "effects": [], "fadeInSeconds": 0, "fadeOutTicks": -3, "wave": "white", "unison": "none", "envelopes": [], "isDrum": true } },
-                { name: "jungle bass", generalMidi: false, isNoise: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 148.65, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 148.65, "linearGain": 0.0884 }], "effects": ["vibrato", "note filter", "chorus", "reverb"], "vibrato": "none", "vibratoDepth": 0, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 297.3, "linearGain": 1 }, { "type": "peak", "cutoffHz": 74.33, "linearGain": 0.0884 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 297.3, "linearGain": 1 }, { "type": "peak", "cutoffHz": 74.33, "linearGain": 0.0884 }], "chorus": 14, "reverb": 3, "fadeInSeconds": 0, "fadeOutTicks": 48, "algorithm": "1←3 2←4", "feedbackType": "1↔2 3↔4", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "pitchEnvelopeStart1": 0, "pitchEnvelopeEnd1": 96, "envelopeInverse1": false, "pitchEnvelopeStart2": 12, "pitchEnvelopeEnd2": 28, "envelopeInverse2": false, "envelopes": [{ "target": "operatorFrequency", "envelope": "swell 3", "index": 0 }, { "target": "operatorAmplitude", "envelope": "swell 3", "index": 1 }, { "target": "noteFilterFreq", "envelope": "pitch", "index": 0 }], "isDrum": false } },
-                { name: "beach tide", generalMidi: false, isNoise: false, settings: { "type": "harmonics", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 8000, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 8000, "linearGain": 0.0884 }], "effects": ["transition type", "chord type", "note filter", "chorus", "reverb"], "transition": "continue", "clicklessTransition": false, "chord": "simultaneous", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 420.45, "linearGain": 1 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.1768 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 420.45, "linearGain": 1 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.1768 }], "chorus": 14, "reverb": 32, "fadeInSeconds": 0.0938, "fadeOutTicks": 72, "harmonics": [86, 86, 71, 57, 57, 43, 43, 43, 29, 29, 14, 14, 14, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "none", "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "pitch" }], "isDrum": false } },
-                { name: "starlight", generalMidi: false, isNoise: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.0884 }], "effects": ["transition type", "vibrato", "bitcrusher", "echo", "reverb"], "transition": "continue", "clicklessTransition": false, "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "bitcrusherOctave": 5.5, "bitcrusherQuantization": 29, "echoSustain": 29, "echoDelayBeats": 1, "reverb": 13, "fadeInSeconds": 0, "fadeOutTicks": 24, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
-                { name: "distant monument", generalMidi: false, isNoise: false, settings: { "type": "chip", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 1 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 500, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 210.22, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 5.6569 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 1 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 500, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 210.22, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 5.6569 }], "effects": ["transition type", "chord type", "detune", "bitcrusher", "chorus", "echo", "reverb"], "transition": "normal", "clicklessTransition": false, "chord": "strum", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "detuneCents": 24, "bitcrusherOctave": 2.5, "bitcrusherQuantization": 14, "chorus": 86, "echoSustain": 71, "echoDelayBeats": 1, "reverb": 35, "fadeInSeconds": 0.0413, "fadeOutTicks": 12, "wave": "modbox pnryshk a (u5)", "unison": "detune", "isUsingAdvancedLoopControls": false, "chipWaveLoopStart": 0, "chipWaveLoopEnd": 11, "chipWaveLoopMode": 0, "chipWavePlayBackwards": false, "chipWaveStartOffset": 0, "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "pitchEnvelopeStart1": 0, "pitchEnvelopeEnd1": 96, "envelopeInverse1": false, "envelopes": [{ "target": "noteVolume", "envelope": "punch" }, { "target": "noteVolume", "envelope": "twang 1" }], "isDrum": false } },
-                { name: "mercurial", generalMidi: false, isNoise: false, settings: { "type": "FM6op", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 88.39, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.1768 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 88.39, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.1768 }], "eqSubFilters1": [], "effects": ["distortion", "chorus"], "distortion": 43, "aliases": false, "chorus": 43, "fadeInSeconds": 0, "fadeOutTicks": -1, "algorithm": "Custom", "feedbackType": "1⟲", "feedbackAmplitude": 8, "customAlgorithm": { "mods": [[3], [5], [4], [], [6], []], "carrierCount": 2 }, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "0.5×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorFrequency", "envelope": "linear", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "distortion", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 20, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
-                { name: "air hiss", generalMidi: false, isNoise: true, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }], "eqFilterType": true, "eqSimpleCut": 7, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["note filter", "distortion", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 2828.43, "linearGain": 0.3536 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 2828.43, "linearGain": 0.3536 }], "distortion": 71, "aliases": false, "reverb": 6, "fadeInSeconds": 0, "fadeOutTicks": -24, "spectrum": [57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 57, 71, 86, 100, 100, 100, 100, 86, 71, 71, 43], "unison": "none", "envelopes": [], "isDrum": true } },
-                { name: "spectral phaser", generalMidi: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 10, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "effects": ["note filter", "distortion", "bitcrusher", "chorus", "echo", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "peak", "cutoffHz": 9513.66, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2828.43, "linearGain": 4 }, { "type": "peak", "cutoffHz": 1414.21, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 4 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 148.65, "linearGain": 4 }, { "type": "peak", "cutoffHz": 88.39, "linearGain": 0.1768 }], "noteSubFilters0": [{ "type": "peak", "cutoffHz": 9513.66, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2828.43, "linearGain": 4 }, { "type": "peak", "cutoffHz": 1414.21, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 4 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 148.65, "linearGain": 4 }, { "type": "peak", "cutoffHz": 88.39, "linearGain": 0.1768 }], "distortion": 14, "aliases": false, "bitcrusherOctave": 6, "bitcrusherQuantization": 14, "chorus": 100, "echoSustain": 86, "echoDelayBeats": 1, "reverb": 32, "fadeInSeconds": 0, "fadeOutTicks": 48, "spectrum": [86, 0, 0, 0, 57, 0, 0, 71, 0, 0, 0, 86, 0, 0, 57, 0, 43, 0, 43, 0, 0, 43, 0, 29, 0, 29, 14, 14, 29, 14], "unison": "piano", "envelopes": [{ "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.07, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.06, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 1 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.05, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.04, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.09, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 4 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.08, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 5 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 6 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.03, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 7 }, { "target": "distortion", "envelope": "none", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 0.3 }], "isDrum": false } },
-                { name: "shaker", generalMidi: false, isNoise: true, settings: { "type": "noise", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 4000, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 0.0884 }, { "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 8 }, { "type": "peak", "cutoffHz": 2378.41, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 6, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 4000, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 0.0884 }, { "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 8 }, { "type": "peak", "cutoffHz": 2378.41, "linearGain": 0.25 }], "effects": ["transition type", "detune", "distortion", "bitcrusher", "chorus", "echo", "reverb"], "transition": "interrupt", "clicklessTransition": false, "detuneCents": 30, "distortion": 43, "aliases": false, "bitcrusherOctave": 2.5, "bitcrusherQuantization": 43, "chorus": 43, "echoSustain": 29, "echoDelayBeats": 1, "reverb": 23, "fadeInSeconds": 0.0263, "fadeOutTicks": 96, "wave": "deep", "unison": "none", "envelopes": [{ "target": "detune", "envelope": "tremolo2", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "bitcrusherQuantization", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteVolume", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteVolume", "envelope": "flare", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 12, "inverse": false, "perEnvelopeSpeed": 64, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": true } },
-                { name: "distant sorrow", generalMidi: false, settings: { "type": "harmonics", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 707.11, "linearGain": 4 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 707.11, "linearGain": 4 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.5 }], "effects": ["transition type", "detune", "vibrato", "note filter", "echo", "reverb"], "transition": "interrupt", "clicklessTransition": false, "detuneCents": 0, "vibrato": "custom", "vibratoDepth": 0.2, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }], "echoSustain": 100, "echoDelayBeats": 1, "reverb": 74, "fadeInSeconds": 0, "fadeOutTicks": 24, "harmonics": [86, 71, 57, 43, 43, 29, 57, 0, 14, 0, 29, 29, 29, 29, 29, 43, 43, 43, 43, 43, 57, 57, 57, 0, 57, 57, 0, 0], "unison": "none", "envelopes": [{ "target": "noteVolume", "envelope": "fall", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteFilterAllFreqs", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2.5, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 2 }], "isDrum": false } },
-                { name: "metallic kick", generalMidi: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 28, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "effects": [], "panDelay": 0, "fadeInSeconds": 0, "fadeOutTicks": -1, "algorithm": "1←(2 3 4)", "feedbackType": "1→2→3→4", "feedbackAmplitude": 15, "operators": [{ "frequency": "8×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "256x", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "128x", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "256x", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorFrequency", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 16, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "noteVolume", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 3.5, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "feedbackAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "operatorAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }], "isDrum": false } },
-                { name: "chimes", generalMidi: false, settings: { "type": "Picked String", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 8000, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 8000, "linearGain": 2.8284 }], "effects": ["chord type", "detune", "note filter", "bitcrusher", "chorus", "echo", "reverb"], "chord": "strum", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "detuneCents": 24, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 1 }], "bitcrusherOctave": 4, "bitcrusherQuantization": 29, "panDelay": 0, "chorus": 29, "echoSustain": 86, "echoDelayBeats": 0.667, "reverb": 84, "fadeInSeconds": 0, "fadeOutTicks": 48, "harmonics": [0, 100, 71, 71, 29, 0, 57, 86, 0, 0, 0, 0, 71, 29, 0, 0, 57, 0, 0, 86, 0, 0, 0, 100, 0, 100, 0, 57], "unison": "none", "stringSustain": 36, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "bitcrusherQuantization", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 4.5, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "bitcrusherQuantization", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "stringSustain", "envelope": "random", "inverse": false, "perEnvelopeSpeed": 16, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 1, "steps": 14, "seed": 2, "waveform": 0 }, { "target": "detune", "envelope": "pitch", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96 }], "isDrum": false } },
-                { name: "supersaw bass", generalMidi: false, settings: { "type": "supersaw", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "effects": ["note filter", "distortion", "chorus", "reverb"], "noteFilterType": true, "noteSimpleCut": 9, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "distortion": 14, "aliases": false, "chorus": 29, "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "pulseWidth": 50, "decimalOffset": 0, "dynamism": 100, "spread": 67, "shape": 0, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
-                { name: "ascension", generalMidi: false, isNoise: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.25 }], "eqSubFilters1": [], "effects": ["granular", "chorus", "reverb"], "granular": 7, "grainSize": 44, "grainAmounts": 9, "grainRange": 37, "chorus": 71, "reverb": 19, "fadeInSeconds": 0, "fadeOutTicks": 24, "spectrum": [43, 0, 0, 57, 0, 0, 14, 100, 29, 0, 0, 100, 29, 0, 100, 0, 57, 29, 86, 14, 14, 100, 14, 0, 14, 14, 0, 0, 43, 0], "unison": "voiced", "envelopes": [{ "target": "noteVolume", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 0.7, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "panning", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 0.3, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "waveform": 2, "steps": 6 }], "isDrum": false } },
-                { name: "liminal", generalMidi: false, isNoise: false, settings: { "type": "supersaw", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 840.9, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 840.9, "linearGain": 0.25 }], "effects": ["detune", "vibrato", "note filter", "granular", "distortion", "bitcrusher", "chorus", "reverb"], "detuneCents": 8, "vibrato": "custom", "vibratoDepth": 0.48, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2196.8, "linearGain": 1 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 2196.8, "linearGain": 1 }], "granular": 6, "grainSize": 49, "grainAmounts": 10, "grainRange": 40, "distortion": 57, "aliases": false, "bitcrusherOctave": 5, "bitcrusherQuantization": 0, "chorus": 29, "reverb": 48, "fadeInSeconds": 0, "fadeOutTicks": 72, "pulseWidth": 30, "decimalOffset": 0, "dynamism": 17, "spread": 83, "shape": 67, "envelopes": [{ "target": "noteVolume", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 17, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "pulseWidth", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 1.3333, "perEnvelopeLowerBound": 0.1, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "distortion", "envelope": "random", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0.2, "perEnvelopeUpperBound": 1, "discrete": true, "steps": 8, "seed": 2, "waveform": 2 }, { "target": "panning", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 0.3333, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "waveform": 2, "steps": 2 }, { "target": "noteVolume", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 18, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "granular", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
+                { name: "radio fm", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.3536 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.3536 }], "effects": ["detune", "vibrato", "bitcrusher", "reverb"], "detuneCents": 0, "vibrato": "none", "vibratoDepth": 0, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "bitcrusherOctave": 6.5, "bitcrusherQuantization": 43, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": 60, "algorithm": "1 2 3 4", "feedbackType": "1⟲ 2⟲", "feedbackAmplitude": 4, "operators": [{ "frequency": "1×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "0.12×", "amplitude": 7, "waveform": "trapezoid", "pulseWidth": 5 }, { "frequency": "0.5×", "amplitude": 10, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 5, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
+                { name: "anguished underworld", generalMidi: false, settings: { "type": "FM6op", "eqFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }], "effects": ["note filter", "distortion", "bitcrusher", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.5 }], "distortion": 43, "aliases": false, "bitcrusherOctave": 4.5, "bitcrusherQuantization": 43, "reverb": 0, "fadeInSeconds": 0.075, "fadeOutTicks": 60, "algorithm": "1 2←4 3←(5 6)", "feedbackType": "1→5 2→6 3→4", "feedbackAmplitude": 4, "operators": [{ "frequency": "0.25×", "amplitude": 14, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "0.5×", "amplitude": 13, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 12, "waveform": "trapezoid", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "0.75×", "amplitude": 3, "waveform": "ramp", "pulseWidth": 5 }], "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "punch" }, { "target": "operatorAmplitude", "envelope": "decay -1", "index": 5 }, { "target": "feedbackAmplitude", "envelope": "wibble 3" }], "isDrum": false } },
+                { name: "faint sorrow", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4240.89, "linearGain": 2 }], "eqFilterType": true, "eqSimpleCut": 8, "eqSimplePeak": 4, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["detune", "vibrato", "echo", "reverb"], "detuneCents": 22, "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "echoSustain": 100, "echoDelayBeats": 0.667, "reverb": 87, "fadeInSeconds": 0.075, "fadeOutTicks": 480, "algorithm": "1 2 3 4", "feedbackType": "1⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
+                { name: "bright sorrow fm", generalMidi: false, settings: { "type": "FM", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [], "effects": ["chord type", "note filter", "echo", "reverb"], "chord": "strum", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2000, "linearGain": 2.8284 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 2000, "linearGain": 2.8284 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 1.4142 }], "echoSustain": 71, "echoDelayBeats": 1.333, "reverb": 61, "fadeInSeconds": 0, "fadeOutTicks": 480, "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲", "feedbackAmplitude": 2, "operators": [{ "frequency": "1×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "5×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
+                { name: "wet sorrow fm", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.7071 }], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["vibrato", "reverb"], "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "reverb": 23, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 4, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "decay 3", "index": 2 }], "isDrum": false } },
+                { name: "scream fm", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 250, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.7071 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 250, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.7071 }], "effects": ["detune", "note filter", "distortion", "reverb"], "detuneCents": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 1681.79, "linearGain": 0.125 }, { "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 11.3137 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 1681.79, "linearGain": 0.125 }, { "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 11.3137 }], "distortion": 0, "aliases": false, "reverb": 87, "fadeInSeconds": 0.135, "fadeOutTicks": -30, "algorithm": "(1 2 3)←4", "feedbackType": "1⟲ 2⟲ 3⟲ 4⟲", "feedbackAmplitude": 11, "operators": [{ "frequency": "4×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 3, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "7×", "amplitude": 5, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "detune", "envelope": "swell 1" }, { "target": "feedbackAmplitude", "envelope": "tremolo4" }], "isDrum": false } },
+                { name: "anguished radio fm pad", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 9513.66, "linearGain": 4 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 62.5, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 9513.66, "linearGain": 4 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.0884 }], "eqSubFilters4": [], "effects": ["detune", "note filter", "bitcrusher", "chorus", "echo", "reverb"], "detuneCents": -16, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [], "noteSubFilters0": [], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 11.3137 }], "noteSubFilters2": [{ "type": "low-pass", "cutoffHz": 105.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 11.3137 }], "noteSubFilters4": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 11.3137 }], "bitcrusherOctave": 5.5, "bitcrusherQuantization": 43, "chorus": 29, "echoSustain": 43, "echoDelayBeats": 1, "reverb": 58, "fadeInSeconds": 0, "fadeOutTicks": 480, "algorithm": "1←3 2←4", "feedbackType": "1→3", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
+                { name: "juicy kick", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 11.3137 }, { "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 11.3137 }, { "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 594.6, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }], "effects": [], "fadeInSeconds": 0, "fadeOutTicks": -60, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "20×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorFrequency", "envelope": "twang 1", "index": 0 }, { "target": "noteVolume", "envelope": "twang 2" }], "isDrum": false } },
+                { name: "good vibes supersaw", generalMidi: false, settings: { "type": "supersaw", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 6, "discreteEnvelope": false, "pitchEnvelopeStart": 37, "pitchEnvelopeEnd": 96, "pitchEnvelopeInverse": true, "eqSubFilters0": [], "effects": ["transition type", "detune", "chorus", "reverb"], "transition": "interrupt", "clicklessTransition": false, "detuneCents": 30, "chorus": 14, "reverb": 23, "fadeInSeconds": 0.0263, "fadeOutTicks": 120, "pulseWidth": 26, "decimalOffset": 0, "dynamism": 33, "spread": 33, "shape": 17, "envelopes": [{ "target": "supersawShape", "envelope": "pitch" }, { "target": "detune", "envelope": "tremolo2" }], "isDrum": false } },
+                { name: "ethereal", generalMidi: false, isNoise: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "peak", "cutoffHz": 4000, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 1.4142 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 4, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "peak", "cutoffHz": 4000, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 1.4142 }], "eqSubFilters1": [], "effects": ["transition type", "chord type", "pitch shift", "detune", "vibrato", "note filter", "bitcrusher", "chorus", "reverb"], "transition": "continue", "clicklessTransition": false, "chord": "simultaneous", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "pitchShiftSemitones": 12, "detuneCents": 36, "vibrato": "custom", "vibratoDepth": 0.12, "vibratoDelay": 36, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 0.0884 }, { "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.7071 }], "noteSubFilters0": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2000, "linearGain": 0.0884 }, { "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.7071 }], "bitcrusherOctave": 4.5, "bitcrusherQuantization": 43, "chorus": 71, "reverb": 100, "fadeInSeconds": 0, "fadeOutTicks": -10, "spectrum": [43, 0, 0, 0, 0, 0, 0, 71, 0, 0, 0, 57, 0, 0, 57, 0, 43, 0, 43, 0, 0, 29, 0, 29, 0, 14, 14, 14, 0, 0], "unison": "none", "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "pitchEnvelopeStart1": 0, "pitchEnvelopeEnd1": 96, "envelopeInverse1": false, "pitchEnvelopeStart2": 0, "pitchEnvelopeEnd2": 96, "envelopeInverse2": false, "envelopes": [{ "target": "noteVolume", "envelope": "note size" }, { "target": "detune", "envelope": "tremolo3" }, { "target": "bitcrusherQuantization", "envelope": "note size" }], "isDrum": false } },
+                { name: "walrus wuh", generalMidi: false, settings: { "type": "supersaw", "eqFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 2 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 74.33, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "pitchEnvelopeInverse": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 2 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 74.33, "linearGain": 2.8284 }], "effects": ["note filter", "bitcrusher", "chorus", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.125 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.125 }], "bitcrusherOctave": 4, "bitcrusherQuantization": 71, "chorus": 86, "reverb": 32, "fadeInSeconds": 0.0263, "fadeOutTicks": 480, "pulseWidth": 50, "decimalOffset": 0, "dynamism": 100, "spread": 50, "shape": 0, "envelopes": [{ "target": "noteVolume", "envelope": "punch" }, { "target": "bitcrusherQuantization", "envelope": "decay 3" }], "isDrum": false } },
+                { name: "saturnic", generalMidi: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 4240.89, "linearGain": 2 }], "eqFilterType": true, "eqSimpleCut": 8, "eqSimplePeak": 4, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["vibrato", "chorus", "echo", "reverb"], "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "chorus": 100, "echoSustain": 71, "echoDelayBeats": 0.5, "reverb": 45, "fadeInSeconds": 0.0125, "fadeOutTicks": 720, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 15, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
+                { name: "glassy harmonics", generalMidi: false, settings: { "type": "harmonics", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 0.5 }], "effects": ["detune", "note filter", "chorus", "reverb"], "detuneCents": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [], "noteSubFilters0": [], "chorus": 14, "reverb": 29, "fadeInSeconds": 0, "fadeOutTicks": -30, "harmonics": [100, 0, 43, 29, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 14, 29, 14, 0, 14, 0, 0, 0, 0, 100, 0, 0, 14, 0], "unison": "none", "envelopes": [], "isDrum": false } },
+                { name: "plucked", generalMidi: false, settings: { "type": "Picked String", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.0884 }], "effects": ["transition type", "echo", "reverb"], "transition": "interrupt", "clicklessTransition": false, "echoSustain": 100, "echoDelayBeats": 1.333, "reverb": 26, "fadeInSeconds": 0, "fadeOutTicks": 240, "harmonics": [100, 86, 57, 0, 0, 57, 57, 57, 86, 57, 57, 43, 43, 43, 29, 29, 14, 14, 29, 14, 14, 14, 29, 100, 57, 43, 14, 14], "unison": "none", "stringSustain": 14, "envelopes": [], "isDrum": false } },
+                { name: "spectrum wind", generalMidi: false, isNoise: true, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 19027.31, "linearGain": 0.7071 }], "eqFilterType": true, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["note filter", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 1.4142 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 1.4142 }], "reverb": 87, "fadeInSeconds": 0, "fadeOutTicks": 120, "spectrum": [29, 0, 0, 0, 0, 0, 0, 71, 0, 0, 0, 14, 57, 14, 0, 57, 57, 0, 0, 57, 0, 71, 14, 29, 100, 71, 0, 100, 14, 86], "unison": "none", "envelopes": [], "isDrum": true } },
+                { name: "hi-hat", generalMidi: false, isNoise: true, settings: { "type": "noise", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters1": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters2": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters3": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "effects": [], "fadeInSeconds": 0, "fadeOutTicks": -30, "wave": "white", "unison": "none", "envelopes": [], "isDrum": true } },
+                { name: "jungle bass", generalMidi: false, isNoise: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 148.65, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 148.65, "linearGain": 0.0884 }], "effects": ["vibrato", "note filter", "chorus", "reverb"], "vibrato": "none", "vibratoDepth": 0, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 297.3, "linearGain": 1 }, { "type": "peak", "cutoffHz": 74.33, "linearGain": 0.0884 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 297.3, "linearGain": 1 }, { "type": "peak", "cutoffHz": 74.33, "linearGain": 0.0884 }], "chorus": 14, "reverb": 3, "fadeInSeconds": 0, "fadeOutTicks": 480, "algorithm": "1←3 2←4", "feedbackType": "1↔2 3↔4", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 13, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "8×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "pitchEnvelopeStart1": 0, "pitchEnvelopeEnd1": 96, "envelopeInverse1": false, "pitchEnvelopeStart2": 12, "pitchEnvelopeEnd2": 28, "envelopeInverse2": false, "envelopes": [{ "target": "operatorFrequency", "envelope": "swell 3", "index": 0 }, { "target": "operatorAmplitude", "envelope": "swell 3", "index": 1 }, { "target": "noteFilterFreq", "envelope": "pitch", "index": 0 }], "isDrum": false } },
+                { name: "beach tide", generalMidi: false, isNoise: false, settings: { "type": "harmonics", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 8000, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 8000, "linearGain": 0.0884 }], "effects": ["transition type", "chord type", "note filter", "chorus", "reverb"], "transition": "continue", "clicklessTransition": false, "chord": "simultaneous", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 420.45, "linearGain": 1 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.1768 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 420.45, "linearGain": 1 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.1768 }], "chorus": 14, "reverb": 32, "fadeInSeconds": 0.0938, "fadeOutTicks": 720, "harmonics": [86, 86, 71, 57, 57, 43, 43, 43, 29, 29, 14, 14, 14, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "none", "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "pitch" }], "isDrum": false } },
+                { name: "starlight", generalMidi: false, isNoise: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.0884 }], "effects": ["transition type", "vibrato", "bitcrusher", "echo", "reverb"], "transition": "continue", "clicklessTransition": false, "vibrato": "light", "vibratoDepth": 0.15, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "bitcrusherOctave": 5.5, "bitcrusherQuantization": 29, "echoSustain": 29, "echoDelayBeats": 1, "reverb": 13, "fadeInSeconds": 0, "fadeOutTicks": 240, "algorithm": "1←(2 3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
+                { name: "distant monument", generalMidi: false, isNoise: false, settings: { "type": "chip", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 1 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 500, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 210.22, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 5.6569 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 1 }, { "type": "peak", "cutoffHz": 11313.71, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 500, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 210.22, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 5.6569 }], "effects": ["transition type", "chord type", "detune", "bitcrusher", "chorus", "echo", "reverb"], "transition": "normal", "clicklessTransition": false, "chord": "strum", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "detuneCents": 24, "bitcrusherOctave": 2.5, "bitcrusherQuantization": 14, "chorus": 86, "echoSustain": 71, "echoDelayBeats": 1, "reverb": 35, "fadeInSeconds": 0.0413, "fadeOutTicks": 120, "wave": "modbox pnryshk a (u5)", "unison": "detune", "isUsingAdvancedLoopControls": false, "chipWaveLoopStart": 0, "chipWaveLoopEnd": 11, "chipWaveLoopMode": 0, "chipWavePlayBackwards": false, "chipWaveStartOffset": 0, "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "pitchEnvelopeStart1": 0, "pitchEnvelopeEnd1": 96, "envelopeInverse1": false, "envelopes": [{ "target": "noteVolume", "envelope": "punch" }, { "target": "noteVolume", "envelope": "twang 1" }], "isDrum": false } },
+                { name: "mercurial", generalMidi: false, isNoise: false, settings: { "type": "FM6op", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 88.39, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.1768 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 88.39, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.1768 }], "eqSubFilters1": [], "effects": ["distortion", "chorus"], "distortion": 43, "aliases": false, "chorus": 43, "fadeInSeconds": 0, "fadeOutTicks": -10, "algorithm": "Custom", "feedbackType": "1⟲", "feedbackAmplitude": 8, "customAlgorithm": { "mods": [[3], [5], [4], [], [6], []], "carrierCount": 2 }, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "0.5×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "~2×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorFrequency", "envelope": "linear", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "distortion", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 20, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "air hiss", generalMidi: false, isNoise: true, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.25 }], "eqFilterType": true, "eqSimpleCut": 7, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["note filter", "distortion", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 2828.43, "linearGain": 0.3536 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 2828.43, "linearGain": 0.3536 }], "distortion": 71, "aliases": false, "reverb": 6, "fadeInSeconds": 0, "fadeOutTicks": -240, "spectrum": [57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 57, 71, 86, 100, 100, 100, 100, 86, 71, 71, 43], "unison": "none", "envelopes": [], "isDrum": true } },
+                { name: "spectral phaser", generalMidi: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 10, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "effects": ["note filter", "distortion", "bitcrusher", "chorus", "echo", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "peak", "cutoffHz": 9513.66, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2828.43, "linearGain": 4 }, { "type": "peak", "cutoffHz": 1414.21, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 4 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 148.65, "linearGain": 4 }, { "type": "peak", "cutoffHz": 88.39, "linearGain": 0.1768 }], "noteSubFilters0": [{ "type": "peak", "cutoffHz": 9513.66, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 2828.43, "linearGain": 4 }, { "type": "peak", "cutoffHz": 1414.21, "linearGain": 0.125 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 4 }, { "type": "peak", "cutoffHz": 353.55, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 148.65, "linearGain": 4 }, { "type": "peak", "cutoffHz": 88.39, "linearGain": 0.1768 }], "distortion": 14, "aliases": false, "bitcrusherOctave": 6, "bitcrusherQuantization": 14, "chorus": 100, "echoSustain": 86, "echoDelayBeats": 1, "reverb": 32, "fadeInSeconds": 0, "fadeOutTicks": 480, "spectrum": [86, 0, 0, 0, 57, 0, 0, 71, 0, 0, 0, 86, 0, 0, 57, 0, 43, 0, 43, 0, 0, 43, 0, 29, 0, 29, 14, 14, 29, 14], "unison": "piano", "envelopes": [{ "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.07, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.06, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 1 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.05, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.04, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.09, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 4 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.08, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 5 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 6 }, { "target": "noteFilterFreq", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0.03, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 7 }, { "target": "distortion", "envelope": "none", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 0.3 }], "isDrum": false } },
+                { name: "shaker", generalMidi: false, isNoise: true, settings: { "type": "noise", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 4000, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 0.0884 }, { "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 8 }, { "type": "peak", "cutoffHz": 2378.41, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 6, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 4000, "linearGain": 5.6569 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 0.0884 }, { "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 8 }, { "type": "peak", "cutoffHz": 2378.41, "linearGain": 0.25 }], "effects": ["transition type", "detune", "distortion", "bitcrusher", "chorus", "echo", "reverb"], "transition": "interrupt", "clicklessTransition": false, "detuneCents": 30, "distortion": 43, "aliases": false, "bitcrusherOctave": 2.5, "bitcrusherQuantization": 43, "chorus": 43, "echoSustain": 29, "echoDelayBeats": 1, "reverb": 23, "fadeInSeconds": 0.0263, "fadeOutTicks": 960, "wave": "deep", "unison": "none", "envelopes": [{ "target": "detune", "envelope": "tremolo2", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "bitcrusherQuantization", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteVolume", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteVolume", "envelope": "flare", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 12, "inverse": false, "perEnvelopeSpeed": 64, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": true } },
+                { name: "distant sorrow", generalMidi: false, settings: { "type": "harmonics", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 707.11, "linearGain": 4 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 707.11, "linearGain": 4 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.5 }], "effects": ["transition type", "detune", "vibrato", "note filter", "echo", "reverb"], "transition": "interrupt", "clicklessTransition": false, "detuneCents": 0, "vibrato": "custom", "vibratoDepth": 0.2, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }], "echoSustain": 100, "echoDelayBeats": 1, "reverb": 74, "fadeInSeconds": 0, "fadeOutTicks": 240, "harmonics": [86, 71, 57, 43, 43, 29, 57, 0, 14, 0, 29, 29, 29, 29, 29, 43, 43, 43, 43, 43, 57, 57, 57, 0, 57, 57, 0, 0], "unison": "none", "envelopes": [{ "target": "noteVolume", "envelope": "fall", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 10, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteFilterAllFreqs", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2.5, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 2 }], "isDrum": false } },
+                { name: "metallic kick", generalMidi: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 28, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.5 }], "effects": [], "panDelay": 0, "fadeInSeconds": 0, "fadeOutTicks": -10, "algorithm": "1←(2 3 4)", "feedbackType": "1→2→3→4", "feedbackAmplitude": 15, "operators": [{ "frequency": "8×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "256x", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "128x", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "256x", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorFrequency", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 16, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "noteVolume", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 3.5, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "feedbackAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 1 }, { "target": "operatorAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "operatorAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }], "isDrum": false } },
+                { name: "chimes", generalMidi: false, settings: { "type": "Picked String", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 8000, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 8000, "linearGain": 2.8284 }], "effects": ["chord type", "detune", "note filter", "bitcrusher", "chorus", "echo", "reverb"], "chord": "strum", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "detuneCents": 24, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 0.5 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 2378.41, "linearGain": 1 }], "bitcrusherOctave": 4, "bitcrusherQuantization": 29, "panDelay": 0, "chorus": 29, "echoSustain": 86, "echoDelayBeats": 0.667, "reverb": 84, "fadeInSeconds": 0, "fadeOutTicks": 480, "harmonics": [0, 100, 71, 71, 29, 0, 57, 86, 0, 0, 0, 0, 71, 29, 0, 0, 57, 0, 0, 86, 0, 0, 0, 100, 0, 100, 0, 57], "unison": "none", "stringSustain": 36, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "bitcrusherQuantization", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 4.5, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "bitcrusherQuantization", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "stringSustain", "envelope": "random", "inverse": false, "perEnvelopeSpeed": 16, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 1, "steps": 14, "seed": 2, "waveform": 0 }, { "target": "detune", "envelope": "pitch", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96 }], "isDrum": false } },
+                { name: "supersaw bass", generalMidi: false, settings: { "type": "supersaw", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.5 }], "effects": ["note filter", "distortion", "chorus", "reverb"], "noteFilterType": true, "noteSimpleCut": 9, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 7231.23, "linearGain": 1 }], "distortion": 14, "aliases": false, "chorus": 29, "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "pulseWidth": 50, "decimalOffset": 0, "dynamism": 100, "spread": 67, "shape": 0, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "ascension", generalMidi: false, isNoise: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 420.45, "linearGain": 0.25 }], "eqSubFilters1": [], "effects": ["granular", "chorus", "reverb"], "granular": 7, "grainSize": 44, "grainAmounts": 9, "grainRange": 37, "chorus": 71, "reverb": 19, "fadeInSeconds": 0, "fadeOutTicks": 240, "spectrum": [43, 0, 0, 57, 0, 0, 14, 100, 29, 0, 0, 100, 29, 0, 100, 0, 57, 29, 86, 14, 14, 100, 14, 0, 14, 14, 0, 0, 43, 0], "unison": "voiced", "envelopes": [{ "target": "noteVolume", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 0.7, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "panning", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 0.3, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "waveform": 2, "steps": 6 }], "isDrum": false } },
+                { name: "liminal", generalMidi: false, isNoise: false, settings: { "type": "supersaw", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 840.9, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 1.4142 }, { "type": "high-pass", "cutoffHz": 840.9, "linearGain": 0.25 }], "effects": ["detune", "vibrato", "note filter", "granular", "distortion", "bitcrusher", "chorus", "reverb"], "detuneCents": 8, "vibrato": "custom", "vibratoDepth": 0.48, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": true, "noteSimpleCut": 6, "noteSimplePeak": 2, "noteFilter": [{ "type": "low-pass", "cutoffHz": 2196.8, "linearGain": 1 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 2196.8, "linearGain": 1 }], "granular": 6, "grainSize": 49, "grainAmounts": 10, "grainRange": 40, "distortion": 57, "aliases": false, "bitcrusherOctave": 5, "bitcrusherQuantization": 0, "chorus": 29, "reverb": 48, "fadeInSeconds": 0, "fadeOutTicks": 720, "pulseWidth": 30, "decimalOffset": 0, "dynamism": 17, "spread": 83, "shape": 67, "envelopes": [{ "target": "noteVolume", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 17, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "pulseWidth", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 1.3333, "perEnvelopeLowerBound": 0.1, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "distortion", "envelope": "random", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0.2, "perEnvelopeUpperBound": 1, "discrete": true, "steps": 8, "seed": 2, "waveform": 2 }, { "target": "panning", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 0.3333, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "waveform": 2, "steps": 2 }, { "target": "noteVolume", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 18, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "granular", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
+                { name: "dissonant tone", generalMidi: false, isNoise: false, settings: { "type": "harmonics", "eqFilter": [{ "type": "high-pass", "cutoffHz": 2000, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 2.8284 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 9513.66, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 4 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 2000, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 2.8284 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.1768 }, { "type": "peak", "cutoffHz": 9513.66, "linearGain": 2.8284 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 0.3536 }, { "type": "peak", "cutoffHz": 4756.83, "linearGain": 4 }], "eqSubFilters1": [], "effects": ["echo", "reverb"], "panDelay": 0, "echoSustain": 71, "echoDelayBeats": 1, "reverb": 29, "fadeInSeconds": 0, "fadeOutTicks": 960, "harmonics": [100, 0, 86, 71, 43, 29, 14, 86, 0, 0, 0, 0, 0, 0, 0, 71, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0], "unison": "custom", "unisonVoices": 3, "unisonSpread": 0.2, "unisonOffset": 0, "unisonExpression": 0.7, "unisonSign": 1, "envelopes": [{ "target": "noteVolume", "envelope": "wibble", "inverse": false, "perEnvelopeSpeed": 17, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "noteVolume", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 256, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }] } },
+                { name: "reverse arps", generalMidi: false, isNoise: false, settings: { "type": "harmonics", "eqFilter": [{ "type": "high-pass", "cutoffHz": 1000, "linearGain": 1 }, { "type": "peak", "cutoffHz": 16000, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 1000, "linearGain": 1 }, { "type": "peak", "cutoffHz": 16000, "linearGain": 0.25 }], "effects": ["transition type", "pitch shift", "detune", "chorus", "echo", "reverb", "ring mod"], "transition": "interrupt", "clicklessTransition": false, "pitchShiftSemitones": 12, "detuneCents": 0, "ringMod": 29, "ringModHz": 95, "ringModWaveformIndex": 0, "ringModPulseWidth": 10, "ringModHzOffset": 50, "panDelay": 0, "chorus": 29, "echoSustain": 57, "echoDelayBeats": 1, "reverb": 19, "fadeInSeconds": 0, "fadeOutTicks": -60, "harmonics": [100, 86, 0, 71, 0, 0, 0, 14, 0, 0, 0, 29, 100, 0, 0, 86, 43, 0, 71, 0, 86, 0, 0, 0, 0, 0, 0, 0], "unison": "none", "envelopes": [{ "target": "noteVolume", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "ringModulationHz", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 0.04, "perEnvelopeLowerBound": 0.8, "perEnvelopeUpperBound": 1.1, "discrete": false, "waveform": 0, "steps": 2 }] } },
+                { name: "icicle", generalMidi: false, settings: { "type": "spectrum", "eqFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 7, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters1": [], "effects": ["granular", "bitcrusher", "echo", "reverb"], "granular": 10, "grainSize": 49, "grainAmounts": 6, "grainRange": 40, "bitcrusherOctave": 3.5, "bitcrusherQuantization": 43, "panDelay": 0, "echoSustain": 71, "echoDelayBeats": 1, "reverb": 74, "fadeInSeconds": 0.0575, "fadeOutTicks": -10, "spectrum": [86, 0, 43, 0, 14, 29, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "unison": "none", "envelopes": [] } },
             ])
         },
         {
             name: "Slarmoo's Box Chip Presets", presets: toNameMap([
-                { name: "Slarmoo's Pulse", midiProgram: 80, settings: { "type": "PWM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [], "effects": ["transition type", "chord type", "detune"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": true, "arpeggioSpeed": 8, "detuneCents": 24, "fadeInSeconds": 0, "fadeOutTicks": -1, "pulseWidth": 50, "decimalOffset": 0, "unison": "none", "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "envelopes": [{ "target": "detune", "envelope": "pitch" }], "isDrum": false } },
-                { name: "discovery square", midiProgram: 80, settings: { "type": "chip", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "effects": ["bitcrusher"], "bitcrusherOctave": 5.5, "bitcrusherQuantization": 57, "fadeInSeconds": 0, "fadeOutTicks": -3, "wave": "square", "unison": "octave", "isUsingAdvancedLoopControls": false, "chipWaveLoopStart": 0, "chipWaveLoopEnd": 2, "chipWaveLoopMode": 0, "chipWavePlayBackwards": false, "chipWaveStartOffset": 0, "envelopes": [], "isDrum": false } },
-                { name: "VRC6 Sawtooth alt", midiProgram: 81, settings: { "type": "custom chip", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.5 }], "effects": ["transition type", "chord type", "pitch shift", "detune", "vibrato", "distortion"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "pitchShiftSemitones": 12, "detuneCents": 0, "vibrato": "none", "vibratoDepth": 0, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "distortion": 0, "aliases": false, "fadeInSeconds": 0, "fadeOutTicks": -1, "wave": "square", "unison": "none", "customChipWave": { "0": -1, "1": -1, "2": -1, "3": -1, "4": -1, "5": -1, "6": -1, "7": -1, "8": -1, "9": -5, "10": -5, "11": -5, "12": -4, "13": -4, "14": -4, "15": -3, "16": -3, "17": -3, "18": -7, "19": -7, "20": -6, "21": -6, "22": -5, "23": -5, "24": -4, "25": -4, "26": -4, "27": -7, "28": -7, "29": -6, "30": -6, "31": -5, "32": -5, "33": -4, "34": -4, "35": -4, "36": -8, "37": -8, "38": -7, "39": -7, "40": -6, "41": -6, "42": -5, "43": -5, "44": -4, "45": -4, "46": 21, "47": 20, "48": 18, "49": 17, "50": 16, "51": 14, "52": 13, "53": 12, "54": 11, "55": 7, "56": 6, "57": 6, "58": 5, "59": 5, "60": 5, "61": 4, "62": 4, "63": 4 }, "customChipWaveIntegral": { "0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0, "14": 0, "15": 0, "16": 0, "17": 0, "18": 0, "19": 0, "20": 0, "21": 0, "22": 0, "23": 0, "24": 0, "25": 0, "26": 0, "27": 0, "28": 0, "29": 0, "30": 0, "31": 0, "32": 0, "33": 0, "34": 0, "35": 0, "36": 0, "37": 0, "38": 0, "39": 0, "40": 0, "41": 0, "42": 0, "43": 0, "44": 0, "45": 0, "46": 0, "47": 0, "48": 0, "49": 0, "50": 0, "51": 0, "52": 0, "53": 0, "54": 0, "55": 0, "56": 0, "57": 0, "58": 0, "59": 0, "60": 0, "61": 0, "62": 0, "63": 0, "64": 0 }, "envelopes": [], "isDrum": false } },
-                { name: "pulse arps", midiProgram: 80, settings: { "type": "PWM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.125 }, { "type": "high-pass", "cutoffHz": 840.9, "linearGain": 2 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 7, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.125 }, { "type": "high-pass", "cutoffHz": 840.9, "linearGain": 2 }], "effects": ["transition type", "chord type", "detune", "chorus", "echo"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": true, "arpeggioSpeed": 8, "detuneCents": 64, "chorus": 43, "echoSustain": 71, "echoDelayBeats": 0.333, "fadeInSeconds": 0, "fadeOutTicks": -1, "pulseWidth": 50, "decimalOffset": 0, "unison": "none", "envelopes": [{ "target": "detune", "envelope": "pitch", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96 }, { "target": "pulseWidth", "envelope": "pitch", "inverse": true, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "pitchEnvelopeStart": 24, "pitchEnvelopeEnd": 83 }, { "target": "panning", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "waveform": 0, "steps": 2 }, { "target": "noteVolume", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "chorus", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "Slarmoo's Pulse", midiProgram: 80, settings: { "type": "PWM", "volume": 0, "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [], "effects": ["transition type", "chord type", "detune"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": true, "arpeggioSpeed": 8, "detuneCents": 24, "fadeInSeconds": 0, "fadeOutTicks": -10, "pulseWidth": 50, "decimalOffset": 0, "unison": "none", "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "envelopes": [{ "target": "detune", "envelope": "pitch" }], "isDrum": false } },
+                { name: "discovery square", midiProgram: 80, settings: { "type": "chip", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }], "effects": ["bitcrusher"], "bitcrusherOctave": 5.5, "bitcrusherQuantization": 57, "fadeInSeconds": 0, "fadeOutTicks": -30, "wave": "square", "unison": "octave", "isUsingAdvancedLoopControls": false, "chipWaveLoopStart": 0, "chipWaveLoopEnd": 2, "chipWaveLoopMode": 0, "chipWavePlayBackwards": false, "chipWaveStartOffset": 0, "envelopes": [], "isDrum": false } },
+                { name: "VRC6 Sawtooth alt", midiProgram: 81, settings: { "type": "custom chip", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.5 }], "effects": ["transition type", "chord type", "pitch shift", "detune", "vibrato", "distortion"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": true, "arpeggioSpeed": 12, "pitchShiftSemitones": 12, "detuneCents": 0, "vibrato": "none", "vibratoDepth": 0, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 0, "distortion": 0, "aliases": false, "fadeInSeconds": 0, "fadeOutTicks": -10, "wave": "square", "unison": "none", "customChipWave": { "0": -1, "1": -1, "2": -1, "3": -1, "4": -1, "5": -1, "6": -1, "7": -1, "8": -1, "9": -5, "10": -5, "11": -5, "12": -4, "13": -4, "14": -4, "15": -3, "16": -3, "17": -3, "18": -7, "19": -7, "20": -6, "21": -6, "22": -5, "23": -5, "24": -4, "25": -4, "26": -4, "27": -7, "28": -7, "29": -6, "30": -6, "31": -5, "32": -5, "33": -4, "34": -4, "35": -4, "36": -8, "37": -8, "38": -7, "39": -7, "40": -6, "41": -6, "42": -5, "43": -5, "44": -4, "45": -4, "46": 21, "47": 20, "48": 18, "49": 17, "50": 16, "51": 14, "52": 13, "53": 12, "54": 11, "55": 7, "56": 6, "57": 6, "58": 5, "59": 5, "60": 5, "61": 4, "62": 4, "63": 4 }, "customChipWaveIntegral": { "0": 0, "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0, "14": 0, "15": 0, "16": 0, "17": 0, "18": 0, "19": 0, "20": 0, "21": 0, "22": 0, "23": 0, "24": 0, "25": 0, "26": 0, "27": 0, "28": 0, "29": 0, "30": 0, "31": 0, "32": 0, "33": 0, "34": 0, "35": 0, "36": 0, "37": 0, "38": 0, "39": 0, "40": 0, "41": 0, "42": 0, "43": 0, "44": 0, "45": 0, "46": 0, "47": 0, "48": 0, "49": 0, "50": 0, "51": 0, "52": 0, "53": 0, "54": 0, "55": 0, "56": 0, "57": 0, "58": 0, "59": 0, "60": 0, "61": 0, "62": 0, "63": 0, "64": 0 }, "envelopes": [], "isDrum": false } },
+                { name: "pulse arps", midiProgram: 80, settings: { "type": "PWM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.125 }, { "type": "high-pass", "cutoffHz": 840.9, "linearGain": 2 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 7, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.125 }, { "type": "high-pass", "cutoffHz": 840.9, "linearGain": 2 }], "effects": ["transition type", "chord type", "detune", "chorus", "echo"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": true, "arpeggioSpeed": 8, "detuneCents": 64, "chorus": 43, "echoSustain": 71, "echoDelayBeats": 0.333, "fadeInSeconds": 0, "fadeOutTicks": -10, "pulseWidth": 50, "decimalOffset": 0, "unison": "none", "envelopes": [{ "target": "detune", "envelope": "pitch", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96 }, { "target": "pulseWidth", "envelope": "pitch", "inverse": true, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "pitchEnvelopeStart": 24, "pitchEnvelopeEnd": 83 }, { "target": "panning", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "waveform": 0, "steps": 2 }, { "target": "noteVolume", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "chorus", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "smooth triangle", midiProgram: 80, settings: { "type": "FM", "eqFilter": [], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [], "effects": ["transition type", "chord type", "detune"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": true, "arpeggioSpeed": 8, "monoChordTone": 1, "detuneCents": 24, "panDelay": 0, "fadeInSeconds": 0, "fadeOutTicks": -10, "unison": "none", "algorithm": "1 2 3 4", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "triangle", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "detune", "envelope": "pitch", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96 }] } },
             ])
         },
         {
             name: "Slarmoo's Box Instrumental Presets", presets: toNameMap([
-                { name: "rusty flute", midiProgram: 73, settings: { "type": "FM", "eqFilter": [{ "type": "peak", "cutoffHz": 13454.34, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "peak", "cutoffHz": 13454.34, "linearGain": 2.8284 }], "effects": ["transition type", "detune", "distortion", "reverb"], "transition": "normal", "clicklessTransition": false, "detuneCents": -7, "distortion": 14, "aliases": false, "reverb": 100, "fadeInSeconds": 0, "fadeOutTicks": 96, "algorithm": "1←2←3←4", "feedbackType": "3→4", "feedbackAmplitude": 8, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 4, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "20×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
-                { name: "bitcrushed piano", midiProgram: 4, settings: { "type": "chip", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2.8284 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2.8284 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.5 }], "effects": ["transition type", "detune", "distortion", "bitcrusher", "reverb"], "transition": "continue", "clicklessTransition": false, "detuneCents": 0, "distortion": 29, "aliases": true, "bitcrusherOctave": 4, "bitcrusherQuantization": 43, "panDelay": 0, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -3, "wave": "triangle", "unison": "none", "isUsingAdvancedLoopControls": true, "chipWaveLoopStart": 0, "chipWaveLoopEnd": 32, "chipWaveLoopMode": 0, "chipWavePlayBackwards": false, "chipWaveStartOffset": 0, "envelopes": [{ "target": "bitcrusherQuantization", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0.6, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
-                { name: "detuned piano", midiProgram: 3, settings: { "type": "Picked String", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2.8284 }], "effects": ["transition type", "detune", "vibrato", "note filter", "bitcrusher"], "transition": "continue", "clicklessTransition": false, "detuneCents": 44, "vibrato": "custom", "vibratoDepth": 0.04, "vibratoDelay": 13, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 420.45, "linearGain": 1 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 420.45, "linearGain": 1 }], "bitcrusherOctave": 4, "bitcrusherQuantization": 14, "fadeInSeconds": 0, "fadeOutTicks": -3, "harmonics": [86, 86, 71, 71, 57, 57, 43, 29, 14, 29, 29, 29, 29, 29, 29, 29, 29, 43, 43, 43, 43, 43, 29, 14, 14, 0, 0, 0], "unison": "custom", "unisonVoices": 2, "unisonSpread": 0.26, "unisonOffset": 0, "unisonExpression": 1, "unisonSign": 1, "stringSustain": 79, "envelopes": [{ "target": "detune", "envelope": "random", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 49, "waveform": 1 }, { "target": "noteVolume", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1.6667, "perEnvelopeLowerBound": 0.4, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }, { "target": "unison", "envelope": "random", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 20, "waveform": 1 }, { "target": "noteFilterAllFreqs", "envelope": "pitch", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": true, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }], "isDrum": false } },
-                { name: "pan flute 2", midiProgram: 75, isNoise: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "effects": ["transition type", "note filter", "bitcrusher", "reverb"], "transition": "continue", "clicklessTransition": false, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.5 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.5 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.5 }], "bitcrusherOctave": 6, "bitcrusherQuantization": 57, "reverb": 16, "fadeInSeconds": 0.0125, "fadeOutTicks": -6, "spectrum": [100, 29, 14, 14, 57, 0, 0, 71, 0, 86, 57, 43, 57, 71, 14, 29, 14, 14, 14, 100, 71, 14, 14, 14, 14, 86, 43, 14, 0, 0], "unison": "none", "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "pitchEnvelopeStart1": 0, "pitchEnvelopeEnd1": 96, "envelopeInverse1": false, "pitchEnvelopeStart2": 0, "pitchEnvelopeEnd2": 96, "envelopeInverse2": false, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "note size" }, { "target": "bitcrusherQuantization", "envelope": "note size" }, { "target": "noteVolume", "envelope": "note size" }], "isDrum": false } },
-                { name: "trumpet 2", midiProgram: 56, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 3049.17, "linearGain": 1.4142 }], "eqFilterType": true, "eqSimpleCut": 7, "eqSimplePeak": 3, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["detune", "vibrato", "note filter", "distortion", "chorus", "reverb"], "detuneCents": -64, "vibrato": "custom", "vibratoDepth": 0.68, "vibratoDelay": 17, "vibratoSpeed": 12, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 1000, "linearGain": 0.1768 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 1000, "linearGain": 0.1768 }], "distortion": 29, "aliases": false, "chorus": 14, "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -3, "algorithm": "1 2←(3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 9, "operators": [{ "frequency": "0.75×", "amplitude": 14, "waveform": "pulse width", "pulseWidth": 2 }, { "frequency": "1×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "flare", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "feedbackAmplitude", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorFrequency", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 128, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "noteFilterFreq", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2.5, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }, { "target": "noteVolume", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "detune", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": true, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
-                { name: "harp 2", midiProgram: 46, settings: { "type": "FM6op", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 2.8284 }, { "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 2.8284 }, { "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }], "eqSubFilters1": [], "effects": ["detune", "note filter", "echo", "reverb"], "detuneCents": -23, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 105.11, "linearGain": 2.8284 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 105.11, "linearGain": 2.8284 }], "echoSustain": 29, "echoDelayBeats": 1.083, "reverb": 74, "fadeInSeconds": 0, "fadeOutTicks": -1, "algorithm": "1←4 2←5 3←6", "feedbackType": "1⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "6×", "amplitude": 12, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 4, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorFrequency", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 1 }, { "target": "detune", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 7, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteFilterFreq", "envelope": "tremolo2", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 4 }, { "target": "operatorAmplitude", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": true, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0.4, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "noteVolume", "envelope": "punch", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
-                { name: "electric guitar 1", midiProgram: 30, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 1189.21, "linearGain": 2 }, { "type": "low-pass", "cutoffHz": 4000, "linearGain": 1.4142 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 1189.21, "linearGain": 2 }, { "type": "low-pass", "cutoffHz": 4000, "linearGain": 1.4142 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }], "effects": ["chord type", "vibrato", "note filter", "distortion", "reverb"], "chord": "monophonic", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "monoChordTone": 0, "vibrato": "delayed", "vibratoDepth": 0.3, "vibratoDelay": 18.5, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 4 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 1 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 4 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 1 }], "distortion": 100, "aliases": false, "panDelay": 0, "reverb": 6, "fadeInSeconds": 0, "fadeOutTicks": 24, "algorithm": "1 2 3 4", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 0, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "0.25×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "punch", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "vibratoDepth", "envelope": "rise", "inverse": false, "perEnvelopeSpeed": 9, "perEnvelopeLowerBound": 1, "perEnvelopeUpperBound": 2, "discrete": false }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "distortion", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
-                { name: "electric guitar 2", midiProgram: 30, settings: { "type": "PWM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 5.6569 }, { "type": "high-pass", "cutoffHz": 1681.79, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 2 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 5.6569 }, { "type": "high-pass", "cutoffHz": 1681.79, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 2 }], "effects": ["chord type", "vibrato", "note filter", "distortion", "bitcrusher", "chorus", "reverb"], "chord": "monophonic", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "monoChordTone": 0, "vibrato": "custom", "vibratoDepth": 0.68, "vibratoDelay": 22, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 2.8284 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 2.8284 }], "distortion": 43, "aliases": false, "bitcrusherOctave": 6.5, "bitcrusherQuantization": 71, "panDelay": 0, "chorus": 14, "reverb": 13, "fadeInSeconds": 0, "fadeOutTicks": 24, "pulseWidth": 50, "decimalOffset": 0, "unison": "none", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "rise", "inverse": false, "perEnvelopeSpeed": 0.3333, "perEnvelopeLowerBound": 0.8, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "pulseWidth", "envelope": "twang", "inverse": true, "perEnvelopeSpeed": 2.25, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 0.9, "discrete": false }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "bitcrusherQuantization", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
+                { name: "rusty flute", midiProgram: 73, settings: { "type": "FM", "eqFilter": [{ "type": "peak", "cutoffHz": 13454.34, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "peak", "cutoffHz": 13454.34, "linearGain": 2.8284 }], "effects": ["transition type", "detune", "distortion", "reverb"], "transition": "normal", "clicklessTransition": false, "detuneCents": -7, "distortion": 14, "aliases": false, "reverb": 100, "fadeInSeconds": 0, "fadeOutTicks": 960, "algorithm": "1←2←3←4", "feedbackType": "3→4", "feedbackAmplitude": 8, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 4, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "20×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [], "isDrum": false } },
+                { name: "bitcrushed piano", midiProgram: 4, settings: { "type": "chip", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2.8284 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2.8284 }, { "type": "high-pass", "cutoffHz": 74.33, "linearGain": 0.5 }], "effects": ["transition type", "detune", "distortion", "bitcrusher", "reverb"], "transition": "continue", "clicklessTransition": false, "detuneCents": 0, "distortion": 29, "aliases": true, "bitcrusherOctave": 4, "bitcrusherQuantization": 43, "panDelay": 0, "reverb": 0, "fadeInSeconds": 0, "fadeOutTicks": -30, "wave": "triangle", "unison": "none", "isUsingAdvancedLoopControls": true, "chipWaveLoopStart": 0, "chipWaveLoopEnd": 32, "chipWaveLoopMode": 0, "chipWavePlayBackwards": false, "chipWaveStartOffset": 0, "envelopes": [{ "target": "bitcrusherQuantization", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0.6, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
+                { name: "detuned piano", midiProgram: 3, settings: { "type": "Picked String", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 840.9, "linearGain": 2.8284 }], "effects": ["transition type", "detune", "vibrato", "note filter", "bitcrusher"], "transition": "continue", "clicklessTransition": false, "detuneCents": 44, "vibrato": "custom", "vibratoDepth": 0.04, "vibratoDelay": 13, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 420.45, "linearGain": 1 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 420.45, "linearGain": 1 }], "bitcrusherOctave": 4, "bitcrusherQuantization": 14, "fadeInSeconds": 0, "fadeOutTicks": -30, "harmonics": [86, 86, 71, 71, 57, 57, 43, 29, 14, 29, 29, 29, 29, 29, 29, 29, 29, 43, 43, 43, 43, 43, 29, 14, 14, 0, 0, 0], "unison": "custom", "unisonVoices": 2, "unisonSpread": 0.26, "unisonOffset": 0, "unisonExpression": 1, "unisonSign": 1, "stringSustain": 79, "envelopes": [{ "target": "detune", "envelope": "random", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 49, "waveform": 1 }, { "target": "noteVolume", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1.6667, "perEnvelopeLowerBound": 0.4, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }, { "target": "unison", "envelope": "random", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 20, "waveform": 1 }, { "target": "noteFilterAllFreqs", "envelope": "pitch", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": true, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }], "isDrum": false } },
+                { name: "pan flute 2", midiProgram: 75, isNoise: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "peak", "cutoffHz": 2828.43, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.5 }], "effects": ["transition type", "note filter", "bitcrusher", "reverb"], "transition": "continue", "clicklessTransition": false, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.5 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.5 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 9513.66, "linearGain": 0.5 }], "bitcrusherOctave": 6, "bitcrusherQuantization": 57, "reverb": 16, "fadeInSeconds": 0.0125, "fadeOutTicks": -60, "spectrum": [100, 29, 14, 14, 57, 0, 0, 71, 0, 86, 57, 43, 57, 71, 14, 29, 14, 14, 14, 100, 71, 14, 14, 14, 14, 86, 43, 14, 0, 0], "unison": "none", "pitchEnvelopeStart0": 0, "pitchEnvelopeEnd0": 96, "envelopeInverse0": false, "pitchEnvelopeStart1": 0, "pitchEnvelopeEnd1": 96, "envelopeInverse1": false, "pitchEnvelopeStart2": 0, "pitchEnvelopeEnd2": 96, "envelopeInverse2": false, "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "note size" }, { "target": "bitcrusherQuantization", "envelope": "note size" }, { "target": "noteVolume", "envelope": "note size" }], "isDrum": false } },
+                { name: "trumpet 2", midiProgram: 56, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 3049.17, "linearGain": 1.4142 }], "eqFilterType": true, "eqSimpleCut": 7, "eqSimplePeak": 3, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["detune", "vibrato", "note filter", "distortion", "chorus", "reverb"], "detuneCents": -64, "vibrato": "custom", "vibratoDepth": 0.68, "vibratoDelay": 17, "vibratoSpeed": 12, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 1000, "linearGain": 0.1768 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 3363.59, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 1000, "linearGain": 0.1768 }], "distortion": 29, "aliases": false, "chorus": 14, "reverb": 0, "fadeInSeconds": 0.0263, "fadeOutTicks": -30, "algorithm": "1 2←(3 4)", "feedbackType": "1⟲", "feedbackAmplitude": 9, "operators": [{ "frequency": "0.75×", "amplitude": 14, "waveform": "pulse width", "pulseWidth": 2 }, { "frequency": "1×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 8, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "flare", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 3 }, { "target": "feedbackAmplitude", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorFrequency", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 128, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "noteFilterFreq", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 2.5, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 2 }, { "target": "noteVolume", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "detune", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": true, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "harp 2", midiProgram: 46, settings: { "type": "FM6op", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 2.8284 }, { "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 1000, "linearGain": 2.8284 }, { "type": "high-pass", "cutoffHz": 62.5, "linearGain": 0.25 }, { "type": "high-pass", "cutoffHz": 148.65, "linearGain": 0.5 }], "eqSubFilters1": [], "effects": ["detune", "note filter", "echo", "reverb"], "detuneCents": -23, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 105.11, "linearGain": 2.8284 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 6727.17, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 105.11, "linearGain": 2.8284 }], "echoSustain": 29, "echoDelayBeats": 1.083, "reverb": 74, "fadeInSeconds": 0, "fadeOutTicks": -10, "algorithm": "1←4 2←5 3←6", "feedbackType": "1⟲", "feedbackAmplitude": 5, "operators": [{ "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 5, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "6×", "amplitude": 12, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 4, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "operatorFrequency", "envelope": "tremolo", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 1 }, { "target": "detune", "envelope": "decay", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 7, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }, { "target": "noteFilterFreq", "envelope": "tremolo2", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "operatorAmplitude", "envelope": "twang", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "index": 4 }, { "target": "operatorAmplitude", "envelope": "swell", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": true, "perEnvelopeSpeed": 8, "perEnvelopeLowerBound": 0.4, "perEnvelopeUpperBound": 1, "index": 0 }, { "target": "noteVolume", "envelope": "punch", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "electric guitar 1", midiProgram: 30, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 1189.21, "linearGain": 2 }, { "type": "low-pass", "cutoffHz": 4000, "linearGain": 1.4142 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 1189.21, "linearGain": 2 }, { "type": "low-pass", "cutoffHz": 4000, "linearGain": 1.4142 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 420.45, "linearGain": 0.0884 }], "effects": ["chord type", "vibrato", "note filter", "distortion", "reverb"], "chord": "monophonic", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "monoChordTone": 0, "vibrato": "delayed", "vibratoDepth": 0.3, "vibratoDelay": 18.5, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 4 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 1 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 4 }, { "type": "high-pass", "cutoffHz": 594.6, "linearGain": 1 }], "distortion": 100, "aliases": false, "panDelay": 0, "reverb": 6, "fadeInSeconds": 0, "fadeOutTicks": 240, "algorithm": "1 2 3 4", "feedbackType": "1⟲", "feedbackAmplitude": 0, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 0, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "4×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "0.25×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "punch", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "vibratoDepth", "envelope": "rise", "inverse": false, "perEnvelopeSpeed": 9, "perEnvelopeLowerBound": 1, "perEnvelopeUpperBound": 2, "discrete": false }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "distortion", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
+                { name: "electric guitar 2", midiProgram: 30, settings: { "type": "PWM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 5.6569 }, { "type": "high-pass", "cutoffHz": 1681.79, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 2 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 3363.59, "linearGain": 5.6569 }, { "type": "high-pass", "cutoffHz": 1681.79, "linearGain": 0.25 }, { "type": "peak", "cutoffHz": 5656.85, "linearGain": 2 }], "effects": ["chord type", "vibrato", "note filter", "distortion", "bitcrusher", "chorus", "reverb"], "chord": "monophonic", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "monoChordTone": 0, "vibrato": "custom", "vibratoDepth": 0.68, "vibratoDelay": 22, "vibratoSpeed": 10, "vibratoType": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 2.8284 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 2.8284 }], "distortion": 43, "aliases": false, "bitcrusherOctave": 6.5, "bitcrusherQuantization": 71, "panDelay": 0, "chorus": 14, "reverb": 13, "fadeInSeconds": 0, "fadeOutTicks": 240, "pulseWidth": 50, "decimalOffset": 0, "unison": "none", "envelopes": [{ "target": "noteFilterAllFreqs", "envelope": "rise", "inverse": false, "perEnvelopeSpeed": 0.3333, "perEnvelopeLowerBound": 0.8, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "pulseWidth", "envelope": "twang", "inverse": true, "perEnvelopeSpeed": 2.25, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 0.9, "discrete": false }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "bitcrusherQuantization", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
+                { name: "tremolo strings 2", midiProgram: 44, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 297.3, "linearGain": 1 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 1681.79, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 297.3, "linearGain": 1 }], "effects": ["panning", "transition type", "vibrato", "granular", "chorus", "reverb"], "transition": "slide", "clicklessTransition": false, "vibrato": "custom", "vibratoDepth": 0.04, "vibratoDelay": 0, "vibratoSpeed": 3, "vibratoType": 1, "granular": 10, "grainSize": 49, "grainAmounts": 4, "grainRange": 40, "pan": 0, "panDelay": 0, "chorus": 43, "reverb": 68, "fadeInSeconds": 0.0413, "fadeOutTicks": 960, "algorithm": "(1 2)←(3 4)", "feedbackType": "1→2", "feedbackAmplitude": 9, "operators": [{ "frequency": "2×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "3×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "2×", "amplitude": 2, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "7×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "operatorAmplitude", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "index": 3 }, { "target": "feedbackAmplitude", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 2, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "noteVolume", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 4, "perEnvelopeLowerBound": 0.5, "perEnvelopeUpperBound": 1, "discrete": false, "waveform": 0, "steps": 2 }, { "target": "noteVolume", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "granular", "envelope": "note size", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }], "isDrum": false } },
+                { name: "french horn 2", midiProgram: 60, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 500, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 2828.43, "linearGain": 0.5 }, { "type": "high-pass", "cutoffHz": 500, "linearGain": 0.5 }], "eqSubFilters1": [], "effects": ["note filter", "distortion", "chorus", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.0884 }], "distortion": 57, "aliases": false, "panDelay": 0, "chorus": 29, "reverb": 39, "fadeInSeconds": 0.0125, "fadeOutTicks": 120, "algorithm": "1←3 2←4", "feedbackType": "3⟲", "feedbackAmplitude": 9, "operators": [{ "frequency": "1×", "amplitude": 14, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 9, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 6, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 4, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "feedbackAmplitude", "envelope": "swell", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "distortion", "envelope": "lfo", "inverse": false, "perEnvelopeSpeed": 0.7, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "waveform": 0, "steps": 2 }, { "target": "operatorAmplitude", "envelope": "flare", "inverse": false, "perEnvelopeSpeed": 16, "perEnvelopeLowerBound": 0.2, "perEnvelopeUpperBound": 1, "discrete": false, "index": 0 }, { "target": "noteFilterAllFreqs", "envelope": "flare", "inverse": false, "perEnvelopeSpeed": 18, "perEnvelopeLowerBound": 0.4, "perEnvelopeUpperBound": 1, "discrete": false }] } },
+                { name: "pvc pipe", generalMidi: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 2828.43, "linearGain": 2 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 5656.85, "linearGain": 11.3137 }, { "type": "peak", "cutoffHz": 2828.43, "linearGain": 2 }], "effects": ["note filter", "distortion", "chorus", "echo", "reverb"], "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 1.4142 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 11313.71, "linearGain": 1.4142 }], "distortion": 14, "aliases": false, "panDelay": 0, "chorus": 43, "echoSustain": 43, "echoDelayBeats": 1.75, "reverb": 68, "fadeInSeconds": 0, "fadeOutTicks": -10, "algorithm": "1←(2 3) 2←4", "feedbackType": "4⟲", "feedbackAmplitude": 6, "operators": [{ "frequency": "0.5×", "amplitude": 9, "waveform": "ramp", "pulseWidth": 5 }, { "frequency": "0.5×", "amplitude": 11, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 1, "waveform": "sawtooth", "pulseWidth": 5 }, { "frequency": "~1×", "amplitude": 7, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "noteVolume", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 128, "perEnvelopeLowerBound": 0.1, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "operatorAmplitude", "envelope": "swell", "inverse": true, "perEnvelopeSpeed": 9, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "index": 3 }, { "target": "feedbackAmplitude", "envelope": "punch", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false }, { "target": "noteFilterAllFreqs", "envelope": "twang", "inverse": false, "perEnvelopeSpeed": 16, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 0.2, "discrete": false }] } },
             ])
         },
         {
             name: "Slarmoo's Box Novelty Presets", presets: toNameMap([
-                { name: "bitcrushed artifacts", generalMidi: false, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 9656.85, "linearGain": 0.5 }], "eqFilterType": true, "eqSimpleCut": 9, "eqSimplePeak": 1, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["distortion", "bitcrusher", "echo"], "distortion": 71, "aliases": false, "bitcrusherOctave": 2, "bitcrusherQuantization": 86, "echoSustain": 0, "echoDelayBeats": 1, "fadeInSeconds": 0, "fadeOutTicks": -6, "harmonics": [0, 0, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 100, 43, 0, 0, 14, 86, 0, 14, 0, 0, 0, 0, 0, 86], "unison": "none", "stringSustain": 14, "envelopes": [], "isDrum": false } },
-                { name: "whistle 2", midiProgram: 78, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2110.37, "linearGain": 1.4142 }], "eqFilterType": true, "eqSimpleCut": 6, "eqSimplePeak": 3, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["transition type", "pitch shift", "note filter", "distortion", "echo", "reverb"], "transition": "normal", "clicklessTransition": false, "pitchShiftSemitones": 11, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 2 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 4 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 2 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 4 }], "distortion": 43, "aliases": false, "echoSustain": 57, "echoDelayBeats": 1.083, "reverb": 87, "fadeInSeconds": 0.0575, "fadeOutTicks": -1, "harmonics": [57, 0, 0, 0, 0, 0, 0, 0, 0, 86, 57, 0, 0, 0, 0, 0, 0, 0, 86, 0, 0, 0, 57, 29, 0, 29, 100, 0], "unison": "none", "envelopes": [{ "target": "pitchShift", "envelope": "decay 1" }], "isDrum": false } },
-                { name: "frog wuh", generalMidi: false, settings: { "type": "spectrum", "eqFilter": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 8 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.125 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 8 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.125 }], "eqSubFilters1": [], "effects": ["pitch shift", "note filter"], "pitchShiftSemitones": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 1 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 1 }], "fadeInSeconds": 0, "fadeOutTicks": -3, "spectrum": [100, 29, 14, 29, 0, 14, 0, 71, 0, 43, 14, 71, 0, 0, 71, 14, 100, 0, 71, 0, 43, 86, 43, 0, 43, 0, 0, 43, 29, 29], "envelopes": [{ "target": "pitchShift", "envelope": "twang 1" }, { "target": "noteFilterAllFreqs", "envelope": "twang 1" }], "isDrum": false } },
-                { name: "stationary harmonics", generalMidi: false, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 1 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 1 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.5 }], "effects": ["transition type", "chord type", "vibrato"], "transition": "continue", "clicklessTransition": false, "chord": "simultaneous", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "vibrato": "shaky", "vibratoDepth": 0.1, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 1, "fadeInSeconds": 0, "fadeOutTicks": 12, "harmonics": [100, 0, 57, 29, 14, 57, 29, 29, 14, 14, 29, 43, 14, 14, 14, 0, 14, 29, 29, 14, 0, 0, 14, 0, 0, 29, 14, 14], "unison": "stationary", "envelopes": [], "isDrum": false } },
-                { name: "dead souls", generalMidi: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 1.4142 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": true, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 1.4142 }], "effects": ["transition type", "chord type", "pitch shift", "detune", "distortion", "chorus", "reverb"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "pitchShiftSemitones": 24, "detuneCents": -200, "distortion": 100, "aliases": false, "chorus": 14, "reverb": 35, "fadeInSeconds": 0, "fadeOutTicks": -1, "spectrum": [100, 71, 43, 43, 29, 29, 29, 14, 14, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 57, 14, 14, 0, 0], "unison": "none", "envelopes": [{ "target": "pitchShift", "envelope": "random", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 24, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1.2, "steps": 16, "seed": 37, "waveform": 0 }, { "target": "noteVolume", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }, { "target": "detune", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": true, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }, { "target": "distortion", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }], "isDrum": false } },
-                { name: "flutter", generalMidi: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 707.11, "linearGain": 1 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 707.11, "linearGain": 1 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 2.8284 }], "effects": ["transition type", "chorus", "reverb", "ring mod"], "transition": "interrupt", "clicklessTransition": false, "ringMod": 100, "ringModHz": 100, "ringModWaveformIndex": 0, "panDelay": 0, "chorus": 14, "reverb": 10, "fadeInSeconds": 0, "fadeOutTicks": 12, "algorithm": "1←3 2←4", "feedbackType": "1⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "ringModulationHz", "envelope": "fall", "inverse": false, "perEnvelopeSpeed": 1.5, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1.9 }, { "target": "noteVolume", "envelope": "blip", "inverse": false, "perEnvelopeSpeed": 0.25, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
-                { name: "vinyl", generalMidi: false, settings: { "type": "noise", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 1414.21, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 1414.21, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 0.25 }], "effects": ["transition type", "note filter", "distortion", "bitcrusher", "chorus", "echo", "reverb"], "transition": "interrupt", "clicklessTransition": false, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 250, "linearGain": 0.5 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 1 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 250, "linearGain": 0.5 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 1 }], "distortion": 14, "aliases": false, "bitcrusherOctave": 5.5, "bitcrusherQuantization": 14, "chorus": 29, "echoSustain": 14, "echoDelayBeats": 0.083, "reverb": 32, "fadeInSeconds": 0, "fadeOutTicks": 24, "wave": "crackling", "unison": "none", "envelopes": [], "isDrum": false } },
+                { name: "bitcrushed artifacts", generalMidi: false, settings: { "type": "Picked String", "eqFilter": [{ "type": "low-pass", "cutoffHz": 9656.85, "linearGain": 0.5 }], "eqFilterType": true, "eqSimpleCut": 9, "eqSimplePeak": 1, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["distortion", "bitcrusher", "echo"], "distortion": 71, "aliases": false, "bitcrusherOctave": 2, "bitcrusherQuantization": 86, "echoSustain": 0, "echoDelayBeats": 1, "fadeInSeconds": 0, "fadeOutTicks": -60, "harmonics": [0, 0, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 100, 43, 0, 0, 14, 86, 0, 14, 0, 0, 0, 0, 0, 86], "unison": "none", "stringSustain": 14, "envelopes": [], "isDrum": false } },
+                { name: "whistle 2", midiProgram: 78, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 2110.37, "linearGain": 1.4142 }], "eqFilterType": true, "eqSimpleCut": 6, "eqSimplePeak": 3, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters1": [], "effects": ["transition type", "pitch shift", "note filter", "distortion", "echo", "reverb"], "transition": "normal", "clicklessTransition": false, "pitchShiftSemitones": 11, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 2 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 4 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 1414.21, "linearGain": 2 }, { "type": "high-pass", "cutoffHz": 88.39, "linearGain": 2 }, { "type": "peak", "cutoffHz": 1681.79, "linearGain": 4 }], "distortion": 43, "aliases": false, "echoSustain": 57, "echoDelayBeats": 1.083, "reverb": 87, "fadeInSeconds": 0.0575, "fadeOutTicks": -10, "harmonics": [57, 0, 0, 0, 0, 0, 0, 0, 0, 86, 57, 0, 0, 0, 0, 0, 0, 0, 86, 0, 0, 0, 57, 29, 0, 29, 100, 0], "unison": "none", "envelopes": [{ "target": "pitchShift", "envelope": "decay 1" }], "isDrum": false } },
+                { name: "frog wuh", generalMidi: false, settings: { "type": "spectrum", "eqFilter": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 8 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.125 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 594.6, "linearGain": 0.5 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 8 }, { "type": "low-pass", "cutoffHz": 13454.34, "linearGain": 0.125 }], "eqSubFilters1": [], "effects": ["pitch shift", "note filter"], "pitchShiftSemitones": 0, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 1 }], "noteSubFilters0": [{ "type": "low-pass", "cutoffHz": 1000, "linearGain": 1 }], "fadeInSeconds": 0, "fadeOutTicks": -30, "spectrum": [100, 29, 14, 29, 0, 14, 0, 71, 0, 43, 14, 71, 0, 0, 71, 14, 100, 0, 71, 0, 43, 86, 43, 0, 43, 0, 0, 43, 29, 29], "envelopes": [{ "target": "pitchShift", "envelope": "twang 1" }, { "target": "noteFilterAllFreqs", "envelope": "twang 1" }], "isDrum": false } },
+                { name: "stationary harmonics", generalMidi: false, settings: { "type": "harmonics", "eqFilter": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 1 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.5 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 4756.83, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 1 }, { "type": "peak", "cutoffHz": 1189.21, "linearGain": 0.5 }], "effects": ["transition type", "chord type", "vibrato"], "transition": "continue", "clicklessTransition": false, "chord": "simultaneous", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "vibrato": "shaky", "vibratoDepth": 0.1, "vibratoDelay": 0, "vibratoSpeed": 10, "vibratoType": 1, "fadeInSeconds": 0, "fadeOutTicks": 120, "harmonics": [100, 0, 57, 29, 14, 57, 29, 29, 14, 14, 29, 43, 14, 14, 14, 0, 14, 29, 29, 14, 0, 0, 14, 0, 0, 29, 14, 14], "unison": "stationary", "envelopes": [], "isDrum": false } },
+                { name: "dead souls", generalMidi: false, settings: { "type": "spectrum", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 1.4142 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": true, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 353.55, "linearGain": 0.0884 }, { "type": "peak", "cutoffHz": 707.11, "linearGain": 1.4142 }], "effects": ["transition type", "chord type", "pitch shift", "detune", "distortion", "chorus", "reverb"], "transition": "interrupt", "clicklessTransition": false, "chord": "arpeggio", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "pitchShiftSemitones": 24, "detuneCents": -200, "distortion": 100, "aliases": false, "chorus": 14, "reverb": 35, "fadeInSeconds": 0, "fadeOutTicks": -10, "spectrum": [100, 71, 43, 43, 29, 29, 29, 14, 14, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 57, 14, 14, 0, 0], "unison": "none", "envelopes": [{ "target": "pitchShift", "envelope": "random", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 24, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1.2, "steps": 16, "seed": 37, "waveform": 0 }, { "target": "noteVolume", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }, { "target": "detune", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": true, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }, { "target": "distortion", "envelope": "note size", "pitchEnvelopeStart": 0, "pitchEnvelopeEnd": 96, "inverse": false, "perEnvelopeSpeed": 0, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "steps": 2, "seed": 2, "waveform": 0 }], "isDrum": false } },
+                { name: "flutter", generalMidi: false, settings: { "type": "FM", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 707.11, "linearGain": 1 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 2.8284 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 707.11, "linearGain": 1 }, { "type": "peak", "cutoffHz": 6727.17, "linearGain": 2.8284 }], "effects": ["transition type", "chorus", "reverb", "ring mod"], "transition": "interrupt", "clicklessTransition": false, "ringMod": 100, "ringModHz": 100, "ringModWaveformIndex": 0, "panDelay": 0, "chorus": 14, "reverb": 10, "fadeInSeconds": 0, "fadeOutTicks": 120, "algorithm": "1←3 2←4", "feedbackType": "1⟲", "feedbackAmplitude": 3, "operators": [{ "frequency": "1×", "amplitude": 15, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 10, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "sine", "pulseWidth": 5 }], "envelopes": [{ "target": "ringModulationHz", "envelope": "fall", "inverse": false, "perEnvelopeSpeed": 1.5, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1.9 }, { "target": "noteVolume", "envelope": "blip", "inverse": false, "perEnvelopeSpeed": 0.25, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1 }], "isDrum": false } },
+                { name: "vinyl", generalMidi: false, isNoise: true, settings: { "type": "noise", "volume": 0, "eqFilter": [{ "type": "high-pass", "cutoffHz": 1414.21, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 0.25 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "discreteEnvelope": false, "eqSubFilters0": [{ "type": "high-pass", "cutoffHz": 1414.21, "linearGain": 0.3536 }, { "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 0.25 }], "effects": ["transition type", "note filter", "distortion", "bitcrusher", "chorus", "echo", "reverb"], "transition": "interrupt", "clicklessTransition": false, "noteFilterType": false, "noteSimpleCut": 10, "noteSimplePeak": 0, "noteFilter": [{ "type": "high-pass", "cutoffHz": 250, "linearGain": 0.5 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 1 }], "noteSubFilters0": [{ "type": "high-pass", "cutoffHz": 250, "linearGain": 0.5 }, { "type": "low-pass", "cutoffHz": 8000, "linearGain": 1 }], "distortion": 14, "aliases": false, "bitcrusherOctave": 5.5, "bitcrusherQuantization": 14, "chorus": 29, "echoSustain": 14, "echoDelayBeats": 0.083, "reverb": 32, "fadeInSeconds": 0, "fadeOutTicks": 24, "wave": "crackling", "unison": "none", "envelopes": [], "isDrum": false } },
+                { name: "crackle", generalMidi: false, isNoise: true, settings: { "type": "noise", "volume": 0, "eqFilter": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "eqSubFilters0": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters1": [{ "type": "low-pass", "cutoffHz": 16000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters2": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.3536 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "eqSubFilters3": [{ "type": "low-pass", "cutoffHz": 8000, "linearGain": 0.1768 }, { "type": "high-pass", "cutoffHz": 4756.83, "linearGain": 0.1768 }], "effects": ["panning", "granular", "reverb"], "granular": 10, "grainSize": 1, "grainAmounts": 0, "grainRange": 0, "pan": -100, "panDelay": 0, "reverb": 6, "fadeInSeconds": 0, "fadeOutTicks": -3, "wave": "white", "unison": "none", "envelopes": [{ "target": "grainFreq", "envelope": "none", "inverse": false, "perEnvelopeSpeed": 1, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 0.1, "discrete": false }, { "target": "panning", "envelope": "random", "inverse": false, "perEnvelopeSpeed": 32, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": true, "steps": 32, "seed": 2, "waveform": 0 }], "isDrum": true } },
+                { name: "alien radio chatter", generalMidi: false, isNoise: false, settings: { "type": "FM", "eqFilter": [{ "type": "low-pass", "cutoffHz": 707.11, "linearGain": 2 }], "eqFilterType": false, "eqSimpleCut": 10, "eqSimplePeak": 0, "envelopeSpeed": 12, "effects": ["chord type", "note filter", "granular", "distortion", "reverb"], "chord": "strum", "fastTwoNoteArp": false, "arpeggioSpeed": 12, "monoChordTone": 1, "noteFilterType": true, "noteSimpleCut": 4, "noteSimplePeak": 1, "noteFilter": [{ "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 0.5 }], "noteSubFilters1": [{ "type": "low-pass", "cutoffHz": 1189.21, "linearGain": 0.5 }], "granular": 4, "grainSize": 9, "grainAmounts": 9, "grainRange": 11, "distortion": 86, "aliases": false, "panDelay": 0, "reverb": 10, "fadeInSeconds": 0.0413, "fadeOutTicks": -12, "algorithm": "1←3 2←4", "feedbackType": "2→4", "feedbackAmplitude": 1, "operators": [{ "frequency": "0.5×", "amplitude": 12, "waveform": "trapezoid", "pulseWidth": 5 }, { "frequency": "18×", "amplitude": 15, "waveform": "pulse width", "pulseWidth": 4 }, { "frequency": "7×", "amplitude": 11, "waveform": "trapezoid", "pulseWidth": 5 }, { "frequency": "1×", "amplitude": 0, "waveform": "triangle", "pulseWidth": 5 }], "envelopes": [{ "target": "grainFreq", "envelope": "random", "inverse": false, "perEnvelopeSpeed": 0.3, "perEnvelopeLowerBound": 0, "perEnvelopeUpperBound": 1, "discrete": false, "steps": 3, "seed": 29, "waveform": 1 }] } },
             ])
         }
     ]);
@@ -10325,7 +10334,7 @@ html {
 
 .beepboxEditor .track-area {
 	grid-area: track-area;
-	background-image: url(${getLocalStorageItem("customTheme2", "")});
+	background-image: url(${getLocalStorageItem("customThemeImage", "")});
 }
 
 .beepboxEditor .loopEditor {
@@ -10913,11 +10922,11 @@ html {
   width: -moz-available !important;
   width: -webkit-fill-available !important;
 }
-@media (min-width: 711px) {
-	.select2 {
-	  width: calc(var(--settings-area-width) * 0.625) !important;
-	}
-}
+//@media (min-width: 711px) {
+//	.select2 {
+//	  width: calc(var(--settings-area-width) * 0.625) !important;
+//	}
+//}
 
 .select2-container--default .select2-selection--single{
   border-radius: 0px;
@@ -11635,7 +11644,7 @@ li.select2-results__option[role=group] > strong:hover {
 /* wide screen */
 @media (min-width: 711px) {
 	#beepboxEditorContainer {
-		background-image: url(${getLocalStorageItem("customTheme2", "")});
+		background-image: url(${getLocalStorageItem("customThemeImage", "")});
 		display: table;
 	}
 	.beepboxEditor {
@@ -14163,9 +14172,12 @@ li.select2-results__option[role=group] > strong:hover {
             }
             if (effectsIncludeChord(this.effects)) {
                 instrumentObject["chord"] = this.getChord().name;
-                instrumentObject["fastTwoNoteArp"] = this.fastTwoNoteArp;
-                instrumentObject["arpeggioSpeed"] = this.arpeggioSpeed;
-                instrumentObject["monoChordTone"] = this.monoChordTone;
+                if (this.getChord().arpeggiates) {
+                    instrumentObject["fastTwoNoteArp"] = this.fastTwoNoteArp;
+                    instrumentObject["arpeggioSpeed"] = this.arpeggioSpeed;
+                }
+                if (this.getChord().name == "monophonic")
+                    instrumentObject["monoChordTone"] = this.monoChordTone;
             }
             if (effectsIncludePitchShift(this.effects)) {
                 instrumentObject["pitchShiftSemitones"] = this.pitchShift;
@@ -14209,7 +14221,6 @@ li.select2-results__option[role=group] > strong:hover {
                 instrumentObject["ringModHz"] = Math.round(100 * this.ringModulationHz / (Config.ringModHzRange - 1));
                 instrumentObject["ringModWaveformIndex"] = this.ringModWaveformIndex;
                 instrumentObject["ringModPulseWidth"] = Math.round(100 * this.ringModPulseWidth / (Config.pulseWidthRange - 1));
-                instrumentObject["ringModHzOffset"] = Math.round(100 * this.ringModHzOffset / (Config.rmHzOffsetMax));
             }
             if (effectsIncludeDistortion(this.effects)) {
                 instrumentObject["distortion"] = Math.round(100 * this.distortion / (Config.distortionRange - 1));
@@ -14237,6 +14248,16 @@ li.select2-results__option[role=group] > strong:hover {
                 instrumentObject["fadeInSeconds"] = Math.round(10000 * Synth.fadeInSettingToSeconds(this.fadeIn)) / 10000;
                 instrumentObject["fadeOutTicks"] = Synth.fadeOutSettingToTicks(this.fadeOut);
             }
+            if (this.type != 10) {
+                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
+                if (this.unison == Config.unisons.length) {
+                    instrumentObject["unisonVoices"] = this.unisonVoices;
+                    instrumentObject["unisonSpread"] = this.unisonSpread;
+                    instrumentObject["unisonOffset"] = this.unisonOffset;
+                    instrumentObject["unisonExpression"] = this.unisonExpression;
+                    instrumentObject["unisonSign"] = this.unisonSign;
+                }
+            }
             if (this.type == 5 || this.type == 7) {
                 instrumentObject["harmonics"] = [];
                 for (let i = 0; i < Config.harmonicsControlPoints; i++) {
@@ -14245,39 +14266,15 @@ li.select2-results__option[role=group] > strong:hover {
             }
             if (this.type == 2) {
                 instrumentObject["wave"] = Config.chipNoises[this.chipNoise].name;
-                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
-                if (this.unison == Config.unisons.length) {
-                    instrumentObject["unisonVoices"] = this.unisonVoices;
-                    instrumentObject["unisonSpread"] = this.unisonSpread;
-                    instrumentObject["unisonOffset"] = this.unisonOffset;
-                    instrumentObject["unisonExpression"] = this.unisonExpression;
-                    instrumentObject["unisonSign"] = this.unisonSign;
-                }
             }
             else if (this.type == 3) {
                 instrumentObject["spectrum"] = [];
                 for (let i = 0; i < Config.spectrumControlPoints; i++) {
                     instrumentObject["spectrum"][i] = Math.round(100 * this.spectrumWave.spectrum[i] / Config.spectrumMax);
                 }
-                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
-                if (this.unison == Config.unisons.length) {
-                    instrumentObject["unisonVoices"] = this.unisonVoices;
-                    instrumentObject["unisonSpread"] = this.unisonSpread;
-                    instrumentObject["unisonOffset"] = this.unisonOffset;
-                    instrumentObject["unisonExpression"] = this.unisonExpression;
-                    instrumentObject["unisonSign"] = this.unisonSign;
-                }
             }
             else if (this.type == 4) {
                 instrumentObject["drums"] = [];
-                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
-                if (this.unison == Config.unisons.length) {
-                    instrumentObject["unisonVoices"] = this.unisonVoices;
-                    instrumentObject["unisonSpread"] = this.unisonSpread;
-                    instrumentObject["unisonOffset"] = this.unisonOffset;
-                    instrumentObject["unisonExpression"] = this.unisonExpression;
-                    instrumentObject["unisonSign"] = this.unisonSign;
-                }
                 for (let j = 0; j < Config.drumCount; j++) {
                     const spectrum = [];
                     for (let i = 0; i < Config.spectrumControlPoints; i++) {
@@ -14291,14 +14288,6 @@ li.select2-results__option[role=group] > strong:hover {
             }
             else if (this.type == 0) {
                 instrumentObject["wave"] = Config.chipWaves[this.chipWave].name;
-                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
-                if (this.unison == Config.unisons.length) {
-                    instrumentObject["unisonVoices"] = this.unisonVoices;
-                    instrumentObject["unisonSpread"] = this.unisonSpread;
-                    instrumentObject["unisonOffset"] = this.unisonOffset;
-                    instrumentObject["unisonExpression"] = this.unisonExpression;
-                    instrumentObject["unisonSign"] = this.unisonSign;
-                }
                 instrumentObject["isUsingAdvancedLoopControls"] = this.isUsingAdvancedLoopControls;
                 instrumentObject["chipWaveLoopStart"] = this.chipWaveLoopStart;
                 instrumentObject["chipWaveLoopEnd"] = this.chipWaveLoopEnd;
@@ -14309,14 +14298,6 @@ li.select2-results__option[role=group] > strong:hover {
             else if (this.type == 6) {
                 instrumentObject["pulseWidth"] = this.pulseWidth;
                 instrumentObject["decimalOffset"] = this.decimalOffset;
-                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
-                if (this.unison == Config.unisons.length) {
-                    instrumentObject["unisonVoices"] = this.unisonVoices;
-                    instrumentObject["unisonSpread"] = this.unisonSpread;
-                    instrumentObject["unisonOffset"] = this.unisonOffset;
-                    instrumentObject["unisonExpression"] = this.unisonExpression;
-                    instrumentObject["unisonSign"] = this.unisonSign;
-                }
             }
             else if (this.type == 8) {
                 instrumentObject["pulseWidth"] = this.pulseWidth;
@@ -14326,29 +14307,12 @@ li.select2-results__option[role=group] > strong:hover {
                 instrumentObject["shape"] = Math.round(100 * this.supersawShape / Config.supersawShapeMax);
             }
             else if (this.type == 7) {
-                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
-                if (this.unison == Config.unisons.length) {
-                    instrumentObject["unisonVoices"] = this.unisonVoices;
-                    instrumentObject["unisonSpread"] = this.unisonSpread;
-                    instrumentObject["unisonOffset"] = this.unisonOffset;
-                    instrumentObject["unisonExpression"] = this.unisonExpression;
-                    instrumentObject["unisonSign"] = this.unisonSign;
-                }
                 instrumentObject["stringSustain"] = Math.round(100 * this.stringSustain / (Config.stringSustainRange - 1));
                 if (Config.enableAcousticSustain) {
                     instrumentObject["stringSustainType"] = Config.sustainTypeNames[this.stringSustainType];
                 }
             }
-            else if (this.type == 5) {
-                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
-                if (this.unison == Config.unisons.length) {
-                    instrumentObject["unisonVoices"] = this.unisonVoices;
-                    instrumentObject["unisonSpread"] = this.unisonSpread;
-                    instrumentObject["unisonOffset"] = this.unisonOffset;
-                    instrumentObject["unisonExpression"] = this.unisonExpression;
-                    instrumentObject["unisonSign"] = this.unisonSign;
-                }
-            }
+            else if (this.type == 5) ;
             else if (this.type == 1) {
                 const operatorArray = [];
                 for (let i = 0; i < Config.operatorCount; i++) {
@@ -14393,14 +14357,6 @@ li.select2-results__option[role=group] > strong:hover {
             }
             else if (this.type == 9) {
                 instrumentObject["wave"] = Config.chipWaves[this.chipWave].name;
-                instrumentObject["unison"] = this.unison == Config.unisons.length ? "custom" : Config.unisons[this.unison].name;
-                if (this.unison == Config.unisons.length) {
-                    instrumentObject["unisonVoices"] = this.unisonVoices;
-                    instrumentObject["unisonSpread"] = this.unisonSpread;
-                    instrumentObject["unisonOffset"] = this.unisonOffset;
-                    instrumentObject["unisonExpression"] = this.unisonExpression;
-                    instrumentObject["unisonSign"] = this.unisonSign;
-                }
                 instrumentObject["customChipWave"] = new Float64Array(64);
                 instrumentObject["customChipWaveIntegral"] = new Float64Array(65);
                 for (let i = 0; i < this.customChipWave.length; i++) {
@@ -15472,9 +15428,18 @@ li.select2-results__option[role=group] > strong:hover {
         getChannelIsMod(channelIndex) {
             return (channelIndex >= this.pitchChannelCount + this.noiseChannelCount);
         }
+        getLargestSongEQControlPointCount() {
+            let largest;
+            largest = this.eqFilter.controlPointCount;
+            for (let i = 0; i < Config.filterMorphCount; i++) {
+                if (this.eqSubFilters[i] != null && this.eqSubFilters[i].controlPointCount > largest)
+                    largest = this.eqSubFilters[i].controlPointCount;
+            }
+            return largest;
+        }
         initToDefault(andResetChannels = true) {
             this.scale = 0;
-            this.scaleCustom = [true, false, true, true, false, false, false, true, true, false, true, true];
+            this.scaleCustom = [true, false, true, true, false, true, false, true, true, false, false, true];
             this.key = 0;
             this.octave = 0;
             this.loopStart = 0;
@@ -15751,6 +15716,11 @@ li.select2-results__option[role=group] > strong:hover {
                         buffer.push(100, base64IntToCharCode[instrument.fadeIn], base64IntToCharCode[instrument.fadeOut]);
                         buffer.push(base64IntToCharCode[+instrument.clicklessTransition]);
                     }
+                    if (instrument.type != 10) {
+                        buffer.push(104, base64IntToCharCode[instrument.unison]);
+                        if (instrument.unison == Config.unisons.length)
+                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
+                    }
                     if (instrument.type == 5 || instrument.type == 7) {
                         buffer.push(72);
                         const harmonicsBits = new BitFieldWriter();
@@ -15776,9 +15746,6 @@ li.select2-results__option[role=group] > strong:hover {
                             buffer.push(119, base64IntToCharCode[instrument.chipWave]);
                             buffer.push(base64IntToCharCode[0]);
                         }
-                        buffer.push(104, base64IntToCharCode[instrument.unison]);
-                        if (instrument.unison == Config.unisons.length)
-                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
                         buffer.push(121);
                         const encodedLoopMode = ((clamp(0, 31 + 1, instrument.chipWaveLoopMode) << 1)
                             | (instrument.isUsingAdvancedLoopControls ? 1 : 0));
@@ -15854,9 +15821,6 @@ li.select2-results__option[role=group] > strong:hover {
                             buffer.push(119, base64IntToCharCode[instrument.chipWave]);
                             buffer.push(base64IntToCharCode[0]);
                         }
-                        buffer.push(104, base64IntToCharCode[instrument.unison]);
-                        if (instrument.unison == Config.unisons.length)
-                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
                         buffer.push(77);
                         for (let j = 0; j < 64; j++) {
                             buffer.push(base64IntToCharCode[(instrument.customChipWave[j] + 24)]);
@@ -15864,9 +15828,6 @@ li.select2-results__option[role=group] > strong:hover {
                     }
                     else if (instrument.type == 2) {
                         buffer.push(119, base64IntToCharCode[instrument.chipNoise]);
-                        buffer.push(104, base64IntToCharCode[instrument.unison]);
-                        if (instrument.unison == Config.unisons.length)
-                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
                     }
                     else if (instrument.type == 3) {
                         buffer.push(83);
@@ -15875,9 +15836,6 @@ li.select2-results__option[role=group] > strong:hover {
                             spectrumBits.write(Config.spectrumControlPointBits, instrument.spectrumWave.spectrum[i]);
                         }
                         spectrumBits.encodeBase64(buffer);
-                        buffer.push(104, base64IntToCharCode[instrument.unison]);
-                        if (instrument.unison == Config.unisons.length)
-                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
                     }
                     else if (instrument.type == 4) {
                         buffer.push(122);
@@ -15892,21 +15850,11 @@ li.select2-results__option[role=group] > strong:hover {
                             }
                         }
                         spectrumBits.encodeBase64(buffer);
-                        buffer.push(104, base64IntToCharCode[instrument.unison]);
-                        if (instrument.unison == Config.unisons.length)
-                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
                     }
-                    else if (instrument.type == 5) {
-                        buffer.push(104, base64IntToCharCode[instrument.unison]);
-                        if (instrument.unison == Config.unisons.length)
-                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
-                    }
+                    else if (instrument.type == 5) ;
                     else if (instrument.type == 6) {
                         buffer.push(87, base64IntToCharCode[instrument.pulseWidth]);
                         buffer.push(base64IntToCharCode[instrument.decimalOffset >> 6], base64IntToCharCode[instrument.decimalOffset & 0x3f]);
-                        buffer.push(104, base64IntToCharCode[instrument.unison]);
-                        if (instrument.unison == Config.unisons.length)
-                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
                     }
                     else if (instrument.type == 8) {
                         buffer.push(120, base64IntToCharCode[instrument.supersawDynamism], base64IntToCharCode[instrument.supersawSpread], base64IntToCharCode[instrument.supersawShape]);
@@ -15917,9 +15865,6 @@ li.select2-results__option[role=group] > strong:hover {
                         if (Config.stringSustainRange > 0x20 || 2 > 2) {
                             throw new Error("Not enough bits to represent sustain value and type in same base64 character.");
                         }
-                        buffer.push(104, base64IntToCharCode[instrument.unison]);
-                        if (instrument.unison == Config.unisons.length)
-                            encodeUnisonSettings(buffer, instrument.unisonVoices, instrument.unisonSpread, instrument.unisonOffset, instrument.unisonExpression, instrument.unisonSign);
                         buffer.push(73, base64IntToCharCode[instrument.stringSustain | (instrument.stringSustainType << 5)]);
                     }
                     else if (instrument.type == 10) ;
@@ -18600,7 +18545,7 @@ li.select2-results__option[role=group] > strong:hover {
                     "effects": [],
                     "transition": "normal",
                     "fadeInSeconds": 0,
-                    "fadeOutTicks": -6,
+                    "fadeOutTicks": -10,
                     "chord": "harmony",
                     "wave": name,
                     "unison": "none",
@@ -19568,23 +19513,16 @@ li.select2-results__option[role=group] > strong:hover {
                     this._noteSizeFinal = Config.noteSizeMax;
                 }
             }
-            const tickTimeEnd = [];
             const tickTimeEndReal = tickTimeStartReal + 1.0;
-            const noteSecondsStart = [];
             const noteSecondsStartUnscaled = this.noteSecondsEndUnscaled;
-            const noteSecondsEnd = [];
             const noteSecondsEndUnscaled = noteSecondsStartUnscaled + secondsPerTickUnscaled;
             const noteTicksStart = this.noteTicksEnd;
             const noteTicksEnd = noteTicksStart + 1.0;
-            const prevNoteSecondsStart = [];
-            const prevNoteSecondsEnd = [];
             const prevNoteSecondsStartUnscaled = this.prevNoteSecondsEndUnscaled;
             const prevNoteSecondsEndUnscaled = prevNoteSecondsStartUnscaled + secondsPerTickUnscaled;
             const prevNoteTicksStart = this.prevNoteTicksEnd;
             const prevNoteTicksEnd = prevNoteTicksStart + 1.0;
             const beatsPerTick = 1 / (Config.ticksPerPart * Config.partsPerBeat);
-            const beatTimeStart = [];
-            const beatTimeEnd = [];
             let noteSizeStart = this._noteSizeFinal;
             let noteSizeEnd = this._noteSizeFinal;
             let prevNoteSize = this._prevNoteSizeFinal;
@@ -19606,9 +19544,9 @@ li.select2-results__option[role=group] > strong:hover {
                 const startPin = tone.note.pins[endPinIndex - 1];
                 const endPin = tone.note.pins[endPinIndex];
                 const startPinTick = (tone.note.start + startPin.time) * Config.ticksPerPart;
-                if (this.startPinTickAbsolute == null || (!(transition.continues || transition.slides)) && tone.passedEndOfNote)
+                if (this.startPinTickAbsolute == null || (!(transition.continues || transition.slides)) && (tone.passedEndOfNote || tone.atNoteStart))
                     this.startPinTickAbsolute = startPinTick + synth.computeTicksSinceStart(true);
-                if (this.startPinTickDefaultPitch == null || tone.passedEndOfNote)
+                if (this.startPinTickDefaultPitch == null || (tone.passedEndOfNote || tone.atNoteStart))
                     this.startPinTickDefaultPitch = this.getPitchValue(instrument, tone, instrumentState, false);
                 if (!tone.passedEndOfNote)
                     this.startPinTickPitch = this.getPitchValue(instrument, tone, instrumentState, true);
@@ -19665,6 +19603,9 @@ li.select2-results__option[role=group] > strong:hover {
                 let waveform = 0;
                 let startPinTickAbsolute = this.startPinTickAbsolute || 0.0;
                 let defaultPitch = this.startPinTickDefaultPitch || 0.0;
+                let tickTimeEnd = 0;
+                let beatTimeStart = 0;
+                let beatTimeEnd = 0;
                 if (envelopeIndex == instrument.envelopeCount) {
                     if (usedNoteSize)
                         break;
@@ -19680,7 +19621,14 @@ li.select2-results__option[role=group] > strong:hover {
                     inverse = instrument.envelopes[envelopeIndex].inverse;
                     isDiscrete = instrument.envelopes[envelopeIndex].discrete;
                     perEnvelopeSpeed = instrument.envelopes[envelopeIndex].perEnvelopeSpeed;
-                    globalEnvelopeSpeed = Math.pow(instrument.envelopeSpeed, 2) / 144;
+                    if (synth.isModActive(Config.modulators.dictionary["individual envelope speed"].index, channelIndex, instrumentIndex) && instrument.envelopes[envelopeIndex].tempEnvelopeSpeed != null) {
+                        perEnvelopeSpeed = instrument.envelopes[envelopeIndex].tempEnvelopeSpeed;
+                    }
+                    let unratioedEnvelopeSpeed = instrument.envelopeSpeed;
+                    if (synth.isModActive(Config.modulators.dictionary["envelope speed"].index, channelIndex, instrumentIndex) && instrument.envelopes[envelopeIndex].tempEnvelopeSpeed != null) {
+                        unratioedEnvelopeSpeed = Math.max(0, Math.min(Config.arpSpeedScale.length - 1, synth.getModValue(Config.modulators.dictionary["envelope speed"].index, channelIndex, instrumentIndex, false)));
+                    }
+                    globalEnvelopeSpeed = Math.pow(unratioedEnvelopeSpeed, 2) / 144;
                     envelopeSpeed = perEnvelopeSpeed * globalEnvelopeSpeed;
                     perEnvelopeLowerBound = instrument.envelopes[envelopeIndex].perEnvelopeLowerBound;
                     perEnvelopeUpperBound = instrument.envelopes[envelopeIndex].perEnvelopeUpperBound;
@@ -19706,37 +19654,37 @@ li.select2-results__option[role=group] > strong:hover {
                     const secondsPerTickScaled = secondsPerTick * timeScale[envelopeIndex];
                     if (!tickTimeStart[envelopeIndex])
                         tickTimeStart[envelopeIndex] = 0;
-                    tickTimeEnd[envelopeIndex] = tickTimeStart[envelopeIndex] ? tickTimeStart[envelopeIndex] + timeScale[envelopeIndex] : timeScale[envelopeIndex];
-                    noteSecondsStart[envelopeIndex] = this.noteSecondsEnd[envelopeIndex] ? this.noteSecondsEnd[envelopeIndex] : 0;
-                    prevNoteSecondsStart[envelopeIndex] = this.prevNoteSecondsEnd[envelopeIndex] ? this.prevNoteSecondsEnd[envelopeIndex] : 0;
-                    noteSecondsEnd[envelopeIndex] = noteSecondsStart[envelopeIndex] ? noteSecondsStart[envelopeIndex] + secondsPerTickScaled : secondsPerTickScaled;
-                    prevNoteSecondsEnd[envelopeIndex] = prevNoteSecondsStart[envelopeIndex] ? prevNoteSecondsStart[envelopeIndex] + secondsPerTickScaled : secondsPerTickScaled;
-                    beatTimeStart[envelopeIndex] = tickTimeStart[envelopeIndex] ? beatsPerTick * tickTimeStart[envelopeIndex] : beatsPerTick;
-                    beatTimeEnd[envelopeIndex] = tickTimeEnd[envelopeIndex] ? beatsPerTick * tickTimeEnd[envelopeIndex] : beatsPerTick;
+                    tickTimeEnd = tickTimeStart[envelopeIndex] + timeScale[envelopeIndex] || timeScale[envelopeIndex];
+                    this.noteSecondsStart[envelopeIndex] = this.noteSecondsEnd[envelopeIndex] || 0;
+                    this.prevNoteSecondsStart[envelopeIndex] = this.prevNoteSecondsEnd[envelopeIndex] || 0;
+                    this.noteSecondsEnd[envelopeIndex] = this.noteSecondsStart[envelopeIndex] + secondsPerTickScaled || secondsPerTickScaled;
+                    this.prevNoteSecondsEnd[envelopeIndex] = this.prevNoteSecondsStart[envelopeIndex] + secondsPerTickScaled || secondsPerTickScaled;
+                    beatTimeStart = beatsPerTick * tickTimeStart[envelopeIndex] || beatsPerTick;
+                    beatTimeEnd = beatsPerTick * tickTimeEnd || beatsPerTick;
                     if (envelope.type == 1)
                         usedNoteSize = true;
                 }
                 const pitch = (envelope.type == 2) ? this.computePitchEnvelope(instrument, envelopeIndex, (this.startPinTickPitch || this.getPitchValue(instrument, tone, instrumentState, true))) : 0;
                 if (automationTarget.computeIndex != null && automationTarget.perNote == perNote) {
                     const computeIndex = automationTarget.computeIndex + targetIndex;
-                    let envelopeStart = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, noteSecondsStartUnscaled, noteSecondsStart[envelopeIndex], beatTimeStart[envelopeIndex], timeSinceStart, noteSizeStart, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
+                    let envelopeStart = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, noteSecondsStartUnscaled, this.noteSecondsStart[envelopeIndex], beatTimeStart, timeSinceStart, noteSizeStart, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
                     if (prevSlideStart) {
-                        const other = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, prevNoteSecondsStartUnscaled, prevNoteSecondsStart[envelopeIndex], beatTimeStart[envelopeIndex], timeSinceStart, prevNoteSize, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
+                        const other = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, prevNoteSecondsStartUnscaled, this.prevNoteSecondsStart[envelopeIndex], beatTimeStart, timeSinceStart, prevNoteSize, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
                         envelopeStart += (other - envelopeStart) * prevSlideRatioStart;
                     }
                     if (nextSlideStart) {
-                        const other = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, 0.0, 0.0, beatTimeStart[envelopeIndex], timeSinceStart, nextNoteSize, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
+                        const other = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, 0.0, 0.0, beatTimeStart, timeSinceStart, nextNoteSize, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
                         envelopeStart += (other - envelopeStart) * nextSlideRatioStart;
                     }
                     let envelopeEnd = envelopeStart;
                     if (isDiscrete == false) {
-                        envelopeEnd = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, noteSecondsEndUnscaled, noteSecondsEnd[envelopeIndex], beatTimeEnd[envelopeIndex], timeSinceStart, noteSizeEnd, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
+                        envelopeEnd = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, noteSecondsEndUnscaled, this.noteSecondsEnd[envelopeIndex], beatTimeEnd, timeSinceStart, noteSizeEnd, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
                         if (prevSlideEnd) {
-                            const other = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, prevNoteSecondsEndUnscaled, prevNoteSecondsEnd[envelopeIndex], beatTimeEnd[envelopeIndex], timeSinceStart, prevNoteSize, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
+                            const other = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, prevNoteSecondsEndUnscaled, this.prevNoteSecondsEnd[envelopeIndex], beatTimeEnd, timeSinceStart, prevNoteSize, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
                             envelopeEnd += (other - envelopeEnd) * prevSlideRatioEnd;
                         }
                         if (nextSlideEnd) {
-                            const other = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, 0.0, 0.0, beatTimeEnd[envelopeIndex], timeSinceStart, nextNoteSize, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
+                            const other = EnvelopeComputer.computeEnvelope(envelope, envelopeSpeed, globalEnvelopeSpeed, 0.0, 0.0, beatTimeEnd, timeSinceStart, nextNoteSize, pitch, inverse, perEnvelopeLowerBound, perEnvelopeUpperBound, false, steps, seed, waveform, defaultPitch, startPinTickAbsolute);
                             envelopeEnd += (other - envelopeEnd) * nextSlideRatioEnd;
                         }
                     }
@@ -19759,12 +19707,6 @@ li.select2-results__option[role=group] > strong:hover {
             this.prevNoteSecondsEndUnscaled = prevNoteSecondsEndUnscaled;
             this.prevNoteTicksStart = prevNoteTicksStart;
             this.prevNoteTicksEnd = prevNoteTicksEnd;
-            for (let envelopeIndex = 0; envelopeIndex < Config.maxEnvelopeCount + 1; envelopeIndex++) {
-                this.noteSecondsStart[envelopeIndex] = noteSecondsStart[envelopeIndex];
-                this.noteSecondsEnd[envelopeIndex] = noteSecondsEnd[envelopeIndex];
-                this.prevNoteSecondsStart[envelopeIndex] = prevNoteSecondsStart[envelopeIndex];
-                this.prevNoteSecondsEnd[envelopeIndex] = prevNoteSecondsEnd[envelopeIndex];
-            }
             this.prevNoteSize = prevNoteSize;
             this.nextNoteSize = nextNoteSize;
             this.noteSizeStart = noteSizeStart;
@@ -20168,7 +20110,7 @@ li.select2-results__option[role=group] > strong:hover {
             for (let i = 0; i < Config.unisonVoicesMax; i++) {
                 this.noiseSamples[i] = 0.0;
             }
-            for (let i = 0; i < Config.maxPitchOrOperatorCount; i++) {
+            for (let i = 0; i < Config.maxPitchOrOperatorCount * Config.unisonVoicesMax; i++) {
                 this.phases[i] = 0.0;
                 this.directions[i] = 1;
                 this.chipWaveCompletions[i] = 0;
@@ -20956,6 +20898,13 @@ li.select2-results__option[role=group] > strong:hover {
         }
         updateWaves(instrument, samplesPerSecond) {
             this.volumeScale = 1.0;
+            if (instrument.type != 10) {
+                this.unisonVoices = instrument.unisonVoices;
+                this.unisonSpread = instrument.unisonSpread;
+                this.unisonOffset = instrument.unisonOffset;
+                this.unisonExpression = instrument.unisonExpression;
+                this.unisonSign = instrument.unisonSign;
+            }
             if (instrument.type == 0) {
                 this.wave = (this.aliases) ? Config.rawChipWaves[instrument.chipWave].samples : Config.chipWaves[instrument.chipWave].samples;
                 this.isUsingAdvancedLoopControls = instrument.isUsingAdvancedLoopControls;
@@ -20964,70 +20913,28 @@ li.select2-results__option[role=group] > strong:hover {
                 this.chipWaveLoopMode = instrument.chipWaveLoopMode;
                 this.chipWavePlayBackwards = instrument.chipWavePlayBackwards;
                 this.chipWaveStartOffset = instrument.chipWaveStartOffset;
-                this.unisonVoices = instrument.unisonVoices;
-                this.unisonSpread = instrument.unisonSpread;
-                this.unisonOffset = instrument.unisonOffset;
-                this.unisonExpression = instrument.unisonExpression;
-                this.unisonSign = instrument.unisonSign;
-            }
-            else if (instrument.type == 6) {
-                this.unisonVoices = instrument.unisonVoices;
-                this.unisonSpread = instrument.unisonSpread;
-                this.unisonOffset = instrument.unisonOffset;
-                this.unisonExpression = instrument.unisonExpression;
-                this.unisonSign = instrument.unisonSign;
             }
             else if (instrument.type == 9) {
                 this.wave = (this.aliases) ? instrument.customChipWave : instrument.customChipWaveIntegral;
                 this.volumeScale = 0.05;
-                this.unisonVoices = instrument.unisonVoices;
-                this.unisonSpread = instrument.unisonSpread;
-                this.unisonOffset = instrument.unisonOffset;
-                this.unisonExpression = instrument.unisonExpression;
-                this.unisonSign = instrument.unisonSign;
             }
             else if (instrument.type == 2) {
                 this.wave = getDrumWave(instrument.chipNoise, inverseRealFourierTransform, scaleElementsByFactor);
-                this.unisonVoices = instrument.unisonVoices;
-                this.unisonSpread = instrument.unisonSpread;
-                this.unisonOffset = instrument.unisonOffset;
-                this.unisonExpression = instrument.unisonExpression;
-                this.unisonSign = instrument.unisonSign;
             }
             else if (instrument.type == 5) {
                 this.wave = this.harmonicsWave.getCustomWave(instrument.harmonicsWave, instrument.type);
-                this.unisonVoices = instrument.unisonVoices;
-                this.unisonSpread = instrument.unisonSpread;
-                this.unisonOffset = instrument.unisonOffset;
-                this.unisonExpression = instrument.unisonExpression;
-                this.unisonSign = instrument.unisonSign;
             }
             else if (instrument.type == 7) {
                 this.wave = this.harmonicsWave.getCustomWave(instrument.harmonicsWave, instrument.type);
-                this.unisonVoices = instrument.unisonVoices;
-                this.unisonSpread = instrument.unisonSpread;
-                this.unisonOffset = instrument.unisonOffset;
-                this.unisonExpression = instrument.unisonExpression;
-                this.unisonSign = instrument.unisonSign;
             }
             else if (instrument.type == 3) {
                 this.wave = this.spectrumWave.getCustomWave(instrument.spectrumWave, 8);
-                this.unisonVoices = instrument.unisonVoices;
-                this.unisonSpread = instrument.unisonSpread;
-                this.unisonOffset = instrument.unisonOffset;
-                this.unisonExpression = instrument.unisonExpression;
-                this.unisonSign = instrument.unisonSign;
             }
             else if (instrument.type == 4) {
                 for (let i = 0; i < Config.drumCount; i++) {
                     this.drumsetSpectrumWaves[i].getCustomWave(instrument.drumsetSpectrumWaves[i], InstrumentState._drumsetIndexToSpectrumOctave(i));
                 }
                 this.wave = null;
-                this.unisonVoices = instrument.unisonVoices;
-                this.unisonSpread = instrument.unisonSpread;
-                this.unisonOffset = instrument.unisonOffset;
-                this.unisonExpression = instrument.unisonExpression;
-                this.unisonSign = instrument.unisonSign;
             }
             else {
                 this.wave = null;
@@ -23195,7 +23102,7 @@ li.select2-results__option[role=group] > strong:hover {
                 }
             }
             tone.freshlyAllocated = false;
-            for (let i = 0; i < Config.maxPitchOrOperatorCount; i++) {
+            for (let i = 0; i < Config.maxPitchOrOperatorCount * Config.unisonVoicesMax; i++) {
                 tone.phaseDeltas[i] = 0.0;
                 tone.phaseDeltaScales[i] = 0.0;
                 tone.operatorExpressions[i] = 0.0;
@@ -23542,8 +23449,24 @@ li.select2-results__option[role=group] > strong:hover {
                         freqStart = targetFreqStart;
                         freqEnd = targetFreqEnd;
                     }
-                    tone.phaseDeltas[i] = freqStart * sampleTime;
-                    tone.phaseDeltaScales[i] = Math.pow(freqEnd / freqStart, 1.0 / roundedSamplesPerTick);
+                    const unisonVoices = instrument.unisonVoices;
+                    const unisonSpread = instrument.unisonSpread;
+                    const unisonOffset = instrument.unisonOffset;
+                    const unisonExpression = instrument.unisonExpression * unisonVoices;
+                    const unisonEnvelopeStart = envelopeStarts[4];
+                    const unisonEnvelopeEnd = envelopeEnds[4];
+                    const basePhaseDeltaScale = Math.pow(freqEnd / freqStart, 1.0 / roundedSamplesPerTick);
+                    const unisonStartA = Math.pow(2.0, (unisonOffset + unisonSpread) * unisonEnvelopeStart / 12.0);
+                    const unisonEndA = Math.pow(2.0, (unisonOffset + unisonSpread) * unisonEnvelopeEnd / 12.0);
+                    tone.phaseDeltas[i * unisonVoices + 0] = freqStart * sampleTime * unisonStartA;
+                    tone.phaseDeltaScales[i * unisonVoices + 0] = basePhaseDeltaScale * Math.pow(unisonEndA / unisonStartA, 1.0 / roundedSamplesPerTick);
+                    const divisor = (unisonVoices == 1) ? 1 : (unisonVoices - 1);
+                    for (let voice = 1; voice < unisonVoices; voice++) {
+                        const unisonStart = Math.pow(2.0, (unisonOffset + unisonSpread - (2 * voice * unisonSpread / divisor)) * unisonEnvelopeStart / 12.0) * (specialIntervalMult);
+                        const unisonEnd = Math.pow(2.0, (unisonOffset + unisonSpread - (2 * voice * unisonSpread / divisor)) * unisonEnvelopeEnd / 12.0) * (specialIntervalMult);
+                        tone.phaseDeltas[i * unisonVoices + voice] = freqStart * sampleTime * unisonStart;
+                        tone.phaseDeltaScales[i * unisonVoices + voice] = basePhaseDeltaScale * Math.pow(unisonEnd / unisonStart, 1.0 / roundedSamplesPerTick);
+                    }
                     let amplitudeStart = instrument.operators[i].amplitude;
                     let amplitudeEnd = instrument.operators[i].amplitude;
                     if (i < 4) {
@@ -23574,8 +23497,8 @@ li.select2-results__option[role=group] > strong:hover {
                         }
                         const pitchExpressionEnd = Math.pow(2.0, -(pitchEnd - expressionReferencePitch) / pitchDamping);
                         tone.prevPitchExpressions[i] = pitchExpressionEnd;
-                        expressionStart *= pitchExpressionStart;
-                        expressionEnd *= pitchExpressionEnd;
+                        expressionStart *= pitchExpressionStart * unisonExpression / 1.4;
+                        expressionEnd *= pitchExpressionEnd * unisonExpression / 1.4;
                         totalCarrierExpression += amplitudeCurveEnd;
                     }
                     else {
@@ -23720,6 +23643,24 @@ li.select2-results__option[role=group] > strong:hover {
                         }
                     }
                 }
+                else if (instrument.type == 8) {
+                    const unisonVoices = instrument.unisonVoices;
+                    const unisonSpread = instrument.unisonSpread;
+                    const unisonOffset = instrument.unisonOffset;
+                    const unisonEnvelopeStart = envelopeStarts[4];
+                    const unisonEnvelopeEnd = envelopeEnds[4];
+                    const unisonStartA = Math.pow(2.0, (unisonOffset + unisonSpread) * unisonEnvelopeStart / 12.0);
+                    const unisonEndA = Math.pow(2.0, (unisonOffset + unisonSpread) * unisonEnvelopeEnd / 12.0);
+                    tone.phaseDeltas[0] = startFreq * sampleTime * unisonStartA;
+                    tone.phaseDeltaScales[0] = basePhaseDeltaScale * Math.pow(unisonEndA / unisonStartA, 1.0 / roundedSamplesPerTick);
+                    const divisor = (unisonVoices == 1) ? 1 : (unisonVoices - 1);
+                    for (let voice = 1; voice < unisonVoices; voice++) {
+                        const unisonStart = Math.pow(2.0, (unisonOffset + unisonSpread - (2 * voice * unisonSpread / divisor)) * unisonEnvelopeStart / 12.0) * (specialIntervalMult);
+                        const unisonEnd = Math.pow(2.0, (unisonOffset + unisonSpread - (2 * voice * unisonSpread / divisor)) * unisonEnvelopeEnd / 12.0) * (specialIntervalMult);
+                        tone.phaseDeltas[voice] = startFreq * sampleTime * unisonStart;
+                        tone.phaseDeltaScales[voice] = basePhaseDeltaScale * Math.pow(unisonEnd / unisonStart, 1.0 / roundedSamplesPerTick);
+                    }
+                }
                 else {
                     tone.phaseDeltas[0] = startFreq * sampleTime;
                     tone.phaseDeltaScales[0] = basePhaseDeltaScale;
@@ -23727,6 +23668,8 @@ li.select2-results__option[role=group] > strong:hover {
                 let supersawExpressionStart = 1.0;
                 let supersawExpressionEnd = 1.0;
                 if (instrument.type == 8) {
+                    supersawExpressionStart = instrument.unisonExpression * instrument.unisonVoices / 1.4;
+                    supersawExpressionEnd = instrument.unisonExpression * instrument.unisonVoices / 1.4;
                     const minFirstVoiceAmplitude = 1.0 / Math.sqrt(Config.supersawVoiceCount);
                     let useDynamismStart = instrument.supersawDynamism / Config.supersawDynamismMax;
                     let useDynamismEnd = instrument.supersawDynamism / Config.supersawDynamismMax;
@@ -23744,15 +23687,16 @@ li.select2-results__option[role=group] > strong:hover {
                     tone.supersawDynamismDelta = (dynamismEnd - dynamismStart) / roundedSamplesPerTick;
                     const initializeSupersaw = (tone.supersawDelayIndex == -1);
                     if (initializeSupersaw) {
+                        const voiceCount = Config.supersawVoiceCount;
                         let accumulator = 0.0;
-                        for (let i = 0; i < Config.supersawVoiceCount; i++) {
+                        for (let i = 0; i < voiceCount; i++) {
                             tone.phases[i] = accumulator;
                             accumulator += -Math.log(Math.random());
                         }
-                        const amplitudeSum = 1.0 + (Config.supersawVoiceCount - 1.0) * dynamismStart;
+                        const amplitudeSum = 1.0 + (voiceCount - 1.0) * dynamismStart;
                         const slope = amplitudeSum;
                         let sample = 0.0;
-                        for (let i = 0; i < Config.supersawVoiceCount; i++) {
+                        for (let i = 0; i < voiceCount; i++) {
                             const amplitude = (i == 0) ? 1.0 : dynamismStart;
                             const normalizedPhase = tone.phases[i] / accumulator;
                             tone.phases[i] = normalizedPhase;
@@ -23760,7 +23704,7 @@ li.select2-results__option[role=group] > strong:hover {
                         }
                         let zeroCrossingPhase = 1.0;
                         let prevDrop = 0.0;
-                        for (let i = Config.supersawVoiceCount - 1; i >= 0; i--) {
+                        for (let i = voiceCount - 1; i >= 0; i--) {
                             const nextDrop = 1.0 - tone.phases[i];
                             const phaseDelta = nextDrop - prevDrop;
                             if (sample < 0.0) {
@@ -23774,14 +23718,19 @@ li.select2-results__option[role=group] > strong:hover {
                             sample += phaseDelta * slope - amplitude;
                             prevDrop = nextDrop;
                         }
-                        for (let i = 0; i < Config.supersawVoiceCount; i++) {
+                        for (let i = 0; i < voiceCount; i++) {
                             tone.phases[i] += zeroCrossingPhase;
                         }
-                        for (let i = 1; i < Config.supersawVoiceCount - 1; i++) {
-                            const swappedIndex = i + Math.floor(Math.random() * (Config.supersawVoiceCount - i));
+                        for (let i = 1; i < voiceCount - 1; i++) {
+                            const swappedIndex = i + Math.floor(Math.random() * (voiceCount - i));
                             const temp = tone.phases[i];
                             tone.phases[i] = tone.phases[swappedIndex];
                             tone.phases[swappedIndex] = temp;
+                        }
+                        for (let i = 1; i < instrument.unisonVoices; i++) {
+                            for (let j = 0; j < Config.supersawVoiceCount; j++) {
+                                tone.phases[i * Config.supersawVoiceCount + j] = tone.phases[j];
+                            }
                         }
                     }
                     const baseSpreadSlider = instrument.supersawSpread / Config.supersawSpreadMax;
@@ -23907,45 +23856,53 @@ li.select2-results__option[role=group] > strong:hover {
         }
         static getInstrumentSynthFunction(instrument) {
             if (instrument.type == 1) {
-                const fingerprint = instrument.algorithm + "_" + instrument.feedbackType;
+                const voiceCount = instrument.unisonVoices;
+                const fingerprint = instrument.algorithm + "_" + instrument.feedbackType + "_" + voiceCount;
                 if (Synth.fmSynthFunctionCache[fingerprint] == undefined) {
                     const synthSource = [];
                     for (const line of Synth.fmSourceTemplate) {
                         if (line.indexOf("// CARRIER OUTPUTS") != -1) {
                             const outputs = [];
                             for (let j = 0; j < Config.algorithms[instrument.algorithm].carrierCount; j++) {
-                                outputs.push("operator" + j + "Scaled");
+                                for (let voice = 0; voice < voiceCount; voice++) {
+                                    outputs.push("operator" + j + "Scaled" + voice);
+                                }
                             }
                             synthSource.push(line.replace("/*operator#Scaled*/", outputs.join(" + ")));
                         }
                         else if (line.indexOf("// INSERT OPERATOR COMPUTATION HERE") != -1) {
                             for (let j = Config.operatorCount - 1; j >= 0; j--) {
-                                for (const operatorLine of Synth.operatorSourceTemplate) {
-                                    if (operatorLine.indexOf("/* + operator@Scaled*/") != -1) {
-                                        let modulators = "";
-                                        for (const modulatorNumber of Config.algorithms[instrument.algorithm].modulatedBy[j]) {
-                                            modulators += " + operator" + (modulatorNumber - 1) + "Scaled";
-                                        }
-                                        const feedbackIndices = Config.feedbacks[instrument.feedbackType].indices[j];
-                                        if (feedbackIndices.length > 0) {
-                                            modulators += " + feedbackMult * (";
-                                            const feedbacks = [];
-                                            for (const modulatorNumber of feedbackIndices) {
-                                                feedbacks.push("operator" + (modulatorNumber - 1) + "Output");
+                                for (let voice = 0; voice < voiceCount; voice++) {
+                                    for (const operatorLine of Synth.operatorSourceTemplate) {
+                                        if (operatorLine.indexOf("/* + operator@Scaled*/") != -1) {
+                                            let modulators = "";
+                                            for (const modulatorNumber of Config.algorithms[instrument.algorithm].modulatedBy[j]) {
+                                                modulators += " + operator" + (modulatorNumber - 1) + "Scaled" + voice;
                                             }
-                                            modulators += feedbacks.join(" + ") + ")";
+                                            const feedbackIndices = Config.feedbacks[instrument.feedbackType].indices[j];
+                                            if (feedbackIndices.length > 0) {
+                                                modulators += " + feedbackMult * (";
+                                                const feedbacks = [];
+                                                for (const modulatorNumber of feedbackIndices) {
+                                                    feedbacks.push("operator" + (modulatorNumber - 1) + "Output" + voice);
+                                                }
+                                                modulators += feedbacks.join(" + ") + ")";
+                                            }
+                                            synthSource.push(operatorLine.replace(/\#/g, j + "").replace(/\~/g, voice + "").replace("/* + operator@Scaled*/", modulators));
                                         }
-                                        synthSource.push(operatorLine.replace(/\#/g, j + "").replace("/* + operator@Scaled*/", modulators));
-                                    }
-                                    else {
-                                        synthSource.push(operatorLine.replace(/\#/g, j + ""));
+                                        else {
+                                            synthSource.push(operatorLine.replace(/\#/g, j + "").replace(/\~/g, voice + ""));
+                                        }
                                     }
                                 }
                             }
                         }
-                        else if (line.indexOf("#") != -1) {
+                        else if (line.indexOf("#") != -1 || line.indexOf("~") != -1) {
                             for (let j = 0; j < Config.operatorCount; j++) {
-                                synthSource.push(line.replace(/\#/g, j + ""));
+                                const vc = line.indexOf("~") != -1 ? voiceCount : 1;
+                                for (let voice = 0; voice < vc; voice++) {
+                                    synthSource.push(line.replace(/\#/g, j + "").replace(/\~/g, voice + ""));
+                                }
                             }
                         }
                         else {
@@ -23991,45 +23948,53 @@ li.select2-results__option[role=group] > strong:hover {
                 return Synth.modSynth;
             }
             else if (instrument.type == 11) {
-                const fingerprint = instrument.customAlgorithm.name + "_" + instrument.customFeedbackType.name;
+                const voiceCount = instrument.unisonVoices;
+                const fingerprint = instrument.customAlgorithm.name + "_" + instrument.customFeedbackType.name + "_" + voiceCount;
                 if (Synth.fm6SynthFunctionCache[fingerprint] == undefined) {
                     const synthSource = [];
                     for (const line of Synth.fmSourceTemplate) {
                         if (line.indexOf("// CARRIER OUTPUTS") != -1) {
                             const outputs = [];
                             for (let j = 0; j < instrument.customAlgorithm.carrierCount; j++) {
-                                outputs.push("operator" + j + "Scaled");
+                                for (let voice = 0; voice < voiceCount; voice++) {
+                                    outputs.push("operator" + j + "Scaled" + voice);
+                                }
                             }
                             synthSource.push(line.replace("/*operator#Scaled*/", outputs.join(" + ")));
                         }
                         else if (line.indexOf("// INSERT OPERATOR COMPUTATION HERE") != -1) {
                             for (let j = Config.operatorCount + 2 - 1; j >= 0; j--) {
-                                for (const operatorLine of Synth.operatorSourceTemplate) {
-                                    if (operatorLine.indexOf("/* + operator@Scaled*/") != -1) {
-                                        let modulators = "";
-                                        for (const modulatorNumber of instrument.customAlgorithm.modulatedBy[j]) {
-                                            modulators += " + operator" + (modulatorNumber - 1) + "Scaled";
-                                        }
-                                        const feedbackIndices = instrument.customFeedbackType.indices[j];
-                                        if (feedbackIndices.length > 0) {
-                                            modulators += " + feedbackMult * (";
-                                            const feedbacks = [];
-                                            for (const modulatorNumber of feedbackIndices) {
-                                                feedbacks.push("operator" + (modulatorNumber - 1) + "Output");
+                                for (let voice = 0; voice < voiceCount; voice++) {
+                                    for (const operatorLine of Synth.operatorSourceTemplate) {
+                                        if (operatorLine.indexOf("/* + operator@Scaled*/") != -1) {
+                                            let modulators = "";
+                                            for (const modulatorNumber of instrument.customAlgorithm.modulatedBy[j]) {
+                                                modulators += " + operator" + (modulatorNumber - 1) + "Scaled" + voice;
                                             }
-                                            modulators += feedbacks.join(" + ") + ")";
+                                            const feedbackIndices = instrument.customFeedbackType.indices[j];
+                                            if (feedbackIndices.length > 0) {
+                                                modulators += " + feedbackMult * (";
+                                                const feedbacks = [];
+                                                for (const modulatorNumber of feedbackIndices) {
+                                                    feedbacks.push("operator" + (modulatorNumber - 1) + "Output" + voice);
+                                                }
+                                                modulators += feedbacks.join(" + ") + ")";
+                                            }
+                                            synthSource.push(operatorLine.replace(/\#/g, j + "").replace(/\~/g, voice + "").replace("/* + operator@Scaled*/", modulators));
                                         }
-                                        synthSource.push(operatorLine.replace(/\#/g, j + "").replace("/* + operator@Scaled*/", modulators));
-                                    }
-                                    else {
-                                        synthSource.push(operatorLine.replace(/\#/g, j + ""));
+                                        else {
+                                            synthSource.push(operatorLine.replace(/\#/g, j + "").replace(/\~/g, voice + ""));
+                                        }
                                     }
                                 }
                             }
                         }
                         else if (line.indexOf("#") != -1) {
                             for (let j = 0; j < Config.operatorCount + 2; j++) {
-                                synthSource.push(line.replace(/\#/g, j + ""));
+                                const vc = line.indexOf("~") != -1 ? voiceCount : 1;
+                                for (let voice = 0; voice < vc; voice++) {
+                                    synthSource.push(line.replace(/\#/g, j + "").replace(/\~/g, voice + ""));
+                                }
                             }
                         }
                         else {
@@ -24059,7 +24024,7 @@ li.select2-results__option[role=group] > strong:hover {
             const data = synth.tempMonoInstrumentSampleBuffer;
             const wave = instrumentState.wave;
             const volumeScale = instrumentState.volumeScale;
-            const waveLength = (aliases && instrumentState.type == 8) ? wave.length : wave.length - 1;
+            const waveLength = (aliases && instrumentState.type == customChipWaveIndex) ? wave.length : wave.length - 1;
 
             let chipWaveLoopEnd = Math.max(0, Math.min(waveLength, instrumentState.chipWaveLoopEnd));
             let chipWaveLoopStart = Math.max(0, Math.min(chipWaveLoopEnd - 1, instrumentState.chipWaveLoopStart));
@@ -24387,7 +24352,7 @@ li.select2-results__option[role=group] > strong:hover {
             tone.initialNoteFilterInput1 = initialFilterInput1;
             tone.initialNoteFilterInput2 = initialFilterInput2;
         }`;
-                chipFunction = new Function("Config", "Synth", "effectsIncludeDistortion", chipSource)(Config, Synth, effectsIncludeDistortion);
+                chipFunction = new Function("Config", "Synth", "effectsIncludeDistortion", "customChipWaveIndex", chipSource)(Config, Synth, effectsIncludeDistortion, 9);
                 Synth.loopableChipFunctionCache[instrumentState.unisonVoices] = chipFunction;
             }
             chipFunction(synth, bufferIndex, roundedSamplesPerTick, tone, instrumentState);
@@ -24403,7 +24368,7 @@ li.select2-results__option[role=group] > strong:hover {
         const wave = instrumentState.wave;
         const volumeScale = instrumentState.volumeScale;
 
-        const waveLength = (aliases && instrumentState.type == 8) ? wave.length : wave.length - 1;
+        const waveLength = (aliases && instrumentState.type == customChipWaveIndex) ? wave.length : wave.length - 1;
 
         const unisonSign = tone.specialIntervalExpressionMult * instrumentState.unisonSign;
         let expression = +tone.expression;
@@ -24503,7 +24468,7 @@ li.select2-results__option[role=group] > strong:hover {
         tone.initialNoteFilterInput1 = initialFilterInput1;
         tone.initialNoteFilterInput2 = initialFilterInput2;
     }`;
-                chipFunction = new Function("Config", "Synth", "effectsIncludeDistortion", chipSource)(Config, Synth, effectsIncludeDistortion);
+                chipFunction = new Function("Config", "Synth", "effectsIncludeDistortion", "customChipWaveIndex", chipSource)(Config, Synth, effectsIncludeDistortion, 9);
                 Synth.chipFunctionCache[instrumentState.unisonVoices] = chipFunction;
             }
             chipFunction(synth, bufferIndex, roundedSamplesPerTick, tone, instrumentState);
@@ -25534,20 +25499,33 @@ li.select2-results__option[role=group] > strong:hover {
         }
         static supersawSynth(synth, bufferIndex, runLength, tone, instrumentState) {
             const voiceCount = Config.supersawVoiceCount | 0;
-            let supersawFunction = Synth.supersawFunctionCache[0];
+            const unisonsVoices = instrumentState.unisonVoices;
+            let supersawFunction = Synth.supersawFunctionCache[unisonsVoices];
             if (supersawFunction == undefined) {
-                let supersawSource = "return (synth, bufferIndex, runLength, tone, instrumentState) => {";
-                supersawSource += `
+                let supersawSource = `return (synth, bufferIndex, runLength, tone, instrumentState) => {
         const data = synth.tempMonoInstrumentSampleBuffer;
 
-        let phaseDelta = tone.phaseDeltas[0];
-        const phaseDeltaScale = +tone.phaseDeltaScales[0];
         let expression = +tone.expression;
         const expressionDelta = +tone.expressionDelta;
+
+        const unisonSign = tone.specialIntervalExpressionMult * instrumentState.unisonSign;
+
         `;
                 for (let i = 0; i < voiceCount; i++) {
+                    for (let j = 0; j < unisonsVoices; j++) {
+                        supersawSource += `
+                    let phase#@ = tone.phases[$];
+                    `.replaceAll("#", i + "").replaceAll("@", j + "").replaceAll("$", (j * voiceCount + i) + "");
+                    }
+                }
+                for (let j = 0; j < unisonsVoices; j++) {
                     supersawSource += `
-                let phase# = tone.phases[#];
+                let phaseDelta# = tone.phaseDeltas[#];
+                const phaseDeltaScale# = +tone.phaseDeltaScales[#];
+                `.replaceAll("#", j + "");
+                }
+                for (let i = 0; i < voiceCount; i++) {
+                    supersawSource += `
                 const unisonDetune# = tone.supersawUnisonDetunes[#];
                 `.replaceAll("#", i + "");
                 }
@@ -25573,51 +25551,63 @@ li.select2-results__option[role=group] > strong:hover {
         for (let sampleIndex = bufferIndex; sampleIndex < stopIndex; sampleIndex++) {
             // The phase initially starts at a zero crossing so apply
             // the delta before first sample to get a nonzero value.
-            phase0 = (phase0 + phaseDelta) - ((phase0 + phaseDelta) | 0);
-            let supersawSample = phase0 - 0.5 * (1.0 + (` + voiceCount + ` - 1.0) * dynamism);
+            let supersawSample = 0;
+            `;
+                for (let j = 0; j < unisonsVoices; j++) {
+                    supersawSource += `
+            phase0# = (phase0# + phaseDelta#) - ((phase0# + phaseDelta#) | 0);
+            supersawSample += phase0# - 0.5 * (1.0 + (${voiceCount} - 1.0) * dynamism);
             // This is a PolyBLEP, which smooths out discontinuities at any frequency to reduce aliasing. 
             if (!instrumentState.aliases) {
-                if (phase0 < phaseDelta) {
-                    var t = phase0 / phaseDelta;
+                if (phase0# < phaseDelta#) {
+                    var t = phase0# / phaseDelta#;
                     supersawSample -= (t + t - t * t - 1) * 0.5;
-                } else if (phase0 > 1.0 - phaseDelta) {
-                    var t = (phase0 - 1.0) / phaseDelta;
+                } else if (phase0# > 1.0 - phaseDelta#) {
+                    var t = (phase0# - 1.0) / phaseDelta#;
                     supersawSample -= (t + t + t * t + 1) * 0.5;
                 }
             }
+                `.replaceAll("#", j + "");
+                }
+                supersawSource += `
 
             if (!instrumentState.aliases) {
             `;
                 for (let i = 1; i < voiceCount; i++) {
-                    supersawSource += `
-                const detunedPhaseDelta# = phaseDelta * unisonDetune#;
+                    for (let j = 0; j < unisonsVoices; j++) {
+                        supersawSource += `
+                const detunedPhaseDelta#@ = phaseDelta@ * unisonDetune#;
                 // The phase initially starts at a zero crossing so apply
                 // the delta before first sample to get a nonzero value.
-                const aphase# = (phase# + detunedPhaseDelta#) - ((phase# + detunedPhaseDelta#) | 0);
-                supersawSample += aphase# * dynamism;
+                const aphase#@ = (phase#@ + detunedPhaseDelta#@) - ((phase#@ + detunedPhaseDelta#@) | 0);
+                let bphase#@ = aphase#@ * dynamism;
 
                 // This is a PolyBLEP, which smooths out discontinuities at any frequency to reduce aliasing. 
-                if (aphase# < detunedPhaseDelta#) {
-                    const t = aphase# / detunedPhaseDelta#;
-                    supersawSample -= (t + t - t * t - 1) * 0.5 * dynamism;
-                } else if (aphase# > 1.0 - detunedPhaseDelta#) {
-                    const t = (aphase# - 1.0) / detunedPhaseDelta#;
-                    supersawSample -= (t + t + t * t + 1) * 0.5 * dynamism;
+                if (aphase#@ < detunedPhaseDelta#@) {
+                    const t = aphase#@ / detunedPhaseDelta#@;
+                    bphase#@ -= (t + t - t * t - 1) * 0.5 * dynamism;
+                } else if (aphase#@ > 1.0 - detunedPhaseDelta#@) {
+                    const t = (aphase#@ - 1.0) / detunedPhaseDelta#@;
+                    bphase#@ -= (t + t + t * t + 1) * 0.5 * dynamism;
                 }
-                phase# = aphase#;
-                `.replaceAll("#", i + "");
+                supersawSample += bphase#@ * unisonSign;
+                phase#@ = aphase#@;
+                `.replaceAll("#", i + "").replaceAll("@", j + "");
+                    }
                 }
                 supersawSource += `
             } else {
              `;
                 for (let i = 1; i < voiceCount; i++) {
-                    supersawSource += `
-                const detunedPhaseDelta# = phaseDelta * unisonDetune#;
+                    for (let j = 0; j < unisonsVoices; j++) {
+                        supersawSource += `
+                const detunedPhaseDelta#@ = phaseDelta@ * unisonDetune#;
                 // The phase initially starts at a zero crossing so apply
                 // the delta before first sample to get a nonzero value.
-                phase# = (phase# + detunedPhaseDelta#) - ((phase# + detunedPhaseDelta#) | 0);
-                supersawSample += phase# * dynamism;
-                `.replaceAll("#", i + "");
+                phase#@ = (phase#@ + detunedPhaseDelta#@) - ((phase#@ + detunedPhaseDelta#@) | 0);
+                supersawSample += phase#@ * dynamism * unisonSign;
+                `.replaceAll("#", i + "").replaceAll("@", j + "");
+                    }
                 }
                 supersawSource += `
             }
@@ -25635,8 +25625,13 @@ li.select2-results__option[role=group] > strong:hover {
             const sample = applyFilters(inputSample, initialFilterInput1, initialFilterInput2, filterCount, filters);
             initialFilterInput2 = initialFilterInput1;
             initialFilterInput1 = inputSample;
-
-            phaseDelta *= phaseDeltaScale;
+            `;
+                for (let j = 0; j < unisonsVoices; j++) {
+                    supersawSource += `
+                phaseDelta# *= phaseDeltaScale#;
+                `.replaceAll("#", j + "");
+                }
+                supersawSource += `
             dynamism += dynamismDelta;
             shape += shapeDelta;
             delayLength += delayLengthDelta;
@@ -25647,12 +25642,20 @@ li.select2-results__option[role=group] > strong:hover {
             data[sampleIndex] += output;
         }`;
                 for (let i = 0; i < voiceCount; i++) {
+                    for (let j = 0; j < unisonsVoices; j++) {
+                        supersawSource += `
+                tone.phases[$] = phase#@;
+                `.replaceAll("#", i + "").replaceAll("@", j + "").replaceAll("$", (j * voiceCount + i) + "");
+                    }
+                }
+                for (let j = 0; j < unisonsVoices; j++) {
                     supersawSource += `
-            tone.phases[#] = phase#;
-            `.replaceAll("#", i + "");
+            tone.phaseDeltas[#] = phaseDelta#;
+            `.replaceAll("#", j + "");
                 }
                 supersawSource += `
-        tone.phaseDeltas[0] = phaseDelta;
+        // tone.phaseDeltas[0] = phaseDelta;
+
         tone.expression = expression;
         tone.supersawDynamism = dynamism;
         tone.supersawShape = shape;
@@ -25664,7 +25667,7 @@ li.select2-results__option[role=group] > strong:hover {
         tone.initialNoteFilterInput2 = initialFilterInput2;
         }`;
                 supersawFunction = new Function("Config", "Synth", supersawSource)(Config, Synth);
-                Synth.supersawFunctionCache[0] = supersawFunction;
+                Synth.supersawFunctionCache[unisonsVoices] = supersawFunction;
             }
             supersawFunction(synth, bufferIndex, runLength, tone, instrumentState);
         }
@@ -26364,16 +26367,20 @@ li.select2-results__option[role=group] > strong:hover {
     Synth.loopableChipFunctionCache = Array(Config.unisonVoicesMax + 1).fill(undefined);
     Synth.fmSourceTemplate = (`
 		const data = synth.tempMonoInstrumentSampleBuffer;
-		const sineWave = Config.sineWave;
-			
+        const voiceCount = instrument.unisonVoices;
+
+        const operator#Wave = tone.operatorWaves[#].samples;
+        const waveLength# = operator#Wave.length - 1;
+        const waveMask# = waveLength# - 1;			
 		// I'm adding 1000 to the phase to ensure that it's never negative even when modulated by other waves because negative numbers don't work with the modulus operator very well.
-		let operator#Phase       = +((tone.phases[#] - (tone.phases[#] | 0)) + 1000) * ` + Config.sineWaveLength + `;
-		let operator#PhaseDelta  = +tone.phaseDeltas[#] * ` + Config.sineWaveLength + `;
-		let operator#PhaseDeltaScale = +tone.phaseDeltaScales[#];
+        // With this safer bit operation we don't need to worry about modulus anymore - slarmoooo
+		let operator#Phase~       = +(+tone.phases[# * voiceCount + ~] -(+tone.phases[# * voiceCount + ~] | 0)) * waveLength#;
+		let operator#PhaseDelta~  = +tone.phaseDeltas[# * voiceCount + ~] * waveLength#;
+		let operator#PhaseDeltaScale~ = +tone.phaseDeltaScales[# * voiceCount + ~]; 
 		let operator#OutputMult  = +tone.operatorExpressions[#];
 		const operator#OutputDelta = +tone.operatorExpressionDeltas[#];
-		let operator#Output      = +tone.feedbackOutputs[#];
-        const operator#Wave      = tone.operatorWaves[#].samples;
+		let operator#Output~      = +tone.feedbackOutputs[# * voiceCount + ~];
+        
 		let feedbackMult         = +tone.feedbackMult;
 		const feedbackDelta        = +tone.feedbackDelta;
         let expression = +tone.expression;
@@ -26397,8 +26404,8 @@ li.select2-results__option[role=group] > strong:hover {
 				
 				feedbackMult += feedbackDelta;
 				operator#OutputMult += operator#OutputDelta;
-				operator#Phase += operator#PhaseDelta;
-			operator#PhaseDelta *= operator#PhaseDeltaScale;
+				operator#Phase~ += operator#PhaseDelta~;
+			operator#PhaseDelta~ *= operator#PhaseDeltaScale~;
 			
 			const output = sample * expression;
 			expression += expressionDelta;
@@ -26406,10 +26413,10 @@ li.select2-results__option[role=group] > strong:hover {
 			data[sampleIndex] += output;
 			}
 			
-			tone.phases[#] = operator#Phase / ` + Config.sineWaveLength + `;
-			tone.phaseDeltas[#] = operator#PhaseDelta / ` + Config.sineWaveLength + `;
+			tone.phases[# * voiceCount + ~] = operator#Phase~ / waveLength#;
+			tone.phaseDeltas[# * voiceCount + ~] = operator#PhaseDelta~ / waveLength#;
 			tone.operatorExpressions[#] = operator#OutputMult;
-		    tone.feedbackOutputs[#] = operator#Output;
+		    tone.feedbackOutputs[# * voiceCount + ~] = operator#Output~;
 		    tone.feedbackMult = feedbackMult;
 		    tone.expression = expression;
 			
@@ -26418,12 +26425,12 @@ li.select2-results__option[role=group] > strong:hover {
 		tone.initialNoteFilterInput2 = initialFilterInput2;
 		`).split("\n");
     Synth.operatorSourceTemplate = (`
-				const operator#PhaseMix = operator#Phase/* + operator@Scaled*/;
-				const operator#PhaseInt = operator#PhaseMix|0;
-				const operator#Index    = operator#PhaseInt & ` + Config.sineWaveMask + `;
-                const operator#Sample   = operator#Wave[operator#Index];
-                operator#Output         = operator#Sample + (operator#Wave[operator#Index + 1] - operator#Sample) * (operator#PhaseMix - operator#PhaseInt);
-				const operator#Scaled   = operator#OutputMult * operator#Output;
+				const operator#PhaseMix~ = operator#Phase~/* + operator@Scaled*/;
+				const operator#PhaseInt~ = operator#PhaseMix~|0;
+				const operator#Index~    = operator#PhaseInt~ & waveMask#;
+                const operator#Sample~   = operator#Wave[operator#Index~];
+                operator#Output~         = operator#Sample~ + (operator#Wave[operator#Index~ + 1] - operator#Sample~) * (operator#PhaseMix~ - operator#PhaseInt~);
+				const operator#Scaled~   = operator#OutputMult * operator#Output~;
 		`).split("\n");
 
     const versionPrefix = "songVersion: ";
@@ -27285,6 +27292,157 @@ li.select2-results__option[role=group] > strong:hover {
         }
     }
 
+    class SelectiveInstrumentSettings {
+        constructor() {
+            this.instrumentType = false;
+            this.eqFilter = true;
+            this.fade = true;
+            this.instrumentTypeSettings = true;
+            this.unison = true;
+            this.effects = true;
+            this.envelopes = true;
+            this.instrumentPatterns = true;
+            this.allInstruments = false;
+        }
+        toJsonObject() {
+            const object = {};
+            object["instrumentType"] = this.instrumentType;
+            object["eqFilter"] = this.eqFilter;
+            object["fade"] = this.fade;
+            object["instrumentTypeSettings"] = this.instrumentTypeSettings;
+            object["unison"] = this.unison;
+            object["effects"] = this.effects;
+            object["envelopes"] = this.envelopes;
+            object["instrumentPatterns"] = this.instrumentPatterns;
+            object["allInstruments"] = this.allInstruments;
+            return JSON.stringify(object);
+        }
+        fromJsonObject(object) {
+            if (object["instrumentType"] != undefined)
+                this.instrumentType = object["instrumentType"];
+            if (object["eqFilter"] != undefined)
+                this.eqFilter = object["eqFilter"];
+            if (object["fade"] != undefined)
+                this.fade = object["fade"];
+            if (object["instrumentTypeSettings"] != undefined)
+                this.instrumentTypeSettings = object["instrumentTypeSettings"];
+            if (object["unison"] != undefined)
+                this.unison = object["unison"];
+            if (object["effects"] != undefined)
+                this.effects = object["effects"];
+            if (object["envelopes"] != undefined)
+                this.envelopes = object["envelopes"];
+            if (object["instrumentPatterns"] != undefined)
+                this.instrumentPatterns = object["instrumentPatterns"];
+            if (object["allInstruments"] != undefined)
+                this.allInstruments = object["allInstruments"];
+        }
+    }
+    class Preferences {
+        constructor() {
+            this.showFifth = true;
+            this.volume = 75;
+            this.visibleOctaves = Preferences.defaultVisibleOctaves;
+            this.selectiveRandom = new SelectiveInstrumentSettings();
+            this.selectivePaste = new SelectiveInstrumentSettings();
+            this.reload();
+        }
+        reload() {
+            this.autoPlay = window.localStorage.getItem("autoPlay") == "true";
+            this.autoFollow = window.localStorage.getItem("autoFollow") != "false";
+            this.enableNotePreview = window.localStorage.getItem("enableNotePreview") != "false";
+            this.showFifth = window.localStorage.getItem("showFifth") != "false";
+            this.notesOutsideScale = window.localStorage.getItem("notesOutsideScale") == "true";
+            this.showLetters = window.localStorage.getItem("showLetters") != "false";
+            this.showChannels = window.localStorage.getItem("showChannels") == "true";
+            this.showScrollBar = window.localStorage.getItem("showScrollBar") != "false";
+            this.alwaysFineNoteVol = window.localStorage.getItem("alwaysFineNoteVol") == "true";
+            this.displayVolumeBar = window.localStorage.getItem("displayVolumeBar") != "false";
+            this.instrumentCopyPaste = window.localStorage.getItem("instrumentCopyPaste") != "false";
+            this.instrumentImportExport = window.localStorage.getItem("instrumentImportExport") == "true";
+            this.instrumentButtonsAtTop = window.localStorage.getItem("instrumentButtonsAtTop") == "true";
+            this.enableChannelMuting = window.localStorage.getItem("enableChannelMuting") != "false";
+            this.displayBrowserUrl = window.localStorage.getItem("displayBrowserUrl") != "false";
+            this.pressControlForShortcuts = window.localStorage.getItem("pressControlForShortcuts") == "true";
+            this.enableMidi = window.localStorage.getItem("enableMidi") != "false";
+            this.showRecordButton = window.localStorage.getItem("showRecordButton") == "true";
+            this.snapRecordedNotesToRhythm = window.localStorage.getItem("snapRecordedNotesToRhythm") == "true";
+            this.ignorePerformedNotesNotInScale = window.localStorage.getItem("ignorePerformedNotesNotInScale") == "true";
+            this.metronomeCountIn = window.localStorage.getItem("metronomeCountIn") != "false";
+            this.metronomeWhileRecording = window.localStorage.getItem("metronomeWhileRecording") != "false";
+            this.notesFlashWhenPlayed = window.localStorage.getItem("notesFlashWhenPlayed") == "true";
+            this.showOscilloscope = window.localStorage.getItem("showOscilloscope") == "true";
+            this.showSampleLoadingStatus = window.localStorage.getItem("showSampleLoadingStatus") != "false";
+            this.showDescription = window.localStorage.getItem("showDescription") != "false";
+            this.showInstrumentScrollbars = window.localStorage.getItem("showInstrumentScrollbars") == "true";
+            this.closePromptByClickoff = window.localStorage.getItem("closePromptByClickoff") == "true";
+            this.frostedGlassBackground = window.localStorage.getItem("frostedGlassBackground") == "true";
+            this.keyboardLayout = window.localStorage.getItem("keyboardLayout") || "pianoTransposingC";
+            this.bassOffset = (+window.localStorage.getItem("bassOffset")) || 0;
+            this.layout = window.localStorage.getItem("layout") || "small";
+            this.colorTheme = window.localStorage.getItem("colorTheme") || ColorConfig.defaultTheme;
+            this.customTheme = window.localStorage.getItem("customTheme");
+            this.customThemeImage = window.localStorage.getItem("customThemeImage") ||
+                window.localStorage.getItem("customTheme2");
+            this.visibleOctaves = (window.localStorage.getItem("visibleOctaves") >>> 0) || Preferences.defaultVisibleOctaves;
+            this.selectiveRandom.fromJsonObject(JSON.parse(window.localStorage.getItem("selectiveRandom") || "{}"));
+            this.selectivePaste.fromJsonObject(JSON.parse(window.localStorage.getItem("selectivePaste") || "{}"));
+            const defaultScale = Config.scales.dictionary[window.localStorage.getItem("defaultScale")];
+            this.defaultScale = (defaultScale != undefined) ? defaultScale.index : 0;
+            if (window.localStorage.getItem("volume") != null) {
+                this.volume = Math.min(window.localStorage.getItem("volume") >>> 0, 75);
+            }
+            if (window.localStorage.getItem("fullScreen") != null) {
+                if (window.localStorage.getItem("fullScreen") == "true")
+                    this.layout = "long";
+                window.localStorage.removeItem("fullScreen");
+            }
+        }
+        save() {
+            window.localStorage.setItem("autoPlay", this.autoPlay ? "true" : "false");
+            window.localStorage.setItem("autoFollow", this.autoFollow ? "true" : "false");
+            window.localStorage.setItem("enableNotePreview", this.enableNotePreview ? "true" : "false");
+            window.localStorage.setItem("showFifth", this.showFifth ? "true" : "false");
+            window.localStorage.setItem("notesOutsideScale", this.notesOutsideScale ? "true" : "false");
+            window.localStorage.setItem("defaultScale", Config.scales[this.defaultScale].name);
+            window.localStorage.setItem("showLetters", this.showLetters ? "true" : "false");
+            window.localStorage.setItem("showChannels", this.showChannels ? "true" : "false");
+            window.localStorage.setItem("showScrollBar", this.showScrollBar ? "true" : "false");
+            window.localStorage.setItem("alwaysFineNoteVol", this.alwaysFineNoteVol ? "true" : "false");
+            window.localStorage.setItem("displayVolumeBar", this.displayVolumeBar ? "true" : "false");
+            window.localStorage.setItem("enableChannelMuting", this.enableChannelMuting ? "true" : "false");
+            window.localStorage.setItem("instrumentCopyPaste", this.instrumentCopyPaste ? "true" : "false");
+            window.localStorage.setItem("instrumentImportExport", this.instrumentImportExport ? "true" : "false");
+            window.localStorage.setItem("instrumentButtonsAtTop", this.instrumentButtonsAtTop ? "true" : "false");
+            window.localStorage.setItem("displayBrowserUrl", this.displayBrowserUrl ? "true" : "false");
+            window.localStorage.setItem("pressControlForShortcuts", this.pressControlForShortcuts ? "true" : "false");
+            window.localStorage.setItem("enableMidi", this.enableMidi ? "true" : "false");
+            window.localStorage.setItem("showRecordButton", this.showRecordButton ? "true" : "false");
+            window.localStorage.setItem("snapRecordedNotesToRhythm", this.snapRecordedNotesToRhythm ? "true" : "false");
+            window.localStorage.setItem("ignorePerformedNotesNotInScale", this.ignorePerformedNotesNotInScale ? "true" : "false");
+            window.localStorage.setItem("metronomeCountIn", this.metronomeCountIn ? "true" : "false");
+            window.localStorage.setItem("metronomeWhileRecording", this.metronomeWhileRecording ? "true" : "false");
+            window.localStorage.setItem("notesFlashWhenPlayed", this.notesFlashWhenPlayed ? "true" : "false");
+            window.localStorage.setItem("showOscilloscope", this.showOscilloscope ? "true" : "false");
+            window.localStorage.setItem("showSampleLoadingStatus", this.showSampleLoadingStatus ? "true" : "false");
+            window.localStorage.setItem("showDescription", this.showDescription ? "true" : "false");
+            window.localStorage.setItem("showInstrumentScrollbars", this.showInstrumentScrollbars ? "true" : "false");
+            window.localStorage.setItem("closePromptByClickoff", this.closePromptByClickoff ? "true" : "false");
+            window.localStorage.setItem("frostedGlassBackground", this.frostedGlassBackground ? "true" : "false");
+            window.localStorage.setItem("keyboardLayout", this.keyboardLayout);
+            window.localStorage.setItem("bassOffset", String(this.bassOffset));
+            window.localStorage.setItem("layout", this.layout);
+            window.localStorage.setItem("colorTheme", this.colorTheme);
+            window.localStorage.setItem("customTheme", this.customTheme);
+            window.localStorage.setItem("customThemeImage", this.customThemeImage);
+            window.localStorage.setItem("volume", String(this.volume));
+            window.localStorage.setItem("visibleOctaves", String(this.visibleOctaves));
+            window.localStorage.setItem("selectiveRandom", this.selectiveRandom.toJsonObject());
+            window.localStorage.setItem("selectivePaste", this.selectivePaste.toJsonObject());
+        }
+    }
+    Preferences.defaultVisibleOctaves = 3;
+
     function patternsContainSameInstruments(pattern1Instruments, pattern2Instruments) {
         const pattern2Has1Instruments = pattern1Instruments.every(instrument => pattern2Instruments.indexOf(instrument) != -1);
         const pattern1Has2Instruments = pattern2Instruments.every(instrument => pattern1Instruments.indexOf(instrument) != -1);
@@ -27888,7 +28046,7 @@ li.select2-results__option[role=group] > strong:hover {
         }
     }
     class ChangeRandomGeneratedInstrument extends Change {
-        constructor(doc, usesCurrentInstrumentType) {
+        constructor(doc, usesSelectiveRandom) {
             super();
             function selectWeightedRandom(entries) {
                 let total = 0;
@@ -27942,21 +28100,28 @@ li.select2-results__option[role=group] > strong:hover {
             }
             const isNoise = doc.song.getChannelIsNoise(doc.channel);
             const instrument = doc.song.channels[doc.channel].instruments[doc.getCurrentInstrument()];
-            instrument.effects = 1 << 2;
-            instrument.aliases = false;
-            instrument.envelopeCount = 0;
+            const selectiveRandom = usesSelectiveRandom ? doc.prefs.selectiveRandom : new SelectiveInstrumentSettings();
+            if (!usesSelectiveRandom)
+                selectiveRandom.instrumentType = true;
+            if (selectiveRandom.effects) {
+                instrument.effects = 1 << 2;
+                instrument.aliases = false;
+            }
+            if (selectiveRandom.envelopes)
+                instrument.envelopeCount = 0;
             const midFreq = FilterControlPoint.getRoundedSettingValueFromHz(700.0);
             const maxFreq = Config.filterFreqRange - 1;
-            applyFilterPoints(instrument.eqFilter, [
-                new PotentialFilterPoint(0.8, 0, midFreq, maxFreq, 4000.0, -1),
-                new PotentialFilterPoint(0.4, 1, 0, midFreq - 1, 250.0, -1),
-                new PotentialFilterPoint(0.5, 2, 0, maxFreq, 2000.0, 0),
-                new PotentialFilterPoint(0.4, 2, 0, maxFreq, 1400.0, 0),
-                new PotentialFilterPoint(0.3, 2, 0, maxFreq, 1000.0, 0),
-                new PotentialFilterPoint(0.2, 2, 0, maxFreq, 500.0, 0),
-            ]);
+            if (selectiveRandom.eqFilter)
+                applyFilterPoints(instrument.eqFilter, [
+                    new PotentialFilterPoint(0.8, 0, midFreq, maxFreq, 4000.0, -1),
+                    new PotentialFilterPoint(0.4, 1, 0, midFreq - 1, 250.0, -1),
+                    new PotentialFilterPoint(0.5, 2, 0, maxFreq, 2000.0, 0),
+                    new PotentialFilterPoint(0.4, 2, 0, maxFreq, 1400.0, 0),
+                    new PotentialFilterPoint(0.3, 2, 0, maxFreq, 1000.0, 0),
+                    new PotentialFilterPoint(0.2, 2, 0, maxFreq, 500.0, 0),
+                ]);
             if (isNoise) {
-                const type = usesCurrentInstrumentType ? instrument.type :
+                const type = !selectiveRandom.instrumentType ? instrument.type :
                     selectWeightedRandom([
                         { item: 2, weight: 3 },
                         { item: 3, weight: 3 },
@@ -27967,92 +28132,96 @@ li.select2-results__option[role=group] > strong:hover {
                     instrument.fadeIn = (Math.random() < 0.8) ? 0 : selectCurvedDistribution(0, Config.fadeInRange - 1, 0, 2);
                     instrument.fadeOut = selectCurvedDistribution(0, Config.fadeOutTicks.length - 1, Config.fadeOutNeutral, 2);
                 }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 10;
-                    instrument.transition = Config.transitions.dictionary[selectWeightedRandom([
-                        { item: "normal", weight: 30 },
-                        { item: "interrupt", weight: 1 },
-                        { item: "slide", weight: 2 },
-                    ])].index;
-                }
-                if (Math.random() < 0.2) {
-                    instrument.effects |= 1 << 11;
-                    instrument.chord = Config.chords.dictionary[selectWeightedRandom([
-                        { item: "strum", weight: 2 },
-                        { item: "arpeggio", weight: 1 },
-                    ])].index;
-                }
-                if (Math.random() < 0.1) {
-                    instrument.pitchShift = selectCurvedDistribution(0, Config.pitchShiftRange - 1, Config.pitchShiftCenter, 2);
-                    if (instrument.pitchShift != Config.pitchShiftCenter) {
-                        instrument.effects |= 1 << 7;
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["pitchShift"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 1 },
-                            { item: "random", weight: 2 },
-                            { item: "flare", weight: 2 },
-                            { item: "twang", weight: 16 },
-                            { item: "swell", weight: 2 },
-                            { item: "lfo", weight: 1 },
-                            { item: "decay", weight: 4 },
-                            { item: "blip", weight: 8 },
-                            { item: "fall", weight: 2 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 50, 13)]);
+                if (selectiveRandom.effects) {
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 10;
+                        instrument.transition = Config.transitions.dictionary[selectWeightedRandom([
+                            { item: "normal", weight: 30 },
+                            { item: "interrupt", weight: 1 },
+                            { item: "slide", weight: 2 },
+                        ])].index;
+                    }
+                    if (Math.random() < 0.2) {
+                        instrument.effects |= 1 << 11;
+                        instrument.chord = Config.chords.dictionary[selectWeightedRandom([
+                            { item: "strum", weight: 2 },
+                            { item: "arpeggio", weight: 1 },
+                        ])].index;
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.pitchShift = selectCurvedDistribution(0, Config.pitchShiftRange - 1, Config.pitchShiftCenter, 2);
+                        if (instrument.pitchShift != Config.pitchShiftCenter) {
+                            instrument.effects |= 1 << 7;
+                            if (selectiveRandom.envelopes)
+                                instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["pitchShift"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                    { item: "note size", weight: 1 },
+                                    { item: "random", weight: 2 },
+                                    { item: "flare", weight: 2 },
+                                    { item: "twang", weight: 16 },
+                                    { item: "swell", weight: 2 },
+                                    { item: "lfo", weight: 1 },
+                                    { item: "decay", weight: 4 },
+                                    { item: "blip", weight: 8 },
+                                    { item: "fall", weight: 2 },
+                                ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 50, 13)]);
+                        }
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 9;
+                        instrument.vibrato = selectCurvedDistribution(0, Config.echoSustainRange - 1, Config.echoSustainRange >> 1, 2);
+                        instrument.vibrato = Config.vibratos.dictionary[selectWeightedRandom([
+                            { item: "light", weight: 2 },
+                            { item: "delayed", weight: 2 },
+                            { item: "heavy", weight: 1 },
+                            { item: "shaky", weight: 2 },
+                        ])].index;
+                    }
+                    if (Math.random() < 0.8) {
+                        instrument.effects |= 1 << 5;
+                        applyFilterPoints(instrument.noteFilter, [
+                            new PotentialFilterPoint(1.0, 0, midFreq, maxFreq, 8000.0, -1),
+                        ]);
+                        if (selectiveRandom.envelopes)
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["noteFilterAllFreqs"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 2 },
+                                { item: "pitch", weight: 2 },
+                                { item: "punch", weight: 4 },
+                                { item: "flare", weight: 4 },
+                                { item: "twang", weight: 16 },
+                                { item: "swell", weight: 4 },
+                                { item: "lfo", weight: 8 },
+                                { item: "decay", weight: 8 },
+                                { item: "wibble", weight: 4 },
+                                { item: "linear", weight: 4 },
+                                { item: "fall", weight: 4 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)]);
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 3;
+                        instrument.distortion = selectCurvedDistribution(1, Config.distortionRange - 1, Config.distortionRange - 1, 2);
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 4;
+                        instrument.bitcrusherFreq = selectCurvedDistribution(0, Config.bitcrusherFreqRange - 1, Config.bitcrusherFreqRange >> 1, 2);
+                        instrument.bitcrusherQuantization = selectCurvedDistribution(0, Config.bitcrusherQuantizationRange - 1, Config.bitcrusherQuantizationRange >> 1, 2);
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 1;
+                        instrument.chorus = selectCurvedDistribution(1, Config.chorusRange - 1, Config.chorusRange - 1, 1);
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.echoSustain = selectCurvedDistribution(0, Config.echoSustainRange - 1, Config.echoSustainRange >> 1, 2);
+                        instrument.echoDelay = selectCurvedDistribution(0, Config.echoDelayRange - 1, Config.echoDelayRange >> 1, 2);
+                        if (instrument.echoSustain != 0 || instrument.echoDelay != 0) {
+                            instrument.effects |= 1 << 6;
+                        }
+                    }
+                    if (Math.random() < 0.5) {
+                        instrument.effects |= 1 << 0;
+                        instrument.reverb = selectCurvedDistribution(1, Config.reverbRange - 1, 1, 1);
                     }
                 }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 9;
-                    instrument.vibrato = selectCurvedDistribution(0, Config.echoSustainRange - 1, Config.echoSustainRange >> 1, 2);
-                    instrument.vibrato = Config.vibratos.dictionary[selectWeightedRandom([
-                        { item: "light", weight: 2 },
-                        { item: "delayed", weight: 2 },
-                        { item: "heavy", weight: 1 },
-                        { item: "shaky", weight: 2 },
-                    ])].index;
-                }
-                if (Math.random() < 0.8) {
-                    instrument.effects |= 1 << 5;
-                    applyFilterPoints(instrument.noteFilter, [
-                        new PotentialFilterPoint(1.0, 0, midFreq, maxFreq, 8000.0, -1),
-                    ]);
-                    instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["noteFilterAllFreqs"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                        { item: "note size", weight: 2 },
-                        { item: "pitch", weight: 2 },
-                        { item: "punch", weight: 4 },
-                        { item: "flare", weight: 4 },
-                        { item: "twang", weight: 16 },
-                        { item: "swell", weight: 4 },
-                        { item: "lfo", weight: 8 },
-                        { item: "decay", weight: 8 },
-                        { item: "wibble", weight: 4 },
-                        { item: "linear", weight: 4 },
-                        { item: "fall", weight: 4 },
-                    ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)]);
-                }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 3;
-                    instrument.distortion = selectCurvedDistribution(1, Config.distortionRange - 1, Config.distortionRange - 1, 2);
-                }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 4;
-                    instrument.bitcrusherFreq = selectCurvedDistribution(0, Config.bitcrusherFreqRange - 1, Config.bitcrusherFreqRange >> 1, 2);
-                    instrument.bitcrusherQuantization = selectCurvedDistribution(0, Config.bitcrusherQuantizationRange - 1, Config.bitcrusherQuantizationRange >> 1, 2);
-                }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 1;
-                    instrument.chorus = selectCurvedDistribution(1, Config.chorusRange - 1, Config.chorusRange - 1, 1);
-                }
-                if (Math.random() < 0.1) {
-                    instrument.echoSustain = selectCurvedDistribution(0, Config.echoSustainRange - 1, Config.echoSustainRange >> 1, 2);
-                    instrument.echoDelay = selectCurvedDistribution(0, Config.echoDelayRange - 1, Config.echoDelayRange >> 1, 2);
-                    if (instrument.echoSustain != 0 || instrument.echoDelay != 0) {
-                        instrument.effects |= 1 << 6;
-                    }
-                }
-                if (Math.random() < 0.5) {
-                    instrument.effects |= 1 << 0;
-                    instrument.reverb = selectCurvedDistribution(1, Config.reverbRange - 1, 1, 1);
-                }
-                if (type == 2 || type == 3) {
+                if (selectiveRandom.unison) {
                     instrument.unison = Config.unisons.dictionary[selectWeightedRandom([
                         { item: "none", weight: 100 },
                         { item: "shimmer", weight: 10 },
@@ -28060,6 +28229,7 @@ li.select2-results__option[role=group] > strong:hover {
                         { item: "honky tonk", weight: 6 },
                         { item: "dissonant", weight: 2 },
                         { item: "fifth", weight: 4 },
+                        { item: "triple fifth", weight: 3 },
                         { item: "octave", weight: 5 },
                         { item: "bowed", weight: 4 },
                         { item: "piano", weight: 10 },
@@ -28076,7 +28246,7 @@ li.select2-results__option[role=group] > strong:hover {
                         { item: "augmented", weight: 1 },
                         { item: "diminished", weight: 1 },
                         { item: "chorus", weight: 2 },
-                        { item: "block", weight: 1 },
+                        { item: "block", weight: 2 },
                         { item: "bow", weight: 2 },
                     ])].index;
                     if (instrument.unison != Config.unisons.dictionary["none"].index && Math.random() > 0.4)
@@ -28102,79 +28272,80 @@ li.select2-results__option[role=group] > strong:hover {
                         harmonics[i] = Config.harmonicsMax * harmonics[i] / max;
                     }
                 }
-                switch (type) {
-                    case 2:
-                        {
-                            instrument.chipNoise = (Math.random() * Config.chipNoises.length) | 0;
-                        }
-                        break;
-                    case 3:
-                        {
-                            const spectrumGenerators = [
-                                () => {
-                                    const spectrum = [];
-                                    for (let i = 0; i < Config.spectrumControlPoints; i++) {
-                                        spectrum[i] = (Math.random() < 0.5) ? Math.random() : 0.0;
-                                    }
-                                    return spectrum;
-                                },
-                                () => {
-                                    let current = 1.0;
-                                    const spectrum = [current];
-                                    for (let i = 1; i < Config.spectrumControlPoints; i++) {
-                                        current *= Math.pow(2, Math.random() - 0.52);
-                                        spectrum[i] = current;
-                                    }
-                                    return spectrum;
-                                },
-                                () => {
-                                    let current = 1.0;
-                                    const spectrum = [current];
-                                    for (let i = 1; i < Config.spectrumControlPoints; i++) {
-                                        current *= Math.pow(2, Math.random() - 0.52);
-                                        spectrum[i] = current * Math.random();
-                                    }
-                                    return spectrum;
-                                },
-                            ];
-                            const generator = spectrumGenerators[(Math.random() * spectrumGenerators.length) | 0];
-                            const spectrum = generator();
-                            normalize(spectrum);
-                            for (let i = 0; i < Config.spectrumControlPoints; i++) {
-                                instrument.spectrumWave.spectrum[i] = Math.round(spectrum[i]);
+                if (selectiveRandom.instrumentTypeSettings)
+                    switch (type) {
+                        case 2:
+                            {
+                                instrument.chipNoise = (Math.random() * Config.chipNoises.length) | 0;
                             }
-                            instrument.spectrumWave.markCustomWaveDirty();
-                        }
-                        break;
-                    case 4:
-                        {
-                            for (let i = 0; i < Config.drumCount; i++) {
-                                instrument.drumsetEnvelopes[i] = Math.floor(Math.random() * Config.envelopes.length);
-                                const spectrum = [];
-                                let randomFactor = Math.floor(Math.random() * 3);
-                                for (let j = 0; j < Config.spectrumControlPoints; j++) {
-                                    if (randomFactor == 0 || randomFactor == 3)
-                                        spectrum[j] = Math.pow(Math.random(), 3) * 0.25;
-                                    else if (randomFactor == 1)
-                                        spectrum[j] = Math.pow(Math.random(), ((i / 8) + 1));
-                                    else if (randomFactor == 2)
-                                        spectrum[j] = (Math.pow(Math.random(), 2)) * ((i / 3) + 1);
-                                    else
-                                        spectrum[j] = Math.pow(Math.random(), 3) * 0.25;
-                                }
+                            break;
+                        case 3:
+                            {
+                                const spectrumGenerators = [
+                                    () => {
+                                        const spectrum = [];
+                                        for (let i = 0; i < Config.spectrumControlPoints; i++) {
+                                            spectrum[i] = (Math.random() < 0.5) ? Math.random() : 0.0;
+                                        }
+                                        return spectrum;
+                                    },
+                                    () => {
+                                        let current = 1.0;
+                                        const spectrum = [current];
+                                        for (let i = 1; i < Config.spectrumControlPoints; i++) {
+                                            current *= Math.pow(2, Math.random() - 0.52);
+                                            spectrum[i] = current;
+                                        }
+                                        return spectrum;
+                                    },
+                                    () => {
+                                        let current = 1.0;
+                                        const spectrum = [current];
+                                        for (let i = 1; i < Config.spectrumControlPoints; i++) {
+                                            current *= Math.pow(2, Math.random() - 0.52);
+                                            spectrum[i] = current * Math.random();
+                                        }
+                                        return spectrum;
+                                    },
+                                ];
+                                const generator = spectrumGenerators[(Math.random() * spectrumGenerators.length) | 0];
+                                const spectrum = generator();
                                 normalize(spectrum);
-                                for (let j = 0; j < Config.spectrumControlPoints; j++) {
-                                    instrument.drumsetSpectrumWaves[i].spectrum[j] = Math.round(spectrum[j]);
+                                for (let i = 0; i < Config.spectrumControlPoints; i++) {
+                                    instrument.spectrumWave.spectrum[i] = Math.round(spectrum[i]);
                                 }
-                                instrument.drumsetSpectrumWaves[i].markCustomWaveDirty();
+                                instrument.spectrumWave.markCustomWaveDirty();
                             }
-                        }
-                        break;
-                    default: throw new Error("Unhandled noise instrument type in random generator.");
-                }
+                            break;
+                        case 4:
+                            {
+                                for (let i = 0; i < Config.drumCount; i++) {
+                                    instrument.drumsetEnvelopes[i] = Math.floor(Math.random() * Config.envelopes.length);
+                                    const spectrum = [];
+                                    let randomFactor = Math.floor(Math.random() * 3);
+                                    for (let j = 0; j < Config.spectrumControlPoints; j++) {
+                                        if (randomFactor == 0 || randomFactor == 3)
+                                            spectrum[j] = Math.pow(Math.random(), 3) * 0.25;
+                                        else if (randomFactor == 1)
+                                            spectrum[j] = Math.pow(Math.random(), ((i / 8) + 1));
+                                        else if (randomFactor == 2)
+                                            spectrum[j] = (Math.pow(Math.random(), 2)) * ((i / 3) + 1);
+                                        else
+                                            spectrum[j] = Math.pow(Math.random(), 3) * 0.25;
+                                    }
+                                    normalize(spectrum);
+                                    for (let j = 0; j < Config.spectrumControlPoints; j++) {
+                                        instrument.drumsetSpectrumWaves[i].spectrum[j] = Math.round(spectrum[j]);
+                                    }
+                                    instrument.drumsetSpectrumWaves[i].markCustomWaveDirty();
+                                }
+                            }
+                            break;
+                        default: throw new Error("Unhandled noise instrument type in random generator.");
+                    }
             }
             else {
-                const type = usesCurrentInstrumentType ? instrument.type :
+                const type = !selectiveRandom.instrumentType ? instrument.type :
                     selectWeightedRandom([
                         { item: 0, weight: 2 },
                         { item: 6, weight: 2 },
@@ -28189,7 +28360,7 @@ li.select2-results__option[role=group] > strong:hover {
                 instrument.preset = instrument.type = type;
                 instrument.fadeIn = (Math.random() < 0.5) ? 0 : selectCurvedDistribution(0, Config.fadeInRange - 1, 0, 2);
                 instrument.fadeOut = selectCurvedDistribution(0, Config.fadeOutTicks.length - 1, Config.fadeOutNeutral, 2);
-                if (type == 0 || type == 5 || type == 7 || type == 9 || type == 6 || type == 3) {
+                if (selectiveRandom.unison) {
                     instrument.unison = Config.unisons.dictionary[selectWeightedRandom([
                         { item: "none", weight: 100 },
                         { item: "shimmer", weight: 10 },
@@ -28222,183 +28393,187 @@ li.select2-results__option[role=group] > strong:hover {
                     instrument.unisonExpression = Config.unisons[instrument.unison].expression;
                     instrument.unisonSign = Config.unisons[instrument.unison].sign;
                 }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 10;
-                    instrument.transition = Config.transitions.dictionary[selectWeightedRandom([
-                        { item: "interrupt", weight: 1 },
-                        { item: "slide", weight: 2 },
-                        { item: "continue", weight: 1 },
-                    ])].index;
-                }
-                if (Math.random() < 0.2) {
-                    instrument.effects |= 1 << 11;
-                    instrument.chord = Config.chords.dictionary[selectWeightedRandom([
-                        { item: "strum", weight: 2 },
-                        { item: "arpeggio", weight: 1 },
-                    ])].index;
-                }
-                if (Math.random() < 0.05) {
-                    instrument.pitchShift = selectCurvedDistribution(0, Config.pitchShiftRange - 1, Config.pitchShiftCenter, 1);
-                    if (instrument.pitchShift != Config.pitchShiftCenter) {
-                        instrument.effects |= 1 << 7;
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["pitchShift"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 2 },
-                            { item: "pitch", weight: 2 },
-                            { item: "random", weight: 3 },
-                            { item: "flare", weight: 4 },
-                            { item: "twang", weight: 20 },
-                            { item: "decay", weight: 6 },
-                            { item: "linear", weight: 1 },
-                            { item: "blip", weight: 10 },
-                            { item: "fall", weight: 2 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 50, 13)]);
-                    }
-                }
-                if (Math.random() < 0.25) {
-                    instrument.effects |= 1 << 9;
-                    instrument.vibrato = selectCurvedDistribution(0, Config.echoSustainRange - 1, Config.echoSustainRange >> 1, 2);
-                    instrument.vibrato = Config.vibratos.dictionary[selectWeightedRandom([
-                        { item: "light", weight: 2 },
-                        { item: "delayed", weight: 2 },
-                        { item: "heavy", weight: 1 },
-                        { item: "shaky", weight: 2 },
-                    ])].index;
-                }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 3;
-                    instrument.distortion = selectCurvedDistribution(1, Config.distortionRange - 1, Config.distortionRange - 1, 2);
-                    if (Math.random() < 0.3) {
-                        let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        if (envelopeLowerBound >= envelopeUpperBound) {
-                            envelopeLowerBound = 0;
-                            envelopeUpperBound = 1;
-                        }
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["distortion"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 3 },
-                            { item: "pitch", weight: 4 },
-                            { item: "random", weight: 1 },
-                            { item: "punch", weight: 2 },
-                            { item: "flare", weight: 3 },
-                            { item: "twang", weight: 10 },
-                            { item: "swell", weight: 8 },
-                            { item: "lfo", weight: 7 },
-                            { item: "decay", weight: 5 },
-                            { item: "wibble", weight: 5 },
-                            { item: "linear", weight: 4 },
-                            { item: "rise", weight: 8 },
-                            { item: "fall", weight: 2 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 45, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 2 }, { item: 2, weight: 5 }]));
-                    }
-                }
-                if (effectsIncludeDistortion(instrument.effects) && Math.random() < 0.8) {
-                    instrument.effects |= 1 << 5;
-                    applyFilterPoints(instrument.noteFilter, [
-                        new PotentialFilterPoint(1.0, 0, midFreq, maxFreq, 2000.0, -1),
-                        new PotentialFilterPoint(0.9, 1, 0, midFreq - 1, 500.0, -1),
-                        new PotentialFilterPoint(0.4, 2, 0, maxFreq, 1400.0, 0),
-                    ]);
-                }
-                else if (Math.random() < 0.5) {
-                    instrument.effects |= 1 << 5;
-                    applyFilterPoints(instrument.noteFilter, [
-                        new PotentialFilterPoint(1.0, 0, midFreq, maxFreq, 8000.0, -1),
-                    ]);
-                    let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                    let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                    if (envelopeLowerBound >= envelopeUpperBound) {
-                        envelopeLowerBound = 0;
-                        envelopeUpperBound = 1;
-                    }
-                    instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["noteFilterAllFreqs"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                        { item: "note size", weight: 2 },
-                        { item: "pitch", weight: 2 },
-                        { item: "punch", weight: 6 },
-                        { item: "flare", weight: 3 },
-                        { item: "twang", weight: 7 },
-                        { item: "swell", weight: 8 },
-                        { item: "lfo", weight: 12 },
-                        { item: "decay", weight: 3 },
-                        { item: "wibble", weight: 5 },
-                        { item: "linear", weight: 4 },
-                        { item: "rise", weight: 8 },
-                        { item: "fall", weight: 2 },
-                    ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)], envelopeLowerBound, envelopeUpperBound, 2, 2, selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 4 }, { item: 3, weight: 2 }, { item: 1, weight: 1 }]));
-                }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 4;
-                    instrument.bitcrusherFreq = selectCurvedDistribution(0, Config.bitcrusherFreqRange - 1, 0, 2);
-                    instrument.bitcrusherQuantization = selectCurvedDistribution(0, Config.bitcrusherQuantizationRange - 1, Config.bitcrusherQuantizationRange >> 1, 2);
-                    let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                    let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                    if (envelopeLowerBound >= envelopeUpperBound) {
-                        envelopeLowerBound = 0;
-                        envelopeUpperBound = 1;
-                    }
-                    if (Math.random() < 0.3) {
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["bitcrusherFrequency"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 4 },
-                            { item: "pitch", weight: 3 },
-                            { item: "random", weight: 12 },
-                            { item: "flare", weight: 3 },
-                            { item: "twang", weight: 7 },
-                            { item: "swell", weight: 4 },
-                            { item: "lfo", weight: 12 },
-                            { item: "decay", weight: 2 },
-                            { item: "wibble", weight: 1 },
-                            { item: "linear", weight: 6 },
-                            { item: "rise", weight: 5 },
-                            { item: "blip", weight: 12 },
-                            { item: "fall", weight: 2 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 20, 34)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 3 }, { item: 2, weight: 1 }]));
-                    }
-                    if (Math.random() < 0.5) {
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["bitcrusherQuantization"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 8 },
-                            { item: "pitch", weight: 3 },
-                            { item: "random", weight: 12 },
-                            { item: "flare", weight: 3 },
-                            { item: "twang", weight: 7 },
-                            { item: "swell", weight: 4 },
-                            { item: "lfo", weight: 12 },
-                            { item: "decay", weight: 2 },
-                            { item: "wibble", weight: 1 },
-                            { item: "linear", weight: 6 },
-                            { item: "rise", weight: 5 },
-                            { item: "blip", weight: 12 },
-                            { item: "fall", weight: 2 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 20, 34)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 3 }, { item: 2, weight: 1 }]));
-                    }
-                    else if (type == 3) {
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["noteVolume"].index, 0, Config.newEnvelopes.dictionary["note size"].index, true);
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["bitcrusherQuantization"].index, 0, Config.newEnvelopes.dictionary["note size"].index, true);
-                    }
-                }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 1;
-                    instrument.chorus = selectCurvedDistribution(1, Config.chorusRange - 1, Config.chorusRange - 1, 1);
+                if (selectiveRandom.effects) {
                     if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 10;
+                        instrument.transition = Config.transitions.dictionary[selectWeightedRandom([
+                            { item: "interrupt", weight: 1 },
+                            { item: "slide", weight: 2 },
+                            { item: "continue", weight: 1 },
+                        ])].index;
+                    }
+                    if (Math.random() < 0.2) {
+                        instrument.effects |= 1 << 11;
+                        instrument.chord = Config.chords.dictionary[selectWeightedRandom([
+                            { item: "strum", weight: 2 },
+                            { item: "arpeggio", weight: 1 },
+                        ])].index;
+                    }
+                    if (Math.random() < 0.05) {
+                        instrument.pitchShift = selectCurvedDistribution(0, Config.pitchShiftRange - 1, Config.pitchShiftCenter, 1);
+                        if (instrument.pitchShift != Config.pitchShiftCenter) {
+                            instrument.effects |= 1 << 7;
+                            if (selectiveRandom.envelopes)
+                                instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["pitchShift"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                    { item: "note size", weight: 2 },
+                                    { item: "pitch", weight: 2 },
+                                    { item: "random", weight: 3 },
+                                    { item: "flare", weight: 4 },
+                                    { item: "twang", weight: 20 },
+                                    { item: "decay", weight: 6 },
+                                    { item: "linear", weight: 1 },
+                                    { item: "blip", weight: 10 },
+                                    { item: "fall", weight: 2 },
+                                ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 50, 13)]);
+                        }
+                    }
+                    if (Math.random() < 0.25) {
+                        instrument.effects |= 1 << 9;
+                        instrument.vibrato = selectCurvedDistribution(0, Config.echoSustainRange - 1, Config.echoSustainRange >> 1, 2);
+                        instrument.vibrato = Config.vibratos.dictionary[selectWeightedRandom([
+                            { item: "light", weight: 2 },
+                            { item: "delayed", weight: 2 },
+                            { item: "heavy", weight: 1 },
+                            { item: "shaky", weight: 2 },
+                        ])].index;
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 3;
+                        instrument.distortion = selectCurvedDistribution(1, Config.distortionRange - 1, Config.distortionRange - 1, 2);
+                        if (selectiveRandom.envelopes && Math.random() < 0.3) {
+                            let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            if (envelopeLowerBound >= envelopeUpperBound) {
+                                envelopeLowerBound = 0;
+                                envelopeUpperBound = 1;
+                            }
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["distortion"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 3 },
+                                { item: "pitch", weight: 4 },
+                                { item: "random", weight: 1 },
+                                { item: "punch", weight: 2 },
+                                { item: "flare", weight: 3 },
+                                { item: "twang", weight: 10 },
+                                { item: "swell", weight: 8 },
+                                { item: "lfo", weight: 7 },
+                                { item: "decay", weight: 5 },
+                                { item: "wibble", weight: 5 },
+                                { item: "linear", weight: 4 },
+                                { item: "rise", weight: 8 },
+                                { item: "fall", weight: 2 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 45, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 2 }, { item: 2, weight: 5 }]));
+                        }
+                    }
+                    if (effectsIncludeDistortion(instrument.effects) && Math.random() < 0.8) {
+                        instrument.effects |= 1 << 5;
+                        applyFilterPoints(instrument.noteFilter, [
+                            new PotentialFilterPoint(1.0, 0, midFreq, maxFreq, 2000.0, -1),
+                            new PotentialFilterPoint(0.9, 1, 0, midFreq - 1, 500.0, -1),
+                            new PotentialFilterPoint(0.4, 2, 0, maxFreq, 1400.0, 0),
+                        ]);
+                    }
+                    else if (Math.random() < 0.5) {
+                        instrument.effects |= 1 << 5;
+                        applyFilterPoints(instrument.noteFilter, [
+                            new PotentialFilterPoint(1.0, 0, midFreq, maxFreq, 8000.0, -1),
+                        ]);
                         let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                         let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                         if (envelopeLowerBound >= envelopeUpperBound) {
                             envelopeLowerBound = 0;
                             envelopeUpperBound = 1;
                         }
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["chorus"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 3 },
-                            { item: "pitch", weight: 4 },
-                            { item: "random", weight: 1 },
-                            { item: "punch", weight: 2 },
-                            { item: "flare", weight: 3 },
-                            { item: "twang", weight: 10 },
-                            { item: "swell", weight: 8 },
-                            { item: "lfo", weight: 7 },
-                            { item: "decay", weight: 5 },
-                            { item: "wibble", weight: 5 },
-                            { item: "linear", weight: 4 },
-                            { item: "rise", weight: 8 },
-                            { item: "fall", weight: 2 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 45, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 2 }, { item: 2, weight: 5 }]));
+                        if (selectiveRandom.envelopes)
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["noteFilterAllFreqs"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 2 },
+                                { item: "pitch", weight: 2 },
+                                { item: "punch", weight: 6 },
+                                { item: "flare", weight: 3 },
+                                { item: "twang", weight: 7 },
+                                { item: "swell", weight: 8 },
+                                { item: "lfo", weight: 12 },
+                                { item: "decay", weight: 3 },
+                                { item: "wibble", weight: 5 },
+                                { item: "linear", weight: 4 },
+                                { item: "rise", weight: 8 },
+                                { item: "fall", weight: 2 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)], envelopeLowerBound, envelopeUpperBound, 2, 2, selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 4 }, { item: 3, weight: 2 }, { item: 1, weight: 1 }]));
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 4;
+                        instrument.bitcrusherFreq = selectCurvedDistribution(0, Config.bitcrusherFreqRange - 1, 0, 2);
+                        instrument.bitcrusherQuantization = selectCurvedDistribution(0, Config.bitcrusherQuantizationRange - 1, Config.bitcrusherQuantizationRange >> 1, 2);
+                        let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                        let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                        if (envelopeLowerBound >= envelopeUpperBound) {
+                            envelopeLowerBound = 0;
+                            envelopeUpperBound = 1;
+                        }
+                        if (selectiveRandom.envelopes && Math.random() < 0.3) {
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["bitcrusherFrequency"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 4 },
+                                { item: "pitch", weight: 3 },
+                                { item: "random", weight: 12 },
+                                { item: "flare", weight: 3 },
+                                { item: "twang", weight: 7 },
+                                { item: "swell", weight: 4 },
+                                { item: "lfo", weight: 12 },
+                                { item: "decay", weight: 2 },
+                                { item: "wibble", weight: 1 },
+                                { item: "linear", weight: 6 },
+                                { item: "rise", weight: 5 },
+                                { item: "blip", weight: 12 },
+                                { item: "fall", weight: 2 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 20, 34)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 3 }, { item: 2, weight: 1 }]));
+                        }
+                        if (selectiveRandom.envelopes && Math.random() < 0.5) {
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["bitcrusherQuantization"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 8 },
+                                { item: "pitch", weight: 3 },
+                                { item: "random", weight: 12 },
+                                { item: "flare", weight: 3 },
+                                { item: "twang", weight: 7 },
+                                { item: "swell", weight: 4 },
+                                { item: "lfo", weight: 12 },
+                                { item: "decay", weight: 2 },
+                                { item: "wibble", weight: 1 },
+                                { item: "linear", weight: 6 },
+                                { item: "rise", weight: 5 },
+                                { item: "blip", weight: 12 },
+                                { item: "fall", weight: 2 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 20, 34)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 3 }, { item: 2, weight: 1 }]));
+                        }
+                        else if (selectiveRandom.envelopes && type == 3) {
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["noteVolume"].index, 0, Config.newEnvelopes.dictionary["note size"].index, true);
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["bitcrusherQuantization"].index, 0, Config.newEnvelopes.dictionary["note size"].index, true);
+                        }
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 1;
+                        instrument.chorus = selectCurvedDistribution(1, Config.chorusRange - 1, Config.chorusRange - 1, 1);
+                        if (selectiveRandom.envelopes && Math.random() < 0.1) {
+                            let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            if (envelopeLowerBound >= envelopeUpperBound) {
+                                envelopeLowerBound = 0;
+                                envelopeUpperBound = 1;
+                            }
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["chorus"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 3 },
+                                { item: "pitch", weight: 4 },
+                                { item: "random", weight: 1 },
+                                { item: "punch", weight: 2 },
+                                { item: "flare", weight: 3 },
+                                { item: "twang", weight: 10 },
+                                { item: "swell", weight: 8 },
+                                { item: "lfo", weight: 7 },
+                                { item: "decay", weight: 5 },
+                                { item: "wibble", weight: 5 },
+                                { item: "linear", weight: 4 },
+                                { item: "rise", weight: 8 },
+                                { item: "fall", weight: 2 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 45, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 2 }, { item: 2, weight: 5 }]));
+                        }
                     }
                 }
                 if (Math.random() < 0.1) {
@@ -28406,7 +28581,7 @@ li.select2-results__option[role=group] > strong:hover {
                     instrument.echoDelay = selectCurvedDistribution(0, Config.echoDelayRange - 1, Config.echoDelayRange >> 1, 2);
                     if (instrument.echoSustain != 0 || instrument.echoDelay != 0) {
                         instrument.effects |= 1 << 6;
-                        if (Math.random() < 0.04) {
+                        if (selectiveRandom.envelopes && Math.random() < 0.04) {
                             let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                             let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                             if (envelopeLowerBound >= envelopeUpperBound) {
@@ -28428,52 +28603,107 @@ li.select2-results__option[role=group] > strong:hover {
                             ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 45, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }]));
                         }
                     }
-                }
-                if (Math.random() < 0.07) {
-                    instrument.ringModulation = selectCurvedDistribution(1, Config.ringModRange - 1, Config.ringModRange / 2, Config.ringModRange / 2);
-                    instrument.ringModulationHz = selectCurvedDistribution(1, Config.ringModHzRange - 1, Config.ringModHzRange / 2, Config.ringModHzRange / 2);
-                    if (instrument.ringModulation != 0 || instrument.ringModulationHz != 0) {
-                        instrument.effects |= 1 << 13;
-                        instrument.ringModWaveformIndex = 0;
-                        if (Math.random() < 0.1) {
-                            let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                            let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                            if (envelopeLowerBound >= envelopeUpperBound) {
-                                envelopeLowerBound = 0;
-                                envelopeUpperBound = 1;
+                    if (Math.random() < 0.07) {
+                        instrument.ringModulation = selectCurvedDistribution(1, Config.ringModRange - 1, Config.ringModRange / 2, Config.ringModRange / 2);
+                        instrument.ringModulationHz = selectCurvedDistribution(1, Config.ringModHzRange - 1, Config.ringModHzRange / 2, Config.ringModHzRange / 2);
+                        if (instrument.ringModulation != 0 || instrument.ringModulationHz != 0) {
+                            instrument.effects |= 1 << 13;
+                            instrument.ringModWaveformIndex = 0;
+                            if (selectiveRandom.envelopes && Math.random() < 0.1) {
+                                let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                                let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                                if (envelopeLowerBound >= envelopeUpperBound) {
+                                    envelopeLowerBound = 0;
+                                    envelopeUpperBound = 1;
+                                }
+                                instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["ringModulation"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                    { item: "note size", weight: 4 },
+                                    { item: "pitch", weight: 8 },
+                                    { item: "random", weight: 7 },
+                                    { item: "punch", weight: 1 },
+                                    { item: "flare", weight: 1 },
+                                    { item: "twang", weight: 8 },
+                                    { item: "swell", weight: 6 },
+                                    { item: "lfo", weight: 6 },
+                                    { item: "decay", weight: 4 },
+                                    { item: "wibble", weight: 2 },
+                                    { item: "linear", weight: 4 },
+                                    { item: "rise", weight: 3 },
+                                    { item: "fall", weight: 4 },
+                                ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }]));
                             }
-                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["ringModulation"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                                { item: "note size", weight: 4 },
-                                { item: "pitch", weight: 8 },
-                                { item: "random", weight: 7 },
-                                { item: "punch", weight: 1 },
-                                { item: "flare", weight: 1 },
-                                { item: "twang", weight: 8 },
-                                { item: "swell", weight: 6 },
-                                { item: "lfo", weight: 6 },
-                                { item: "decay", weight: 4 },
-                                { item: "wibble", weight: 2 },
-                                { item: "linear", weight: 4 },
-                                { item: "rise", weight: 3 },
-                                { item: "fall", weight: 4 },
-                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }]));
+                            if (selectiveRandom.envelopes && Math.random() < 0.3) {
+                                let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                                let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                                if (envelopeLowerBound >= envelopeUpperBound) {
+                                    envelopeLowerBound = 0;
+                                    envelopeUpperBound = 1;
+                                }
+                                instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["ringModulationHz"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                    { item: "note size", weight: 4 },
+                                    { item: "pitch", weight: 8 },
+                                    { item: "random", weight: 7 },
+                                    { item: "punch", weight: 1 },
+                                    { item: "flare", weight: 4 },
+                                    { item: "twang", weight: 8 },
+                                    { item: "swell", weight: 6 },
+                                    { item: "lfo", weight: 6 },
+                                    { item: "decay", weight: 4 },
+                                    { item: "wibble", weight: 2 },
+                                    { item: "linear", weight: 4 },
+                                    { item: "rise", weight: 3 },
+                                    { item: "fall", weight: 4 },
+                                ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }, { item: 1, weight: 1 }]));
+                            }
                         }
-                        if (Math.random() < 0.3) {
+                    }
+                    if (Math.random() < 0.5) {
+                        instrument.effects |= 1 << 0;
+                        instrument.reverb = selectCurvedDistribution(1, Config.reverbRange - 1, 1, 1);
+                        if (selectiveRandom.envelopes && Math.random() < 0.03) {
                             let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                             let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                             if (envelopeLowerBound >= envelopeUpperBound) {
                                 envelopeLowerBound = 0;
                                 envelopeUpperBound = 1;
                             }
-                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["ringModulationHz"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                                { item: "note size", weight: 4 },
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["reverb"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 3 },
+                                { item: "pitch", weight: 4 },
+                                { item: "random", weight: 1 },
+                                { item: "punch", weight: 2 },
+                                { item: "flare", weight: 3 },
+                                { item: "twang", weight: 10 },
+                                { item: "swell", weight: 8 },
+                                { item: "lfo", weight: 7 },
+                                { item: "decay", weight: 5 },
+                                { item: "wibble", weight: 5 },
+                                { item: "linear", weight: 4 },
+                                { item: "rise", weight: 8 },
+                                { item: "fall", weight: 2 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 45, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 2 }, { item: 2, weight: 5 }]));
+                        }
+                    }
+                    if (Math.random() < 0.1) {
+                        instrument.effects |= 1 << 14;
+                        instrument.granular = selectCurvedDistribution(1, Config.granularRange - 1, Config.granularRange / 2, Config.granularRange / 3);
+                        instrument.grainAmounts = selectCurvedDistribution(1, Config.grainAmountsMax - 1, Config.grainAmountsMax - 2, 3);
+                        instrument.grainSize = selectCurvedDistribution(Config.grainSizeMin / Config.grainSizeStep, Config.grainSizeMax / Config.grainSizeStep, Config.grainSizeMax / Config.grainSizeStep, Config.grainSizeMax / Config.grainSizeStep / 2);
+                        instrument.grainRange = selectCurvedDistribution(0, Config.grainRangeMax / Config.grainSizeStep, Config.grainRangeMax / Config.grainSizeStep / 2, Config.grainSizeMax / Config.grainSizeStep / 2);
+                        if (selectiveRandom.envelopes && Math.random() < 0.2) {
+                            let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            if (envelopeLowerBound >= envelopeUpperBound) {
+                                envelopeLowerBound = 0;
+                                envelopeUpperBound = 1;
+                            }
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["granular"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 10 },
                                 { item: "pitch", weight: 8 },
-                                { item: "random", weight: 7 },
-                                { item: "punch", weight: 1 },
-                                { item: "flare", weight: 4 },
+                                { item: "random", weight: 2 },
                                 { item: "twang", weight: 8 },
                                 { item: "swell", weight: 6 },
-                                { item: "lfo", weight: 6 },
+                                { item: "lfo", weight: 4 },
                                 { item: "decay", weight: 4 },
                                 { item: "wibble", weight: 2 },
                                 { item: "linear", weight: 4 },
@@ -28481,85 +28711,30 @@ li.select2-results__option[role=group] > strong:hover {
                                 { item: "fall", weight: 4 },
                             ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }, { item: 1, weight: 1 }]));
                         }
-                    }
-                }
-                if (Math.random() < 0.5) {
-                    instrument.effects |= 1 << 0;
-                    instrument.reverb = selectCurvedDistribution(1, Config.reverbRange - 1, 1, 1);
-                    if (Math.random() < 0.03) {
-                        let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        if (envelopeLowerBound >= envelopeUpperBound) {
-                            envelopeLowerBound = 0;
-                            envelopeUpperBound = 1;
+                        if (selectiveRandom.envelopes && Math.random() < 0.3) {
+                            let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            if (envelopeLowerBound >= envelopeUpperBound) {
+                                envelopeLowerBound = 0;
+                                envelopeUpperBound = 1;
+                            }
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["grainFreq"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 10 },
+                                { item: "pitch", weight: 8 },
+                                { item: "random", weight: 7 },
+                                { item: "flare", weight: 1 },
+                                { item: "twang", weight: 8 },
+                                { item: "swell", weight: 6 },
+                                { item: "lfo", weight: 6 },
+                                { item: "decay", weight: 4 },
+                                { item: "wibble", weight: 3 },
+                                { item: "linear", weight: 4 },
+                                { item: "rise", weight: 3 },
+                                { item: "fall", weight: 4 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }, { item: 1, weight: 1 }]));
                         }
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["reverb"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 3 },
-                            { item: "pitch", weight: 4 },
-                            { item: "random", weight: 1 },
-                            { item: "punch", weight: 2 },
-                            { item: "flare", weight: 3 },
-                            { item: "twang", weight: 10 },
-                            { item: "swell", weight: 8 },
-                            { item: "lfo", weight: 7 },
-                            { item: "decay", weight: 5 },
-                            { item: "wibble", weight: 5 },
-                            { item: "linear", weight: 4 },
-                            { item: "rise", weight: 8 },
-                            { item: "fall", weight: 2 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 45, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 2 }, { item: 2, weight: 5 }]));
                     }
-                }
-                if (Math.random() < 0.1) {
-                    instrument.effects |= 1 << 14;
-                    instrument.granular = selectCurvedDistribution(1, Config.granularRange - 1, Config.granularRange / 2, Config.granularRange / 3);
-                    instrument.grainAmounts = selectCurvedDistribution(1, Config.grainAmountsMax - 1, Config.grainAmountsMax - 2, 3);
-                    instrument.grainSize = selectCurvedDistribution(Config.grainSizeMin / Config.grainSizeStep, Config.grainSizeMax / Config.grainSizeStep, Config.grainSizeMax / Config.grainSizeStep, Config.grainSizeMax / Config.grainSizeStep / 2);
-                    instrument.grainRange = selectCurvedDistribution(0, Config.grainRangeMax / Config.grainSizeStep, Config.grainRangeMax / Config.grainSizeStep / 2, Config.grainSizeMax / Config.grainSizeStep / 2);
-                    if (Math.random() < 0.2) {
-                        let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        if (envelopeLowerBound >= envelopeUpperBound) {
-                            envelopeLowerBound = 0;
-                            envelopeUpperBound = 1;
-                        }
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["granular"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 10 },
-                            { item: "pitch", weight: 8 },
-                            { item: "random", weight: 2 },
-                            { item: "twang", weight: 8 },
-                            { item: "swell", weight: 6 },
-                            { item: "lfo", weight: 4 },
-                            { item: "decay", weight: 4 },
-                            { item: "wibble", weight: 2 },
-                            { item: "linear", weight: 4 },
-                            { item: "rise", weight: 3 },
-                            { item: "fall", weight: 4 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }, { item: 1, weight: 1 }]));
-                    }
-                    if (Math.random() < 0.3) {
-                        let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        if (envelopeLowerBound >= envelopeUpperBound) {
-                            envelopeLowerBound = 0;
-                            envelopeUpperBound = 1;
-                        }
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["grainFreq"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 10 },
-                            { item: "pitch", weight: 8 },
-                            { item: "random", weight: 7 },
-                            { item: "flare", weight: 1 },
-                            { item: "twang", weight: 8 },
-                            { item: "swell", weight: 6 },
-                            { item: "lfo", weight: 6 },
-                            { item: "decay", weight: 4 },
-                            { item: "wibble", weight: 3 },
-                            { item: "linear", weight: 4 },
-                            { item: "rise", weight: 3 },
-                            { item: "fall", weight: 4 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }, { item: 1, weight: 1 }]));
-                    }
-                    if (Math.random() < 0.3) {
+                    if (selectiveRandom.envelopes && Math.random() < 0.3) {
                         let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                         let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                         if (envelopeLowerBound >= envelopeUpperBound) {
@@ -28581,32 +28756,32 @@ li.select2-results__option[role=group] > strong:hover {
                             { item: "rise", weight: 6 },
                             { item: "fall", weight: 4 },
                         ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }, { item: 1, weight: 1 }]));
-                    }
-                    if (Math.random() < 0.05) {
-                        let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                        if (envelopeLowerBound >= envelopeUpperBound) {
-                            envelopeLowerBound = 0;
-                            envelopeUpperBound = 1;
+                        if (selectiveRandom.envelopes && Math.random() < 0.05) {
+                            let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                            if (envelopeLowerBound >= envelopeUpperBound) {
+                                envelopeLowerBound = 0;
+                                envelopeUpperBound = 1;
+                            }
+                            instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["grainRange"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                { item: "note size", weight: 10 },
+                                { item: "pitch", weight: 8 },
+                                { item: "random", weight: 7 },
+                                { item: "punch", weight: 1 },
+                                { item: "flare", weight: 1 },
+                                { item: "twang", weight: 8 },
+                                { item: "swell", weight: 6 },
+                                { item: "lfo", weight: 6 },
+                                { item: "decay", weight: 4 },
+                                { item: "wibble", weight: 2 },
+                                { item: "linear", weight: 4 },
+                                { item: "rise", weight: 3 },
+                                { item: "fall", weight: 4 },
+                            ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }, { item: 1, weight: 1 }]));
                         }
-                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["grainRange"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                            { item: "note size", weight: 10 },
-                            { item: "pitch", weight: 8 },
-                            { item: "random", weight: 7 },
-                            { item: "punch", weight: 1 },
-                            { item: "flare", weight: 1 },
-                            { item: "twang", weight: 8 },
-                            { item: "swell", weight: 6 },
-                            { item: "lfo", weight: 6 },
-                            { item: "decay", weight: 4 },
-                            { item: "wibble", weight: 2 },
-                            { item: "linear", weight: 4 },
-                            { item: "rise", weight: 3 },
-                            { item: "fall", weight: 4 },
-                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 25, 20)], envelopeLowerBound, envelopeUpperBound, selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 3 }, { item: 1, weight: 1 }]));
                     }
                 }
-                if (Math.random() < 0.2) {
+                if (selectiveRandom.envelopes && Math.random() < 0.2) {
                     let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                     let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                     if (envelopeLowerBound >= envelopeUpperBound) {
@@ -28638,291 +28813,294 @@ li.select2-results__option[role=group] > strong:hover {
                         harmonics[i] = Config.harmonicsMax * harmonics[i] / max;
                     }
                 }
-                switch (type) {
-                    case 0:
-                        {
-                            instrument.chipWave = (Math.random() * Config.chipWaves.length) | 0;
-                            instrument.isUsingAdvancedLoopControls = false;
-                            instrument.chipWaveLoopStart = 0;
-                            instrument.chipWaveLoopEnd = Config.rawRawChipWaves[instrument.chipWave].samples.length - 1;
-                            instrument.chipWaveLoopMode = 0;
-                            instrument.chipWavePlayBackwards = false;
-                            instrument.chipWaveStartOffset = 0;
-                        }
-                        break;
-                    case 6:
-                    case 8:
-                        {
-                            if (type == 8) {
-                                instrument.supersawDynamism = selectCurvedDistribution(0, Config.supersawDynamismMax, Config.supersawDynamismMax, 2);
-                                instrument.supersawSpread = selectCurvedDistribution(0, Config.supersawSpreadMax, Math.ceil(Config.supersawSpreadMax / 3), 4);
-                                instrument.supersawShape = selectCurvedDistribution(0, Config.supersawShapeMax, 0, 4);
+                if (selectiveRandom.instrumentTypeSettings)
+                    switch (type) {
+                        case 0:
+                            {
+                                instrument.chipWave = (Math.random() * Config.chipWaves.length) | 0;
+                                instrument.isUsingAdvancedLoopControls = false;
+                                instrument.chipWaveLoopStart = 0;
+                                instrument.chipWaveLoopEnd = Config.rawRawChipWaves[instrument.chipWave].samples.length - 1;
+                                instrument.chipWaveLoopMode = 0;
+                                instrument.chipWavePlayBackwards = false;
+                                instrument.chipWaveStartOffset = 0;
                             }
-                            instrument.pulseWidth = selectCurvedDistribution(0, Config.pulseWidthRange - 1, Config.pulseWidthRange - 1, 2);
-                            instrument.decimalOffset = 0;
-                            if (Math.random() < 0.6) {
-                                instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["pulseWidth"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                                    { item: "note size", weight: 2 },
-                                    { item: "pitch", weight: 1 },
-                                    { item: "random", weight: 3 },
-                                    { item: "punch", weight: 6 },
-                                    { item: "flare", weight: 3 },
-                                    { item: "twang", weight: 6 },
-                                    { item: "swell", weight: 8 },
-                                    { item: "lfo", weight: 6 },
-                                    { item: "decay", weight: 2 },
-                                    { item: "wibble", weight: 6 },
-                                    { item: "linear", weight: 3 },
-                                    { item: "rise", weight: 5 },
-                                    { item: "blip", weight: 10 },
-                                    { item: "fall", weight: 4 },
-                                ])].index, false, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 40, 20)], selectWeightedRandom([
-                                    { item: 0, weight: 8 },
-                                    { item: 0.1, weight: 4 },
-                                    { item: 0.2, weight: 3 },
-                                    { item: 0.3, weight: 1 },
-                                    { item: 0.4, weight: 2 },
-                                    { item: 0.5, weight: 6 },
-                                ]), selectWeightedRandom([
-                                    { item: 0.6, weight: 1 },
-                                    { item: 0.7, weight: 2 },
-                                    { item: 0.8, weight: 3 },
-                                    { item: 0.9, weight: 5 },
-                                    { item: 1, weight: 8 }
-                                ]), selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 1, weight: 2 }]));
+                            break;
+                        case 6:
+                        case 8:
+                            {
+                                if (type == 8) {
+                                    instrument.supersawDynamism = selectCurvedDistribution(0, Config.supersawDynamismMax, Config.supersawDynamismMax, 2);
+                                    instrument.supersawSpread = selectCurvedDistribution(0, Config.supersawSpreadMax, Math.ceil(Config.supersawSpreadMax / 3), 4);
+                                    instrument.supersawShape = selectCurvedDistribution(0, Config.supersawShapeMax, 0, 4);
+                                }
+                                instrument.pulseWidth = selectCurvedDistribution(0, Config.pulseWidthRange - 1, Config.pulseWidthRange - 1, 2);
+                                instrument.decimalOffset = 0;
+                                if (selectiveRandom.envelopes && Math.random() < 0.6) {
+                                    instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["pulseWidth"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                        { item: "note size", weight: 2 },
+                                        { item: "pitch", weight: 1 },
+                                        { item: "random", weight: 3 },
+                                        { item: "punch", weight: 6 },
+                                        { item: "flare", weight: 3 },
+                                        { item: "twang", weight: 6 },
+                                        { item: "swell", weight: 8 },
+                                        { item: "lfo", weight: 6 },
+                                        { item: "decay", weight: 2 },
+                                        { item: "wibble", weight: 6 },
+                                        { item: "linear", weight: 3 },
+                                        { item: "rise", weight: 5 },
+                                        { item: "blip", weight: 10 },
+                                        { item: "fall", weight: 4 },
+                                    ])].index, false, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 40, 20)], selectWeightedRandom([
+                                        { item: 0, weight: 8 },
+                                        { item: 0.1, weight: 4 },
+                                        { item: 0.2, weight: 3 },
+                                        { item: 0.3, weight: 1 },
+                                        { item: 0.4, weight: 2 },
+                                        { item: 0.5, weight: 6 },
+                                    ]), selectWeightedRandom([
+                                        { item: 0.6, weight: 1 },
+                                        { item: 0.7, weight: 2 },
+                                        { item: 0.8, weight: 3 },
+                                        { item: 0.9, weight: 5 },
+                                        { item: 1, weight: 8 }
+                                    ]), selectCurvedDistribution(2, 16, 2, 6), selectCurvedDistribution(1, 63, 32, 31), selectWeightedRandom([{ item: 0, weight: 8 }, { item: 1, weight: 2 }]));
+                                }
                             }
-                        }
-                        break;
-                    case 7:
-                    case 5:
-                        {
-                            if (type == 7) {
-                                instrument.stringSustain = (Math.random() * Config.stringSustainRange) | 0;
+                            break;
+                        case 7:
+                        case 5:
+                            {
+                                if (type == 7) {
+                                    instrument.stringSustain = (Math.random() * Config.stringSustainRange) | 0;
+                                }
+                                const harmonicGenerators = [
+                                    () => {
+                                        const harmonics = [];
+                                        for (let i = 0; i < Config.harmonicsControlPoints; i++) {
+                                            harmonics[i] = (Math.random() < 0.4) ? Math.random() : 0.0;
+                                        }
+                                        harmonics[(Math.random() * 8) | 0] = Math.pow(Math.random(), 0.25);
+                                        return harmonics;
+                                    },
+                                    () => {
+                                        let current = 1.0;
+                                        const harmonics = [current];
+                                        for (let i = 1; i < Config.harmonicsControlPoints; i++) {
+                                            current *= Math.pow(2, Math.random() - 0.55);
+                                            harmonics[i] = current;
+                                        }
+                                        return harmonics;
+                                    },
+                                    () => {
+                                        let current = 1.0;
+                                        const harmonics = [current];
+                                        for (let i = 1; i < Config.harmonicsControlPoints; i++) {
+                                            current *= Math.pow(2, Math.random() - 0.55);
+                                            harmonics[i] = current * Math.random();
+                                        }
+                                        return harmonics;
+                                    },
+                                ];
+                                const generator = harmonicGenerators[(Math.random() * harmonicGenerators.length) | 0];
+                                const harmonics = generator();
+                                normalize(harmonics);
+                                for (let i = 0; i < Config.harmonicsControlPoints; i++) {
+                                    instrument.harmonicsWave.harmonics[i] = Math.round(harmonics[i]);
+                                }
+                                instrument.harmonicsWave.markCustomWaveDirty();
                             }
-                            const harmonicGenerators = [
-                                () => {
-                                    const harmonics = [];
-                                    for (let i = 0; i < Config.harmonicsControlPoints; i++) {
-                                        harmonics[i] = (Math.random() < 0.4) ? Math.random() : 0.0;
+                            break;
+                        case 3:
+                            {
+                                const spectrum = [];
+                                for (let i = 0; i < Config.spectrumControlPoints; i++) {
+                                    const isHarmonic = i == 0 || i == 7 || i == 11 || i == 14 || i == 16 || i == 18 || i == 21;
+                                    if (isHarmonic) {
+                                        spectrum[i] = Math.pow(Math.random(), 0.25);
                                     }
-                                    harmonics[(Math.random() * 8) | 0] = Math.pow(Math.random(), 0.25);
-                                    return harmonics;
-                                },
-                                () => {
-                                    let current = 1.0;
-                                    const harmonics = [current];
-                                    for (let i = 1; i < Config.harmonicsControlPoints; i++) {
-                                        current *= Math.pow(2, Math.random() - 0.55);
-                                        harmonics[i] = current;
+                                    else {
+                                        spectrum[i] = Math.pow(Math.random(), 3) * 0.5;
                                     }
-                                    return harmonics;
-                                },
-                                () => {
-                                    let current = 1.0;
-                                    const harmonics = [current];
-                                    for (let i = 1; i < Config.harmonicsControlPoints; i++) {
-                                        current *= Math.pow(2, Math.random() - 0.55);
-                                        harmonics[i] = current * Math.random();
-                                    }
-                                    return harmonics;
-                                },
-                            ];
-                            const generator = harmonicGenerators[(Math.random() * harmonicGenerators.length) | 0];
-                            const harmonics = generator();
-                            normalize(harmonics);
-                            for (let i = 0; i < Config.harmonicsControlPoints; i++) {
-                                instrument.harmonicsWave.harmonics[i] = Math.round(harmonics[i]);
+                                }
+                                normalize(spectrum);
+                                for (let i = 0; i < Config.spectrumControlPoints; i++) {
+                                    instrument.spectrumWave.spectrum[i] = Math.round(spectrum[i]);
+                                }
+                                instrument.spectrumWave.markCustomWaveDirty();
                             }
-                            instrument.harmonicsWave.markCustomWaveDirty();
-                        }
-                        break;
-                    case 3:
-                        {
-                            const spectrum = [];
-                            for (let i = 0; i < Config.spectrumControlPoints; i++) {
-                                const isHarmonic = i == 0 || i == 7 || i == 11 || i == 14 || i == 16 || i == 18 || i == 21;
-                                if (isHarmonic) {
-                                    spectrum[i] = Math.pow(Math.random(), 0.25);
+                            break;
+                        case 11:
+                        case 1:
+                            {
+                                if (type == 1) {
+                                    instrument.algorithm = (Math.random() * Config.algorithms.length) | 0;
+                                    instrument.feedbackType = (Math.random() * Config.feedbacks.length) | 0;
                                 }
                                 else {
-                                    spectrum[i] = Math.pow(Math.random(), 3) * 0.5;
+                                    instrument.algorithm6Op = (Math.random() * (Config.algorithms6Op.length - 1) + 1) | 0;
+                                    instrument.customAlgorithm.fromPreset(instrument.algorithm6Op);
+                                    instrument.feedbackType6Op = (Math.random() * (Config.feedbacks6Op.length - 1) + 1) | 0;
+                                    instrument.customFeedbackType.fromPreset(instrument.feedbackType6Op);
                                 }
-                            }
-                            normalize(spectrum);
-                            for (let i = 0; i < Config.spectrumControlPoints; i++) {
-                                instrument.spectrumWave.spectrum[i] = Math.round(spectrum[i]);
-                            }
-                            instrument.spectrumWave.markCustomWaveDirty();
-                        }
-                        break;
-                    case 11:
-                    case 1:
-                        {
-                            if (type == 1) {
-                                instrument.algorithm = (Math.random() * Config.algorithms.length) | 0;
-                                instrument.feedbackType = (Math.random() * Config.feedbacks.length) | 0;
-                            }
-                            else {
-                                instrument.algorithm6Op = (Math.random() * (Config.algorithms6Op.length - 1) + 1) | 0;
-                                instrument.customAlgorithm.fromPreset(instrument.algorithm6Op);
-                                instrument.feedbackType6Op = (Math.random() * (Config.feedbacks6Op.length - 1) + 1) | 0;
-                                instrument.customFeedbackType.fromPreset(instrument.feedbackType6Op);
-                            }
-                            const algorithm = type == 1 ? Config.algorithms[instrument.algorithm] : Config.algorithms6Op[instrument.algorithm6Op];
-                            for (let i = 0; i < algorithm.carrierCount; i++) {
-                                instrument.operators[i].frequency = selectCurvedDistribution(0, Config.operatorFrequencies.length - 1, 0, 3);
-                                instrument.operators[i].amplitude = selectCurvedDistribution(0, Config.operatorAmplitudeMax, Config.operatorAmplitudeMax - 1, 2);
-                                instrument.operators[i].waveform = Config.operatorWaves.dictionary[selectWeightedRandom([
-                                    { item: "sine", weight: 10 },
-                                    { item: "triangle", weight: 6 },
-                                    { item: "pulse width", weight: 6 },
-                                    { item: "sawtooth", weight: 3 },
-                                    { item: "ramp", weight: 3 },
-                                    { item: "trapezoid", weight: 4 },
-                                    { item: "quasi-sine", weight: 2 },
-                                ])].index;
-                                if (instrument.operators[i].waveform == 2) {
-                                    instrument.operators[i].pulseWidth = selectWeightedRandom([
-                                        { item: 0, weight: 3 },
-                                        { item: 1, weight: 5 },
-                                        { item: 2, weight: 7 },
-                                        { item: 3, weight: 10 },
-                                        { item: 4, weight: 15 },
-                                        { item: 5, weight: 25 },
-                                        { item: 6, weight: 15 },
-                                        { item: 7, weight: 10 },
-                                        { item: 8, weight: 7 },
-                                        { item: 9, weight: 5 },
-                                        { item: 9, weight: 3 },
-                                    ]);
+                                const algorithm = type == 1 ? Config.algorithms[instrument.algorithm] : Config.algorithms6Op[instrument.algorithm6Op];
+                                for (let i = 0; i < algorithm.carrierCount; i++) {
+                                    instrument.operators[i].frequency = selectCurvedDistribution(0, Config.operatorFrequencies.length - 1, 0, 3);
+                                    instrument.operators[i].amplitude = selectCurvedDistribution(0, Config.operatorAmplitudeMax, Config.operatorAmplitudeMax - 1, 2);
+                                    instrument.operators[i].waveform = Config.operatorWaves.dictionary[selectWeightedRandom([
+                                        { item: "sine", weight: 10 },
+                                        { item: "triangle", weight: 6 },
+                                        { item: "pulse width", weight: 6 },
+                                        { item: "sawtooth", weight: 3 },
+                                        { item: "ramp", weight: 3 },
+                                        { item: "trapezoid", weight: 4 },
+                                        { item: "quasi-sine", weight: 2 },
+                                    ])].index;
+                                    if (instrument.operators[i].waveform == 2) {
+                                        instrument.operators[i].pulseWidth = selectWeightedRandom([
+                                            { item: 0, weight: 3 },
+                                            { item: 1, weight: 5 },
+                                            { item: 2, weight: 7 },
+                                            { item: 3, weight: 10 },
+                                            { item: 4, weight: 15 },
+                                            { item: 5, weight: 25 },
+                                            { item: 6, weight: 15 },
+                                            { item: 7, weight: 10 },
+                                            { item: 8, weight: 7 },
+                                            { item: 9, weight: 5 },
+                                            { item: 9, weight: 3 },
+                                        ]);
+                                    }
                                 }
-                            }
-                            for (let i = algorithm.carrierCount; i < Config.operatorCount + (type == 11 ? 2 : 0); i++) {
-                                instrument.operators[i].frequency = selectCurvedDistribution(3, Config.operatorFrequencies.length - 1, 0, 3);
-                                instrument.operators[i].amplitude = (Math.pow(Math.random(), 2) * Config.operatorAmplitudeMax) | 0;
-                                if (instrument.envelopeCount < Config.maxEnvelopeCount && Math.random() < 0.4) {
+                                for (let i = algorithm.carrierCount; i < Config.operatorCount + (type == 11 ? 2 : 0); i++) {
+                                    instrument.operators[i].frequency = selectCurvedDistribution(3, Config.operatorFrequencies.length - 1, 0, 3);
+                                    instrument.operators[i].amplitude = (Math.pow(Math.random(), 2) * Config.operatorAmplitudeMax) | 0;
+                                    if (selectiveRandom.envelopes && instrument.envelopeCount < Config.maxEnvelopeCount && Math.random() < 0.4) {
+                                        let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                                        let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                                        if (envelopeLowerBound >= envelopeUpperBound) {
+                                            envelopeLowerBound = 0;
+                                            envelopeUpperBound = 1;
+                                        }
+                                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["operatorAmplitude"].index, i, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                            { item: "punch", weight: 2 },
+                                            { item: "pitch", weight: 1 },
+                                            { item: "flare", weight: 3 },
+                                            { item: "twang", weight: 4 },
+                                            { item: "swell", weight: 4 },
+                                            { item: "lfo", weight: 6 },
+                                            { item: "decay", weight: 2 },
+                                            { item: "wibble", weight: 5 },
+                                            { item: "linear", weight: 3 },
+                                            { item: "rise", weight: 5 },
+                                            { item: "fall", weight: 2 },
+                                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)], envelopeLowerBound, envelopeUpperBound, 2, 2, selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 4 }, { item: 3, weight: 2 }, { item: 1, weight: 1 }]));
+                                    }
+                                    if (selectiveRandom.envelopes && instrument.envelopeCount < Config.maxEnvelopeCount && Math.random() < 0.15) {
+                                        let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                                        let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
+                                        if (envelopeLowerBound >= envelopeUpperBound) {
+                                            envelopeLowerBound = 0;
+                                            envelopeUpperBound = 1;
+                                        }
+                                        instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["operatorFrequency"].index, i, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                            { item: "punch", weight: 2 },
+                                            { item: "pitch", weight: 1 },
+                                            { item: "flare", weight: 3 },
+                                            { item: "twang", weight: 10 },
+                                            { item: "swell", weight: 5 },
+                                            { item: "lfo", weight: 6 },
+                                            { item: "decay", weight: 2 },
+                                            { item: "wibble", weight: 5 },
+                                            { item: "linear", weight: 3 },
+                                            { item: "rise", weight: 5 },
+                                            { item: "fall", weight: 2 },
+                                        ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)], envelopeLowerBound, envelopeUpperBound, 2, 2, selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 4 }, { item: 3, weight: 4 }, { item: 1, weight: 1 }]));
+                                    }
+                                    instrument.operators[i].waveform = Config.operatorWaves.dictionary[selectWeightedRandom([
+                                        { item: "sine", weight: 10 },
+                                        { item: "triangle", weight: 6 },
+                                        { item: "pulse width", weight: 6 },
+                                        { item: "sawtooth", weight: 3 },
+                                        { item: "ramp", weight: 3 },
+                                        { item: "trapezoid", weight: 4 },
+                                        { item: "quasi-sine", weight: 2 },
+                                    ])].index;
+                                    if (instrument.operators[i].waveform == 2) {
+                                        instrument.operators[i].pulseWidth = selectWeightedRandom([
+                                            { item: 0, weight: 3 },
+                                            { item: 1, weight: 5 },
+                                            { item: 2, weight: 7 },
+                                            { item: 3, weight: 10 },
+                                            { item: 4, weight: 15 },
+                                            { item: 5, weight: 25 },
+                                            { item: 6, weight: 15 },
+                                            { item: 7, weight: 10 },
+                                            { item: 8, weight: 7 },
+                                            { item: 9, weight: 5 },
+                                            { item: 9, weight: 3 },
+                                        ]);
+                                    }
+                                }
+                                instrument.feedbackAmplitude = (Math.pow(Math.random(), 3) * Config.operatorAmplitudeMax) | 0;
+                                if (selectiveRandom.envelopes && instrument.envelopeCount < Config.maxEnvelopeCount && Math.random() < 0.4) {
                                     let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                                     let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
                                     if (envelopeLowerBound >= envelopeUpperBound) {
                                         envelopeLowerBound = 0;
                                         envelopeUpperBound = 1;
                                     }
-                                    instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["operatorAmplitude"].index, i, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                    instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["feedbackAmplitude"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
+                                        { item: "note size", weight: 4 },
                                         { item: "punch", weight: 2 },
                                         { item: "pitch", weight: 1 },
-                                        { item: "flare", weight: 3 },
-                                        { item: "twang", weight: 4 },
+                                        { item: "flare", weight: 2 },
+                                        { item: "twang", weight: 2 },
                                         { item: "swell", weight: 4 },
-                                        { item: "lfo", weight: 6 },
-                                        { item: "decay", weight: 2 },
-                                        { item: "wibble", weight: 5 },
-                                        { item: "linear", weight: 3 },
-                                        { item: "rise", weight: 5 },
-                                        { item: "fall", weight: 2 },
+                                        { item: "lfo", weight: 3 },
+                                        { item: "decay", weight: 3 },
+                                        { item: "wibble", weight: 3 },
+                                        { item: "linear", weight: 2 },
+                                        { item: "rise", weight: 3 },
+                                        { item: "fall", weight: 3 },
                                     ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)], envelopeLowerBound, envelopeUpperBound, 2, 2, selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 4 }, { item: 3, weight: 2 }, { item: 1, weight: 1 }]));
                                 }
-                                if (instrument.envelopeCount < Config.maxEnvelopeCount && Math.random() < 0.15) {
-                                    let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                                    let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                                    if (envelopeLowerBound >= envelopeUpperBound) {
-                                        envelopeLowerBound = 0;
-                                        envelopeUpperBound = 1;
-                                    }
-                                    instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["operatorFrequency"].index, i, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                                        { item: "punch", weight: 2 },
-                                        { item: "pitch", weight: 1 },
-                                        { item: "flare", weight: 3 },
-                                        { item: "twang", weight: 10 },
-                                        { item: "swell", weight: 5 },
-                                        { item: "lfo", weight: 6 },
-                                        { item: "decay", weight: 2 },
-                                        { item: "wibble", weight: 5 },
-                                        { item: "linear", weight: 3 },
-                                        { item: "rise", weight: 5 },
-                                        { item: "fall", weight: 2 },
-                                    ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)], envelopeLowerBound, envelopeUpperBound, 2, 2, selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 4 }, { item: 3, weight: 4 }, { item: 1, weight: 1 }]));
-                                }
-                                instrument.operators[i].waveform = Config.operatorWaves.dictionary[selectWeightedRandom([
-                                    { item: "sine", weight: 10 },
-                                    { item: "triangle", weight: 6 },
-                                    { item: "pulse width", weight: 6 },
-                                    { item: "sawtooth", weight: 3 },
-                                    { item: "ramp", weight: 3 },
-                                    { item: "trapezoid", weight: 4 },
-                                    { item: "quasi-sine", weight: 2 },
-                                ])].index;
-                                if (instrument.operators[i].waveform == 2) {
-                                    instrument.operators[i].pulseWidth = selectWeightedRandom([
-                                        { item: 0, weight: 3 },
-                                        { item: 1, weight: 5 },
-                                        { item: 2, weight: 7 },
-                                        { item: 3, weight: 10 },
-                                        { item: 4, weight: 15 },
-                                        { item: 5, weight: 25 },
-                                        { item: 6, weight: 15 },
-                                        { item: 7, weight: 10 },
-                                        { item: 8, weight: 7 },
-                                        { item: 9, weight: 5 },
-                                        { item: 9, weight: 3 },
-                                    ]);
-                                }
                             }
-                            instrument.feedbackAmplitude = (Math.pow(Math.random(), 3) * Config.operatorAmplitudeMax) | 0;
-                            if (instrument.envelopeCount < Config.maxEnvelopeCount && Math.random() < 0.4) {
-                                let envelopeLowerBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                                let envelopeUpperBound = selectCurvedDistribution(0, 20, 8, 5) / 10;
-                                if (envelopeLowerBound >= envelopeUpperBound) {
-                                    envelopeLowerBound = 0;
-                                    envelopeUpperBound = 1;
+                            break;
+                        case 9:
+                            {
+                                let randomGeneratedArray = new Float32Array(64);
+                                let randomGeneratedArrayIntegral = new Float32Array(65);
+                                const algorithmFunction = selectWeightedRandom([
+                                    { item: randomSineWave, weight: 4 },
+                                    { item: randomPulses, weight: 4 },
+                                    { item: randomChipWave, weight: 3 },
+                                    { item: biasedFullyRandom, weight: 2 },
+                                    { item: fullyRandom, weight: 1 },
+                                ]);
+                                algorithmFunction(randomGeneratedArray);
+                                let sum = 0.0;
+                                for (let i = 0; i < randomGeneratedArray.length; i++)
+                                    sum += randomGeneratedArray[i];
+                                const average = sum / randomGeneratedArray.length;
+                                let cumulative = 0;
+                                let wavePrev = 0;
+                                for (let i = 0; i < randomGeneratedArray.length; i++) {
+                                    cumulative += wavePrev;
+                                    wavePrev = randomGeneratedArray[i] - average;
+                                    randomGeneratedArrayIntegral[i] = cumulative;
                                 }
-                                instrument.addEnvelope(Config.instrumentAutomationTargets.dictionary["feedbackAmplitude"].index, 0, Config.newEnvelopes.dictionary[selectWeightedRandom([
-                                    { item: "note size", weight: 4 },
-                                    { item: "punch", weight: 2 },
-                                    { item: "pitch", weight: 1 },
-                                    { item: "flare", weight: 2 },
-                                    { item: "twang", weight: 2 },
-                                    { item: "swell", weight: 4 },
-                                    { item: "lfo", weight: 3 },
-                                    { item: "decay", weight: 3 },
-                                    { item: "wibble", weight: 3 },
-                                    { item: "linear", weight: 2 },
-                                    { item: "rise", weight: 3 },
-                                    { item: "fall", weight: 3 },
-                                ])].index, true, 0, -1, selectWeightedRandom([{ item: false, weight: 8 }, { item: true, weight: 1 }]), Config.perEnvelopeSpeedIndices[selectCurvedDistribution(1, 63, 30, 30)], envelopeLowerBound, envelopeUpperBound, 2, 2, selectWeightedRandom([{ item: 0, weight: 8 }, { item: 2, weight: 4 }, { item: 3, weight: 2 }, { item: 1, weight: 1 }]));
+                                randomGeneratedArrayIntegral[64] = 0.0;
+                                instrument.customChipWave = randomGeneratedArray;
+                                instrument.customChipWaveIntegral = randomGeneratedArrayIntegral;
                             }
-                        }
-                        break;
-                    case 9:
-                        {
-                            let randomGeneratedArray = new Float32Array(64);
-                            let randomGeneratedArrayIntegral = new Float32Array(65);
-                            const algorithmFunction = selectWeightedRandom([
-                                { item: randomSineWave, weight: 4 },
-                                { item: randomPulses, weight: 4 },
-                                { item: randomChipWave, weight: 3 },
-                                { item: biasedFullyRandom, weight: 2 },
-                                { item: fullyRandom, weight: 1 },
-                            ]);
-                            algorithmFunction(randomGeneratedArray);
-                            let sum = 0.0;
-                            for (let i = 0; i < randomGeneratedArray.length; i++)
-                                sum += randomGeneratedArray[i];
-                            const average = sum / randomGeneratedArray.length;
-                            let cumulative = 0;
-                            let wavePrev = 0;
-                            for (let i = 0; i < randomGeneratedArray.length; i++) {
-                                cumulative += wavePrev;
-                                wavePrev = randomGeneratedArray[i] - average;
-                                randomGeneratedArrayIntegral[i] = cumulative;
-                            }
-                            randomGeneratedArrayIntegral[64] = 0.0;
-                            instrument.customChipWave = randomGeneratedArray;
-                            instrument.customChipWaveIntegral = randomGeneratedArrayIntegral;
-                        }
-                        break;
-                    default: throw new Error("Unhandled pitched instrument type in random generator.");
-                }
+                            break;
+                        default: throw new Error("Unhandled pitched instrument type in random generator.");
+                    }
             }
+            if (!selectiveRandom.envelopes)
+                instrument.clearInvalidEnvelopeTargets();
             doc.notifier.changed();
             this._didSomething();
         }
@@ -29103,6 +29281,46 @@ li.select2-results__option[role=group] > strong:hover {
             }
             doc.notifier.changed();
             this._didSomething();
+        }
+    }
+    class ChangeSwapInstrumentOrder extends Change {
+        constructor(doc, channel, instrumentLeft) {
+            super();
+            const instruments = doc.song.channels[channel].instruments;
+            if (instrumentLeft >= 0 && instruments.length >= 2 && instrumentLeft < instruments.length - 1) {
+                instruments.splice(instrumentLeft, 2, instruments[instrumentLeft + 1], instruments[instrumentLeft]);
+                const index = instrumentLeft + +(doc.getCurrentInstrument() == instrumentLeft);
+                if (index != doc.getCurrentInstrument()) {
+                    doc.viewedInstrument[doc.channel] = index;
+                    if (doc.channel >= doc.song.pitchChannelCount + doc.song.noiseChannelCount)
+                        doc.recentPatternInstruments[doc.channel] = [index];
+                }
+                if (doc.song.patternInstruments) {
+                    for (const pattern of doc.song.channels[channel].patterns) {
+                        pattern.instruments.forEach((value, index) => {
+                            if (value == instrumentLeft)
+                                pattern.instruments[index] = instrumentLeft + 1;
+                            else if (value == instrumentLeft + 1)
+                                pattern.instruments[index] = instrumentLeft;
+                        });
+                    }
+                }
+                for (let channelIndex = doc.song.pitchChannelCount + doc.song.noiseChannelCount; channelIndex < doc.song.getChannelCount(); channelIndex++) {
+                    for (let instrumentIdx = 0; instrumentIdx < doc.song.channels[channelIndex].instruments.length; instrumentIdx++) {
+                        let instrument = doc.song.channels[channelIndex].instruments[instrumentIdx];
+                        for (let i = 0; i < Config.modCount; i++) {
+                            if (instrument.modChannels[i] == channel) {
+                                if (instrument.modInstruments[i] == instrumentLeft)
+                                    instrument.modInstruments[i]++;
+                                else if (instrument.modInstruments[i] == instrumentLeft + 1)
+                                    instrument.modInstruments[i]--;
+                            }
+                        }
+                    }
+                }
+                doc.notifier.changed();
+                this._didSomething();
+            }
         }
     }
     class ChangeCustomScale extends Change {
@@ -30512,6 +30730,189 @@ li.select2-results__option[role=group] > strong:hover {
         constructor(doc, instrument, instrumentCopy) {
             super();
             instrument.fromJsonObject(instrumentCopy, instrumentCopy["isDrum"], instrumentCopy["isMod"], false, false);
+            doc.notifier.changed();
+            this._didSomething();
+        }
+    }
+    class ChangePasteInstrumentEditSelective extends ChangeGroup {
+        constructor(doc, instrumentCopy, instrumentCopies, savedInstrumentNumbers) {
+            super();
+            const selectivePaste = doc.prefs.selectivePaste;
+            if (doc.song.patternInstruments && selectivePaste.instrumentPatterns && savedInstrumentNumbers) {
+                for (let i = 0; i < Config.patternInstrumentCountMax; i++) {
+                    const change = doc.selection.setInstrumentNumbers(savedInstrumentNumbers);
+                    if (change)
+                        this.append(change);
+                }
+            }
+            const channel = doc.song.channels[doc.channel];
+            const instrumentNumbers = selectivePaste.allInstruments && (doc.song.patternInstruments || doc.song.layeredInstruments) ?
+                (selectivePaste.instrumentPatterns && doc.song.patternInstruments && savedInstrumentNumbers ?
+                    savedInstrumentNumbers :
+                    new Array(instrumentCopies.length).fill(0).map((_, i) => i)) :
+                [doc.getCurrentInstrument()];
+            const instrumentPaste = new Instrument(instrumentCopy["isDrum"], instrumentCopy["isMod"]);
+            instrumentPaste.fromJsonObject(instrumentCopy, instrumentCopy["isDrum"], instrumentCopy["isMod"], false, false);
+            for (const index of instrumentNumbers) {
+                if (selectivePaste.allInstruments && (doc.song.patternInstruments || doc.song.layeredInstruments)) {
+                    console.log(instrumentCopies[index], index);
+                    instrumentPaste.fromJsonObject(instrumentCopies[index], instrumentCopies[index]["isDrum"], instrumentCopies[index]["isMod"], false, false);
+                }
+                if (index >= channel.instruments.length) {
+                    this.append(new ChangeAppendInstrument(doc, channel, instrumentCopies[index]));
+                    continue;
+                }
+                const instrument = channel.instruments[index];
+                if (selectivePaste.instrumentType)
+                    this.append(new ChangePreset(doc, instrumentPaste.type));
+                if (selectivePaste.instrumentTypeSettings && instrument.type == instrumentPaste.type) {
+                    switch (instrument.type) {
+                        case 0:
+                            instrument.chipWave = instrumentPaste.chipWave;
+                            instrument.isUsingAdvancedLoopControls = instrumentPaste.isUsingAdvancedLoopControls;
+                            instrument.chipWaveLoopStart = instrumentPaste.chipWaveLoopStart;
+                            instrument.chipWaveLoopEnd = instrumentPaste.chipWaveLoopEnd;
+                            instrument.chipWaveLoopMode = instrumentPaste.chipWaveLoopMode;
+                            instrument.chipWavePlayBackwards = instrumentPaste.chipWavePlayBackwards;
+                            instrument.chipWaveStartOffset = instrumentPaste.chipWaveStartOffset;
+                            break;
+                        case 9:
+                            instrument.chipWave = instrumentPaste.chipWave;
+                            instrument.customChipWave = instrumentPaste.customChipWave.slice();
+                            instrument.customChipWaveIntegral = instrumentPaste.customChipWaveIntegral.slice();
+                            break;
+                        case 1:
+                            instrument.algorithm = instrumentPaste.algorithm;
+                            instrument.feedbackType = instrumentPaste.feedbackType;
+                            instrument.feedbackAmplitude = instrumentPaste.feedbackAmplitude;
+                            for (let i = 0; i < instrument.operators.length; i++) {
+                                instrument.operators[i].copy(instrumentPaste.operators[i]);
+                            }
+                            break;
+                        case 11:
+                            instrument.algorithm6Op = instrumentPaste.algorithm6Op;
+                            instrument.feedbackType6Op = instrumentPaste.feedbackType6Op;
+                            instrument.customAlgorithm.copy(instrumentPaste.customAlgorithm);
+                            instrument.feedbackAmplitude = instrumentPaste.feedbackAmplitude;
+                            for (let i = 0; i < instrument.operators.length; i++) {
+                                instrument.operators[i].copy(instrumentPaste.operators[i]);
+                            }
+                            break;
+                        case 2:
+                            instrument.chipNoise = instrumentPaste.chipNoise;
+                            break;
+                        case 3:
+                            instrument.spectrumWave.spectrum = instrumentPaste.spectrumWave.spectrum.slice();
+                            instrument.spectrumWave.markCustomWaveDirty();
+                            break;
+                        case 4:
+                            for (let i = 0; i < Config.drumCount; i++) {
+                                instrument.drumsetEnvelopes[i] = instrumentPaste.drumsetEnvelopes[i];
+                                if (instrument.drumsetSpectrumWaves[i] == undefined) {
+                                    instrument.drumsetSpectrumWaves[i] = new SpectrumWave(true);
+                                }
+                                instrument.drumsetSpectrumWaves[i].spectrum = instrumentPaste.drumsetSpectrumWaves[i].spectrum.slice();
+                                instrument.drumsetSpectrumWaves[i].markCustomWaveDirty();
+                            }
+                            break;
+                        case 5:
+                            instrument.harmonicsWave.harmonics = instrumentPaste.harmonicsWave.harmonics;
+                            instrument.harmonicsWave.markCustomWaveDirty();
+                            break;
+                        case 6:
+                            instrument.pulseWidth = instrumentPaste.stringSustain;
+                            instrument.decimalOffset = instrumentPaste.decimalOffset;
+                            break;
+                        case 7:
+                            instrument.harmonicsWave.harmonics = instrumentPaste.harmonicsWave.harmonics;
+                            instrument.harmonicsWave.markCustomWaveDirty();
+                            instrument.stringSustain = instrumentPaste.stringSustain;
+                            break;
+                        case 10:
+                            this.append(new ChangePasteInstrument(doc, instrument, instrumentCopy));
+                            doc.notifier.changed();
+                            this._didSomething();
+                            return;
+                        case 8:
+                            instrument.supersawDynamism = instrumentPaste.supersawDynamism;
+                            instrument.supersawSpread = instrumentPaste.supersawSpread;
+                            instrument.supersawShape = instrumentPaste.supersawShape;
+                            instrument.pulseWidth = instrumentPaste.pulseWidth;
+                            instrument.decimalOffset = instrumentPaste.decimalOffset;
+                            break;
+                    }
+                }
+                if (selectivePaste.eqFilter) {
+                    instrument.eqFilterType = instrumentPaste.eqFilterType;
+                    this.append(new ChangeFilterSettings(doc, instrumentPaste.eqFilter, instrument.eqFilter, false, instrumentPaste.eqSubFilters, instrument.eqSubFilters));
+                    instrument.eqFilterSimpleCut = instrumentPaste.eqFilterSimpleCut;
+                    instrument.eqFilterSimplePeak = instrumentPaste.eqFilterSimplePeak;
+                }
+                if (selectivePaste.fade)
+                    this.append(new ChangeFadeInOut(doc, instrumentPaste.fadeIn, instrumentPaste.fadeOut));
+                if (selectivePaste.unison) {
+                    if (instrumentPaste.unison != Config.unisons.length)
+                        this.append(new ChangeUnison(doc, instrumentPaste.unison));
+                    else {
+                        instrument.unison = instrumentPaste.unison;
+                        instrument.unisonVoices = instrumentPaste.unisonVoices;
+                        instrument.unisonSpread = instrumentPaste.unisonSpread;
+                        instrument.unisonOffset = instrumentPaste.unisonOffset;
+                        instrument.unisonExpression = instrumentPaste.unisonExpression;
+                        instrument.unisonSign = instrumentPaste.unisonSign;
+                    }
+                }
+                if (selectivePaste.effects) {
+                    instrument.effects = instrumentPaste.effects;
+                    instrument.chorus = instrumentPaste.chorus;
+                    instrument.reverb = instrumentPaste.reverb;
+                    instrument.echoSustain = instrumentPaste.echoSustain;
+                    instrument.echoDelay = instrumentPaste.echoDelay;
+                    instrument.noteFilterType = instrumentPaste.noteFilterType;
+                    this.append(new ChangeFilterSettings(doc, instrumentPaste.noteFilter, instrument.noteFilter, true, instrumentPaste.noteSubFilters, instrument.noteSubFilters));
+                    instrument.noteFilterSimpleCut = instrumentPaste.noteFilterSimpleCut;
+                    instrument.noteFilterSimplePeak = instrumentPaste.noteFilterSimplePeak;
+                    instrument.distortion = instrumentPaste.distortion;
+                    instrument.bitcrusherFreq = instrumentPaste.bitcrusherFreq;
+                    instrument.bitcrusherQuantization = instrumentPaste.bitcrusherQuantization;
+                    instrument.ringModulation = instrumentPaste.ringModulation;
+                    instrument.ringModulationHz = instrumentPaste.ringModulationHz;
+                    instrument.ringModWaveformIndex = instrumentPaste.ringModWaveformIndex;
+                    instrument.ringModPulseWidth = instrumentPaste.ringModPulseWidth;
+                    instrument.granular = instrumentPaste.granular;
+                    instrument.grainSize = instrumentPaste.grainSize;
+                    instrument.grainAmounts = instrumentPaste.grainAmounts;
+                    instrument.grainRange = instrumentPaste.grainRange;
+                    instrument.pan = instrumentPaste.pan;
+                    instrument.panDelay = instrumentPaste.panDelay;
+                    instrument.pitchShift = instrumentPaste.pitchShift;
+                    instrument.detune = instrumentPaste.detune;
+                    instrument.vibrato = instrumentPaste.vibrato;
+                    if (instrument.vibrato == Config.vibratos.length) {
+                        instrument.vibratoDepth = instrumentPaste.vibratoDepth;
+                        instrument.vibratoSpeed = instrumentPaste.vibratoSpeed;
+                        instrument.vibratoDelay = instrumentPaste.vibratoDelay;
+                        instrument.vibratoType = instrumentPaste.vibratoType;
+                    }
+                    instrument.clicklessTransition = instrumentPaste.clicklessTransition;
+                    instrument.arpeggioSpeed = instrumentPaste.arpeggioSpeed;
+                    instrument.monoChordTone = instrumentPaste.monoChordTone;
+                    instrument.legacyTieOver = instrumentPaste.legacyTieOver;
+                    instrument.aliases = instrumentPaste.aliases;
+                    instrument.transition = instrumentPaste.transition;
+                    instrument.chord = instrumentPaste.chord;
+                }
+                if (selectivePaste.envelopes) {
+                    instrument.envelopeSpeed = instrumentPaste.envelopeSpeed;
+                    instrument.envelopeCount = instrumentPaste.envelopeCount;
+                    for (let i = 0; i < instrument.envelopeCount; i++) {
+                        if (!instrument.envelopes[i])
+                            instrument.envelopes[i] = new EnvelopeSettings(instrumentCopy["isDrum"]);
+                        instrument.envelopes[i].fromJsonObject(instrumentPaste.envelopes[i].toJsonObject(), Config.jsonFormat);
+                    }
+                }
+                instrument.clearInvalidEnvelopeTargets();
+            }
             doc.notifier.changed();
             this._didSomething();
         }
@@ -33984,7 +34385,8 @@ li.select2-results__option[role=group] > strong:hover {
                     this._changeInstrument = new ChangeGroup();
                     const instruments = this._doc.recentPatternInstruments[this._doc.channel];
                     this._doc.notifier.changed();
-                    if (instruments.indexOf(instrument) == -1) {
+                    const instrumentIndex = instruments.indexOf(instrument);
+                    if (instrumentIndex == -1) {
                         instruments.push(instrument);
                         const maxLayers = this._doc.song.getMaxInstrumentsPerPattern(this._doc.channel);
                         if (instruments.length > maxLayers) {
@@ -33992,7 +34394,7 @@ li.select2-results__option[role=group] > strong:hover {
                         }
                     }
                     else {
-                        instruments.splice(instruments.indexOf(instrument), 1);
+                        instruments.splice(instrumentIndex, 1);
                         if (instruments.length == 0)
                             instruments[0] = 0;
                     }
@@ -34029,109 +34431,27 @@ li.select2-results__option[role=group] > strong:hover {
                 }
             }
         }
+        setInstrumentNumbers(instrumentNumbers) {
+            if (this._doc.song.patternInstruments && this._doc.channel < this._doc.song.pitchChannelCount + this._doc.song.noiseChannelCount) {
+                this._changeInstrument = new ChangeGroup();
+                if (this.boxSelectionActive) {
+                    this._changeInstrument.append(new ChangeDuplicateSelectedReusedPatterns(this._doc, this.boxSelectionBar, this.boxSelectionWidth, this.boxSelectionChannel, this.boxSelectionHeight, false));
+                }
+                for (const channelIndex of this._eachSelectedChannel()) {
+                    for (const pattern of this._eachSelectedPattern(channelIndex)) {
+                        this._changeInstrument.append(new ChangeSetPatternInstruments(this._doc, channelIndex, instrumentNumbers, pattern));
+                    }
+                }
+                if (!this._changeInstrument.isNoop())
+                    return this._changeInstrument;
+            }
+            return null;
+        }
         resetBoxSelection() {
             this.boxSelectionX0 = this.boxSelectionX1 = this._doc.bar;
             this.boxSelectionY0 = this.boxSelectionY1 = this._doc.channel;
         }
     }
-
-    class Preferences {
-        constructor() {
-            this.showFifth = true;
-            this.volume = 75;
-            this.visibleOctaves = Preferences.defaultVisibleOctaves;
-            this.reload();
-        }
-        reload() {
-            this.autoPlay = window.localStorage.getItem("autoPlay") == "true";
-            this.autoFollow = window.localStorage.getItem("autoFollow") != "false";
-            this.enableNotePreview = window.localStorage.getItem("enableNotePreview") != "false";
-            this.showFifth = window.localStorage.getItem("showFifth") != "false";
-            this.notesOutsideScale = window.localStorage.getItem("notesOutsideScale") == "true";
-            this.showLetters = window.localStorage.getItem("showLetters") != "false";
-            this.showChannels = window.localStorage.getItem("showChannels") == "true";
-            this.showScrollBar = window.localStorage.getItem("showScrollBar") != "false";
-            this.alwaysFineNoteVol = window.localStorage.getItem("alwaysFineNoteVol") == "true";
-            this.displayVolumeBar = window.localStorage.getItem("displayVolumeBar") != "false";
-            this.instrumentCopyPaste = window.localStorage.getItem("instrumentCopyPaste") != "false";
-            this.instrumentImportExport = window.localStorage.getItem("instrumentImportExport") == "true";
-            this.instrumentButtonsAtTop = window.localStorage.getItem("instrumentButtonsAtTop") == "true";
-            this.enableChannelMuting = window.localStorage.getItem("enableChannelMuting") != "false";
-            this.displayBrowserUrl = window.localStorage.getItem("displayBrowserUrl") != "false";
-            this.pressControlForShortcuts = window.localStorage.getItem("pressControlForShortcuts") == "true";
-            this.enableMidi = window.localStorage.getItem("enableMidi") != "false";
-            this.showRecordButton = window.localStorage.getItem("showRecordButton") == "true";
-            this.snapRecordedNotesToRhythm = window.localStorage.getItem("snapRecordedNotesToRhythm") == "true";
-            this.ignorePerformedNotesNotInScale = window.localStorage.getItem("ignorePerformedNotesNotInScale") == "true";
-            this.metronomeCountIn = window.localStorage.getItem("metronomeCountIn") != "false";
-            this.metronomeWhileRecording = window.localStorage.getItem("metronomeWhileRecording") != "false";
-            this.notesFlashWhenPlayed = window.localStorage.getItem("notesFlashWhenPlayed") == "true";
-            this.showOscilloscope = window.localStorage.getItem("showOscilloscope") == "true";
-            this.showSampleLoadingStatus = window.localStorage.getItem("showSampleLoadingStatus") != "false";
-            this.showDescription = window.localStorage.getItem("showDescription") != "false";
-            this.showInstrumentScrollbars = window.localStorage.getItem("showInstrumentScrollbars") == "true";
-            this.closePromptByClickoff = window.localStorage.getItem("closePromptByClickoff") == "true";
-            this.frostedGlassBackground = window.localStorage.getItem("frostedGlassBackground") == "true";
-            this.keyboardLayout = window.localStorage.getItem("keyboardLayout") || "pianoTransposingC";
-            this.bassOffset = (+window.localStorage.getItem("bassOffset")) || 0;
-            this.layout = window.localStorage.getItem("layout") || "small";
-            this.colorTheme = window.localStorage.getItem("colorTheme") || ColorConfig.defaultTheme;
-            this.customTheme = window.localStorage.getItem("customTheme");
-            this.customTheme2 = window.localStorage.getItem("customTheme2");
-            this.visibleOctaves = (window.localStorage.getItem("visibleOctaves") >>> 0) || Preferences.defaultVisibleOctaves;
-            const defaultScale = Config.scales.dictionary[window.localStorage.getItem("defaultScale")];
-            this.defaultScale = (defaultScale != undefined) ? defaultScale.index : 0;
-            if (window.localStorage.getItem("volume") != null) {
-                this.volume = Math.min(window.localStorage.getItem("volume") >>> 0, 75);
-            }
-            if (window.localStorage.getItem("fullScreen") != null) {
-                if (window.localStorage.getItem("fullScreen") == "true")
-                    this.layout = "long";
-                window.localStorage.removeItem("fullScreen");
-            }
-        }
-        save() {
-            window.localStorage.setItem("autoPlay", this.autoPlay ? "true" : "false");
-            window.localStorage.setItem("autoFollow", this.autoFollow ? "true" : "false");
-            window.localStorage.setItem("enableNotePreview", this.enableNotePreview ? "true" : "false");
-            window.localStorage.setItem("showFifth", this.showFifth ? "true" : "false");
-            window.localStorage.setItem("notesOutsideScale", this.notesOutsideScale ? "true" : "false");
-            window.localStorage.setItem("defaultScale", Config.scales[this.defaultScale].name);
-            window.localStorage.setItem("showLetters", this.showLetters ? "true" : "false");
-            window.localStorage.setItem("showChannels", this.showChannels ? "true" : "false");
-            window.localStorage.setItem("showScrollBar", this.showScrollBar ? "true" : "false");
-            window.localStorage.setItem("alwaysFineNoteVol", this.alwaysFineNoteVol ? "true" : "false");
-            window.localStorage.setItem("displayVolumeBar", this.displayVolumeBar ? "true" : "false");
-            window.localStorage.setItem("enableChannelMuting", this.enableChannelMuting ? "true" : "false");
-            window.localStorage.setItem("instrumentCopyPaste", this.instrumentCopyPaste ? "true" : "false");
-            window.localStorage.setItem("instrumentImportExport", this.instrumentImportExport ? "true" : "false");
-            window.localStorage.setItem("instrumentButtonsAtTop", this.instrumentButtonsAtTop ? "true" : "false");
-            window.localStorage.setItem("displayBrowserUrl", this.displayBrowserUrl ? "true" : "false");
-            window.localStorage.setItem("pressControlForShortcuts", this.pressControlForShortcuts ? "true" : "false");
-            window.localStorage.setItem("enableMidi", this.enableMidi ? "true" : "false");
-            window.localStorage.setItem("showRecordButton", this.showRecordButton ? "true" : "false");
-            window.localStorage.setItem("snapRecordedNotesToRhythm", this.snapRecordedNotesToRhythm ? "true" : "false");
-            window.localStorage.setItem("ignorePerformedNotesNotInScale", this.ignorePerformedNotesNotInScale ? "true" : "false");
-            window.localStorage.setItem("metronomeCountIn", this.metronomeCountIn ? "true" : "false");
-            window.localStorage.setItem("metronomeWhileRecording", this.metronomeWhileRecording ? "true" : "false");
-            window.localStorage.setItem("notesFlashWhenPlayed", this.notesFlashWhenPlayed ? "true" : "false");
-            window.localStorage.setItem("showOscilloscope", this.showOscilloscope ? "true" : "false");
-            window.localStorage.setItem("showSampleLoadingStatus", this.showSampleLoadingStatus ? "true" : "false");
-            window.localStorage.setItem("showDescription", this.showDescription ? "true" : "false");
-            window.localStorage.setItem("showInstrumentScrollbars", this.showInstrumentScrollbars ? "true" : "false");
-            window.localStorage.setItem("closePromptByClickoff", this.closePromptByClickoff ? "true" : "false");
-            window.localStorage.setItem("frostedGlassBackground", this.frostedGlassBackground ? "true" : "false");
-            window.localStorage.setItem("keyboardLayout", this.keyboardLayout);
-            window.localStorage.setItem("bassOffset", String(this.bassOffset));
-            window.localStorage.setItem("layout", this.layout);
-            window.localStorage.setItem("colorTheme", this.colorTheme);
-            window.localStorage.setItem("customTheme", this.customTheme);
-            window.localStorage.setItem("customTheme2", this.customTheme2);
-            window.localStorage.setItem("volume", String(this.volume));
-            window.localStorage.setItem("visibleOctaves", String(this.visibleOctaves));
-        }
-    }
-    Preferences.defaultVisibleOctaves = 3;
 
     class ChangeNotifier {
         constructor() {
@@ -34743,7 +35063,7 @@ li.select2-results__option[role=group] > strong:hover {
         return Math.pow(volumeMult, 0.25) * 127;
     }
 
-    const { button: button$o, div: div$o, h2: h2$n, input: input$h, select: select$d, option: option$d } = HTML;
+    const { button: button$p, div: div$p, h2: h2$o, input: input$h, select: select$d, option: option$d } = HTML;
     function lerp(low, high, t) {
         return low + t * (high - low);
     }
@@ -34772,19 +35092,19 @@ li.select2-results__option[role=group] > strong:hover {
             this._doc = _doc;
             this.outputStarted = false;
             this._fileName = input$h({ type: "text", style: "width: 10em;", value: Config.jsonFormat + "-Song", maxlength: 250, "autofocus": "autofocus" });
-            this._computedSamplesLabel = div$o({ style: "width: 10em;" }, new Text("0:00"));
+            this._computedSamplesLabel = div$p({ style: "width: 10em;" }, new Text("0:00"));
             this._enableIntro = input$h({ type: "checkbox" });
             this._loopDropDown = input$h({ style: "width: 2em;", type: "number", min: "1", max: "4", step: "1" });
             this._enableOutro = input$h({ type: "checkbox" });
             this._formatSelect = select$d({ style: "width: 100%;" }, option$d({ value: "wav" }, "Export to .wav file."), option$d({ value: "mp3" }, "Export to .mp3 file."), option$d({ value: "midi" }, "Export to .mid file."), option$d({ value: "json" }, "Export to .json file."), option$d({ value: "html" }, "Export to .html file."));
             this._removeWhitespace = input$h({ type: "checkbox" });
-            this._removeWhitespaceDiv = div$o({ style: "vertical-align: middle; align-items: center; justify-content: space-between; margin-bottom: 14px;" }, "Remove Whitespace: ", this._removeWhitespace);
-            this._cancelButton = button$o({ class: "cancelButton" });
-            this._exportButton = button$o({ class: "exportButton", style: "width:45%;" }, "Export");
-            this._outputProgressBar = div$o({ style: `width: 0%; background: ${ColorConfig.loopAccent}; height: 100%; position: absolute; z-index: 2;` });
-            this._outputProgressLabel = div$o({ style: `position: relative; top: -1px; z-index: 3;` }, "0%");
-            this._outputProgressContainer = div$o({ style: `height: 12px; background: ${ColorConfig.uiWidgetBackground}; display: block; position: relative; z-index: 1;` }, this._outputProgressBar, this._outputProgressLabel);
-            this.container = div$o({ class: "prompt noSelection", style: "width: 200px;" }, h2$n("Export Options"), div$o({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, "File name:", this._fileName), div$o({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, "Length:", this._computedSamplesLabel), div$o({ style: "display: table; width: 100%;" }, div$o({ style: "display: table-row;" }, div$o({ style: "display: table-cell;" }, "Intro:"), div$o({ style: "display: table-cell;" }, "Loop Count:"), div$o({ style: "display: table-cell;" }, "Outro:")), div$o({ style: "display: table-row;" }, div$o({ style: "display: table-cell; vertical-align: middle;" }, this._enableIntro), div$o({ style: "display: table-cell; vertical-align: middle;" }, this._loopDropDown), div$o({ style: "display: table-cell; vertical-align: middle;" }, this._enableOutro))), div$o({ class: "selectContainer", style: "width: 100%;" }, this._formatSelect), this._removeWhitespaceDiv, div$o({ style: "text-align: left;" }, "Exporting can be slow. Reloading the page or clicking the X will cancel it. Please be patient."), this._outputProgressContainer, div$o({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._exportButton), this._cancelButton);
+            this._removeWhitespaceDiv = div$p({ style: "vertical-align: middle; align-items: center; justify-content: space-between; margin-bottom: 14px;" }, "Remove Whitespace: ", this._removeWhitespace);
+            this._cancelButton = button$p({ class: "cancelButton" });
+            this._exportButton = button$p({ class: "exportButton", style: "width:45%;" }, "Export");
+            this._outputProgressBar = div$p({ style: `width: 0%; background: ${ColorConfig.loopAccent}; height: 100%; position: absolute; z-index: 2;` });
+            this._outputProgressLabel = div$p({ style: `position: relative; top: -1px; z-index: 3;` }, "0%");
+            this._outputProgressContainer = div$p({ style: `height: 12px; background: ${ColorConfig.uiWidgetBackground}; display: block; position: relative; z-index: 1;` }, this._outputProgressBar, this._outputProgressLabel);
+            this.container = div$p({ class: "prompt noSelection", style: "width: 200px;" }, h2$o("Export Options"), div$p({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, "File name:", this._fileName), div$p({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, "Length:", this._computedSamplesLabel), div$p({ style: "display: table; width: 100%;" }, div$p({ style: "display: table-row;" }, div$p({ style: "display: table-cell;" }, "Intro:"), div$p({ style: "display: table-cell;" }, "Loop Count:"), div$p({ style: "display: table-cell;" }, "Outro:")), div$p({ style: "display: table-row;" }, div$p({ style: "display: table-cell; vertical-align: middle;" }, this._enableIntro), div$p({ style: "display: table-cell; vertical-align: middle;" }, this._loopDropDown), div$p({ style: "display: table-cell; vertical-align: middle;" }, this._enableOutro))), div$p({ class: "selectContainer", style: "width: 100%;" }, this._formatSelect), this._removeWhitespaceDiv, div$p({ style: "text-align: left;" }, "Exporting can be slow. Reloading the page or clicking the X will cancel it. Please be patient."), this._outputProgressContainer, div$p({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._exportButton), this._cancelButton);
             this._close = () => {
                 if (this.synth != null)
                     this.synth.renderingSong = false;
@@ -35500,16 +35820,16 @@ You should be redirected to the song at:<br /><br />
         0x51,
     ];
 
-    const { button: button$n, div: div$n, span: span$6, h2: h2$m, input: input$g, br: br$4, select: select$c, option: option$c } = HTML;
+    const { button: button$o, div: div$o, span: span$7, h2: h2$n, input: input$g, br: br$4, select: select$c, option: option$c } = HTML;
     class BeatsPerBarPrompt {
         constructor(_doc) {
             this._doc = _doc;
-            this._computedSamplesLabel = div$n({ style: "width: 10em;" }, new Text("0:00"));
+            this._computedSamplesLabel = div$o({ style: "width: 10em;" }, new Text("0:00"));
             this._beatsStepper = input$g({ style: "width: 3em; margin-left: 1em;", type: "number", step: "1" });
             this._conversionStrategySelect = select$c({ style: "width: 100%;" }, option$c({ value: "splice" }, "Splice beats at end of bars."), option$c({ value: "stretch" }, "Stretch notes to fit in bars."), option$c({ value: "overflow" }, "Overflow notes across bars."));
-            this._cancelButton = button$n({ class: "cancelButton" });
-            this._okayButton = button$n({ class: "okayButton", style: "width:45%;" }, "Okay");
-            this.container = div$n({ class: "prompt noSelection", style: "width: 250px;" }, h2$m("Beats Per Bar"), div$n({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, "Length:", this._computedSamplesLabel), div$n({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$n({ style: "text-align: right;" }, "Beats per bar:", br$4(), span$6({ style: "font-size: smaller; color: ${ColorConfig.secondaryText};" }, "(Multiples of 3 or 4 are recommended)")), this._beatsStepper), div$n({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$n({ class: "selectContainer", style: "width: 100%;" }, this._conversionStrategySelect)), div$n({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
+            this._cancelButton = button$o({ class: "cancelButton" });
+            this._okayButton = button$o({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this.container = div$o({ class: "prompt noSelection", style: "width: 250px;" }, h2$n("Beats Per Bar"), div$o({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, "Length:", this._computedSamplesLabel), div$o({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$o({ style: "text-align: right;" }, "Beats per bar:", br$4(), span$7({ style: "font-size: smaller; color: ${ColorConfig.secondaryText};" }, "(Multiples of 3 or 4 are recommended)")), this._beatsStepper), div$o({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$o({ class: "selectContainer", style: "width: 100%;" }, this._conversionStrategySelect)), div$o({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
             this._close = () => {
                 this._doc.undo();
             };
@@ -35572,7 +35892,7 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$m, div: div$m, label: label$3, br: br$3, h2: h2$l, input: input$f } = HTML;
+    const { button: button$n, div: div$n, label: label$3, br: br$3, h2: h2$m, input: input$f } = HTML;
     class ChannelSettingsPrompt {
         constructor(_doc) {
             this._doc = _doc;
@@ -35582,9 +35902,9 @@ You should be redirected to the song at:<br /><br />
             this._modChannelStepper = input$f({ style: "width: 3em; margin-left: 1em;", type: "number", step: "1" });
             this._layeredInstrumentsBox = input$f({ style: "width: 3em; margin-left: 1em;", type: "checkbox" });
             this._patternInstrumentsBox = input$f({ style: "width: 3em; margin-left: 1em;", type: "checkbox" });
-            this._cancelButton = button$m({ class: "cancelButton" });
-            this._okayButton = button$m({ class: "okayButton", style: "width:45%;" }, "Okay");
-            this.container = div$m({ class: "prompt noSelection", style: "width: 250px; text-align: right;" }, h2$l("Channel Settings"), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Pitch channels:", this._pitchChannelStepper), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Drum channels:", this._drumChannelStepper), div$m({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Mod channels:", this._modChannelStepper), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Available patterns per channel:", this._patternsStepper), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Simultaneous instruments", br$3(), "per channel:", this._layeredInstrumentsBox), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Different instruments", br$3(), "per pattern:", this._patternInstrumentsBox), div$m({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
+            this._cancelButton = button$n({ class: "cancelButton" });
+            this._okayButton = button$n({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this.container = div$n({ class: "prompt noSelection", style: "width: 250px; text-align: right;" }, h2$m("Channel Settings"), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Pitch channels:", this._pitchChannelStepper), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Drum channels:", this._drumChannelStepper), div$n({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Mod channels:", this._modChannelStepper), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Available patterns per channel:", this._patternsStepper), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Simultaneous instruments", br$3(), "per channel:", this._layeredInstrumentsBox), label$3({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Different instruments", br$3(), "per pattern:", this._patternInstrumentsBox), div$n({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
             this._close = () => {
                 this._doc.undo();
             };
@@ -35659,7 +35979,7 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$l, div: div$l, h2: h2$k } = HTML;
+    const { button: button$m, div: div$m, h2: h2$l } = HTML;
     class CustomChipPromptCanvas {
         constructor(doc) {
             this._mouseX = 0;
@@ -35852,24 +36172,24 @@ You should be redirected to the song at:<br /><br />
             this._doc = _doc;
             this._songEditor = _songEditor;
             this.customChipCanvas = new CustomChipPromptCanvas(this._doc);
-            this._playButton = button$l({ style: "width: 55%;", type: "button" });
-            this._cancelButton = button$l({ class: "cancelButton" });
-            this._okayButton = button$l({ class: "okayButton", style: "width:45%;" }, "Okay");
-            this.copyButton = button$l({ style: "width:86px; margin-right: 5px;", class: "copyButton" }, [
+            this._playButton = button$m({ style: "width: 55%;", type: "button" });
+            this._cancelButton = button$m({ class: "cancelButton" });
+            this._okayButton = button$m({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this.copyButton = button$m({ style: "width:86px; margin-right: 5px;", class: "copyButton" }, [
                 "Copy",
                 SVG.svg({ style: "flex-shrink: 0; position: absolute; left: 0; top: 50%; margin-top: -1em; pointer-events: none;", width: "2em", height: "2em", viewBox: "-5 -21 26 26" }, [
                     SVG.path({ d: "M 0 -15 L 1 -15 L 1 0 L 13 0 L 13 1 L 0 1 L 0 -15 z M 2 -1 L 2 -17 L 10 -17 L 14 -13 L 14 -1 z M 3 -2 L 13 -2 L 13 -12 L 9 -12 L 9 -16 L 3 -16 z", fill: "currentColor" }),
                 ]),
             ]);
-            this.pasteButton = button$l({ style: "width:86px;", class: "pasteButton" }, [
+            this.pasteButton = button$m({ style: "width:86px;", class: "pasteButton" }, [
                 "Paste",
                 SVG.svg({ style: "flex-shrink: 0; position: absolute; left: 0; top: 50%; margin-top: -1em; pointer-events: none;", width: "2em", height: "2em", viewBox: "0 0 26 26" }, [
                     SVG.path({ d: "M 8 18 L 6 18 L 6 5 L 17 5 L 17 7 M 9 8 L 16 8 L 20 12 L 20 22 L 9 22 z", stroke: "currentColor", fill: "none" }),
                     SVG.path({ d: "M 9 3 L 14 3 L 14 6 L 9 6 L 9 3 z M 16 8 L 20 12 L 16 12 L 16 8 z", fill: "currentColor", }),
                 ]),
             ]);
-            this.copyPasteContainer = div$l({ style: "width: 185px;" }, this.copyButton, this.pasteButton);
-            this.container = div$l({ class: "prompt noSelection", style: "width: 600px;" }, h2$k("Edit Custom Chip Instrument"), div$l({ style: "display: flex; width: 55%; align-self: center; flex-direction: row; align-items: center; justify-content: center;" }, this._playButton), div$l({ style: "display: flex; flex-direction: row; align-items: center; justify-content: center;" }, this.customChipCanvas.container), div$l({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton, this.copyPasteContainer), this._cancelButton);
+            this.copyPasteContainer = div$m({ style: "width: 185px;" }, this.copyButton, this.pasteButton);
+            this.container = div$m({ class: "prompt noSelection", style: "width: 600px;" }, h2$l("Edit Custom Chip Instrument"), div$m({ style: "display: flex; width: 55%; align-self: center; flex-direction: row; align-items: center; justify-content: center;" }, this._playButton), div$m({ style: "display: flex; flex-direction: row; align-items: center; justify-content: center;" }, this.customChipCanvas.container), div$m({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton, this.copyPasteContainer), this._cancelButton);
             this._togglePlay = () => {
                 this._songEditor.togglePlay();
                 this.updatePlayButton();
@@ -36637,7 +36957,7 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$k, div: div$k, h2: h2$j, p: p$8 } = HTML;
+    const { button: button$l, div: div$l, h2: h2$k, p: p$9 } = HTML;
     class CustomFilterPrompt {
         constructor(_doc, _songEditor, _useNoteFilter, forSong = false) {
             this._doc = _doc;
@@ -36647,29 +36967,29 @@ You should be redirected to the song at:<br /><br />
             this.filterData = new FilterSettings;
             this.startingFilterData = new FilterSettings;
             this._subfilterIndex = 0;
-            this._playButton = button$k({ style: "width: 55%;", type: "button" });
+            this._playButton = button$l({ style: "width: 55%;", type: "button" });
             this._filterButtons = [];
-            this._filterButtonContainer = div$k({ class: "instrument-bar", style: "justify-content: center;" });
-            this._cancelButton = button$k({ class: "cancelButton" });
-            this._okayButton = button$k({ class: "okayButton", style: "width:45%;" }, "Okay");
-            this._filterContainer = div$k({ style: "width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center;" });
-            this._editorTitle = div$k({}, h2$j("Edit Filter"));
-            this._filterCopyButton = button$k({ style: "width:86px; margin-right: 5px;", class: "copyButton" }, [
+            this._filterButtonContainer = div$l({ class: "instrument-bar", style: "justify-content: center;" });
+            this._cancelButton = button$l({ class: "cancelButton" });
+            this._okayButton = button$l({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this._filterContainer = div$l({ style: "width: 100%; display: flex; flex-direction: row; align-items: center; justify-content: center;" });
+            this._editorTitle = div$l({}, h2$k("Edit Filter"));
+            this._filterCopyButton = button$l({ style: "width:86px; margin-right: 5px;", class: "copyButton" }, [
                 "Copy",
                 SVG.svg({ style: "flex-shrink: 0; position: absolute; left: 0; top: 50%; margin-top: -1em; pointer-events: none;", width: "2em", height: "2em", viewBox: "-5 -21 26 26" }, [
                     SVG.path({ d: "M 0 -15 L 1 -15 L 1 0 L 13 0 L 13 1 L 0 1 L 0 -15 z M 2 -1 L 2 -17 L 10 -17 L 14 -13 L 14 -1 z M 3 -2 L 13 -2 L 13 -12 L 9 -12 L 9 -16 L 3 -16 z", fill: "currentColor" }),
                 ]),
             ]);
-            this._filterPasteButton = button$k({ style: "width:86px;", class: "pasteButton" }, [
+            this._filterPasteButton = button$l({ style: "width:86px;", class: "pasteButton" }, [
                 "Paste",
                 SVG.svg({ style: "flex-shrink: 0; position: absolute; left: 0; top: 50%; margin-top: -1em; pointer-events: none;", width: "2em", height: "2em", viewBox: "0 0 26 26" }, [
                     SVG.path({ d: "M 8 18 L 6 18 L 6 5 L 17 5 L 17 7 M 9 8 L 16 8 L 20 12 L 20 22 L 9 22 z", stroke: "currentColor", fill: "none" }),
                     SVG.path({ d: "M 9 3 L 14 3 L 14 6 L 9 6 L 9 3 z M 16 8 L 20 12 L 16 12 L 16 8 z", fill: "currentColor", }),
                 ]),
             ]);
-            this._filterCopyPasteContainer = div$k({ style: "width: 185px;" }, this._filterCopyButton, this._filterPasteButton);
-            this._filterCoordinateText = div$k({ style: "text-align: left; margin-bottom: 0px; font-size: x-small; height: 1.3em; color: " + ColorConfig.secondaryText + ";" }, p$8(""));
-            this.container = div$k({ class: "prompt noSelection", style: "width: 600px;" }, this._editorTitle, div$k({ style: "display: flex; width: 55%; align-self: center; flex-direction: row; align-items: center; justify-content: center;" }, this._playButton), this._filterButtonContainer, this._filterContainer, div$k({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton, this._filterCopyPasteContainer), this._cancelButton);
+            this._filterCopyPasteContainer = div$l({ style: "width: 185px;" }, this._filterCopyButton, this._filterPasteButton);
+            this._filterCoordinateText = div$l({ style: "text-align: left; margin-bottom: 0px; font-size: x-small; height: 1.3em; color: " + ColorConfig.secondaryText + ";" }, p$9(""));
+            this.container = div$l({ class: "prompt noSelection", style: "width: 600px;" }, this._editorTitle, div$l({ style: "display: flex; width: 55%; align-self: center; flex-direction: row; align-items: center; justify-content: center;" }, this._playButton), this._filterButtonContainer, this._filterContainer, div$l({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton, this._filterCopyPasteContainer), this._cancelButton);
             this._setSubfilter = (index, useHistory = true, doSwap = true) => {
                 this._filterButtons[this._subfilterIndex].classList.remove("selected-instrument");
                 if (doSwap)
@@ -36773,12 +37093,12 @@ You should be redirected to the song at:<br /><br />
             this.filterEditor.container.insertBefore(this._filterCoordinateText, this.filterEditor.container.firstChild);
             this.filterEditor.coordText = this._filterCoordinateText;
             this._editorTitle.children[0].innerHTML = forSong ? "Edit Song EQ Filter" : (_useNoteFilter) ? "Edit Note Filter" : "Edit EQ Filter";
-            let newButton = button$k({ class: "no-underline", style: "max-width: 5em;" }, "Main");
+            let newButton = button$l({ class: "no-underline", style: "max-width: 5em;" }, "Main");
             this._filterButtonContainer.appendChild(newButton);
             this._filterButtons.push(newButton);
             newButton.addEventListener("click", () => { this._setSubfilter(0); });
             for (let i = 1; i < Config.filterMorphCount; i++) {
-                let newSubButton = button$k({ class: "no-underline", style: "max-width: 2em;" }, "" + i);
+                let newSubButton = button$l({ class: "no-underline", style: "max-width: 2em;" }, "" + i);
                 this._filterButtons.push(newSubButton);
                 this._filterButtonContainer.appendChild(newSubButton);
                 newSubButton.addEventListener("click", () => { this._setSubfilter(i); });
@@ -36811,16 +37131,16 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$j, div: div$j, h2: h2$i, input: input$e, label: label$2, br: br$2 } = HTML;
+    const { button: button$k, div: div$k, h2: h2$j, input: input$e, label: label$2, br: br$2 } = HTML;
     class InstrumentExportPrompt {
         constructor(_doc) {
             this._doc = _doc;
-            this._cancelButton = button$j({ class: "cancelButton" });
-            this._exportButton = button$j({ class: "exportButton", style: "width:45%;" }, "Export");
+            this._cancelButton = button$k({ class: "cancelButton" });
+            this._exportButton = button$k({ class: "exportButton", style: "width:45%;" }, "Export");
             this._exportMultipleBox = input$e({ style: "width: 3em; margin-left: 1em;", type: "checkbox" });
             this._channelName = this._doc.song.channels[this._doc.channel].name == "" ? Config.jsonFormat + "-Instrument" : this._doc.song.channels[this._doc.channel].name;
             this._fileName = input$e({ type: "text", style: "width: 10em;", value: this._channelName, maxlength: 250, "autofocus": "autofocus" });
-            this.container = div$j({ class: "prompt noSelection", style: "width: 200px;" }, h2$i("Export Instruments Options"), div$j({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, "File name:", this._fileName), label$2({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Export all instruments", br$2(), "in channel:", this._exportMultipleBox), div$j({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._exportButton), this._cancelButton);
+            this.container = div$k({ class: "prompt noSelection", style: "width: 200px;" }, h2$j("Export Instruments Options"), div$k({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, "File name:", this._fileName), label$2({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, "Export all instruments", br$2(), "in channel:", this._exportMultipleBox), div$k({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._exportButton), this._cancelButton);
             this._close = () => {
                 this._doc.undo();
             };
@@ -36887,15 +37207,15 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$i, div: div$i, h2: h2$h, input: input$d, select: select$b, option: option$b, code: code$1 } = HTML;
+    const { button: button$j, div: div$j, h2: h2$i, input: input$d, select: select$b, option: option$b, code: code$1 } = HTML;
     class InstrumentImportPrompt {
         constructor(_doc) {
             this._doc = _doc;
-            this._cancelButton = button$i({ class: "cancelButton" });
+            this._cancelButton = button$j({ class: "cancelButton" });
             this._importStrategySelect = select$b({ style: "width: 100%;" }, option$b({ value: "append" }, "Append instruments to the end of the list."), option$b({ value: "replace" }, "Replace only the selected instrument."), option$b({ value: "all" }, "Replace all instruments in the channel."));
             this._fileInput = input$d({ type: "file", accept: ".json,application/json" });
-            this._strategyInfoText = div$i({ style: "text-align: left;" }, "You must enable either ", code$1("Simultaneous instruments per channel"), " or ", code$1("Different instruments per pattern"), " to change the import strategy.");
-            this.container = div$i({ class: "prompt noSelection", style: "width: 300px;" }, h2$h("Import Instrument(s)"), this._strategyInfoText, div$i({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$i({ class: "selectContainer", style: "width: 100%;" }, this._importStrategySelect)), this._fileInput, this._cancelButton);
+            this._strategyInfoText = div$j({ style: "text-align: left;" }, "You must enable either ", code$1("Simultaneous instruments per channel"), " or ", code$1("Different instruments per pattern"), " to change the import strategy.");
+            this.container = div$j({ class: "prompt noSelection", style: "width: 300px;" }, h2$i("Import Instrument(s)"), this._strategyInfoText, div$j({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$j({ class: "selectContainer", style: "width: 100%;" }, this._importStrategySelect)), this._fileInput, this._cancelButton);
             this._whenFileSelected = () => {
                 const file = this._fileInput.files[0];
                 if (!file)
@@ -37036,7 +37356,7 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$h, div: div$h, h2: h2$g, input: input$c } = HTML;
+    const { button: button$i, div: div$i, h2: h2$h, input: input$c } = HTML;
     function gcd(x, y) {
         while (y !== 0) {
             const z = x % y;
@@ -37142,16 +37462,16 @@ You should be redirected to the song at:<br /><br />
             this._clockPadding = this._clockWidth / this._maxSteps;
             this._clockRadius = this._clockWidth / 2 - this._clockPointMaxRadius - this._clockPadding;
             this._sequenceButtons = [];
-            this._sequenceRemoveButton = button$h({ class: "no-underline", style: "flex-grow: 0; flex-basis: 30px;" }, SVG.svg({ width: "26", height: "26", viewBox: "-13 -13 26 26", "pointer-events": "none" }, SVG.path({ d: "M -7.07 -5.66 L -5.66 -7.07 L 0 -1.4 L 5.66 -7.07 L 7.07 -5.66 L 1.4 0 L 7.07 5.66 L 5.66 7.07 L 0 1.4 L -5.66 7.07 L -7.07 5.66 L -1.4 0 z", fill: ColorConfig.primaryText })));
-            this._sequenceAddButton = button$h({ class: "no-underline last-button", style: "flex-grow: 0; flex-basis: 30px;" }, SVG.svg({ width: "26", height: "26", viewBox: "-13 -13 26 26", "pointer-events": "none" }, SVG.path({ d: "M -8 -1 L -1 -1 L -1 -8 L 1 -8 L 1 -1 L 8 -1 L 8 1 L 1 1 L 1 8 L -1 8 L -1 1 L -8 1 z", fill: ColorConfig.primaryText })));
-            this._sequenceButtonContainer = div$h({ class: "instrument-bar", style: "justify-content: center; width: 100%;" }, this._sequenceRemoveButton, this._sequenceAddButton);
+            this._sequenceRemoveButton = button$i({ class: "no-underline", style: "flex-grow: 0; flex-basis: 30px;" }, SVG.svg({ width: "26", height: "26", viewBox: "-13 -13 26 26", "pointer-events": "none" }, SVG.path({ d: "M -7.07 -5.66 L -5.66 -7.07 L 0 -1.4 L 5.66 -7.07 L 7.07 -5.66 L 1.4 0 L 7.07 5.66 L 5.66 7.07 L 0 1.4 L -5.66 7.07 L -7.07 5.66 L -1.4 0 z", fill: ColorConfig.primaryText })));
+            this._sequenceAddButton = button$i({ class: "no-underline last-button", style: "flex-grow: 0; flex-basis: 30px;" }, SVG.svg({ width: "26", height: "26", viewBox: "-13 -13 26 26", "pointer-events": "none" }, SVG.path({ d: "M -8 -1 L -1 -1 L -1 -8 L 1 -8 L 1 -1 L 8 -1 L 8 1 L 1 1 L 1 8 L -1 8 L -1 1 L -8 1 z", fill: ColorConfig.primaryText })));
+            this._sequenceButtonContainer = div$i({ class: "instrument-bar", style: "justify-content: center; width: 100%;" }, this._sequenceRemoveButton, this._sequenceAddButton);
             this._barPreviewBackground = SVG.svg({ "pointer-events": "none" });
             this._barPreviewSteps = SVG.svg({ "pointer-events": "none" });
-            this._barPreviewLabel = div$h({ style: `flex-grow: 1; color: ${ColorConfig.secondaryText}` });
-            this._barPreviewGoToFirstButton = button$h({ style: "height: auto; min-height: var(--button-size);" }, SVG.svg({ width: "26", height: "26", viewBox: "-13 -14 26 26", "pointer-events": "none" }, SVG.rect({ x: "-6", y: "-6", width: "2", height: "12", fill: ColorConfig.primaryText }), SVG.path({ d: "M 6 -6 L 6 6 L -3 0 z", fill: ColorConfig.primaryText })));
-            this._barPreviewGoBackButton = button$h({ style: "height: auto; min-height: var(--button-size); margin-left: 1em;" }, SVG.svg({ width: "24", height: "26", viewBox: "-10 -14 24 26", "pointer-events": "none" }, SVG.path({ d: "M 6 -6 L 6 6 L -3 0 z", fill: ColorConfig.primaryText })));
-            this._barPreviewGoForwardButton = button$h({ style: "height: auto; min-height: var(--button-size);" }, SVG.svg({ width: "24", height: "26", viewBox: "-14 -14 24 26", "pointer-events": "none" }, SVG.path({ d: "M -6 -6 L -6 6 L 3 0 z", fill: ColorConfig.primaryText })));
-            this._barPreviewGoToLastButton = button$h({ style: "height: auto; min-height: var(--button-size); margin-left: 1em;" }, SVG.svg({ width: "26", height: "26", viewBox: "-13 -14 26 26", "pointer-events": "none" }, SVG.rect({ x: "4", y: "-6", width: "2", height: "12", fill: ColorConfig.primaryText }), SVG.path({ d: "M -6 -6 L -6 6 L 3 0 z", fill: ColorConfig.primaryText })));
+            this._barPreviewLabel = div$i({ style: `flex-grow: 1; color: ${ColorConfig.secondaryText}` });
+            this._barPreviewGoToFirstButton = button$i({ style: "height: auto; min-height: var(--button-size);" }, SVG.svg({ width: "26", height: "26", viewBox: "-13 -14 26 26", "pointer-events": "none" }, SVG.rect({ x: "-6", y: "-6", width: "2", height: "12", fill: ColorConfig.primaryText }), SVG.path({ d: "M 6 -6 L 6 6 L -3 0 z", fill: ColorConfig.primaryText })));
+            this._barPreviewGoBackButton = button$i({ style: "height: auto; min-height: var(--button-size); margin-left: 1em;" }, SVG.svg({ width: "24", height: "26", viewBox: "-10 -14 24 26", "pointer-events": "none" }, SVG.path({ d: "M 6 -6 L 6 6 L -3 0 z", fill: ColorConfig.primaryText })));
+            this._barPreviewGoForwardButton = button$i({ style: "height: auto; min-height: var(--button-size);" }, SVG.svg({ width: "24", height: "26", viewBox: "-14 -14 24 26", "pointer-events": "none" }, SVG.path({ d: "M -6 -6 L -6 6 L 3 0 z", fill: ColorConfig.primaryText })));
+            this._barPreviewGoToLastButton = button$i({ style: "height: auto; min-height: var(--button-size); margin-left: 1em;" }, SVG.svg({ width: "26", height: "26", viewBox: "-13 -14 26 26", "pointer-events": "none" }, SVG.rect({ x: "4", y: "-6", width: "2", height: "12", fill: ColorConfig.primaryText }), SVG.path({ d: "M -6 -6 L -6 6 L 3 0 z", fill: ColorConfig.primaryText })));
             this._clockWire = SVG.circle({ cx: this._clockWidth / 2, cy: this._clockHeight / 2, r: this._clockRadius, stroke: ColorConfig.primaryText, "stroke-width": "0.5", fill: "none" });
             this._clockPoints = SVG.svg({ "pointer-events": "none" });
             this._stepsStepper = input$c({ style: "width: 3em; margin-left: 1em;", type: "number", min: this._minSteps, max: this._maxSteps, value: "8", step: "1" });
@@ -37162,12 +37482,12 @@ You should be redirected to the song at:<br /><br />
             this._channelStepper = input$c({ style: "width: 3em; margin-left: 1em;", type: "number", min: "1", max: this._maxChannel + 1, value: "1", step: "1" });
             this._pitchStepper = input$c({ style: "width: 3em; margin-left: 1em;", type: "number", min: "0", max: Config.maxPitch, value: "0", step: "1" });
             this._barAmountStepper = input$c({ style: "width: 3em; margin-left: 1em;", type: "number", min: "1", max: Config.barCountMax, value: "1", step: "1" });
-            this._extendUntilLoopButton = button$h({ style: "height: auto; min-height: var(--button-size); margin-left: 1em;" }, "Extend until loop");
+            this._extendUntilLoopButton = button$i({ style: "height: auto; min-height: var(--button-size); margin-left: 1em;" }, "Extend until loop");
             this._generateFadingNotesBox = input$c({ type: "checkbox", style: "width: 1em; padding: 0; margin-left: 1em;" });
             this._invertBox = input$c({ type: "checkbox", style: "width: 1em; padding: 0; margin-left: 1em;" });
-            this._okayButton = button$h({ class: "okayButton", style: "width: 45%;" }, "Okay");
-            this._cancelButton = button$h({ class: "cancelButton" });
-            this.container = div$h({ class: "prompt noSelection", style: "width: 600px;" }, h2$g("Generate Euclidean Rhythm"), div$h({ style: "display: flex; flex-direction: row; align-items: center;" }, this._sequenceButtonContainer), div$h({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, div$h({ style: "flex-grow: 0; flex-shrink: 0;" }, this._barPreviewGoToFirstButton, this._barPreviewGoBackButton), this._barPreviewLabel, div$h({ style: "flex-grow: 0; flex-shrink: 0;" }, this._barPreviewGoForwardButton, this._barPreviewGoToLastButton)), div$h({ style: "display: flex; flex-direction: row; align-items: center; justify-content: center;" }, SVG.svg({ "pointer-events": "none", style: "touch-action: none; overflow: hidden;", width: "100%", height: "20px", viewBox: `0 0 ${this._barPreviewWidth} ${this._barPreviewHeight}`, preserveAspectRatio: "none" }, this._barPreviewBackground, this._barPreviewSteps)), div$h({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;" }, div$h({ style: "max-width: 150px; height: 100%;" }, SVG.svg({ "pointer-events": "none", width: "100%", height: "100%", style: "touch-action: none; overflow: hidden; margin-right: 1.5em; max-width: 150px; height: 100%;", viewBox: `0 0 ${this._clockWidth} ${this._clockHeight}`, preserveAspectRatio: "none" }, this._clockWire, this._clockPoints)), div$h({ style: "display: flex; height: 100%;" }, div$h({ style: "flex-grow: 1; " }, div$h({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end;" }, div$h({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Steps"), this._stepsStepper), div$h({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-top: 0.5em;" }, div$h({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Pulses"), this._pulsesStepper), div$h({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-top: 0.5em;" }, div$h({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Rotation"), this._rotationStepper)), div$h({ style: "flex-grow: 1; margin-left: 1em;" }, div$h({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-bottom: 1em;" }, div$h({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Size"), div$h({ style: "display: flex; flex-direction: column;" }, this._stepSizeNumeratorStepper, this._stepSizeDenominatorStepper)), div$h({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-top: 0.5em;" }, div$h({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Channel"), this._channelStepper), div$h({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-top: 0.5em;" }, div$h({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Pitch"), this._pitchStepper)))), div$h({ style: "display: flex; flex-direction: row; align-items: center; justify-content: flex-end;" }, div$h({ style: `text-align: right; color: ${ColorConfig.primaryText};` }, "Generate fading notes"), this._generateFadingNotesBox, div$h({ style: `text-align: right; color: ${ColorConfig.primaryText}; margin-left: 1em;` }, "Invert"), this._invertBox), div$h({ style: "display: flex; flex-direction: row; align-items: center; justify-content: flex-end;" }, div$h({ style: `text-align: right; color: ${ColorConfig.primaryText};` }, "Length (in bars)"), this._barAmountStepper, this._extendUntilLoopButton), div$h({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
+            this._okayButton = button$i({ class: "okayButton", style: "width: 45%;" }, "Okay");
+            this._cancelButton = button$i({ class: "cancelButton" });
+            this.container = div$i({ class: "prompt noSelection", style: "width: 600px;" }, h2$h("Generate Euclidean Rhythm"), div$i({ style: "display: flex; flex-direction: row; align-items: center;" }, this._sequenceButtonContainer), div$i({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-between;" }, div$i({ style: "flex-grow: 0; flex-shrink: 0;" }, this._barPreviewGoToFirstButton, this._barPreviewGoBackButton), this._barPreviewLabel, div$i({ style: "flex-grow: 0; flex-shrink: 0;" }, this._barPreviewGoForwardButton, this._barPreviewGoToLastButton)), div$i({ style: "display: flex; flex-direction: row; align-items: center; justify-content: center;" }, SVG.svg({ "pointer-events": "none", style: "touch-action: none; overflow: hidden;", width: "100%", height: "20px", viewBox: `0 0 ${this._barPreviewWidth} ${this._barPreviewHeight}`, preserveAspectRatio: "none" }, this._barPreviewBackground, this._barPreviewSteps)), div$i({ style: "display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;" }, div$i({ style: "max-width: 150px; height: 100%;" }, SVG.svg({ "pointer-events": "none", width: "100%", height: "100%", style: "touch-action: none; overflow: hidden; margin-right: 1.5em; max-width: 150px; height: 100%;", viewBox: `0 0 ${this._clockWidth} ${this._clockHeight}`, preserveAspectRatio: "none" }, this._clockWire, this._clockPoints)), div$i({ style: "display: flex; height: 100%;" }, div$i({ style: "flex-grow: 1; " }, div$i({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end;" }, div$i({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Steps"), this._stepsStepper), div$i({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-top: 0.5em;" }, div$i({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Pulses"), this._pulsesStepper), div$i({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-top: 0.5em;" }, div$i({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Rotation"), this._rotationStepper)), div$i({ style: "flex-grow: 1; margin-left: 1em;" }, div$i({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-bottom: 1em;" }, div$i({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Size"), div$i({ style: "display: flex; flex-direction: column;" }, this._stepSizeNumeratorStepper, this._stepSizeDenominatorStepper)), div$i({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-top: 0.5em;" }, div$i({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Channel"), this._channelStepper), div$i({ style: "display: flex; flex-direction: row; align-items: center; height: 3em; justify-content: flex-end; margin-top: 0.5em;" }, div$i({ style: `text-align: right; flex-grow: 1; color: ${ColorConfig.primaryText};` }, "Pitch"), this._pitchStepper)))), div$i({ style: "display: flex; flex-direction: row; align-items: center; justify-content: flex-end;" }, div$i({ style: `text-align: right; color: ${ColorConfig.primaryText};` }, "Generate fading notes"), this._generateFadingNotesBox, div$i({ style: `text-align: right; color: ${ColorConfig.primaryText}; margin-left: 1em;` }, "Invert"), this._invertBox), div$i({ style: "display: flex; flex-direction: row; align-items: center; justify-content: flex-end;" }, div$i({ style: `text-align: right; color: ${ColorConfig.primaryText};` }, "Length (in bars)"), this._barAmountStepper, this._extendUntilLoopButton), div$i({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
             this.cleanUp = () => {
                 this._okayButton.removeEventListener("click", this._saveChanges);
                 this._cancelButton.removeEventListener("click", this._close);
@@ -37754,7 +38074,7 @@ You should be redirected to the song at:<br /><br />
             this._renderSequenceButtons = () => {
                 const container = this._sequenceButtonContainer;
                 while (this._sequenceButtons.length < this._sequences.length) {
-                    const sequenceButton = button$h({ class: "no-underline" }, (this._sequenceButtons.length + 1) + "");
+                    const sequenceButton = button$i({ class: "no-underline" }, (this._sequenceButtons.length + 1) + "");
                     this._sequenceButtons.push(sequenceButton);
                     container.insertBefore(sequenceButton, this._sequenceRemoveButton);
                 }
@@ -38397,7 +38717,7 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { span: span$5 } = HTML;
+    const { span: span$6 } = HTML;
     class InputBox {
         constructor(input, _doc, _getChange) {
             this.input = input;
@@ -38448,7 +38768,7 @@ You should be redirected to the song at:<br /><br />
                     this._change = null;
                 }
             };
-            this.container = (midTick) ? span$5({ class: "midTick", style: "position: sticky; width: 61.5%;" }, input) : span$5({ style: "position: sticky;" }, input);
+            this.container = (midTick) ? span$6({ class: "midTick", style: "position: sticky; width: 61.5%;" }, input) : span$6({ style: "position: sticky;" }, input);
             input.addEventListener("input", this._whenInput);
             input.addEventListener("change", this._whenChange);
         }
@@ -38540,7 +38860,7 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$g, p: p$7, div: div$g, h2: h2$f, input: input$b, select: select$a, option: option$a } = HTML;
+    const { button: button$h, p: p$8, div: div$h, h2: h2$g, input: input$b, select: select$a, option: option$a } = HTML;
     class ImportPrompt {
         _distanceToFadeOutTable(value) {
             let best = Infinity;
@@ -38554,9 +38874,9 @@ You should be redirected to the song at:<br /><br />
         constructor(_doc) {
             this._doc = _doc;
             this._fileInput = input$b({ type: "file", accept: ".json,application/json,.mid,.midi,audio/midi,audio/x-midi" });
-            this._cancelButton = button$g({ class: "cancelButton" });
+            this._cancelButton = button$h({ class: "cancelButton" });
             this._modeImportSelect = select$a({ style: "width: 100%;" }, option$a({ value: "auto" }, "Auto-detect mode (for json)"), option$a({ value: "BeepBox" }, "BeepBox"), option$a({ value: "ModBox" }, "ModBox"), option$a({ value: "JummBox" }, "JummBox"), option$a({ value: "SynthBox" }, "SynthBox"), option$a({ value: "GoldBox" }, "GoldBox"), option$a({ value: "PaandorasBox" }, "PaandorasBox"), option$a({ value: "UltraBox" }, "UltraBox"), option$a({ value: "slarmoosbox" }, "Slarmoo's Box"), option$a({ value: "41box" }, "41Box"));
-            this.container = div$g({ class: "prompt noSelection", style: "width: 300px;" }, h2$f("Import"), p$7({ style: "text-align: left; margin: 0.5em 0;" }, "BeepBox songs can be exported and re-imported as .json files. You could also use other means to make .json files for BeepBox as long as they follow the same structure."), p$7({ style: "text-align: left; margin: 0.5em 0;" }, "BeepBox can also (crudely) import .mid files. There are many tools available for creating .mid files. Shorter and simpler songs are more likely to work well."), this._modeImportSelect, this._fileInput, this._cancelButton);
+            this.container = div$h({ class: "prompt noSelection", style: "width: 300px;" }, h2$g("Import"), p$8({ style: "text-align: left; margin: 0.5em 0;" }, "BeepBox songs can be exported and re-imported as .json files. You could also use other means to make .json files for BeepBox as long as they follow the same structure."), p$8({ style: "text-align: left; margin: 0.5em 0;" }, "BeepBox can also (crudely) import .mid files. There are many tools available for creating .mid files. Shorter and simpler songs are more likely to work well."), this._modeImportSelect, this._fileInput, this._cancelButton);
             this._close = () => {
                 this._doc.undo();
             };
@@ -39516,13 +39836,13 @@ You should be redirected to the song at:<br /><br />
     }
     ChannelRow.patternHeight = 28;
 
-    const { button: button$f, label: label$1, div: div$f, form, h2: h2$e, input: input$a } = HTML;
+    const { button: button$g, label: label$1, div: div$g, form, h2: h2$f, input: input$a } = HTML;
     class LayoutPrompt {
         constructor(_doc) {
             this._doc = _doc;
             this._fileInput = input$a({ type: "file", accept: ".json,application/json,.mid,.midi,audio/midi,audio/x-midi" });
-            this._okayButton = button$f({ class: "okayButton", style: "width:45%;" }, "Okay");
-            this._cancelButton = button$f({ class: "cancelButton" });
+            this._okayButton = button$g({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this._cancelButton = button$g({ class: "cancelButton" });
             this._form = form({ style: "display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;" }, label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "small" }), SVG(`\
 					<svg viewBox="-4 -1 28 22">
 						<rect x="0" y="0" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1"/>
@@ -39530,7 +39850,7 @@ You should be redirected to the song at:<br /><br />
 						<rect x="14" y="2" width="4" height="16" fill="currentColor"/>
 						<rect x="2" y="13" width="11" height="5" fill="currentColor"/>
 					</svg>
-				`), div$f("Small")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "long" }), SVG(`\
+				`), div$g("Small")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "long" }), SVG(`\
 					<svg viewBox="-1 -1 28 22">
 						<rect x="0" y="0" width="26" height="20" fill="none" stroke="currentColor" stroke-width="1"/>
 						<rect x="2" y="2" width="12" height="10" fill="currentColor"/>
@@ -39538,14 +39858,14 @@ You should be redirected to the song at:<br /><br />
 						<rect x="20" y="2" width="4" height="10" fill="currentColor"/>
 						<rect x="2" y="13" width="22" height="5" fill="currentColor"/>
 					</svg>
-				`), div$f("Long")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "tall" }), SVG(`\
+				`), div$g("Long")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "tall" }), SVG(`\
 					<svg viewBox="-1 -1 28 22">
 						<rect x="0" y="0" width="26" height="20" fill="none" stroke="currentColor" stroke-width="1"/>
 						<rect x="11" y="2" width="8" height="16" fill="currentColor"/>
 						<rect x="20" y="2" width="4" height="16" fill="currentColor"/>
 						<rect x="2" y="2" width="8" height="16" fill="currentColor"/>
 					</svg>
-				`), div$f("Tall")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "wide" }), SVG(`\
+				`), div$g("Tall")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "wide" }), SVG(`\
 					<svg viewBox="-1 -1 28 22">
 						<rect x="0" y="0" width="26" height="20" fill="none" stroke="currentColor" stroke-width="1"/>
 						<rect x="2" y="2" width="4" height="16" fill="currentColor"/>
@@ -39553,7 +39873,7 @@ You should be redirected to the song at:<br /><br />
 						<rect x="21.5" y="2" width="2.5" height="16" fill="currentColor"/>
 						<rect x="7" y="2" width="10" height="16" fill="currentColor"/>
 					</svg>
-				`), div$f("Wide (JB)")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "wide long" }), SVG(`\
+				`), div$g("Wide (JB)")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "wide long" }), SVG(`\
 					<svg viewBox="-1 -1 28 22">
 						<rect x="0" y="0" width="26" height="20" fill="none" stroke="currentColor" stroke-width="1"/>
 						<rect x="2" y="2" width="12" height="10" fill="currentColor"/>
@@ -39561,7 +39881,7 @@ You should be redirected to the song at:<br /><br />
 						<rect x="20" y="2" width="4" height="16" fill="currentColor"/>
 						<rect x="2" y="13" width="12" height="5" fill="currentColor"/>
 					</svg>
-				`), div$f("Wide Long (AB)")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "flipped long" }), SVG(`\
+				`), div$g("Wide Long (AB)")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "flipped long" }), SVG(`\
 					<svg viewBox="-1 -1 28 22">
 						<rect x="0" y="0" width="26" height="20" fill="none" stroke="currentColor" stroke-width="1"/>
 						<rect x="2" y="2" width="22" height="2" fill="currentColor"/>
@@ -39569,15 +39889,15 @@ You should be redirected to the song at:<br /><br />
 						<rect x="7" y="5" width="17" height="8" fill="currentColor"/>
 						<rect x="2" y="14" width="22" height="4" fill="currentColor"/>
 					</svg>
-				`), div$f("Flipped Long (AB)")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "focused long" }), SVG(`\
+				`), div$g("Flipped Long (AB)")), label$1({ class: "layout-option" }, input$a({ type: "radio", name: "layout", value: "focused long" }), SVG(`\
 					<svg viewBox="-1 -1 28 22">
 						<rect x="0" y="0" width="26" height="20" fill="none" stroke="currentColor" stroke-width="1"/>
 						<rect x="2" y="2" width="17" height="10" fill="currentColor"/>
 						<rect x="20" y="2" width="4" height="16" fill="currentColor"/>
 						<rect x="2" y="13" width="17" height="5" fill="currentColor"/>
 					</svg>
-				`), div$f("Focused long (AB)")));
-            this.container = div$f({ class: "prompt noSelection", style: "width: 300px;" }, h2$e("Layout"), this._form, div$f({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
+				`), div$g("Focused long (AB)")));
+            this.container = div$g({ class: "prompt noSelection", style: "width: 300px;" }, h2$f("Layout"), this._form, div$g({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
             this._close = () => {
                 this._doc.undo();
             };
@@ -40047,7 +40367,7 @@ You should be redirected to the song at:<br /><br />
                     ]),
                 ]);
                 const copyPasteContainer = HTML.div({ class: "editor-controls", style: "margin: 0.5em; display: flex; flex-direction:row; align-items:center;" }, envelopeCopyButton, envelopePasteButton);
-                const extraSettingsDropdown = HTML.button({ style: "margin-left:0em; margin-right: 0.3em; height:1.5em; width: 10px; padding: 0px; font-size: 8px;", onclick: () => { const instrument = this._doc.song.channels[this._doc.channel].instruments[this._doc.getCurrentInstrument()]; this._extraSettingsDropdown(8, envelopeIndex, Config.newEnvelopes[instrument.envelopes[envelopeIndex].envelope].name); } }, "▼");
+                const extraSettingsDropdown = HTML.button({ style: "margin-left:0em; margin-right: 0.3em; height:1.5em; align-self: center; width: 10px; padding: 0px; font-size: 8px;", onclick: () => { this._extraSettingsDropdown(8, envelopeIndex); } }, "▼");
                 extraSettingsDropdown.style.display = "inline";
                 const extraSettingsDropdownGroup = HTML.div({ class: "editor-controls", style: "flex-direction:column; align-items:center;" }, extraRandomSettingsGroup, extraLFOSettingsGroup, extraPitchSettingsGroup, perEnvelopeSpeedGroup, lowerBoundWrapper, upperBoundWrapper, checkboxWrapper, copyPasteContainer);
                 extraSettingsDropdownGroup.style.display = "none";
@@ -40298,7 +40618,7 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$e, div: div$e, h2: h2$d, input: input$9 } = HTML;
+    const { button: button$f, div: div$f, h2: h2$e, input: input$9 } = HTML;
     class LimiterCanvas {
         constructor(lim) {
             this._editorWidth = 200;
@@ -40421,7 +40741,7 @@ You should be redirected to the song at:<br /><br />
             this._doc = _doc;
             this._songEditor = _songEditor;
             this.limiterCanvas = new LimiterCanvas(this);
-            this._playButton = button$e({ style: "width: 55%;", type: "button" });
+            this._playButton = button$f({ style: "width: 55%;", type: "button" });
             this.limitDecaySlider = input$9({ title: "limit decay", style: `width: 5em; flex-grow: 1; margin: 0;`, type: "range", min: "1", max: "30", value: "4", step: "1" });
             this.limitRiseSlider = input$9({ title: "limit rise", style: `width: 5em; flex-grow: 1; margin: 0;`, type: "range", min: "2000", max: "10000", value: "4000", step: "250" });
             this.compressionThresholdSlider = input$9({ title: "compressor threshold", style: `width: 100%; flex-grow: 1; margin: 0;`, type: "range", min: "0", max: "1.1", value: "1", step: "0.05" });
@@ -40433,10 +40753,10 @@ You should be redirected to the song at:<br /><br />
             this.inVolumeHistoricCap = 0.0;
             this.outVolumeHistoricTimer = 0.0;
             this.outVolumeHistoricCap = 0.0;
-            this._cancelButton = button$e({ class: "cancelButton" });
-            this._okayButton = button$e({ class: "okayButton", style: "width:45%;" }, "Okay");
-            this._resetButton = button$e({ style: "width:45%;" }, "Reset");
-            this.container = div$e({ class: "prompt noSelection", style: "width: 250px;" }, h2$d("Limiter Options"), div$e({ style: "display: flex; width: 55%; align-self: center; flex-direction: row; align-items: center; justify-content: center;" }, this._playButton), div$e({ style: "display: flex; flex-direction: row; align-items: center; justify-content: center;" }, this.limiterCanvas.container), div$e({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; margin-top: 1.5em; justify-content: flex-end;" }, div$e({ style: `text-align: right; width: 25%; margin-right: 4.5%; color: ${ColorConfig.primaryText};` }, ""), div$e({ style: `text-align: center; width: 33%; margin-right: 4.5%; color: ${ColorConfig.textSelection};` }, "Boost"), div$e({ style: `text-align: center; width: 33%; margin-right: 0%; color: ${ColorConfig.linkAccent};` }, "Cutoff")), div$e({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; margin-top: 0.5em; justify-content: flex-end;" }, div$e({ style: `text-align: right; width: 25%; margin-right: 4.5%; color: ${ColorConfig.primaryText};` }, "Threshold:"), div$e({ style: `width: 33%; margin-right: 4.5%;` }, this.compressionThresholdSlider), div$e({ style: `width: 33%; margin-right: 0%;` }, this.limitThresholdSlider)), div$e({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$e({ style: `text-align: right; width: 25%; margin-right: 4.5%; color: ${ColorConfig.primaryText};` }, "Ratio:"), div$e({ style: `width: 33%; margin-right: 4.5%;` }, this.compressionRatioSlider), div$e({ style: `width: 33%; margin-right: 0%;` }, this.limitRatioSlider)), div$e({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$e({ style: `text-align: right; width: 8.5em; margin-right: 1em; color: ${ColorConfig.primaryText};` }, "Limit Decay:"), this.limitDecaySlider), div$e({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$e({ style: `text-align: right; width: 8.5em; margin-right: 1em; color: ${ColorConfig.primaryText};` }, "Limit Rise:"), this.limitRiseSlider), div$e({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$e({ style: `text-align: right; width: 8.5em; margin-right: 1em; color: ${ColorConfig.primaryText};` }, "Master Gain:"), this.masterGainSlider), div$e({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton, this._resetButton), this._cancelButton);
+            this._cancelButton = button$f({ class: "cancelButton" });
+            this._okayButton = button$f({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this._resetButton = button$f({ style: "width:45%;" }, "Reset");
+            this.container = div$f({ class: "prompt noSelection", style: "width: 250px;" }, h2$e("Limiter Options"), div$f({ style: "display: flex; width: 55%; align-self: center; flex-direction: row; align-items: center; justify-content: center;" }, this._playButton), div$f({ style: "display: flex; flex-direction: row; align-items: center; justify-content: center;" }, this.limiterCanvas.container), div$f({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; margin-top: 1.5em; justify-content: flex-end;" }, div$f({ style: `text-align: right; width: 25%; margin-right: 4.5%; color: ${ColorConfig.primaryText};` }, ""), div$f({ style: `text-align: center; width: 33%; margin-right: 4.5%; color: ${ColorConfig.textSelection};` }, "Boost"), div$f({ style: `text-align: center; width: 33%; margin-right: 0%; color: ${ColorConfig.linkAccent};` }, "Cutoff")), div$f({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; margin-top: 0.5em; justify-content: flex-end;" }, div$f({ style: `text-align: right; width: 25%; margin-right: 4.5%; color: ${ColorConfig.primaryText};` }, "Threshold:"), div$f({ style: `width: 33%; margin-right: 4.5%;` }, this.compressionThresholdSlider), div$f({ style: `width: 33%; margin-right: 0%;` }, this.limitThresholdSlider)), div$f({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$f({ style: `text-align: right; width: 25%; margin-right: 4.5%; color: ${ColorConfig.primaryText};` }, "Ratio:"), div$f({ style: `width: 33%; margin-right: 4.5%;` }, this.compressionRatioSlider), div$f({ style: `width: 33%; margin-right: 0%;` }, this.limitRatioSlider)), div$f({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$f({ style: `text-align: right; width: 8.5em; margin-right: 1em; color: ${ColorConfig.primaryText};` }, "Limit Decay:"), this.limitDecaySlider), div$f({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$f({ style: `text-align: right; width: 8.5em; margin-right: 1em; color: ${ColorConfig.primaryText};` }, "Limit Rise:"), this.limitRiseSlider), div$f({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$f({ style: `text-align: right; width: 8.5em; margin-right: 1em; color: ${ColorConfig.primaryText};` }, "Master Gain:"), this.masterGainSlider), div$f({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton, this._resetButton), this._cancelButton);
             this._volumeUpdate = () => {
                 this.inVolumeHistoricTimer--;
                 if (this.inVolumeHistoricTimer <= 0) {
@@ -40579,15 +40899,25 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$d, div: div$d, h2: h2$c, input: input$8, p: p$6 } = HTML;
+    const { button: button$e, div: div$e, h2: h2$d, p: p$7 } = HTML;
     class CustomScalePrompt {
         constructor(_doc) {
             this._doc = _doc;
             this._flags = [];
             this._scaleFlags = [];
-            this._scaleRows = [];
-            this._cancelButton = button$d({ class: "cancelButton" });
-            this._okayButton = button$d({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this._cancelButton = button$e({ class: "cancelButton" });
+            this._okayButton = button$e({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this._editorWidth = 240;
+            this._editorHeight = 100;
+            this._keys = [];
+            this._highlights = [];
+            this._render = () => {
+                for (let i = 0; i < Config.pitchesPerOctave; i++) {
+                    this._keyNames[i].style.filter = this._flags[i] ? "brightness(0.5)" : "";
+                    this._keys[i].style.filter = this._flags[i] ? "brightness(0.5)" : "";
+                    this._highlights[i].style.display = this._flags[i] ? "" : "none";
+                }
+            };
             this._close = () => {
                 this._doc.undo();
             };
@@ -40609,17 +40939,71 @@ You should be redirected to the song at:<br /><br />
                 this._doc.record(new ChangeCustomScale(this._doc, this._flags));
             };
             this._flags = _doc.song.scaleCustom.slice();
-            let scaleHolder = div$d({});
-            for (var i = 1; i < Config.pitchesPerOctave; i++) {
-                this._scaleFlags[i] = input$8({ type: "checkbox", style: "width: 1em; padding: 0; margin-right: 4em;", "checked": this._flags[i], "value": i });
-                this._scaleRows[i] = div$d({ style: "text-align: right; height: 2em;" }, "Note " + i + ":", this._scaleFlags[i]);
-                scaleHolder.appendChild(this._scaleRows[i]);
-                console.log("new!");
+            console.log(this._flags);
+            this._keyNames = [];
+            for (let i = 0; i < Config.pitchesPerOctave; i++) {
+                this._keyNames[i] = SVG.text({ style: "font-size: 12px;", "fill": ColorConfig.invertedText, "text-anchor": "middle", "dominant-baseline": "central", "pointer-events": "none", "font-weight": "bolder" });
             }
+            let whiteKeyCount = 0;
+            const blackKeys = [];
+            const sortedKeys = [];
+            const shift = CustomScalePrompt.getPitchName(this._doc.song.key, 0).length == 2 ? this._editorWidth * 1 / 10 : 0;
+            const editorWidth = this._editorWidth - shift - (CustomScalePrompt.getPitchName(this._doc.song.key, 11).length == 2 ? this._editorWidth * 1 / 10 : 0);
+            for (let i = 0; i < Config.pitchesPerOctave; i++) {
+                const text = CustomScalePrompt.getPitchName(this._doc.song.key, i);
+                const isBlackKey = text.length == 2;
+                this._keyNames[i].textContent = text;
+                this._keyNames[i].setAttribute("fill", isBlackKey ? ColorConfig.blackPianoKeyText : ColorConfig.whitePianoKeyText);
+                const width = isBlackKey ? editorWidth * 1 / 10 : editorWidth * 1 / 7;
+                const height = isBlackKey ? this._editorHeight * 2 / 3 : this._editorHeight;
+                let x = (isBlackKey ? whiteKeyCount * editorWidth / 7 - width / 2 : whiteKeyCount * editorWidth / 7) + shift;
+                let y = isBlackKey ? -4 : 0;
+                const key = SVG.rect({ fill: isBlackKey ? ColorConfig.blackPianoKey : ColorConfig.whitePianoKey });
+                key.setAttribute("x", String(x));
+                key.setAttribute("y", String(y));
+                this._keyNames[i].setAttribute("x", String(x + width / 2));
+                this._keyNames[i].setAttribute("y", String(y + height - 20));
+                key.setAttribute("width", String(width));
+                key.setAttribute("height", String(height));
+                const highlight = SVG.rect({ x: x, y: y + height - 3, width: width, height: 3, fill: ColorConfig.primaryText });
+                this._highlights.push(highlight);
+                const wrappedKey = SVG.g(key, SVG.rect({ x: x, y: y, width: 1, height: height, rx: "0.6", fill: "rgba(255,255,255,0.4)" }), SVG.path({ d: `M ${x + 3} ${y + height - 3} L ${x + width - 3} ${y + height - 3} L ${x + width - 3} 0 L ${x + width} -1 L ${x + width} ${y + height} L ${x} ${y + height} z`, fill: "rgba(0,0,0,0.7)" }), SVG.rect({ x: x, y: y, width: width, height: height / 2, rx: "0.6", fill: "url(#shadow)" }), highlight);
+                if (isBlackKey)
+                    blackKeys.push(wrappedKey);
+                else
+                    sortedKeys.push(wrappedKey);
+                whiteKeyCount += +!isBlackKey;
+                this._keys.push(key);
+                if (i > 0)
+                    wrappedKey.addEventListener("click", () => { this._flags[i] = !this._flags[i]; this._render(); });
+            }
+            for (const blackKey of blackKeys) {
+                sortedKeys.push(blackKey);
+            }
+            this._svg = SVG.svg({ style: `background-color: ${ColorConfig.editorBackground}; touch-action: none;`, width: "100%", height: "100%", viewBox: "0 0 " + this._editorWidth + " " + this._editorHeight, preserveAspectRatio: "none" }, SVG.defs(SVG.linearGradient({ id: "shadow", x1: "0%", y1: "0%", x2: "0%", y2: "100%" }, SVG.stop({ offset: "0%", "stop-color": "rgba(0,0,0,0.5)" }), SVG.stop({ offset: "100%", "stop-color": "transparent" }))), ...sortedKeys, ...this._keyNames);
             this._okayButton.addEventListener("click", this._saveChanges);
             this._cancelButton.addEventListener("click", this._close);
-            this.container = div$d({ class: "prompt noSelection", style: "width: 250px;" }, h2$c("Custom Scale"), p$6("Here, you can make your own scale to use in your song. Press the checkboxes below to toggle which notes of an octave are in the scale. For this to work, you'll need to have the \"Custom\" scale selected."), div$d({ style: "display: flex; flex-direction: row; align-items: center; justify-content: flex-end;" }, scaleHolder), div$d({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
+            this.container = div$e({ class: "prompt noSelection", style: "width: 250px;" }, h2$d("Custom Scale"), p$7("Here, you can make your own scale to use in your song. Press the keys below to toggle which notes of an octave are in the scale. For this to work, you'll need to have the \"Custom\" scale selected."), div$e({ style: "display: flex; flex-direction: row; align-items: center; justify-content: flex-end;" }, this._svg), div$e({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
             this.container.addEventListener("keydown", this.whenKeyPressed);
+            this._render();
+        }
+        static getPitchName(key, index) {
+            let text = "";
+            const pitchNameIndex = (key + index) % 12;
+            if (Config.keys[pitchNameIndex].isWhiteKey) {
+                text = Config.keys[pitchNameIndex].name;
+            }
+            else {
+                const shiftDir = Config.blackKeyNameParents[key % Config.pitchesPerOctave];
+                text = Config.keys[(pitchNameIndex + Config.pitchesPerOctave + shiftDir) % Config.pitchesPerOctave].name;
+                if (shiftDir == 1) {
+                    text += "♭";
+                }
+                else if (shiftDir == -1) {
+                    text += "♯";
+                }
+            }
+            return text;
         }
     }
 
@@ -40933,15 +41317,15 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
-    const { button: button$c, div: div$c, span: span$4, h2: h2$b, input: input$7, br: br$1, select: select$9, option: option$9 } = HTML;
+    const { button: button$d, div: div$d, span: span$5, h2: h2$c, input: input$8, br: br$1, select: select$9, option: option$9 } = HTML;
     class MoveNotesSidewaysPrompt {
         constructor(_doc) {
             this._doc = _doc;
-            this._beatsStepper = input$7({ style: "width: 3em; margin-left: 1em;", type: "number", step: "0.01", value: "0" });
+            this._beatsStepper = input$8({ style: "width: 3em; margin-left: 1em;", type: "number", step: "0.01", value: "0" });
             this._conversionStrategySelect = select$9({ style: "width: 100%;" }, option$9({ value: "overflow" }, "Overflow notes across bars."), option$9({ value: "wrapAround" }, "Wrap notes around within bars."));
-            this._cancelButton = button$c({ class: "cancelButton" });
-            this._okayButton = button$c({ class: "okayButton", style: "width:45%;" }, "Okay");
-            this.container = div$c({ class: "prompt noSelection", style: "width: 250px;" }, h2$b("Move Notes Sideways"), div$c({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$c({ style: "text-align: right;" }, "Beats to move:", br$1(), span$4({ style: `font-size: smaller; color: ${ColorConfig.secondaryText};` }, "(Negative is left, positive is right)")), this._beatsStepper), div$c({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$c({ class: "selectContainer", style: "width: 100%;" }, this._conversionStrategySelect)), div$c({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
+            this._cancelButton = button$d({ class: "cancelButton" });
+            this._okayButton = button$d({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this.container = div$d({ class: "prompt noSelection", style: "width: 250px;" }, h2$c("Move Notes Sideways"), div$d({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$d({ style: "text-align: right;" }, "Beats to move:", br$1(), span$5({ style: `font-size: smaller; color: ${ColorConfig.secondaryText};` }, "(Negative is left, positive is right)")), this._beatsStepper), div$d({ style: "display: flex; flex-direction: row; align-items: center; height: 2em; justify-content: flex-end;" }, div$d({ class: "selectContainer", style: "width: 100%;" }, this._conversionStrategySelect)), div$d({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
             this._close = () => {
                 this._doc.undo();
             };
@@ -44301,6 +44685,65 @@ You should be redirected to the song at:<br /><br />
         }
     }
 
+    const { button: button$c, div: div$c, h2: h2$b, p: p$6, input: input$7, span: span$4 } = HTML;
+    class SelectiveRandomPastePrompt {
+        constructor(_doc, _isRandom) {
+            this._doc = _doc;
+            this._isRandom = _isRandom;
+            this._cancelButton = button$c({ class: "cancelButton" });
+            this._okayButton = button$c({ class: "okayButton", style: "width:45%;" }, "Okay");
+            this._close = () => {
+                this._doc.undo();
+            };
+            this.cleanUp = () => {
+                this._okayButton.removeEventListener("click", this._saveChanges);
+                this._cancelButton.removeEventListener("click", this._close);
+                this.container.removeEventListener("keydown", this.whenKeyPressed);
+            };
+            this.whenKeyPressed = (event) => {
+                if (event.target.tagName != "BUTTON" && event.keyCode == 13) {
+                    this._saveChanges();
+                }
+            };
+            this._saveChanges = () => {
+                this._doc.prompt = null;
+                this.SpecificRandomPasteSettings.instrumentType = this._instrumentTypeCheckbox.checked;
+                this.SpecificRandomPasteSettings.eqFilter = this._eqFilterCheckbox.checked;
+                this.SpecificRandomPasteSettings.fade = this._fadeCheckbox.checked;
+                this.SpecificRandomPasteSettings.instrumentTypeSettings = this._instrumentTypeSettingsCheckbox.checked;
+                this.SpecificRandomPasteSettings.unison = this._unisonCheckbox.checked;
+                this.SpecificRandomPasteSettings.effects = this._effectsCheckbox.checked;
+                this.SpecificRandomPasteSettings.envelopes = this._envelopesCheckbox.checked;
+                this.SpecificRandomPasteSettings.instrumentPatterns = this._instrumentPatternsCheckbox.checked;
+                this.SpecificRandomPasteSettings.allInstruments = this._allInstrumentsCheckbox.checked;
+                if (this._isRandom)
+                    this._doc.prefs.selectiveRandom = this.SpecificRandomPasteSettings;
+                else
+                    this._doc.prefs.selectivePaste = this.SpecificRandomPasteSettings;
+                this._doc.prefs.save();
+                this._close();
+            };
+            if (this._isRandom)
+                this.SpecificRandomPasteSettings = this._doc.prefs.selectiveRandom;
+            else
+                this.SpecificRandomPasteSettings = this._doc.prefs.selectivePaste;
+            this._instrumentTypeCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.instrumentType, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._eqFilterCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.eqFilter, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._fadeCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.fade, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._instrumentTypeSettingsCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.instrumentTypeSettings, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._unisonCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.unison, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._effectsCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.effects, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._envelopesCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.envelopes, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._instrumentPatternsCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.instrumentPatterns, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._allInstrumentsCheckbox = input$7({ "checked": this.SpecificRandomPasteSettings.allInstruments, type: "checkbox", style: "width: 1em; padding: 0.5em;" });
+            this._okayButton.addEventListener("click", this._saveChanges);
+            this._cancelButton.addEventListener("click", this._close);
+            this.container = div$c({ class: "prompt noSelection", style: "width: 250px;" }, h2$b(this._isRandom ? "Customize Specific Random" : "Customize Specific Paste"), p$6((this._isRandom ? "When generating a random instrument with Alt + R" : "When pasting an instrument with Alt + V") +
+                ", you can choose which parameters you want " + (this._isRandom ? "randomized" : "pasted") + " here."), div$c({ style: "align-items: center; display: flex; flex-direction: row;" }, div$c({ style: "display: flex; flex-direction: column; align-items: flex-start;" }, div$c(span$4("Instrument Type: "), this._instrumentTypeCheckbox), div$c(span$4("EQ Filter: "), this._eqFilterCheckbox), div$c(span$4("Fade: "), this._fadeCheckbox), div$c(span$4("Instrument Type Settings: "), this._instrumentTypeSettingsCheckbox), div$c(span$4("Unison: "), this._unisonCheckbox), div$c(span$4("Effects: "), this._effectsCheckbox), div$c(span$4("Envelopes: "), this._envelopesCheckbox), this._isRandom || !this._doc.song.patternInstruments ? "" : div$c(span$4("Instrument Patterns: "), this._instrumentPatternsCheckbox), this._isRandom || (!this._doc.song.patternInstruments && !this._doc.song.layeredInstruments) ? "" : div$c(span$4("All Instruments: "), this._allInstrumentsCheckbox))), div$c({ style: "display: flex; flex-direction: row-reverse; justify-content: space-between;" }, this._okayButton), this._cancelButton);
+            this.container.addEventListener("keydown", this.whenKeyPressed);
+        }
+    }
+
     const { button: button$b, div: div$b, span: span$3, h2: h2$a, input: input$6, br, select: select$8, option: option$8 } = HTML;
     class SongDurationPrompt {
         constructor(_doc) {
@@ -44953,7 +45396,9 @@ You should be redirected to the song at:<br /><br />
                 this._drumsetButtonContainer.style.setProperty("--background-color-dim", colors.secondaryChannel);
                 this._drumsetButtonContainer.style.display = "";
                 this.spectrumEditor.container.style.display = "";
+                this.spectrumEditor.resetToInitial();
                 this.spectrumEditor.setSpectrumWave(this.spectrumEditors[this._drumsetSpectrumIndex].getSpectrumWave().spectrum);
+                this.spectrumEditor.storeChange();
             }
             else {
                 this._drumsetButtonContainer.style.display = "none";
@@ -44988,123 +45433,120 @@ You should be redirected to the song at:<br /><br />
             this._pattern3 = _pattern3;
             this._fileInput = input$4({ type: "file", accept: "image/*", text: "choose editor background image" });
             this._fileInput2 = input$4({ type: "file", accept: "image/*", text: "choose website background image" });
-            this._colorInput = input$4({ type: "text", value: localStorage.getItem("customColors") || `:root {
-	--page-margin: black;
-	--editor-background: black;
-	--hover-preview: white;
-	--playhead: white;
-	--primary-text: white;
-	--secondary-text: #999;
-	--inverted-text: black;
-	--text-selection: rgba(119,68,255,0.99);
-	--box-selection-fill: rgba(255,255,255,0.2);
-	--loop-accent: #74f;
-	--link-accent: #98f;
-	--ui-widget-background: #444;
-	--ui-widget-focus: #777;
-	--pitch-background: #444;
-	--tonic: #864;
-	--fifth-note: #468;
-	--white-piano-key: #bbb;
-	--black-piano-key: #444;
-	--white-piano-key-text: #131200;
-	--black-piano-key-text: #fff;
-	--use-color-formula: false;
-	--track-editor-bg-pitch: #444;
-	--track-editor-bg-pitch-dim: #333;
-	--track-editor-bg-noise: #444;
-	--track-editor-bg-noise-dim: #333;
-	--track-editor-bg-mod: #234;
-	--track-editor-bg-mod-dim: #123;
-	--multiplicative-mod-slider: #456;
-	--overwriting-mod-slider: #654;
-	--indicator-primary: #74f;
-	--indicator-secondary: #444;
-	--select2-opt-group: #585858;
-	--input-box-outline: #333;
-	--mute-button-normal: #ffa033;
-	--mute-button-mod: #9a6bff;
-	--pitch1-secondary-channel: #0099A1;
-	--pitch1-primary-channel:   #25F3FF;
-	--pitch1-secondary-note:    #00BDC7;
-	--pitch1-primary-note:      #92F9FF;
-	--pitch2-secondary-channel: #A1A100;
-	--pitch2-primary-channel:   #FFFF25;
-	--pitch2-secondary-note:    #C7C700;
-	--pitch2-primary-note:      #FFFF92;
-	--pitch3-secondary-channel: #C75000;
-	--pitch3-primary-channel:   #FF9752;
-	--pitch3-secondary-note:    #FF771C;
-	--pitch3-primary-note:      #FFCDAB;
-	--pitch4-secondary-channel: #00A100;
-	--pitch4-primary-channel:   #50FF50;
-	--pitch4-secondary-note:    #00C700;
-	--pitch4-primary-note:      #A0FFA0;
-	--pitch5-secondary-channel: #D020D0;
-	--pitch5-primary-channel:   #FF90FF;
-	--pitch5-secondary-note:    #E040E0;
-	--pitch5-primary-note:      #FFC0FF;
-	--pitch6-secondary-channel: #7777B0;
-	--pitch6-primary-channel:   #A0A0FF;
-	--pitch6-secondary-note:    #8888D0;
-	--pitch6-primary-note:      #D0D0FF;
-	--pitch7-secondary-channel: #8AA100;
-	--pitch7-primary-channel:   #DEFF25;
-	--pitch7-secondary-note:    #AAC700;
-	--pitch7-primary-note:      #E6FF92;
-	--pitch8-secondary-channel: #DF0019;
-	--pitch8-primary-channel:   #FF98A4;
-	--pitch8-secondary-note:    #FF4E63;
-	--pitch8-primary-note:      #FFB2BB;
-	--pitch9-secondary-channel: #00A170;
-	--pitch9-primary-channel:   #50FFC9;
-	--pitch9-secondary-note:    #00C78A;
-	--pitch9-primary-note:      #83FFD9;
-	--pitch10-secondary-channel:#A11FFF;
-	--pitch10-primary-channel:  #CE8BFF;
-	--pitch10-secondary-note:   #B757FF;
-	--pitch10-primary-note:     #DFACFF;
-	--noise1-secondary-channel: #6F6F6F;
-	--noise1-primary-channel:   #AAAAAA;
-	--noise1-secondary-note:    #A7A7A7;
-	--noise1-primary-note:      #E0E0E0;
-	--noise2-secondary-channel: #996633;
-	--noise2-primary-channel:   #DDAA77;
-	--noise2-secondary-note:    #CC9966;
-	--noise2-primary-note:      #F0D0BB;
-	--noise3-secondary-channel: #4A6D8F;
-	--noise3-primary-channel:   #77AADD;
-	--noise3-secondary-note:    #6F9FCF;
-	--noise3-primary-note:      #BBD7FF;
-	--noise4-secondary-channel: #7A4F9A;
-	--noise4-primary-channel:   #AF82D2;
-	--noise4-secondary-note:    #9E71C1;
-	--noise4-primary-note:      #D4C1EA;
-	--noise5-secondary-channel: #607837;
-	--noise5-primary-channel:   #A2BB77;
-	--noise5-secondary-note:    #91AA66;
-	--noise5-primary-note:      #C5E2B2;
-	--mod1-secondary-channel:   #339955;
-	--mod1-primary-channel:     #77fc55;
-	--mod1-secondary-note:      #77ff8a;
-	--mod1-primary-note:        #cdffee;
-	--mod2-secondary-channel:   #993355;
-	--mod2-primary-channel:     #f04960;
-	--mod2-secondary-note:      #f057a0;
-	--mod2-primary-note:        #ffb8de;
-	--mod3-secondary-channel:   #553399;
-	--mod3-primary-channel:     #8855fc;
-	--mod3-secondary-note:      #aa64ff;
-	--mod3-primary-note:	    #f8ddff;
-	--mod4-secondary-channel:   #a86436;
-	--mod4-primary-channel:     #c8a825;
-	--mod4-secondary-note:      #e8ba46;
-	--mod4-primary-note:        #fff6d3;
-	--mod-label-primary:        #999;
-	--mod-label-secondary-text: #333;
-	--mod-label-primary-text:   black;
-	--disabled-note-primary:    #999;
-	--disabled-note-secondary:  #666; }` });
+            this._colorInput = input$4({
+                type: "text", value: localStorage.getItem("customColors") || `:root {
+			--page-margin: #14051a;
+			--editor-background: #14051a66;
+			--playhead: rgba(255, 255, 255, 0.9);
+			--primary-text: #71eee5;
+			--secondary-text: #3abbb2;
+			--inverted-text: #13695e;
+			--box-selection-fill: #36c71c;
+			--loop-accent: #36c71c;
+			--link-accent: white;
+			--ui-widget-background: #183d05;
+			--ui-widget-focus: #247d0d;
+			--pitch-background: #2e0e51;
+			--tonic: #247d0d;
+			--fifth-note: #3abbb2;
+			--white-piano-key: #ffffff;
+			--black-piano-key: #061705;
+			--white-piano-key-text: #061705;
+			--use-color-formula: true;
+			--track-editor-bg-pitch: #09382b;
+			--track-editor-bg-pitch-dim: #14051a;
+			--track-editor-bg-noise: #40400b;
+			--track-editor-bg-noise-dim: #14051a;
+			--track-editor-bg-mod: #0a2c08;
+			--track-editor-bg-mod-dim: #14051a;
+			--multiplicative-mod-slider: #3abb22;
+			--overwriting-mod-slider: #71eee5;
+			--indicator-primary: #a773e5;
+			--indicator-secondary: #4c1c89;
+			--select2-opt-group: #183d05;
+			--input-box-outline: #18040a;
+			--mute-button-normal: #36c71c;
+			--mute-button-mod: #a773e5;
+			--mod-label-primary: #a773e5;
+			--mod-label-secondary-text: #6b29bf;
+			--mod-label-primary-text: #14051a;
+			--mod-title: #247d1d;
+			--pitch-secondary-channel-hue: 100;
+			--pitch-secondary-channel-hue-scale: 6.1;
+			--pitch-secondary-channel-sat: 100.0;
+			--pitch-secondary-channel-sat-scale: 0.15;
+			--pitch-secondary-channel-lum: 60.0;
+			--pitch-secondary-channel-lum-scale: 0.05;
+			--pitch-primary-channel-hue: 100;
+			--pitch-primary-channel-hue-scale: 6.1;
+			--pitch-primary-channel-sat: 100;
+			--pitch-primary-channel-sat-scale: 0.15;
+			--pitch-primary-channel-lum: 75.0;
+			--pitch-primary-channel-lum-scale: 0.05;
+			--pitch-secondary-note-hue: 100;
+			--pitch-secondary-note-hue-scale: 6.1;
+			--pitch-secondary-note-sat: 95.0;
+			--pitch-secondary-note-sat-scale: 0.15;
+			--pitch-secondary-note-lum: 40;
+			--pitch-secondary-note-lum-scale: 0.05;
+			--pitch-primary-note-hue: 100;
+			--pitch-primary-note-hue-scale: 6.1;
+			--pitch-primary-note-sat: 100;
+			--pitch-primary-note-sat-scale: 0.15;
+			--pitch-primary-note-lum: 85.6;
+			--pitch-primary-note-lum-scale: 0.025;
+			--noise-secondary-channel-hue: 65;
+			--noise-secondary-channel-hue-scale: 2;
+			--noise-secondary-channel-sat: 55;
+			--noise-secondary-channel-sat-scale: 0;
+			--noise-secondary-channel-lum: 42;
+			--noise-secondary-channel-lum-scale: 0;
+			--noise-primary-channel-hue: 65;
+			--noise-primary-channel-hue-scale: 2;
+			--noise-primary-channel-sat: 66;
+			--noise-primary-channel-sat-scale: 0;
+			--noise-primary-channel-lum: 63.5;
+			--noise-primary-channel-lum-scale: 0;
+			--noise-secondary-note-hue: 65;
+			--noise-secondary-note-hue-scale: 2;
+			--noise-secondary-note-sat: 66;
+			--noise-secondary-note-sat-scale: 0;
+			--noise-secondary-note-lum: 55;
+			--noise-secondary-note-lum-scale: 0;
+			--noise-primary-note-hue: 65;
+			--noise-primary-note-hue-scale: 2;
+			--noise-primary-note-sat: 70;
+			--noise-primary-note-sat-scale: 0;
+			--noise-primary-note-lum: 74;
+			--noise-primary-note-lum-scale: 0;
+			--mod-secondary-channel-hue: 192;
+			--mod-secondary-channel-hue-scale: 1.5;
+			--mod-secondary-channel-sat: 88;
+			--mod-secondary-channel-sat-scale: 0;
+			--mod-secondary-channel-lum: 50;
+			--mod-secondary-channel-lum-scale: 0;
+			--mod-primary-channel-hue: 192;
+			--mod-primary-channel-hue-scale: 1.5;
+			--mod-primary-channel-sat: 96;
+			--mod-primary-channel-sat-scale: 0;
+			--mod-primary-channel-lum: 80;
+			--mod-primary-channel-lum-scale: 0;
+			--mod-secondary-note-hue: 192;
+			--mod-secondary-note-hue-scale: 1.5;
+			--mod-secondary-note-sat: 92;
+			--mod-secondary-note-sat-scale: 0;
+			--mod-secondary-note-lum: 45;
+			--mod-secondary-note-lum-scale: 0;
+			--mod-primary-note-hue: 192;
+			--mod-primary-note-hue-scale: 1.5;
+			--mod-primary-note-sat: 96;
+			--mod-primary-note-sat-scale: 0;
+			--mod-primary-note-lum: 85;
+			--mod-primary-note-lum-scale: 0;
+			--oscilloscope-line-R: white;
+			--oscilloscope-line-L: var(--secondary-text);
+}`
+            });
             this._cancelButton = button$7({ class: "cancelButton" });
             this._okayButton = button$7({ class: "okayButton", style: "width:45%;" }, "Okay");
             this._resetButton = button$7({ style: "height: auto; min-height: var(--button-size);" }, "Reset to defaults");
@@ -45124,7 +45566,7 @@ You should be redirected to the song at:<br /><br />
             this._reset = () => {
                 window.localStorage.removeItem("colorTheme");
                 window.localStorage.removeItem("customTheme");
-                window.localStorage.removeItem("customTheme2");
+                window.localStorage.removeItem("customThemeImage");
                 window.localStorage.removeItem("customColors");
                 this._pattern._svg.style.backgroundImage = "";
                 document.body.style.backgroundImage = "";
@@ -45165,8 +45607,8 @@ You should be redirected to the song at:<br /><br />
                 const reader = new FileReader();
                 reader.addEventListener("load", (event) => {
                     let base64 = reader.result;
-                    window.localStorage.setItem("customTheme2", base64);
-                    const value = `url("${window.localStorage.getItem('customTheme2')}")`;
+                    window.localStorage.setItem("customThemeImage", base64);
+                    const value = `url("${window.localStorage.getItem('customThemeImage')}")`;
                     document.body.style.backgroundImage = `url(${base64})`;
                     this._pattern2.style.backgroundImage = value;
                     this._pattern3.style.backgroundImage = value;
@@ -47661,6 +48103,8 @@ You should be redirected to the song at:<br /><br />
         const randomGroup = optgroup({ label: "Randomize ▾" });
         randomGroup.appendChild(option({ value: "randomPreset" }, "Random Preset"));
         randomGroup.appendChild(option({ value: "randomGenerated" }, "Random Generated"));
+        randomGroup.appendChild(option({ value: "advancedRandomGenerated" }, "Advanced Random Generated"));
+        randomGroup.appendChild(option({ value: "customizeAdvancedRandomGenerated" }, "Customize Advanced Random Generated"));
         menu.appendChild(randomGroup);
         let firstCategoryGroup = null;
         let customSampleCategoryGroup = null;
@@ -48382,6 +48826,7 @@ You should be redirected to the song at:<br /><br />
             this._vibratoDropdownGroup = div({ class: "editor-controls", style: `display: none;` }, this._vibratoDepthRow, this._vibratoSpeedRow, this._vibratoDelayRow, this._vibratoTypeSelectRow);
             this._phaseModGroup = div({ class: "editor-controls" });
             this._feedbackTypeSelect = buildOptions(select(), Config.feedbacks.map(feedback => feedback.name));
+            this.envelopeEditor = new EnvelopeEditor(this.doc, (id, submenu, subtype) => this._toggleDropdownMenu(id, submenu), (name) => this._openPrompt(name));
             this._feedbackRow1 = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("feedbackType") }, "Feedback:"), div({ class: "selectContainer" }, this._feedbackTypeSelect));
             this._spectrumEditor = new SpectrumEditor(this.doc, null);
             this._spectrumZoom = button({ style: "margin-left:0em; padding-left:0.2em; height:1.5em; max-width: 12px;", onclick: () => this._openPrompt("spectrumSettings") }, "+");
@@ -48389,7 +48834,6 @@ You should be redirected to the song at:<br /><br />
             this._harmonicsEditor = new HarmonicsEditor(this.doc);
             this._harmonicsZoom = button({ style: "padding-left:0.2em; height:1.5em; max-width: 12px;", onclick: () => this._openPrompt("harmonicsSettings") }, "+");
             this._harmonicsRow = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("harmonics"), style: "font-size: smaller" }, "Harmonics:"), this._harmonicsZoom, this._harmonicsEditor.container);
-            this.envelopeEditor = new EnvelopeEditor(this.doc, (id, submenu, subtype) => this._toggleDropdownMenu(id, submenu, subtype), (name) => this._openPrompt(name));
             this._envelopeSpeedDisplay = span({ style: `color: ${ColorConfig.secondaryText}; font-size: smaller; text-overflow: clip;` }, "x1");
             this._envelopeSpeedSlider = new Slider(input({ style: "margin: 0;", type: "range", min: "0", max: Config.modulators.dictionary["envelope speed"].maxRawVol, value: "0", step: "1" }), this.doc, (oldValue, newValue) => new ChangeEnvelopeSpeed(this.doc, oldValue, newValue), false);
             this._envelopeSpeedRow = div({ class: "selectRow dropFader" }, span({ class: "tip", style: "margin-left:4px;", onclick: () => this._openPrompt("envelopeSpeed") }, "‣ Spd:"), this._envelopeSpeedDisplay, this._envelopeSpeedSlider.container);
@@ -48442,7 +48886,7 @@ You should be redirected to the song at:<br /><br />
             this._feedbackAmplitudeSlider = new Slider(input({ type: "range", min: "0", max: Config.operatorAmplitudeMax, value: "0", step: "1", title: "Feedback Amplitude" }), this.doc, (oldValue, newValue) => new ChangeFeedbackAmplitude(this.doc, oldValue, newValue), false);
             this._feedbackRow2 = div({ class: "selectRow" }, span({ class: "tip", onclick: () => this._openPrompt("feedbackVolume") }, "Fdback Vol:"), this._feedbackAmplitudeSlider.container);
             this._addEnvelopeButton = button({ type: "button", class: "add-envelope" });
-            this._customInstrumentSettingsGroup = div({ class: "editor-controls" }, this._panSliderRow, this._panDropdownGroup, this._chipWaveSelectRow, this._chipNoiseSelectRow, this._useChipWaveAdvancedLoopControlsRow, this._chipWaveLoopModeSelectRow, this._chipWaveLoopStartRow, this._chipWaveLoopEndRow, this._chipWaveStartOffsetRow, this._chipWavePlayBackwardsRow, this._customWaveDraw, this._eqFilterTypeRow, this._eqFilterRow, this._eqFilterSimpleCutRow, this._eqFilterSimplePeakRow, this._fadeInOutRow, this._algorithmSelectRow, this._algorithm6OpSelectRow, this._phaseModGroup, this._feedbackRow1, this._feedback6OpRow1, this._feedbackRow2, this._spectrumRow, this._harmonicsRow, this._drumsetGroup, this._supersawDynamismRow, this._supersawSpreadRow, this._supersawShapeRow, this._pulseWidthRow, this._pulseWidthDropdownGroup, this._stringSustainRow, this._unisonSelectRow, this._unisonDropdownGroup, div({ style: `padding: 2px 0; margin-left: 2em; display: flex; align-items: center;` }, span({ style: `flex-grow: 1; text-align: center;` }, span({ class: "tip", onclick: () => this._openPrompt("effects") }, "Effects")), div({ class: "effects-menu" }, this._effectsSelect)), this._transitionRow, this._transitionDropdownGroup, this._chordSelectRow, this._chordDropdownGroup, this._pitchShiftRow, this._detuneSliderRow, this._vibratoSelectRow, this._vibratoDropdownGroup, this._noteFilterTypeRow, this._noteFilterRow, this._noteFilterSimpleCutRow, this._noteFilterSimplePeakRow, this._distortionRow, this._aliasingRow, this._bitcrusherQuantizationRow, this._bitcrusherFreqRow, this._chorusRow, this._echoSustainRow, this._echoDelayRow, this._reverbRow, this._ringModContainerRow, this._granularContainerRow, div({ style: `padding: 2px 0; margin-left: 2em; display: flex; align-items: center;` }, span({ style: `flex-grow: 1; text-align: center;` }, span({ class: "tip", onclick: () => this._openPrompt("envelopes") }, "Envelopes")), this._envelopeDropdown, this._addEnvelopeButton), this._envelopeDropdownGroup, this.envelopeEditor.container);
+            this._customInstrumentSettingsGroup = div({ class: "editor-controls" }, this._panSliderRow, this._panDropdownGroup, this._chipWaveSelectRow, this._chipNoiseSelectRow, this._useChipWaveAdvancedLoopControlsRow, this._chipWaveLoopModeSelectRow, this._chipWaveLoopStartRow, this._chipWaveLoopEndRow, this._chipWaveStartOffsetRow, this._chipWavePlayBackwardsRow, this._customWaveDraw, this._eqFilterTypeRow, this._eqFilterRow, this._eqFilterSimpleCutRow, this._eqFilterSimplePeakRow, this._fadeInOutRow, this._algorithmSelectRow, this._algorithm6OpSelectRow, this._phaseModGroup, this._feedbackRow1, this._feedback6OpRow1, this._feedbackRow2, this._spectrumRow, this._harmonicsRow, this._drumsetGroup, this._supersawDynamismRow, this._supersawSpreadRow, this._supersawShapeRow, this._pulseWidthRow, this._pulseWidthDropdownGroup, this._stringSustainRow, this._unisonSelectRow, this._unisonDropdownGroup, div({ style: `padding: 2px 0; margin-left: 2em; display: flex; align-items: center;` }, span({ style: `flex-grow: 1; text-align: center;` }, span({ class: "tip", onclick: () => this._openPrompt("effects") }, "Effects")), div({ class: "effects-menu" }, this._effectsSelect)), this._transitionRow, this._transitionDropdownGroup, this._chordSelectRow, this._chordDropdownGroup, this._pitchShiftRow, this._detuneSliderRow, this._vibratoSelectRow, this._vibratoDropdownGroup, this._noteFilterTypeRow, this._noteFilterRow, this._noteFilterSimpleCutRow, this._noteFilterSimplePeakRow, this._granularContainerRow, this._distortionRow, this._aliasingRow, this._bitcrusherQuantizationRow, this._bitcrusherFreqRow, this._chorusRow, this._echoSustainRow, this._echoDelayRow, this._reverbRow, this._ringModContainerRow, div({ style: `padding: 2px 0; margin-left: 2em; display: flex; align-items: center;` }, span({ style: `flex-grow: 1; text-align: center;` }, span({ class: "tip", onclick: () => this._openPrompt("envelopes") }, "Envelopes")), this._envelopeDropdown, this._addEnvelopeButton), this._envelopeDropdownGroup, this.envelopeEditor.container);
             this._instrumentCopyGroup = div({ class: "editor-controls" }, div({ class: "selectRow" }, this._instrumentCopyButton, this._instrumentPasteButton));
             this._instrumentExportGroup = div({ class: "editor-controls" }, div({ class: "selectRow" }, this._instrumentExportButton, this._instrumentImportButton));
             this._instrumentSettingsTextRow = div({ id: "instrumentSettingsText", style: `padding: 3px 0; max-width: 15em; text-align: center; color: ${ColorConfig.secondaryText};` }, "Instrument Settings");
@@ -48969,15 +49413,12 @@ You should be redirected to the song at:<br /><br />
                             if (instrument.chord == Config.chords.dictionary["arpeggio"].index) {
                                 this._chordDropdownGroup.style.display = "";
                             }
-                            else if (instrument.chord == Config.chords.dictionary["monophonic"].index) {
-                                this._chordDropdownGroup.style.display = "";
-                                setSelectedValue(this._chordSelect, instrument.chord);
-                            }
                             else {
                                 this._chordDropdownGroup.style.display = "none";
                             }
                         }
                         if (instrument.chord == Config.chords.dictionary["monophonic"].index) {
+                            setSelectedValue(this._chordSelect, instrument.chord);
                             this._monophonicNoteInputBox.value = instrument.monoChordTone + 1 + "";
                             this._monophonicNoteInputBox.style.display = "";
                             this._chordSelectContainer.style.width = "52.5%";
@@ -49131,7 +49572,7 @@ You should be redirected to the song at:<br /><br />
                     else {
                         this._granularContainerRow.style.display = "none";
                     }
-                    if (instrument.type == 0 || instrument.type == 9 || instrument.type == 5 || instrument.type == 7 || instrument.type == 3 || instrument.type == 6 || instrument.type == 2 || instrument.type == 4) {
+                    if (instrument.type != 10) {
                         this._unisonSelectRow.style.display = "";
                         setSelectedValue(this._unisonSelect, instrument.unison);
                         this._unisonVoicesInputBox.value = instrument.unisonVoices + "";
@@ -49667,7 +50108,7 @@ You should be redirected to the song at:<br /><br />
                             if (isSimple)
                                 dotCount = 0;
                             if (useSongEq) {
-                                dotCount = this.doc.song.eqFilter.controlPointCount;
+                                dotCount = this.doc.song.getLargestSongEQControlPointCount();
                                 if (this._modFilterBoxes[mod].children.length != 1 + dotCount * 2) {
                                     while (this._modFilterBoxes[mod].firstChild)
                                         this._modFilterBoxes[mod].remove(0);
@@ -50035,7 +50476,7 @@ You should be redirected to the song at:<br /><br />
                     case 192:
                         if (canPlayNotes)
                             break;
-                        if (event.shiftKey) {
+                        if (event.shiftKey || event.altKey) {
                             this.doc.goBackToStart();
                             this.doc.song.restoreLimiterDefaults();
                             for (const channel of this.doc.song.channels) {
@@ -50084,18 +50525,29 @@ You should be redirected to the song at:<br /><br />
                             else {
                                 const leftSel = Math.min(this.doc.selection.boxSelectionX0, this.doc.selection.boxSelectionX1);
                                 const rightSel = Math.max(this.doc.selection.boxSelectionX0, this.doc.selection.boxSelectionX1);
-                                if ((leftSel < this.doc.synth.loopBarStart || this.doc.synth.loopBarStart == -1)
-                                    || (rightSel > this.doc.synth.loopBarEnd || this.doc.synth.loopBarEnd == -1)) {
-                                    this.doc.synth.loopBarStart = leftSel;
-                                    this.doc.synth.loopBarEnd = rightSel;
-                                    if (!this.doc.synth.playing) {
-                                        this.doc.synth.snapToBar();
-                                        this.doc.performance.play();
+                                if (event.altKey) {
+                                    let oldStart = this.doc.song.loopStart;
+                                    let oldLength = this.doc.song.loopLength;
+                                    this.doc.record(new ChangeLoop(this.doc, oldStart, oldLength, leftSel, rightSel - leftSel + 1));
+                                    this.doc.synth.jumpIntoLoop();
+                                    if (this.doc.prefs.autoFollow) {
+                                        new ChangeChannelBar(this.doc, this.doc.channel, Math.floor(this.doc.synth.playhead), true);
                                     }
                                 }
                                 else {
-                                    this.doc.synth.loopBarStart = -1;
-                                    this.doc.synth.loopBarEnd = -1;
+                                    if ((leftSel < this.doc.synth.loopBarStart || this.doc.synth.loopBarStart == -1)
+                                        || (rightSel > this.doc.synth.loopBarEnd || this.doc.synth.loopBarEnd == -1)) {
+                                        this.doc.synth.loopBarStart = leftSel;
+                                        this.doc.synth.loopBarEnd = rightSel;
+                                        if (!this.doc.synth.playing) {
+                                            this.doc.synth.snapToBar();
+                                            this.doc.performance.play();
+                                        }
+                                    }
+                                    else {
+                                        this.doc.synth.loopBarStart = -1;
+                                        this.doc.synth.loopBarEnd = -1;
+                                    }
                                 }
                                 if (this.doc.bar != Math.floor(this.doc.synth.playhead) && this.doc.synth.loopBarStart != -1) {
                                     this.doc.synth.goToBar(this.doc.bar);
@@ -50105,8 +50557,8 @@ You should be redirected to the song at:<br /><br />
                                     if (this.doc.prefs.autoFollow) {
                                         this.doc.selection.setChannelBar(this.doc.channel, Math.floor(this.doc.synth.playhead));
                                     }
+                                    this._loopEditor.setLoopAt(this.doc.synth.loopBarStart, this.doc.synth.loopBarEnd);
                                 }
-                                this._loopEditor.setLoopAt(this.doc.synth.loopBarStart, this.doc.synth.loopBarEnd);
                             }
                         }
                         event.preventDefault();
@@ -50186,10 +50638,8 @@ You should be redirected to the song at:<br /><br />
                             const instrument = this.doc.song.channels[this.doc.channel].instruments[this.doc.getCurrentInstrument()];
                             const isAllOpen = this.envelopeEditor.openExtraSettingsDropdowns.every((x) => { return x == true; });
                             for (let i = 0; i < instrument.envelopeCount; i++) {
-                                if (isAllOpen)
-                                    this.envelopeEditor.openExtraSettingsDropdowns[i] = false;
-                                else
-                                    this.envelopeEditor.openExtraSettingsDropdowns[i] = true;
+                                if (isAllOpen == this.envelopeEditor.openExtraSettingsDropdowns[i])
+                                    this._toggleDropdownMenu(8, i);
                             }
                             this.envelopeEditor.rerenderExtraSettings();
                             event.preventDefault();
@@ -50228,7 +50678,7 @@ You should be redirected to the song at:<br /><br />
                                     isAllOpen = false;
                             }
                             for (let i = 0; i < operatorCount; i++) {
-                                if (this._openOperatorDropdowns[i] == false && !isAllOpen || isAllOpen)
+                                if (this._openOperatorDropdowns[i] == isAllOpen)
                                     this._toggleDropdownMenu(4, i);
                             }
                             event.preventDefault();
@@ -50426,11 +50876,17 @@ You should be redirected to the song at:<br /><br />
                     case 86:
                         if (canPlayNotes)
                             break;
-                        if ((event.ctrlKey || event.metaKey) && event.shiftKey && !needControlForShortcuts) {
-                            this.doc.selection.pasteNumbers();
+                        if ((event.ctrlKey || event.metaKey) && !needControlForShortcuts) {
+                            if (event.shiftKey)
+                                this.doc.selection.pasteNumbers();
+                            else if (event.altKey)
+                                this._openPrompt("selectivePaste");
                         }
                         else if (event.shiftKey) {
                             this._pasteInstrument();
+                        }
+                        else if (event.altKey) {
+                            this._pasteInstrument(true);
                         }
                         else {
                             this.doc.selection.pasteNotes();
@@ -50468,12 +50924,16 @@ You should be redirected to the song at:<br /><br />
                     case 82:
                         if (canPlayNotes)
                             break;
-                        if (needControlForShortcuts == (event.ctrlKey || event.metaKey)) {
-                            if (event.shiftKey) {
-                                this._randomGenerated(false);
-                            }
-                            else if (event.altKey) {
+                        if ((event.ctrlKey || event.metaKey) && event.altKey) {
+                            this._openPrompt("selectiveRandom");
+                            event.preventDefault();
+                        }
+                        else if (needControlForShortcuts == (event.ctrlKey || event.metaKey)) {
+                            if (event.altKey) {
                                 this._randomGenerated(true);
+                            }
+                            else if (event.shiftKey) {
+                                this._randomGenerated(false);
                             }
                             else {
                                 this._randomPreset();
@@ -50569,7 +51029,15 @@ You should be redirected to the song at:<br /><br />
                         event.preventDefault();
                         break;
                     case 37:
-                        if (event.shiftKey) {
+                        if (event.ctrlKey || event.metaKey) {
+                            this._swapInstruments(this.doc.getCurrentInstrument() - 1);
+                        }
+                        else if (event.altKey) {
+                            if (this.doc.getCurrentInstrument() > 0) {
+                                this.doc.selection.nextDigit((this.doc.getCurrentInstrument()) + "", true, false);
+                            }
+                        }
+                        else if (event.shiftKey) {
                             this.doc.selection.boxSelectionX1 = Math.max(0, this.doc.selection.boxSelectionX1 - 1);
                             this.doc.selection.scrollToEndOfSelection();
                             this.doc.selection.selectionUpdated();
@@ -50581,7 +51049,15 @@ You should be redirected to the song at:<br /><br />
                         event.preventDefault();
                         break;
                     case 39:
-                        if (event.shiftKey) {
+                        if (event.ctrlKey || event.metaKey) {
+                            this._swapInstruments(this.doc.getCurrentInstrument());
+                        }
+                        else if (event.altKey) {
+                            if (this.doc.getCurrentInstrument() < this.doc.song.channels[this.doc.channel].instruments.length - 1) {
+                                this.doc.selection.nextDigit((this.doc.getCurrentInstrument() + 2) + "", true, false);
+                            }
+                        }
+                        else if (event.shiftKey) {
                             this.doc.selection.boxSelectionX1 = Math.min(this.doc.song.barCount - 1, this.doc.selection.boxSelectionX1 + 1);
                             this.doc.selection.scrollToEndOfSelection();
                             this.doc.selection.selectionUpdated();
@@ -50597,72 +51073,19 @@ You should be redirected to the song at:<br /><br />
                         this.doc.selection.nextDigit("0", false, false);
                         break;
                     case 48:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("0", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 49:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("1", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 50:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("2", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 51:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("3", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 52:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("4", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 53:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("5", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 54:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("6", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 55:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("7", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 56:
-                        if (canPlayNotes)
-                            break;
-                        this.doc.selection.nextDigit("8", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
-                        this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
-                        event.preventDefault();
-                        break;
                     case 57:
+                        const numberPressed = event.keyCode - 48;
                         if (canPlayNotes)
                             break;
-                        this.doc.selection.nextDigit("9", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
+                        this.doc.selection.nextDigit(numberPressed + "", needControlForShortcuts != (event.shiftKey || event.ctrlKey || event.metaKey), event.altKey);
                         this._renderInstrumentBar(this.doc.song.channels[this.doc.channel], this.doc.getCurrentInstrument(), ColorConfig.getChannelColor(this.doc.song, this.doc.channel));
                         event.preventDefault();
                         break;
@@ -50778,20 +51201,30 @@ You should be redirected to the song at:<br /><br />
                 }
             };
             this._copyInstrument = () => {
+                var _a;
                 const channel = this.doc.song.channels[this.doc.channel];
-                const instrument = channel.instruments[this.doc.getCurrentInstrument()];
-                const instrumentCopy = instrument.toJsonObject();
-                instrumentCopy["isDrum"] = this.doc.song.getChannelIsNoise(this.doc.channel);
-                instrumentCopy["isMod"] = this.doc.song.getChannelIsMod(this.doc.channel);
-                window.localStorage.setItem("instrumentCopy", JSON.stringify(instrumentCopy));
+                const instrumentCopies = [];
+                for (let i = 0; i < channel.instruments.length; i++) {
+                    const instrument = channel.instruments[i];
+                    const instrumentCopy = instrument.toJsonObject();
+                    instrumentCopy["isDrum"] = this.doc.song.getChannelIsNoise(this.doc.channel);
+                    instrumentCopy["isMod"] = this.doc.song.getChannelIsMod(this.doc.channel);
+                    if (this.doc.getCurrentInstrument() == i)
+                        window.localStorage.setItem("instrumentCopy", JSON.stringify(instrumentCopy));
+                    instrumentCopies.push(instrumentCopy);
+                }
+                window.localStorage.setItem("channelInstruments", JSON.stringify((_a = this.doc.getCurrentPattern()) === null || _a === void 0 ? void 0 : _a.instruments));
+                window.localStorage.setItem("instrumentCopies", JSON.stringify(instrumentCopies));
                 this.refocusStage();
             };
-            this._pasteInstrument = () => {
+            this._pasteInstrument = (useSelectivePaste = false) => {
                 const channel = this.doc.song.channels[this.doc.channel];
                 const instrument = channel.instruments[this.doc.getCurrentInstrument()];
                 const instrumentCopy = JSON.parse(String(window.localStorage.getItem("instrumentCopy")));
+                const instrumentCopies = JSON.parse(String(window.localStorage.getItem("instrumentCopies")));
                 if (instrumentCopy != null && instrumentCopy["isDrum"] == this.doc.song.getChannelIsNoise(this.doc.channel) && instrumentCopy["isMod"] == this.doc.song.getChannelIsMod(this.doc.channel)) {
-                    this.doc.record(new ChangePasteInstrument(this.doc, instrument, instrumentCopy));
+                    this.doc.record(useSelectivePaste ? new ChangePasteInstrumentEditSelective(this.doc, instrumentCopy, instrumentCopies, JSON.parse(String(window.localStorage.getItem("channelInstruments"))))
+                        : new ChangePasteInstrument(this.doc, instrument, instrumentCopy));
                 }
                 this.refocusStage();
             };
@@ -51497,7 +51930,7 @@ You should be redirected to the song at:<br /><br />
             this.mainLayer.addEventListener("keyup", this._whenKeyReleased);
             this.mainLayer.addEventListener("focusin", this._onFocusIn);
             this._instrumentCopyButton.addEventListener("click", this._copyInstrument.bind(this));
-            this._instrumentPasteButton.addEventListener("click", this._pasteInstrument.bind(this));
+            this._instrumentPasteButton.addEventListener("click", this._pasteInstrument.bind(this, false));
             this._instrumentExportButton.addEventListener("click", this._exportInstruments.bind(this));
             this._instrumentImportButton.addEventListener("click", this._importInstruments.bind(this));
             sampleLoadEvents.addEventListener("sampleloaded", this._updateSampleLoadingBar.bind(this));
@@ -51644,57 +52077,67 @@ You should be redirected to the song at:<br /><br />
             }
             this._customAlgorithmCanvas.redrawCanvas();
         }
-        _toggleDropdownMenu(dropdown, submenu = 0, subtype = null) {
+        _toggleDropdownMenu(dropdown, submenu = 0) {
             let target = this._vibratoDropdown;
             let group = this._vibratoDropdownGroup;
+            let shouldOpen = false;
             switch (dropdown) {
                 case 7:
                     target = this._envelopeDropdown;
                     this._openEnvelopeDropdown = this._openEnvelopeDropdown ? false : true;
                     group = this._envelopeDropdownGroup;
+                    shouldOpen = this._openEnvelopeDropdown;
                     break;
                 case 0:
                     target = this._vibratoDropdown;
                     this._openVibratoDropdown = this._openVibratoDropdown ? false : true;
                     group = this._vibratoDropdownGroup;
+                    shouldOpen = this._openVibratoDropdown;
                     break;
                 case 1:
                     target = this._panDropdown;
                     this._openPanDropdown = this._openPanDropdown ? false : true;
                     group = this._panDropdownGroup;
+                    shouldOpen = this._openPanDropdown;
                     break;
                 case 2:
                     target = this._chordDropdown;
                     this._openChordDropdown = this._openChordDropdown ? false : true;
                     group = this._chordDropdownGroup;
+                    shouldOpen = this._openChordDropdown;
                     break;
                 case 3:
                     target = this._transitionDropdown;
                     this._openTransitionDropdown = this._openTransitionDropdown ? false : true;
                     group = this._transitionDropdownGroup;
+                    shouldOpen = this._openTransitionDropdown;
                     break;
                 case 4:
                     target = this._operatorDropdowns[submenu];
                     this._openOperatorDropdowns[submenu] = this._openOperatorDropdowns[submenu] ? false : true;
                     group = this._operatorDropdownGroups[submenu];
+                    shouldOpen = this._openOperatorDropdowns[submenu];
                     break;
                 case 5:
                     target = this._pulseWidthDropdown;
                     this._openPulseWidthDropdown = this._openPulseWidthDropdown ? false : true;
                     group = this._pulseWidthDropdownGroup;
+                    shouldOpen = this._openPulseWidthDropdown;
                     break;
                 case 6:
                     target = this._unisonDropdown;
                     this._openUnisonDropdown = this._openUnisonDropdown ? false : true;
                     group = this._unisonDropdownGroup;
+                    shouldOpen = this._openUnisonDropdown;
                     break;
                 case 8:
                     target = this.envelopeEditor.extraSettingsDropdowns[submenu];
                     this.envelopeEditor.openExtraSettingsDropdowns[submenu] = this.envelopeEditor.openExtraSettingsDropdowns[submenu] ? false : true;
                     group = this.envelopeEditor.extraSettingsDropdownGroups[submenu];
+                    shouldOpen = this.envelopeEditor.openExtraSettingsDropdowns[submenu];
                     break;
             }
-            if (target.textContent == "▼") {
+            if (shouldOpen) {
                 let instrument = this.doc.song.channels[this.doc.channel].instruments[this.doc.getCurrentInstrument()];
                 target.textContent = "▲";
                 if (dropdown == 8) {
@@ -51755,21 +52198,23 @@ You should be redirected to the song at:<br /><br />
                         if (editor.doc.synth.isModActive(setting, channel, instrument)) {
                             if (Config.modulators[setting].maxIndex > 0) {
                                 const envelope = editor.doc.synth.song.channels[channel].instruments[instrument].envelopes[index];
+                                if (!envelope)
+                                    return false;
                                 switch (setting) {
                                     case Config.modulators.dictionary["individual envelope speed"].index: {
-                                        if (envelope.tempEnvelopeSpeed == null) {
+                                        if (envelope.tempEnvelopeSpeed == null || envelope.tempEnvelopeSpeed == undefined) {
                                             return false;
                                         }
                                         break;
                                     }
                                     case Config.modulators.dictionary["individual envelope lower bound"].index: {
-                                        if (envelope.tempEnvelopeLowerBound == null) {
+                                        if (envelope.tempEnvelopeLowerBound == null || envelope.tempEnvelopeLowerBound == undefined) {
                                             return false;
                                         }
                                         break;
                                     }
                                     case Config.modulators.dictionary["individual envelope upper bound"].index: {
-                                        if (envelope.tempEnvelopeUpperBound == null) {
+                                        if (envelope.tempEnvelopeUpperBound == null || envelope.tempEnvelopeUpperBound == undefined) {
                                             return false;
                                         }
                                         break;
@@ -52036,6 +52481,12 @@ You should be redirected to the song at:<br /><br />
                     case "drumsetSettings":
                         this.prompt = new SpectrumEditorPrompt(this.doc, this, true);
                         break;
+                    case "selectiveRandom":
+                        this.prompt = new SelectiveRandomPastePrompt(this.doc, true);
+                        break;
+                    case "selectivePaste":
+                        this.prompt = new SelectiveRandomPastePrompt(this.doc, false);
+                        break;
                     default:
                         this.prompt = new TipPrompt(this.doc, promptName);
                         break;
@@ -52291,8 +52742,13 @@ You should be redirected to the song at:<br /><br />
             const isNoise = this.doc.song.getChannelIsNoise(this.doc.channel);
             this.doc.record(new ChangePreset(this.doc, pickRandomPresetValue(isNoise)));
         }
-        _randomGenerated(usesCurrentInstrumentType) {
-            this.doc.record(new ChangeRandomGeneratedInstrument(this.doc, usesCurrentInstrumentType));
+        _randomGenerated(useSelectiveRandom) {
+            this.doc.record(new ChangeRandomGeneratedInstrument(this.doc, useSelectiveRandom));
+        }
+        _swapInstruments(left) {
+            const swapChange = new ChangeSwapInstrumentOrder(this.doc, this.doc.channel, left);
+            if (!swapChange.isNoop())
+                this.doc.record(swapChange);
         }
         _setPreset(preset) {
             if (isNaN(preset)) {
@@ -52303,12 +52759,20 @@ You should be redirected to the song at:<br /><br />
                     case "pasteInstrument":
                         this._pasteInstrument();
                         break;
+                    case "selectivePasteInstrument":
+                        this._pasteInstrument(true);
+                        break;
                     case "randomPreset":
                         this._randomPreset();
                         break;
                     case "randomGenerated":
                         this._randomGenerated(false);
                         break;
+                    case "selectiveRandomGenerated":
+                        this._randomGenerated(true);
+                        break;
+                    case "customizeselectiveRandomGenerated":
+                        this._openPrompt("selectiveRandom");
                 }
                 this.doc.notifier.changed();
             }
@@ -52322,6 +52786,10 @@ You should be redirected to the song at:<br /><br />
     const beepboxEditorContainer = document.getElementById("beepboxEditorContainer");
     beepboxEditorContainer.appendChild(editor.mainLayer);
     editor.whenUpdated();
+    if (window.localStorage.getItem("customTheme2")) {
+        window.localStorage.setItem("customThemeImage", window.localStorage.getItem("customTheme2"));
+        window.localStorage.removeItem("customTheme2");
+    }
     editor.mainLayer.className += " load";
     editor.mainLayer.getElementsByClassName("pattern-area")[0].className += " load";
     editor.mainLayer.getElementsByClassName("settings-area")[0].className += " load";
