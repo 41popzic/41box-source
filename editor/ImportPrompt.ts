@@ -15,16 +15,7 @@
 
 
     export class ImportPrompt implements Prompt {
-        private _distanceToFadeOutTable(value: number): number {
-    let best = Infinity;
 
-    for (const t of Config.fadeOutTicks) {
-        const dist = Math.abs(t - value);
-        if (dist < best) best = dist;
-    }
-
-    return best;
-}
         private readonly _fileInput: HTMLInputElement = input({ type: "file", accept: ".json,application/json,.mid,.midi,audio/midi,audio/x-midi" });
         private readonly _cancelButton: HTMLButtonElement = button({ class: "cancelButton" });
         private readonly _modeImportSelect: HTMLSelectElement = select({ style: "width: 100%;" },
@@ -39,7 +30,7 @@
             // There's also the situation where someone will see the "GoldBox" or "PaandorasBox" options and think they have to use one of those two
             option({ value: "UltraBox" }, "UltraBox"),
             option({ value: "slarmoosbox"}, "Slarmoo's Box"),
-            option({ value: "41box"}, "41Box"), //41box is treated the same as slarmoosbox i believe
+            option({ value: "41box"}, "41Box"), // 41Box is treated the same as Slarmoo's Box
         );
 
         public readonly container: HTMLDivElement = div({ class: "prompt noSelection", style: "width: 300px;" },
@@ -988,46 +979,7 @@
         private scaleTickUnits = (): void => {
             for (const channel of this._doc.song.channels) {
                 for (const instrument of channel.instruments) {
-
-                    const indexShift: number = -1;
-
-                    const oldIndex = Math.max(
-                        0,
-                        Math.min(Config.fadeOutTicks.length - 1, instrument.fadeOut)
-                    );
-
-                    const oldTicks = Config.fadeOutTicks[oldIndex];
-
-                    const scaledPos = oldTicks * 10;
-                    const scaledNeg = oldTicks * -10;
-
-                    const usePositive =
-                        this._distanceToFadeOutTable(scaledPos) <
-                        this._distanceToFadeOutTable(scaledNeg);
-
-                    const scaledTicks = usePositive ? scaledPos : scaledNeg;
-
-                    let closestIndex = 0;
-                    let closestDistance = Number.MAX_VALUE;
-
-                    const MAX_REASONABLE_DISTANCE = 20;
-
-                    for (let i = 0; i < Config.fadeOutTicks.length; i++) {
-
-                        const candidate = Config.fadeOutTicks[i];
-
-                        const distance = Math.abs(candidate - scaledTicks);
-
-                        if (distance < closestDistance) {
-                            closestDistance = distance;
-                            closestIndex = i + indexShift;
-                        }
-                    }
-
-                    // Only apply if conversion seems reasonable.
-                    if (closestDistance <= MAX_REASONABLE_DISTANCE) {
-                        instrument.fadeOut = closestIndex;
-                    }
+                    console.log(instrument.fadeOut);
                 }
             }
         }

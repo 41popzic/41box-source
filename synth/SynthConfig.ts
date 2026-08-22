@@ -928,6 +928,7 @@ export class Config {
         { group: "Misc", name: "whatdafuck", realName:"buh", flags: [true, true, false, false, false, false, false, false, false, false, false, false] },
         { group: "Misc", name: "Custom", realName: "custom", flags: [true, false, true, true, false, false, false, true, true, false, true, true] }, // Custom? considering allowing this one to be be completely configurable
     ]);
+    
     public static readonly keys: DictionaryArray<Key> = toNameMap([
         { name: "C", isWhiteKey: true, basePitch: 12 }, // C0 has index 12 on the MIDI scale. C7 is 96, and C9 is 120. C10 is barely in the audible range.
         { name: "C♯", isWhiteKey: false, basePitch: 13 },
